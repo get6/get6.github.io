@@ -1,3 +1,4 @@
+import Navbar from '@/app/ui/Navbar'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -16,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className={`bg-white ${inter.className}`}>
+        <header>
+          <Navbar />
+        </header>
+        {children}
+      </body>
     </html>
   )
 }
