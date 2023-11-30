@@ -1,21 +1,22 @@
 import { SunIcon } from '@heroicons/react/24/outline'
 import { GlobeAsiaAustraliaIcon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
 
 export default function Navbar() {
   const menus = [
-    { name: 'Books', href: '#' },
-    { name: 'Life', href: '#' },
-    { name: 'Series', href: '#' },
-    { name: 'Tags', href: '#' },
-    { name: 'About me', href: '#' },
+    { name: 'Books', href: '/books' },
+    { name: 'Life', href: '/life' },
+    { name: 'Series', href: '/series' },
+    { name: 'Tags', href: '/tags' },
+    { name: 'About me', href: '/about' },
   ]
 
   return (
-    <nav className="flex h-12 w-screen items-center justify-start divide-x divide-black border border-black bg-white shadow">
+    <nav className="flex h-12 items-center justify-start divide-x divide-black border border-black bg-white shadow">
       <div className="px-8">
-        <span className="text-xl hover:cursor-pointer">
+        <Link href="/" className="text-xl font-extralight hover:cursor-pointer">
           🌍 Sunhwang&apos;s blog
-        </span>
+        </Link>
       </div>
       <div className="flex grow items-center justify-center divide-x divide-black self-stretch">
         {menus.map((menu, index) => (
@@ -23,9 +24,12 @@ export default function Navbar() {
             key={index}
             className="flex grow basis-0 items-center justify-center self-stretch"
           >
-            <div className="text-center text-lg font-thin hover:cursor-pointer hover:text-blue-600">
+            <Link
+              href={menu.href}
+              className="text-center text-lg font-thin hover:cursor-pointer hover:text-blue-600"
+            >
               {menu.name}
-            </div>
+            </Link>
           </div>
         ))}
       </div>
