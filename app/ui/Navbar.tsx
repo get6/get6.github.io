@@ -12,9 +12,9 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="flex h-12 items-center justify-start divide-x divide-black border border-black bg-white shadow">
+    <nav className="flex h-10 items-center justify-start divide-x divide-black border border-black bg-white shadow">
       <div className="px-8">
-        <Link href="/" className="text-xl font-extralight hover:cursor-pointer">
+        <Link href="/" className="text-sm font-light hover:cursor-pointer">
           🌍 Sunhwang&apos;s blog
         </Link>
       </div>
@@ -26,7 +26,7 @@ export default function Navbar() {
           >
             <Link
               href={menu.href}
-              className="text-center text-lg font-thin hover:cursor-pointer hover:text-blue-600"
+              className="text-center text-sm font-thin hover:cursor-pointer hover:text-blue-600"
             >
               {menu.name}
             </Link>
