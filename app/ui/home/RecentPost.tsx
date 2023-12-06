@@ -4,10 +4,10 @@ import PostDate from '@/app/ui/home/post/PostDate'
 import PostTitle from '@/app/ui/home/post/PostTitle'
 
 interface Props {
-  post: Post
+  post?: Post
 }
 
-export default function RecentPost() {
+export default function RecentPost({ post }: Props) {
   return (
     <div className="h-[517px] w-[343px] border border-black">
       <div className="h-[343px]">{/* 이미지 자리 */}</div>

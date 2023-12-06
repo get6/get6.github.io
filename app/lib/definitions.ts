@@ -1,6 +1,6 @@
 export type Tag = {
   name: string
-  count: number
+  count?: number
 }
 
 export type Post = {
