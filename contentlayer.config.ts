@@ -7,7 +7,7 @@ import remarkToc from 'remark-toc'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.md`,
+  filePathPattern: `**/posts/*.md`,
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
@@ -25,9 +25,39 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
+export const Book = defineDocumentType(() => ({
+  name: 'Book',
+  filePathPattern: `**/books/*.md`,
+  fields: {
+    created: { type: 'date', required: true },
+    tag: {
+      type: 'list',
+      required: true,
+      of: { type: 'string' },
+    },
+    title: { type: 'string', required: true },
+    author: { type: 'string', required: true },
+    category: { type: 'string', required: true },
+    total_page: { type: 'number', required: true },
+    publish_date: { type: 'date', required: true },
+    cover_url: { type: 'string', required: true },
+    status: { type: 'string', required: true },
+    start_read_date: { type: 'date', required: true },
+    finish_read_date: { type: 'date', required: true },
+    my_rate: { type: 'number', required: true },
+    book_note: { type: 'string' },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (book) => `/books/${book._raw.flattenedPath}`,
+    },
+  },
+}))
+
 export default makeSource({
-  contentDirPath: 'blog/posts',
-  documentTypes: [Post],
+  contentDirPath: 'blog',
+  documentTypes: [Post, Book],
   markdown: {
     remarkPlugins: [remarkGfm, remarkLint, remarkToc],
     rehypePlugins: [rehypePrettyCode, rehypeHighlight],
