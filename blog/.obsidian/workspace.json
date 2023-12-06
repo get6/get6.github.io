@@ -11,11 +11,28 @@
             "id": "710bcd72061968e7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "posts/post-01.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "146bed6282948dec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "books/슈독 나이키 창업자 필 나이트 자서전.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "books/슈독 나이키 창업자 필 나이트 자서전.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "books/슈독 나이키 창업자 필 나이트 자서전.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +137,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "books/슈독 나이키 창업자 필 나이트 자서전.md"
+              }
             }
           }
         ]
@@ -135,9 +156,16 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "zk-prefixer:Create new unique note": false,
+      "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "710bcd72061968e7",
-  "lastOpenFiles": []
+  "active": "146bed6282948dec",
+  "lastOpenFiles": [
+    "posts/post-01.md",
+    "슈독 나이키 창업자 필 나이트 자서전.md",
+    "202312042043.md",
+    "202312042044.md"
+  ]
 }
