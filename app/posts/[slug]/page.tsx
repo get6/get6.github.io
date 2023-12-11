@@ -1,33 +1,50 @@
-import { Post } from '@/app/lib/definitions'
+import { allPosts } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
 import Tag from '@/app/ui/Tag'
 import AnotherPost from '@/app/ui/home/AnotherPost'
 import PostDate from '@/app/ui/home/post/PostDate'
 import { ShareIcon } from '@heroicons/react/24/outline'
 
+export const generateStaticParams = async () =>
+  allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+  const post = allPosts.find(
+    (post) => post._raw.flattenedPath === `posts/${params.slug}`,
+  )
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  return { title: post.title }
+}
+
 export default function Post({ params }: { params: { slug: string } }) {
+  const post = allPosts.find(
+    (post) => post._raw.flattenedPath === `posts/${params.slug}`,
+  )
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+
+  const { date, title, body, tags } = post
+
   return (
     <main className="flex min-h-screen flex-col gap-4 p-20">
       <div className="flex h-screen w-[1240px] flex-col items-center gap-4 border border-black p-16">
-        <div className="flex w-full justify-center text-5xl">asdasdas</div>
+        <div className="flex w-full justify-center text-5xl">{title}</div>
         <div className="flex w-full justify-between">
-          <PostDate date={'Mar 23'} readingTime={2} isPost />
+          <PostDate date={date} body={body.raw} isDetail />
           <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
         </div>
         <div className="w-full">
           <Line />
         </div>
         <article className="prose h-full w-full max-w-none break-all">
-          slug text here
+          {body.raw}
         </article>
         <div className="w-full">
           <Line />
         </div>
         <div className="flex w-full justify-end gap-2">
-          <Tag text="tag" />
-          <Tag text="tag" />
-          <Tag text="tag" />
-          <Tag text="tag" />
+          {tags.map((tag, index) => (
+            <Tag key={index} text={tag} />
+          ))}
         </div>
       </div>
       <div className="flex justify-center">
@@ -47,15 +64,4 @@ export default function Post({ params }: { params: { slug: string } }) {
       </div>
     </main>
   )
-}
-
-export async function generateStaticParams() {
-  // const posts: Post[] = await fetch('https://.../posts').then((res) =>
-  //   res.json(),
-  // )
-  const posts: Post[] = []
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
 }

@@ -1,30 +1,44 @@
-import { Post } from '@/app/lib/definitions'
+'use client'
+
+import { Post } from '@/.contentlayer/generated'
 import Tag from '@/app/ui/Tag'
+import Title from '@/app/ui/Title'
+import Tooltip from '@/app/ui/Tooltip'
 import PostDate from '@/app/ui/home/post/PostDate'
-import PostTitle from '@/app/ui/home/post/PostTitle'
+import { useRouter } from 'next/navigation'
 
 interface Props {
-  post?: Post
+  post: Post
 }
 
 export default function RecentPost({ post }: Props) {
+  const { date, title, body, tags } = post
+  const router = useRouter()
+
   return (
-    <div className="h-[517px] w-[343px] border border-black">
-      <div className="h-[343px]">{/* 이미지 자리 */}</div>
-      {/* <img src="/images/1.png" className="h-[343px] w-full" /> */}
-      <div className="inline-flex h-[174px] w-full flex-col items-start justify-start gap-4 border-t border-black px-6 py-2">
+    <div
+      className="h-[517px] w-[343px] border border-black hover:cursor-pointer"
+      onClick={() => router.push(post.url)}
+    >
+      <div className="h-[343px]">
+        {/* 이미지 자리 */}
+        {/* <img src="/images/1.png" className="h-[343px] w-full" /> */}
+      </div>
+      <div className="inline-flex h-[174px] w-full flex-col items-start justify-center gap-4 border-t border-black px-6">
         <div className="flex h-[88px] flex-col items-start justify-start gap-2 self-stretch">
-          <PostDate date={'Mar 23'} readingTime={2} />
-          <PostTitle>Title here</PostTitle>
+          <span className="group relative flex">
+            <Tooltip date={date} />
+            <PostDate date={date} body={body.raw} />
+          </span>
+          <Title>{title}</Title>
           <div className="self-stretch truncate text-base font-normal">
-            Descriptions
+            {body.raw}
           </div>
         </div>
-        <div className="inline-flex items-start justify-start gap-2 self-stretch py-2">
-          <Tag text="tag" />
-          <Tag text="tag" />
-          <Tag text="tag" />
-          <Tag text="tag" />
+        <div className="inline-flex items-start justify-start gap-2 self-stretch">
+          {tags.map((tag, index) => (
+            <Tag key={index} text={tag} />
+          ))}
         </div>
       </div>
     </div>

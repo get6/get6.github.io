@@ -1,16 +1,19 @@
+import { readingTime } from '@/app/lib/utils'
+import { IsoDateTimeString } from 'contentlayer/core'
+import { format } from 'date-fns'
+
 interface Props {
-  date: Date | string
-  readingTime: number
-  isPost?: boolean
+  date: IsoDateTimeString
+  body: string
+  isDetail?: boolean
 }
 
-// TODO Date to String 계산하기
-export default function PostDate({ date, readingTime, isPost = false }: Props) {
+export default function PostDate({ date, body, isDetail = false }: Props) {
   return (
     <span
-      className={`${isPost ? 'text-sm font-light' : 'text-xs font-normal'}`}
+      className={`${isDetail ? 'text-sm font-light' : 'text-xs font-normal'}`}
     >
-      {date.toString()} ・ {readingTime} min
+      {format(new Date(date), 'MMM d')}&nbsp;・&nbsp;{readingTime(body)} min
     </span>
   )
 }

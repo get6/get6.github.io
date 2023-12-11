@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Navbar() {
   const menus = [
     { name: 'Books', href: '/books' },
-    { name: 'Life', href: '/life' },
+    // { name: 'Life', href: '/life' },
     { name: 'Series', href: '/series' },
     { name: 'Tags', href: '/tags' },
     { name: 'About me', href: '/about' },

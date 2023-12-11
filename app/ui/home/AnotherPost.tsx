@@ -1,5 +1,5 @@
 import PostDate from '@/app/ui/home/post/PostDate'
-import PostTitle from '@/app/ui/home/post/PostTitle'
+import Title from '@/app/ui/Title'
 
 export default function AnotherPost() {
   return (
@@ -8,8 +8,8 @@ export default function AnotherPost() {
       {/* <img src="/images/1.png" className="h-[343px] w-full" /> */}
       <div className="inline-flex w-full flex-col items-start justify-start gap-4 border-t border-black px-6 py-2">
         <div className="flex flex-col items-start justify-start gap-2 self-stretch">
-          <PostDate date={'Mar 23'} readingTime={2} />
-          <PostTitle>Title here</PostTitle>
+          <PostDate date={'Mar 23'} body={'adasdasd'} />
+          <Title>Title here</Title>
         </div>
       </div>
     </div>
