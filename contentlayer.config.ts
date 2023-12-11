@@ -7,7 +7,7 @@ import remarkToc from 'remark-toc'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/posts/*.md`,
+  filePathPattern: `posts/**/*.md`,
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
@@ -20,21 +20,22 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+      resolve: (post) => `/${post._raw.flattenedPath}`,
     },
   },
 }))
 
 export const Book = defineDocumentType(() => ({
   name: 'Book',
-  filePathPattern: `**/books/*.md`,
+  filePathPattern: `books/**/*.md`,
   fields: {
     created: { type: 'date', required: true },
-    tag: {
-      type: 'list',
-      required: true,
-      of: { type: 'string' },
-    },
+    // tag: {
+    //   type: 'list',
+    //   required: true,
+    //   of: { type: 'string' },
+    // },
+    tag: { type: 'string', required: true },
     title: { type: 'string', required: true },
     author: { type: 'string', required: true },
     category: { type: 'string', required: true },
@@ -50,7 +51,7 @@ export const Book = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (book) => `/books/${book._raw.flattenedPath}`,
+      resolve: (book) => `/${book._raw.flattenedPath}`,
     },
   },
 }))
@@ -60,6 +61,6 @@ export default makeSource({
   documentTypes: [Post, Book],
   markdown: {
     remarkPlugins: [remarkGfm, remarkLint, remarkToc],
-    rehypePlugins: [rehypePrettyCode, rehypeHighlight],
+    rehypePlugins: [rehypePrettyCode, rehypeHighlight as any],
   },
 })
