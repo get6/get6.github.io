@@ -1,6 +1,6 @@
 import { allBooks } from '@/.contentlayer/generated'
+import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
-import Table from '@/app/ui/books/Table'
 import PostTitle from '@/app/ui/home/PostTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { compareDesc } from 'date-fns'
@@ -36,13 +36,13 @@ export default function Books() {
         {finishedBooks.length > 0 && (
           <div className="flex flex-col gap-2">
             <PostTitle>Finished reading list</PostTitle>
-            <Table books={finishedBooks} />
+            <BookTable books={finishedBooks} />
           </div>
         )}
         {toReadBooks.length > 0 && (
           <div className="flex flex-col gap-2">
             <PostTitle>To read list</PostTitle>
-            <Table books={toReadBooks} />
+            <BookTable books={toReadBooks} />
           </div>
         )}
       </div>

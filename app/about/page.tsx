@@ -18,9 +18,15 @@ export default function About() {
             </h1>
           </div>
           <div className="flex justify-end gap-2">
-            <GithubIcon className="h-6 w-6 hover:cursor-pointer" />
-            <InstagramIcon className="h-6 w-6 hover:cursor-pointer" />
-            <YoutubeIcon className="h-6 w-6 hover:cursor-pointer" />
+            <a href="https://github.com/get6/" target="_blank">
+              <GithubIcon className="h-6 w-6" />
+            </a>
+            <a href="https://www.instagram.com/ittae.me/" target="_blank">
+              <InstagramIcon className="h-6 w-6" />
+            </a>
+            <a href="https://www.youtube.com/@ittae/" target="_blank">
+              <YoutubeIcon className="h-6 w-6" />
+            </a>
             <a href="mailto:ittae.com@gmail.com">
               <EnvelopeIcon className="h-6 w-6" />
             </a>
@@ -30,7 +36,7 @@ export default function About() {
               반갑습니다. 저는 황성준입니다 😃 저는 지금 42서울에서 공통과정을
               마친 뒤 &quot;
               <a
-                href="https://ittae.com"
+                href="https://ittae.com/"
                 target="_blank"
                 className="font-semibold text-blue-500 underline"
               >

@@ -1,10 +1,14 @@
 interface Props {
   text: string
+  onClick?: () => void
 }
 
-export default function Tag({ text }: Props) {
+export default function Tag({ text, onClick }: Props) {
   return (
-    <div className="leading-sm inline-flex items-center rounded-full border bg-white px-3 py-1 text-xs font-bold uppercase text-gray-700 hover:cursor-pointer">
+    <div
+      className="leading-sm inline-flex items-center rounded-full border bg-white px-3 py-1 text-xs font-bold uppercase text-gray-700 hover:cursor-pointer"
+      onClick={onClick}
+    >
       {text}
     </div>
 

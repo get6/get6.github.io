@@ -1,8 +1,13 @@
+'use client'
+
 import { SunIcon } from '@heroicons/react/24/outline'
 import { GlobeAsiaAustraliaIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
+  const pathname = usePathname()
+
   const menus = [
     { name: 'Books', href: '/books' },
     // { name: 'Life', href: '/life' },
@@ -26,7 +31,10 @@ export default function Navbar() {
           >
             <Link
               href={menu.href}
-              className="text-center text-sm font-thin hover:cursor-pointer hover:text-blue-600"
+              className={`text-center text-sm font-thin hover:cursor-pointer hover:text-blue-600 ${
+                pathname === menu.href &&
+                'font-normal text-blue-600 underline underline-offset-4'
+              }`}
             >
               {menu.name}
             </Link>
