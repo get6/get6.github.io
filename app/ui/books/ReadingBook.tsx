@@ -15,7 +15,10 @@ export default function ReadingBook({ book }: Props) {
   }).days!.toString()
 
   return (
-    <div className="flex w-[250px] flex-col border border-black">
+    <a
+      className="flex w-[250px] flex-col border border-black hover:cursor-pointer"
+      href={book.url}
+    >
       <Image width={250} height={370} src={cover_url} alt={title} priority />
       <div className="flex h-full min-h-max flex-col justify-center gap-2 border-t border-black px-6 py-2">
         <h1 className="text-xl font-bold">{title}</h1>
@@ -27,6 +30,6 @@ export default function ReadingBook({ book }: Props) {
           </span>
         </div>
       </div>
-    </div>
+    </a>
   )
 }

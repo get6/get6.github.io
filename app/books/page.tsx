@@ -24,12 +24,6 @@ export default function Books() {
               {readingBooks.map((book, index) => (
                 <ReadingBook key={index} book={book} />
               ))}
-              {readingBooks.map((book, index) => (
-                <ReadingBook key={index} book={book} />
-              ))}
-              {readingBooks.map((book, index) => (
-                <ReadingBook key={index} book={book} />
-              ))}
             </div>
           </div>
         )}

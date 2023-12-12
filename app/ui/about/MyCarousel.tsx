@@ -36,6 +36,7 @@ export default function MyCarousel() {
             priority
             fill
             style={{ objectFit: 'cover', objectPosition: image.objectPosition }}
+            sizes="(max-width: 886px) 100vw, 370px"
           />
         </div>
       ))}
