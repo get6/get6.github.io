@@ -13,12 +13,12 @@ interface Props {
 
 export default function RecentPost({ post }: Props) {
   const { date, title, body, tags } = post
-  const router = useRouter()
+  const { push } = useRouter()
 
   return (
     <div
       className="h-[517px] w-[343px] border border-black hover:cursor-pointer"
-      onClick={() => router.push(post.url)}
+      onClick={() => push(post.url)}
     >
       <div className="h-[343px]">
         {/* 이미지 자리 */}
