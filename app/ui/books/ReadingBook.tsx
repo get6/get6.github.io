@@ -26,7 +26,7 @@ export default function ReadingBook({ book }: Props) {
         <div className="flex gap-1 text-sm">
           <span>📖 {format(new Date(start_read_date), 'yyyy-MM-dd')}</span>
           <span className="font-semibold text-red-500">
-            +{daysOfReading}일째
+            {`+${daysOfReading}일째`}
           </span>
         </div>
       </div>

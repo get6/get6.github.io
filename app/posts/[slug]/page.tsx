@@ -25,20 +25,19 @@ export default function Post({ params }: { params: { slug: string } }) {
   const { date, title, body, tags } = post
 
   return (
-    <main className="flex min-h-screen flex-col place-items-center gap-4 p-20">
+    <main className="flex min-h-screen flex-col place-content-center place-items-center gap-4 p-20">
       <div className="flex h-full w-[1240px] flex-col items-center gap-4 border border-black p-16">
         <div className="flex w-full justify-center text-5xl">{title}</div>
         <div className="flex w-full justify-between">
           <PostDate date={date} body={body.raw} isDetail />
           <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
         </div>
-        <div className="w-full">
+        <div className="flex w-full flex-col gap-8">
           <Line />
-        </div>
-        <article className="prose h-full w-full max-w-none break-all">
-          {body.raw}
-        </article>
-        <div className="w-full">
+          <article
+            className="prose h-full w-full max-w-none break-all [&>*:last-child]:mb-0 [&>*]:mb-3"
+            dangerouslySetInnerHTML={{ __html: post.body.html }}
+          />
           <Line />
         </div>
         <div className="flex w-full justify-end gap-2">
