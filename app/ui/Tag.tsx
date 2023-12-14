@@ -13,8 +13,12 @@ export default function Tag({ text, onClick }: Props) {
 
   return (
     <span
-      className={`leading-sm inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase text-gray-700 hover:cursor-pointer
-        ${text === tag ? 'bg-gray-100' : 'bg-white'}
+      className={`me-2 rounded-full  px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200  dark:text-gray-300 dark:hover:bg-gray-600
+      ${
+        text === tag
+          ? 'bg-gray-200 dark:bg-gray-600'
+          : 'bg-gray-100 dark:bg-gray-700'
+      }
       `}
       onClick={onClick}
     >
