@@ -1,8 +1,8 @@
 import { allPosts } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
-import Tag from '@/app/ui/Tag'
 import AnotherPost from '@/app/ui/home/AnotherPost'
 import PostDate from '@/app/ui/home/post/PostDate'
+import PostTags from '@/app/ui/home/post/PostTags'
 import { ShareIcon } from '@heroicons/react/24/outline'
 
 export const generateStaticParams = async () =>
@@ -40,11 +40,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           />
           <Line />
         </div>
-        <div className="flex w-full justify-end gap-2">
-          {tags.map((tag, index) => (
-            <Tag key={index} text={tag} />
-          ))}
-        </div>
+        <PostTags tags={tags} />
       </div>
       <div className="flex justify-center">
         <div className="flex max-w-max flex-col gap-4">

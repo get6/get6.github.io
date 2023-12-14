@@ -15,9 +15,14 @@ export default function RecentPost({ post }: Props) {
   const { date, title, body, tags } = post
   const { push } = useRouter()
 
+  const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
+    e.stopPropagation()
+    push(`/tags/?tag=${tag}`)
+  }
+
   return (
     <div
-      className="h-[517px] w-[343px] border border-black hover:cursor-pointer"
+      className="h-[517px] w-[343px] border border-black bg-white hover:cursor-pointer"
       onClick={() => push(post.url)}
     >
       <div className="h-[343px]">
@@ -37,7 +42,7 @@ export default function RecentPost({ post }: Props) {
         </div>
         <div className="inline-flex items-start justify-start gap-2 self-stretch">
           {tags.map((tag, index) => (
-            <Tag key={index} text={tag} />
+            <Tag key={index} text={tag} onClick={handleTagClick(tag)} />
           ))}
         </div>
       </div>

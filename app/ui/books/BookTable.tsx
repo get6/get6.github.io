@@ -1,14 +1,19 @@
+'use client'
+
 import { Book } from '@/.contentlayer/generated'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
 import { format } from 'date-fns'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 interface Props {
   books: Book[]
+  isFinished?: boolean
 }
 
-export default function BookTable({ books }: Props) {
+export default function BookTable({ books, isFinished = false }: Props) {
+  const { push } = useRouter()
   const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
 
   return (
@@ -26,7 +31,11 @@ export default function BookTable({ books }: Props) {
         {books.map((book, index) => (
           <tr
             key={index}
-            className="border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+            className={`border-b bg-white dark:border-gray-700 dark:bg-gray-800  ${
+              isFinished &&
+              'hover:cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600'
+            }`}
+            onClick={() => isFinished && push(book.url)}
           >
             <th
               scope="row"
@@ -47,7 +56,13 @@ export default function BookTable({ books }: Props) {
             <td className="px-6 py-4">&#8361;30,000</td>
             <td className="px-6 py-4">{book.category}</td>
             <td className="px-6 py-4">
-              <LinkIcon className="h-5 w-5 hover:text-blue-500" />
+              <LinkIcon
+                className="h-5 w-5 hover:cursor-pointer hover:text-blue-500"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  push(book.url)
+                }}
+              />
             </td>
           </tr>
         ))}

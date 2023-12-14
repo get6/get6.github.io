@@ -2,9 +2,15 @@ import { allBooks } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import { ArrowUpRightIcon, ShareIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowUpRightIcon,
+  ShareIcon,
+  StarIcon,
+} from '@heroicons/react/24/outline'
+import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
 import { format, intervalToDuration } from 'date-fns'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const generateStaticParams = async () =>
   allBooks.map((book) => ({ slug: book._raw.flattenedPath }))
@@ -34,8 +40,20 @@ export default function Book({ params }: { params: { slug: string } }) {
     publish_date,
     body,
     tag,
+    my_rate,
     cover_url,
   } = book
+
+  const rate = 1 < my_rate && my_rate < 5 ? my_rate - 1 : my_rate
+
+  const stars = [
+    Array.from({ length: rate }, (_, i) => (
+      <SolidStarIcon key={i} className="h-4 w-4" />
+    )),
+    Array.from({ length: 4 - rate }, (_, i) => (
+      <StarIcon key={i} className="h-4 w-4" />
+    )),
+  ]
 
   return (
     <PageScreen>
@@ -48,36 +66,53 @@ export default function Book({ params }: { params: { slug: string } }) {
             alt={title}
             className="border border-black"
           />
-          <div className="flex flex-col gap-2">
-            <Title>{title}</Title>
-            <p className="text-sm">저자: {author}</p>
-            <p className="text-sm">쪽수: {total_page}</p>
-            <p className="text-sm">
-              출판일: {format(new Date(publish_date), 'yyyy-MM-dd')}
-            </p>
-            <p className="text-sm">
-              {`독서 기간: ${format(
-                new Date(start_read_date),
-                'yyyy-MM-dd',
-              )} ~ `}
-              {start_read_date < finish_read_date ? (
-                `${format(new Date(finish_read_date), 'yyyy-MM-dd')}`
-              ) : (
-                <span className="font-semibold">ing</span>
-              )}
-              {start_read_date < finish_read_date && (
-                <span className="font-semibold text-red-500">
-                  {` +${intervalToDuration({
-                    start: new Date(start_read_date),
-                    end: new Date(finish_read_date),
-                  }).days!.toString()}일`}
-                </span>
-              )}
-            </p>
-            <div className="flex">
-              <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
-              <ArrowUpRightIcon className="h-6 w-6 hover:cursor-pointer" />
+          <div className="flex flex-col justify-between">
+            <div className="flex flex-col gap-2">
+              <Title>{title}</Title>
+              <p className="text-sm">저자: {author}</p>
+              <p className="flex items-center text-sm">
+                추천: {stars.map((star) => star)}
+                <StarIcon className="h-4 w-4" />
+              </p>
+              <p className="text-sm">쪽수: {total_page}</p>
+              <p className="text-sm">
+                발행일: {format(new Date(publish_date), 'yyyy-MM-dd')}
+              </p>
+              <p className="text-sm">
+                {`독서 기간: ${format(
+                  new Date(start_read_date),
+                  'yyyy-MM-dd',
+                )} ~ `}
+                {start_read_date < finish_read_date ? (
+                  `${format(new Date(finish_read_date), 'yyyy-MM-dd')}`
+                ) : (
+                  <span className="font-semibold">ing</span>
+                )}
+                {start_read_date < finish_read_date && (
+                  <span className="font-semibold text-red-500">
+                    {` +${intervalToDuration({
+                      start: new Date(start_read_date),
+                      end: new Date(finish_read_date),
+                    }).days!.toString()}일`}
+                  </span>
+                )}
+              </p>
+              <p className="text-sm">
+                카테고리:{' '}
+                {tag
+                  .split(' ')
+                  .slice(1)
+                  .map((tag, index) => tag)
+                  .join(', ')}
+              </p>
+              <div className="flex">
+                <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
+                <ArrowUpRightIcon className="h-6 w-6 hover:cursor-pointer" />
+              </div>
             </div>
+            <Link href={book.url} className="text-xs text-blue-500">
+              yes24로 책 보러가기
+            </Link>
           </div>
         </div>
         <Line />

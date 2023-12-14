@@ -30,7 +30,7 @@ export default function Books() {
         {finishedBooks.length > 0 && (
           <div className="flex flex-col gap-2">
             <PostTitle>Finished reading list</PostTitle>
-            <BookTable books={finishedBooks} />
+            <BookTable books={finishedBooks} isFinished />
           </div>
         )}
         {toReadBooks.length > 0 && (

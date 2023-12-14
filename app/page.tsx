@@ -1,5 +1,5 @@
 import { allPosts } from '@/.contentlayer/generated'
-import ListPost from '@/app/ui/home/ListPost'
+import PostList from '@/app/ui/home/PostList'
 import PostTitle from '@/app/ui/home/PostTitle'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
@@ -11,41 +11,27 @@ export default function Home() {
     compareDesc(new Date(a.date), new Date(b.date)),
   )
 
-  // console.log(postsOrderByDesc)
-
-  const recentPosts = postsOrderByDesc.slice(0, 3)
+  const recentPosts = postsOrderByDesc.slice(0, 2)
   const posts = postsOrderByDesc.slice(3)
 
   return (
     <PageScreen>
       <div className="flex w-full flex-col gap-4">
         <PostTitle>Recent Posts</PostTitle>
-        <div className=" flex justify-between">
+        <div
+          className={`flex ${
+            recentPosts.length == 3 ? 'justify-between' : 'gap-10'
+          }`}
+        >
           {recentPosts.map((post, index) => (
             <RecentPost key={index} post={post} />
           ))}
-          {/* {recentPosts.map((post, index) => (
-            <RecentPost key={index} post={post} />
-          ))}
-          {recentPosts.map((post, index) => (
-            <RecentPost key={index} post={post} />
-          ))} */}
         </div>
         <div className="flex justify-between">
           <PostTitle>All Posts</PostTitle>
           <SearchBar />
         </div>
-        {/* <div className="grid grid-cols-2 place-items-stretch space-y-4"> */}
-        <div className="flex flex-wrap justify-between gap-8">
-          <ListPost />
-          <ListPost />
-          <ListPost />
-          <ListPost />
-          <ListPost />
-          {/* {posts.map((post, index) => (
-            <ListPost key={index} post={post} />
-          ))} */}
-        </div>
+        <PostList posts={posts} />
       </div>
     </PageScreen>
   )

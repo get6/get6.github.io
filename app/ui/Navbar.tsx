@@ -1,7 +1,7 @@
 'use client'
 
+import { HashtagIcon } from '@heroicons/react/20/solid'
 import { SunIcon } from '@heroicons/react/24/outline'
-import { GlobeAsiaAustraliaIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -43,7 +43,9 @@ export default function Navbar() {
       </div>
       <div className="flex items-center justify-center gap-4 self-stretch px-8">
         <SunIcon className="h-6 w-6 text-gray-900 hover:cursor-pointer hover:text-yellow-500" />
-        <GlobeAsiaAustraliaIcon className="h-6 w-6 text-gray-900 hover:cursor-pointer hover:text-blue-700" />
+        <a href="https://ittae.com/" target="_blank">
+          <HashtagIcon className="h-5 w-5 text-gray-900 hover:cursor-pointer hover:text-blue-700" />
+        </a>
       </div>
     </nav>
   )
