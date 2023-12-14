@@ -1,6 +1,6 @@
 import { allPosts } from '@/.contentlayer/generated'
 import PostList from '@/app/ui/home/PostList'
-import PostTitle from '@/app/ui/home/PostTitle'
+import PageTitle from '@/app/ui/home/PageTitle'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <PageScreen>
       <div className="flex w-full flex-col gap-4">
-        <PostTitle>Recent Posts</PostTitle>
+        <PageTitle>Recent Posts</PageTitle>
         <div
           className={`flex ${
             recentPosts.length == 3 ? 'justify-between' : 'gap-10'
@@ -28,7 +28,7 @@ export default function Home() {
           ))}
         </div>
         <div className="flex justify-between">
-          <PostTitle>All Posts</PostTitle>
+          <PageTitle>All Posts</PageTitle>
           <SearchBar />
         </div>
         <PostList posts={posts} />
