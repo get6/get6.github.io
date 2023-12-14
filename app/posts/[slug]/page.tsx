@@ -22,10 +22,18 @@ export default function Post({ params }: { params: { slug: string } }) {
   )
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
+  const otherPosts = allPosts
+    .filter(
+      (other) =>
+        other._raw.flattenedPath !== `posts/${params.slug}` &&
+        other.date < post.date,
+    )
+    .slice(0, 3)
+
   const { date, title, body, tags } = post
 
   return (
-    <main className="flex min-h-screen flex-col place-content-center place-items-center gap-4 p-20">
+    <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-20">
       <div className="flex h-full w-[1240px] flex-col items-center gap-4 border border-black p-16">
         <div className="flex w-full justify-center text-5xl">{title}</div>
         <div className="flex w-full justify-between">
@@ -42,21 +50,23 @@ export default function Post({ params }: { params: { slug: string } }) {
         </div>
         <PostTags tags={tags} />
       </div>
-      <div className="flex justify-center">
-        <div className="flex max-w-max flex-col gap-4">
-          <div className="flex flex-none grow-0 justify-between">
-            <span className="font-extralight">Other posts</span>
-            <span className="font-extralight hover:cursor-pointer">
-              See all posts in Life&apos;s tag
-            </span>
-          </div>
-          <div className="flex flex-none grow-0 justify-center gap-4">
-            <AnotherPost />
-            <AnotherPost />
-            <AnotherPost />
+      {0 < otherPosts.length && (
+        <div className="flex justify-center">
+          <div className="flex max-w-max flex-col gap-4">
+            <div className="flex flex-none grow-0 justify-between">
+              <span className="font-extralight">Other posts</span>
+              <span className="font-extralight hover:cursor-pointer">
+                See all posts in Life&apos;s tag
+              </span>
+            </div>
+            <div className="flex flex-none grow-0 justify-center gap-4">
+              {otherPosts.map((post, index) => (
+                <AnotherPost key={index} post={post} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </main>
   )
 }

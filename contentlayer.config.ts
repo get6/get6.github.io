@@ -16,7 +16,11 @@ export const Post = defineDocumentType(() => ({
       required: true,
       of: { type: 'string' },
     },
+    // series: {
+    //   type: 'array',
+    // },
   },
+
   computedFields: {
     url: {
       type: 'string',
@@ -64,3 +68,9 @@ export default makeSource({
     rehypePlugins: [rehypePrettyCode, rehypeHighlight as any],
   },
 })
+
+// rehypeSlug,
+// rehypeCodeTitles,
+// rehypePrism,
+// rehypeAutolinkHeadings,
+// rehypeAccessibleEmojis,

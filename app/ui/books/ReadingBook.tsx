@@ -16,7 +16,7 @@ export default function ReadingBook({ book }: Props) {
 
   return (
     <a
-      className="flex w-[250px] flex-col border border-black hover:cursor-pointer"
+      className="flex w-[250px] flex-col border border-black bg-white hover:cursor-pointer"
       href={book.url}
     >
       <Image width={250} height={370} src={cover_url} alt={title} priority />
