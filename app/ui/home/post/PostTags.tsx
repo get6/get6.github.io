@@ -1,6 +1,6 @@
 'use client'
 
-import Tag from '@/app/ui/Tag'
+import Badge from '@/app/ui/Badge'
 import { useRouter } from 'next/navigation'
 
 interface Props {
@@ -18,7 +18,7 @@ export default function PostTags({ tags }: Props) {
   return (
     <div className="flex w-full justify-end gap-2">
       {tags.map((tag, index) => (
-        <Tag key={index} text={tag} onClick={handleTagClick(tag)} />
+        <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
       ))}
     </div>
   )

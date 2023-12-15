@@ -1,10 +1,11 @@
 'use client'
 
-import Tag from '@/app/ui/Tag'
+import { Tag } from '@/app/lib/definitions'
+import Badge from '@/app/ui/Badge'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 interface Props {
-  tags: string[]
+  tags: Tag[]
 }
 
 export default function TagList({ tags }: Props) {
@@ -32,7 +33,13 @@ export default function TagList({ tags }: Props) {
   return (
     <div className="flex flex-wrap gap-2">
       {tags.map((tag, index) => (
-        <Tag key={index} text={tag} onClick={() => handleClick(tag)} />
+        <Badge
+          key={index}
+          name={tag.name}
+          count={tag.count}
+          onClick={() => handleClick(tag.name)}
+          isLarge
+        />
       ))}
     </div>
   )

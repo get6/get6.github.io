@@ -47,7 +47,7 @@ export default function PostTable({ posts }: Props) {
             <td className="px-6 py-4">
               {format(new Date(post.date), 'yyyy-MM-dd')}
             </td>
-            <td className="px-6 py-4">{post.tags}</td>
+            <td className="px-6 py-4">{post.tags.join(' ')}</td>
           </tr>
         ))}
       </TableBody>

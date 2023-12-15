@@ -1,7 +1,7 @@
 'use client'
 
 import { Post } from '@/.contentlayer/generated'
-import Tag from '@/app/ui/Tag'
+import Badge from '@/app/ui/Badge'
 import Title from '@/app/ui/Title'
 import Tooltip from '@/app/ui/Tooltip'
 import PostDate from '@/app/ui/home/post/PostDate'
@@ -42,7 +42,7 @@ export default function RecentPost({ post }: Props) {
         </div>
         <div className="inline-flex items-start justify-start gap-2 self-stretch">
           {tags.map((tag, index) => (
-            <Tag key={index} text={tag} onClick={handleTagClick(tag)} />
+            <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
           ))}
         </div>
       </div>
