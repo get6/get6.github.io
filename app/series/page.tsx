@@ -1,11 +1,11 @@
 import { allPosts } from '@/.contentlayer/generated'
+import { compareDesc } from 'date-fns'
 import PageTitle from '../ui/home/PageTitle'
 import PageScreen from '../ui/layout/PageScreen'
-import { compareDesc } from 'date-fns'
 
 export default function Series() {
   const series = allPosts
-    .filter((post) => post.series != null)
+    // .filter((post) => post.series != null)
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
