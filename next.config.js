@@ -12,8 +12,8 @@ const nextConfig = {
         pathname: '/goods/**',
       },
     ],
-    output: 'export',
   },
+  output: 'export',
 }
 
 module.exports = withContentlayer(nextConfig)
