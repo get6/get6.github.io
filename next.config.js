@@ -12,6 +12,7 @@ const nextConfig = {
         pathname: '/goods/**',
       },
     ],
+    output: 'export',
   },
 }
 
