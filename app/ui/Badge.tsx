@@ -31,10 +31,9 @@ export default function Badge({
       `}
       onClick={onClick}
     >
-      {count && '#'}
-      {name}
+      #{name}
       {count && (
-        <span className="ml-2 inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-gray-100 text-sm font-semibold text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+        <span className="ml-2 inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-gray-100 text-sm font-extralight text-gray-800 dark:bg-gray-700 dark:text-gray-300">
           ({count})
         </span>
       )}

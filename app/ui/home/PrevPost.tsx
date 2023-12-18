@@ -25,7 +25,7 @@ export default function PrevPost({ post }: Props) {
       className="flex h-[205px] w-[520px] border border-black bg-white hover:cursor-pointer"
       onClick={() => push(post.url)}
     >
-      <div className="h-[205px] w-[164px]">{/* 이미지 자리 */}</div>
+      <div className="w-[164px]">{/* 이미지 자리 */}</div>
       <div className="flex flex-col items-start justify-center gap-4 self-stretch border-l border-black px-6 py-2">
         <div className="flex w-full flex-col gap-2">
           <PostDate date={date} body={body.raw} />
