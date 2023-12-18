@@ -20,6 +20,7 @@ export const Post = defineDocumentType(() => ({
       type: 'list',
       of: { type: 'string' },
     },
+    series_title: { type: 'string' },
   },
 
   computedFields: {
@@ -52,6 +53,7 @@ export const Book = defineDocumentType(() => ({
     finish_read_date: { type: 'date', required: true },
     my_rate: { type: 'number', required: true },
     book_note: { type: 'string' },
+    book_url: { type: 'string' },
   },
   computedFields: {
     url: {

@@ -1,9 +1,9 @@
 {
   "statusSetting": "want to read",
   "myRateSetting": "0",
-  "bookNoteSetting": "읽고 싶어",
-  "defaultTag": "book",
-  "toggleTitle": true,
-  "toggleIntroduction": true,
-  "toggleIndex": true
+  "bookNoteSetting": "",
+  "defaultTag": "📚",
+  "toggleTitle": false,
+  "toggleIntroduction": false,
+  "toggleIndex": false
 }

@@ -14,7 +14,8 @@ interface Props {
 
 export default function BookTable({ books, isFinished = false }: Props) {
   const { push } = useRouter()
-  const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
+  // const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
+  const heads = ['Title', 'Author', 'Published', 'Category', 'URL']
 
   return (
     <Table>
@@ -39,7 +40,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
           >
             <th
               scope="row"
-              className="flex items-center justify-center gap-2 whitespace-nowrap py-4 font-medium text-gray-900 dark:text-white"
+              className="flex items-center gap-2 whitespace-nowrap py-4 pl-2 font-medium text-gray-900 dark:text-white"
             >
               <Image
                 width={16}
@@ -53,8 +54,8 @@ export default function BookTable({ books, isFinished = false }: Props) {
             <td className="px-6 py-4">
               {format(new Date(book.publish_date), 'yyyy-MM-dd')}
             </td>
-            <td className="px-6 py-4">&#8361;30,000</td>
-            <td className="px-6 py-4">{book.category}</td>
+            {/* <td className="px-6 py-4">&#8361;30,000</td> */}
+            <td className="px-6 py-4">{book.tag.split(' ')[2]}</td>
             <td className="px-6 py-4">
               <LinkIcon
                 className="h-5 w-5 hover:cursor-pointer hover:text-blue-500"

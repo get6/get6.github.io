@@ -1,1 +1,11 @@
-{}
+{
+  "kr-book-info-plugin:add-book-info": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "K"
+    }
+  ]
+}

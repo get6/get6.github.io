@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/post-02.md",
+                "file": "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/post-02.md",
+                "file": "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/post-02.md",
+                "file": "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/post-02.md"
+                "file": "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md"
               }
             }
           }
@@ -162,8 +162,18 @@
   },
   "active": "710bcd72061968e7",
   "lastOpenFiles": [
-    "posts/post-01.md",
     "books/슈독 나이키 창업자 필 나이트 자서전.md",
+    "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
+    "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
+    "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
+    "202312182025.md",
+    "books/MAPS.md",
+    "books/학교 가는 길 - 예스24.md",
+    "books/Obsidian Clipper.md",
+    "Chrome Clippings.md",
+    "posts/post-014.md",
+    "posts/post-013.md",
+    "posts/post-01.md",
     "슈독 나이키 창업자 필 나이트 자서전.md",
     "202312042043.md",
     "202312042044.md"
