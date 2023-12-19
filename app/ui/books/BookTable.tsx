@@ -40,7 +40,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
           >
             <th
               scope="row"
-              className="flex items-center gap-2 whitespace-nowrap py-4 pl-2 font-medium text-gray-900 dark:text-white"
+              className="flex items-center gap-2 whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
             >
               <Image
                 width={16}

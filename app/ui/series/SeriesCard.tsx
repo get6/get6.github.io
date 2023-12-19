@@ -14,6 +14,11 @@ interface Props {
 export default function SeriesCard({ series }: Props) {
   const { date, title, body, tags, url } = series[0]
 
+  if (!series[0].series_title)
+    throw new Error(
+      `Series not found for series_title: ${series[0].series_title}`,
+    )
+
   const { push } = useRouter()
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
@@ -32,7 +37,7 @@ export default function SeriesCard({ series }: Props) {
           <div className="flex flex-col gap-2">
             <PostDate date={date} body={body.raw} />
             <h2 className="text-xl font-semibold">{title}</h2>
-            <Title>{title}</Title>
+            <Title>{series[0].series_title}</Title>
             <div className="self-stretch truncate text-base font-normal">
               {body.raw}
             </div>

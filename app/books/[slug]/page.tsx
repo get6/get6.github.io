@@ -2,11 +2,7 @@ import { allBooks } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import {
-  ArrowUpRightIcon,
-  ShareIcon,
-  StarIcon,
-} from '@heroicons/react/24/outline'
+import { ShareIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
 import { format, intervalToDuration } from 'date-fns'
 import Image from 'next/image'
@@ -44,13 +40,11 @@ export default function Book({ params }: { params: { slug: string } }) {
     cover_url,
   } = book
 
-  const rate = 1 < my_rate && my_rate < 5 ? my_rate - 1 : my_rate
-
   const stars = [
-    Array.from({ length: rate }, (_, i) => (
+    Array.from({ length: my_rate }, (_, i) => (
       <SolidStarIcon key={i} className="h-4 w-4" />
     )),
-    Array.from({ length: 4 - rate }, (_, i) => (
+    Array.from({ length: 5 - my_rate }, (_, i) => (
       <StarIcon key={i} className="h-4 w-4" />
     )),
   ]
@@ -68,11 +62,15 @@ export default function Book({ params }: { params: { slug: string } }) {
           />
           <div className="flex flex-col justify-between">
             <div className="flex flex-col gap-2">
-              <Title>{title}</Title>
+              <div className="flex items-center justify-between">
+                <Title>{title}</Title>
+                <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
+              </div>
+
               <p className="text-sm">저자: {author}</p>
-              <p className="flex items-center text-sm">
-                추천: {stars.map((star) => star)}
-                <StarIcon className="h-4 w-4" />
+              <p className="flex items-center gap-1 text-sm">
+                추천:
+                <span className="flex">{stars.map((star) => star)}</span>
               </p>
               <p className="text-sm">쪽수: {total_page}</p>
               <p className="text-sm">
@@ -102,13 +100,9 @@ export default function Book({ params }: { params: { slug: string } }) {
                 {tag
                   .split(' ')
                   .slice(1)
-                  .map((tag, index) => tag)
+                  .map((tag) => tag)
                   .join(', ')}
               </p>
-              <div className="flex">
-                <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
-                <ArrowUpRightIcon className="h-6 w-6 hover:cursor-pointer" />
-              </div>
             </div>
             <Link href={book.url} className="text-xs text-blue-500">
               yes24로 책 보러가기
