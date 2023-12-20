@@ -10,7 +10,6 @@ export default function About() {
     <PageScreen>
       <div className="w-[888px] border border-black">
         <MyCarousel />
-
         <div className="flex flex-col gap-6 px-4 py-8">
           <div className="flex justify-center">
             <h1 className="text-4xl font-semibold">
