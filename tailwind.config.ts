@@ -13,6 +13,16 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      keyframes: {
+        'toast-progress': {
+          '100%': {
+            right: '100%',
+          },
+        },
+      },
+      animation: {
+        'toast-progress': 'toast-progress 5s linear forwards',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

@@ -1,5 +1,6 @@
 'use client'
 
+import { blog_title } from '@/app/lib/definitions'
 import { HashtagIcon } from '@heroicons/react/20/solid'
 import { SunIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -18,9 +19,9 @@ export default function Navbar() {
 
   return (
     <nav className="flex h-10 items-center justify-start divide-x divide-black border border-black bg-white shadow">
-      <div className="px-8">
+      <div className="px-8 sm:px-2 md:px-2 lg:px-3">
         <Link href="/" className="text-sm font-light hover:cursor-pointer">
-          🌍 Sunhwang&apos;s blog
+          {`🌍 ${blog_title}`}
         </Link>
       </div>
       <div className="flex grow items-center justify-center divide-x divide-black self-stretch">

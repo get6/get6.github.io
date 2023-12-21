@@ -1,13 +1,18 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
+import remarkEmbedImages from 'remark-embed-images'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
+import remarkObsidian from 'remark-obsidian'
 import remarkToc from 'remark-toc'
+import { remarkSourceRedirect } from './app/lib/utils'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.md`,
+  // contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
@@ -26,7 +31,14 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => `/${post._raw.flattenedPath}`,
+      resolve: (post) => '/' + post._raw.flattenedPath,
+    },
+    cover_image: {
+      type: 'string',
+      resolve: (post) => {
+        const cover_image = post.body.raw.match(/!\[.*\]\((.*)\)/m)?.[1]
+        return cover_image
+      },
     },
   },
 }))
@@ -58,7 +70,8 @@ export const Book = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (book) => `/${book._raw.flattenedPath}`,
+      // resolve: (book) => `/${book._raw.flattenedPath}`,
+      resolve: (book) => '/' + book._raw.flattenedPath,
     },
   },
 }))
@@ -67,13 +80,22 @@ export default makeSource({
   contentDirPath: 'blog',
   documentTypes: [Post, Book],
   markdown: {
-    remarkPlugins: [remarkGfm, remarkLint, remarkToc],
-    rehypePlugins: [rehypePrettyCode, rehypeHighlight as any],
+    remarkPlugins: [
+      remarkGfm,
+      remarkLint,
+      remarkToc,
+      remarkObsidian,
+      remarkSourceRedirect,
+      remarkEmbedImages,
+    ],
+    rehypePlugins: [
+      rehypeAutolinkHeadings,
+      rehypePrettyCode,
+      rehypeHighlight as any,
+    ],
   },
+  contentDirExclude: ['.obsidian', 'assets'],
 })
 
-// rehypeSlug,
 // rehypeCodeTitles,
 // rehypePrism,
-// rehypeAutolinkHeadings,
-// rehypeAccessibleEmojis,

@@ -1,3 +1,5 @@
 {
-  "propertiesInDocument": "source"
+  "propertiesInDocument": "source",
+  "attachmentFolderPath": "assets",
+  "alwaysUpdateLinks": true
 }

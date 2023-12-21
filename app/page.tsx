@@ -1,6 +1,6 @@
 import { allPosts } from '@/.contentlayer/generated'
-import PostList from '@/app/ui/home/PostList'
 import PageTitle from '@/app/ui/home/PageTitle'
+import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
@@ -11,7 +11,7 @@ export default function Home() {
     compareDesc(new Date(a.date), new Date(b.date)),
   )
 
-  const recentPosts = postsOrderByDesc.slice(0, 2)
+  const recentPosts = postsOrderByDesc.slice(0, 3)
   const posts = postsOrderByDesc.slice(3)
 
   return (

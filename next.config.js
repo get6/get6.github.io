@@ -11,9 +11,12 @@ const nextConfig = {
         hostname: 'image.yes24.com',
         pathname: '/goods/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.unsplash.com',
+      },
     ],
   },
-  // output: 'export',
 }
 
 module.exports = withContentlayer(nextConfig)
