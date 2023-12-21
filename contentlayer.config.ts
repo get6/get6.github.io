@@ -27,11 +27,10 @@ export const Post = defineDocumentType(() => ({
     },
     series_title: { type: 'string' },
   },
-
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => '/' + post._raw.flattenedPath,
+      resolve: (post) => `/${post._raw.flattenedPath}`,
     },
     cover_image: {
       type: 'string',
@@ -39,6 +38,10 @@ export const Post = defineDocumentType(() => ({
         const cover_image = post.body.raw.match(/!\[.*\]\((.*)\)/m)?.[1]
         return cover_image
       },
+    },
+    slug: {
+      type: 'string',
+      resolve: (post) => post._raw.flattenedPath.replace(/^posts\//, ''),
     },
   },
 }))
@@ -70,8 +73,11 @@ export const Book = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      // resolve: (book) => `/${book._raw.flattenedPath}`,
-      resolve: (book) => '/' + book._raw.flattenedPath,
+      resolve: (book) => `/${book._raw.flattenedPath}`,
+    },
+    slug: {
+      type: 'string',
+      resolve: (book) => book._raw.flattenedPath.replace(/^books\//, ''),
     },
   },
 }))

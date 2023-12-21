@@ -10,18 +10,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const generateStaticParams = async () =>
-  allBooks.map((book) => ({ slug: decodeURIComponent(book.url) }))
+  allBooks.map((book) => ({ slug: book.slug }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const slug = decodeURIComponent(params.slug)
-  const book = allBooks.find((book) => book.url === slug)
+  const book = allBooks.find((book) => book.slug === slug)
+
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
   return { title: book.title }
 }
 
 export default function Book({ params }: { params: { slug: string } }) {
   const slug = decodeURIComponent(params.slug)
-  const book = allBooks.find((book) => book.url === slug)
+  const book = allBooks.find((book) => book.slug === slug)
+
+  if (!book) {
+    allBooks.map((book) => console.log(book.slug))
+    console.log(slug)
+    throw new Error(`book not found for slug: ${slug}`)
+  }
+
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
   const {
