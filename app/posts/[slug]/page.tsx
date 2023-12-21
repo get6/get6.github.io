@@ -6,33 +6,33 @@ import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+  allPosts.map((post) => ({ slug: decodeURIComponent(post.url) }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find(
-    (post) => post._raw.flattenedPath === `posts/${params.slug}`,
-  )
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const slug = decodeURIComponent(params.slug)
+  const post = allPosts.find((post) => post.url === slug)
+  if (!post) throw new Error(`Post not found for slug: ${slug}`)
   return { title: post.title }
 }
 
 export default function Post({ params }: { params: { slug: string } }) {
-  const post = allPosts.find(
-    (post) => post._raw.flattenedPath === `posts/${params.slug}`,
-  )
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const slug = decodeURIComponent(params.slug)
+  const post = allPosts.find((post) => post.url === slug)
+
+  if (!post) {
+    allPosts.map((post) => console.log(post.url))
+    console.log(slug)
+    throw new Error(`Post not found for slug: ${slug}`)
+  }
 
   const otherPosts = allPosts
-    .filter(
-      (other) =>
-        other._raw.flattenedPath !== `posts/${params.slug}` &&
-        other.date < post.date,
-    )
+    .filter((other) => other.url !== slug && other.date < post.date)
     .slice(0, 3)
 
-  console.log(post)
+  // console.log(post)
 
   const { date, title, body, tags } = post
+  // const MDXContent = useMDXComponent(post.body.code)
 
   return (
     <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-20">
@@ -48,6 +48,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             className="prose h-full w-full max-w-none break-all [&>*:last-child]:mb-0 [&>*]:mb-3"
             dangerouslySetInnerHTML={{ __html: post.body.html }}
           />
+          {/* <MDXContent /> */}
           <Line />
         </div>
         <PostTags tags={tags} />
