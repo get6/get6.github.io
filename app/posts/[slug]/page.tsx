@@ -1,9 +1,9 @@
 import { allPosts } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
+import ToastPostal from '@/app/ui/ToastPostal'
 import AnotherPost from '@/app/ui/home/AnotherPost'
 import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
-import { ShareIcon } from '@heroicons/react/24/outline'
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
@@ -30,6 +30,8 @@ export default function Post({ params }: { params: { slug: string } }) {
     )
     .slice(0, 3)
 
+  console.log(post)
+
   const { date, title, body, tags } = post
 
   return (
@@ -38,7 +40,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         <div className="flex w-full justify-center text-5xl">{title}</div>
         <div className="flex w-full justify-between">
           <PostDate date={date} body={body.raw} isDetail />
-          <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
+          <ToastPostal />
         </div>
         <div className="flex w-full flex-col gap-8">
           <Line />

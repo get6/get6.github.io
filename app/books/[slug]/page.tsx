@@ -1,8 +1,9 @@
 import { allBooks } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
+import ToastPostal from '@/app/ui/ToastPostal'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import { ShareIcon, StarIcon } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
 import { format, intervalToDuration } from 'date-fns'
 import Image from 'next/image'
@@ -64,7 +65,7 @@ export default function Book({ params }: { params: { slug: string } }) {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <Title>{title}</Title>
-                <ShareIcon className="h-6 w-6 hover:cursor-pointer" />
+                <ToastPostal />
               </div>
 
               <p className="text-sm">저자: {author}</p>
