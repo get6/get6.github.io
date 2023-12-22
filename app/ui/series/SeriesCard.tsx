@@ -5,6 +5,7 @@ import Badge from '@/app/ui/Badge'
 import Title from '@/app/ui/Title'
 import PostDate from '@/app/ui/home/post/PostDate'
 import SeriesStack from '@/app/ui/series/SeriesStack'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 export default function SeriesCard({ series }: Props) {
-  const { date, title, body, tags, url } = series[0]
+  const { cover_image, date, title, body, tags, url } = series[0]
 
   if (!series[0].series_title)
     throw new Error(
@@ -32,7 +33,15 @@ export default function SeriesCard({ series }: Props) {
       onClick={() => push(url)}
     >
       <div className="flex h-[240px] w-[720px] border border-black">
-        <div className="w-[192px] border-r border-black"></div>
+        <div className="relative h-full w-[192px] border-r border-black">
+          <Image
+            src={cover_image}
+            alt="cover_image"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="top"
+          />
+        </div>
         <div className="flex flex-auto flex-col justify-center gap-4 px-6">
           <div className="flex flex-col gap-2">
             <PostDate date={date} body={body.raw} />

@@ -5,6 +5,7 @@ import Badge from '@/app/ui/Badge'
 import Title from '@/app/ui/Title'
 import Tooltip from '@/app/ui/Tooltip'
 import PostDate from '@/app/ui/home/post/PostDate'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 }
 
 export default function RecentPost({ post }: Props) {
-  const { date, title, body, tags } = post
+  const { cover_image, date, title, body, tags } = post
   const { push } = useRouter()
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
@@ -25,11 +26,16 @@ export default function RecentPost({ post }: Props) {
       className="h-[517px] w-[343px] border border-black bg-white hover:cursor-pointer"
       onClick={() => push(post.url)}
     >
-      <div className="h-[343px]">
-        {/* 이미지 자리 */}
-        {/* <img src="/images/1.png" className="h-[343px] w-full" /> */}
+      <div className="relative h-[343px] w-full border-b border-black">
+        <Image
+          src={cover_image}
+          alt="cover_image"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+        />
       </div>
-      <div className="inline-flex h-[174px] w-full flex-col items-start justify-center gap-4 border-t border-black px-6">
+      <div className="inline-flex h-[174px] w-full flex-col items-start justify-center gap-4 px-6">
         <div className="flex h-[88px] flex-col items-start justify-start gap-2 self-stretch">
           <span className="group relative flex">
             <Tooltip date={date} />
