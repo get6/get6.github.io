@@ -7,8 +7,8 @@ import { EnvelopeIcon } from '@heroicons/react/24/outline'
 
 export default function About() {
   return (
-    <PageScreen>
-      <div className="w-[888px] border border-black">
+    <PageScreen className="bg-[url('/images/bg.jpg')] bg-cover bg-bottom">
+      <div className="w-[888px] border border-black bg-white">
         <MyCarousel />
         <div className="flex flex-col gap-6 px-4 py-8">
           <div className="flex justify-center">

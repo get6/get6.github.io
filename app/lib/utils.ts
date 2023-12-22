@@ -27,12 +27,12 @@ export const remarkSourceRedirect =
       const image = node.children.find((child: any) => child.type === 'image')
       if (image) {
         if (image.url.startsWith('http')) return
-        console.log(image.url)
-        if (image.url.startsWith('../assets'))
-          image.url = image.url.replace('../assets', '')
+
+        if (image.url.startsWith('../'))
+          image.url = image.url.replace('../', '')
 
         // image.url = `assets/${slug}/${image.url}`
-        image.url = `blog/assets/${image.url}`
+        image.url = `blog/${image.url}`
       }
     })
     // This matches all MDX' <Image /> components & source elements that I'm
