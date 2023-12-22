@@ -35,7 +35,9 @@ export const Post = defineDocumentType(() => ({
     cover_image: {
       type: 'string',
       resolve: (post) => {
-        const cover_image = post.body.raw.match(/!\[.*\]\((.*)\)/m)?.[1]
+        // const cover_image = post.body.raw.match(/!\[.*\]\((.*)\)/m)?.[1]
+        const image = post.body.html.match(/<img.*?src=["'](.*?)["'].*?>/)?.[1]
+        const cover_image = image ? image : '/images/alt_image.jpg'
         return cover_image
       },
     },
