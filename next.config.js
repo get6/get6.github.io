@@ -9,12 +9,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: 'image.yes24.com',
         pathname: '/goods/**',
       },
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: 'images.unsplash.com',
       },
     ],

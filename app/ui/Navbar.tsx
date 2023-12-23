@@ -3,6 +3,7 @@
 import { blog_title } from '@/app/lib/definitions'
 import { HashtagIcon } from '@heroicons/react/20/solid'
 import { SunIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -18,10 +19,14 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="flex h-10 items-center justify-start divide-x divide-black border border-black bg-white shadow">
+    <nav className="flex h-8 items-center justify-start divide-x divide-black border border-black bg-white shadow">
       <div className="px-8 sm:px-2 md:px-2 lg:px-3">
-        <Link href="/" className="text-sm font-light hover:cursor-pointer">
-          {`🌍 ${blog_title}`}
+        <Link
+          href="/"
+          className="flex items-center text-sm font-light hover:cursor-pointer"
+        >
+          <Image src={'/favicon.ico'} alt="favicon" width={24} height={24} />
+          {blog_title}
         </Link>
       </div>
       <div className="flex grow items-center justify-center divide-x divide-black self-stretch">
