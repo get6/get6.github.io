@@ -19,8 +19,17 @@ export default function ReadingBook({ book }: Props) {
       className="flex w-[250px] flex-col border border-black bg-white hover:cursor-pointer"
       href={book.url}
     >
-      <Image width={250} height={370} src={cover_url} alt={title} priority />
-      <div className="flex h-full min-h-max flex-col justify-center gap-2 border-t border-black px-6 py-2">
+      <div className="relative h-[370px] w-full border-b border-black">
+        <Image
+          className="object-cover object-top"
+          src={cover_url}
+          alt={title}
+          priority
+          fill
+          sizes="(min-width: 1024px) 250px, (max-width: 1024px) 100vw"
+        />
+      </div>
+      <div className="flex min-h-max flex-col justify-center gap-2 px-6 py-2">
         <h1 className="text-xl font-bold">{title}</h1>
         <span className="text-sm">{author}</span>
         <div className="flex gap-1 text-sm">

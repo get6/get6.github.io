@@ -35,11 +35,12 @@ export default function SeriesCard({ series }: Props) {
       <div className="flex h-[240px] w-[720px] border border-black">
         <div className="relative h-full w-[192px] border-r border-black">
           <Image
+            className="object-cover object-top"
             src={cover_image}
             alt="cover_image"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
+            priority
+            fill
+            sizes="(min-width: 1024px) 192px, (max-width: 1024px) 100vw"
           />
         </div>
         <div className="flex flex-auto flex-col justify-center gap-4 px-6">

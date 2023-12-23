@@ -16,22 +16,26 @@ export default function Home() {
 
   return (
     <PageScreen>
-      <div className="flex w-full flex-col gap-4">
-        <PageTitle>Recent Posts</PageTitle>
-        <div
-          className={`flex ${
-            recentPosts.length == 3 ? 'justify-between' : 'gap-10'
-          }`}
-        >
-          {recentPosts.map((post, index) => (
-            <RecentPost key={index} post={post} />
-          ))}
+      <div className="flex w-full flex-col gap-8">
+        <div className="flex flex-col gap-4">
+          <PageTitle>Recent Posts</PageTitle>
+          <div
+            className={`flex ${
+              recentPosts.length == 3 ? 'justify-between' : 'gap-10'
+            }`}
+          >
+            {recentPosts.map((post, index) => (
+              <RecentPost key={index} post={post} />
+            ))}
+          </div>
         </div>
-        <div className="flex justify-between">
-          <PageTitle>All Posts</PageTitle>
-          <SearchBar />
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-between">
+            <PageTitle>All Posts</PageTitle>
+            <SearchBar />
+          </div>
+          <PostList posts={posts} />
         </div>
-        <PostList posts={posts} />
       </div>
     </PageScreen>
   )

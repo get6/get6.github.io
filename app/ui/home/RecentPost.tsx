@@ -28,11 +28,12 @@ export default function RecentPost({ post }: Props) {
     >
       <div className="relative h-[343px] w-full border-b border-black">
         <Image
+          className="object-cover object-top"
           src={cover_image}
           alt="cover_image"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="top"
+          priority
+          fill
+          sizes="(min-width: 1024px) 343px, (max-width: 1024px) 100vw"
         />
       </div>
       <div className="inline-flex h-[174px] w-full flex-col items-start justify-center gap-4 px-6">

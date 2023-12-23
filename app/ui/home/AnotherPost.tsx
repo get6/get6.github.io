@@ -21,11 +21,12 @@ export default function AnotherPost({ post }: Props) {
     >
       <div className="relative h-[162px] w-full border-b border-black">
         <Image
+          className="object-cover object-top"
           src={cover_image}
           alt="cover_image"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="top"
+          priority
+          fill
+          sizes="(min-width: 1024px) 282px, (max-width: 1024px) 100vw"
         />
       </div>
       <div className="inline-flex w-full flex-col items-start justify-start gap-4 px-6 py-2">

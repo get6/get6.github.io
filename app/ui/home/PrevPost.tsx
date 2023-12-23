@@ -28,11 +28,12 @@ export default function PrevPost({ post }: Props) {
     >
       <div className="relative h-full w-[164px] border-r border-black">
         <Image
+          className="object-cover object-top"
           src={cover_image}
           alt="cover_image"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="top"
+          priority
+          fill
+          sizes="(min-width: 1024px) 164px, (max-width: 1024px) 100vw"
         />
       </div>
       <div className="flex flex-col items-start justify-center gap-4 self-stretch px-6 py-2">

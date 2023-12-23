@@ -32,12 +32,13 @@ export default function MyCarousel() {
       {myImages.map((image, index) => (
         <div key={index} className="relative h-[370px]">
           <Image
+            className="object-cover"
+            style={{ objectPosition: image.objectPosition }}
             src={image.src}
-            alt={`sunhwang + ${index}`}
+            alt={`me-${index}`}
             priority
             fill
-            style={{ objectFit: 'cover', objectPosition: image.objectPosition }}
-            sizes="(min-width: 886px) 100vw, 370px"
+            sizes="(min-width: 1024px) 888px, (max-width: 1024px) 100vw"
           />
         </div>
       ))}

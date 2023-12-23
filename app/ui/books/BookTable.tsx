@@ -42,12 +42,16 @@ export default function BookTable({ books, isFinished = false }: Props) {
               scope="row"
               className="flex items-center gap-2 whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
             >
-              <Image
-                width={16}
-                height={16}
-                src={book.cover_url}
-                alt={book.title}
-              />
+              <div className="relative h-6 w-4">
+                <Image
+                  className="object-cover object-top"
+                  src={book.cover_url}
+                  alt={book.title}
+                  priority
+                  fill
+                  sizes="(min-width: 1024px) 24px, (max-width: 1024px) 100vw"
+                />
+              </div>
               {book.title}
             </th>
             <td className="px-6 py-4">{book.author}</td>
