@@ -135,6 +135,5 @@ dist
 
 # custom
 .pnpm-store
-
-# contentlayer
 .contentlayer
+.DS_Store
