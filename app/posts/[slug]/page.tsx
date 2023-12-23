@@ -19,17 +19,11 @@ export default function Post({ params }: { params: { slug: string } }) {
   const slug = decodeURIComponent(params.slug)
   const post = allPosts.find((post) => post.slug === slug)
 
-  if (!post) {
-    allPosts.map((post) => console.log(post.slug))
-    console.log(slug)
-    throw new Error(`Post not found for slug: ${slug}`)
-  }
+  if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
   const otherPosts = allPosts
     .filter((other) => other.url !== slug && other.date < post.date)
     .slice(0, 3)
-
-  // console.log(post)
 
   const { date, title, body, tags } = post
   // const MDXContent = useMDXComponent(post.body.code)

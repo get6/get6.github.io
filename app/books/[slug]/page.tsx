@@ -24,12 +24,6 @@ export default function Book({ params }: { params: { slug: string } }) {
   const slug = decodeURIComponent(params.slug)
   const book = allBooks.find((book) => book.slug === slug)
 
-  if (!book) {
-    allBooks.map((book) => console.log(book.slug))
-    console.log(slug)
-    throw new Error(`book not found for slug: ${slug}`)
-  }
-
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
   const {
@@ -58,13 +52,16 @@ export default function Book({ params }: { params: { slug: string } }) {
     <PageScreen>
       <div className="flex flex-col gap-8 border border-black px-6 py-16">
         <div className="flex gap-10">
-          <Image
-            src={cover_url}
-            width={250}
-            height={345}
-            alt={title}
-            className="border border-black"
-          />
+          <div className="relative h-96 w-64 border border-black">
+            <Image
+              className="aspect-auto object-cover object-top"
+              src={cover_url}
+              alt={title}
+              priority
+              fill
+              sizes="(min-width: 1024px) 256px, (max-width: 1024px) 100vw"
+            />
+          </div>
           <div className="flex flex-col justify-between">
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
@@ -117,7 +114,7 @@ export default function Book({ params }: { params: { slug: string } }) {
         <Line />
         <div
           className="[&>*:last-child]:mb-0 [&>*]:mb-3"
-          dangerouslySetInnerHTML={{ __html: book.body.html }}
+          dangerouslySetInnerHTML={{ __html: body.html }}
         />
         <Line />
       </div>
