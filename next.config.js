@@ -1,6 +1,6 @@
 const { withContentlayer } = require('next-contentlayer')
 
-const prod = process.env.NODE_ENV === 'production'
+const isGithubActions = process.env.GITHUB_ACTIONS || false
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -19,7 +19,7 @@ const nextConfig = {
       },
     ],
   },
-  ...(prod && { output: 'export' }),
+  ...(isGithubActions && { output: 'export' }),
 }
 
 module.exports = withContentlayer(nextConfig)
