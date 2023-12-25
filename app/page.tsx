@@ -38,7 +38,7 @@ export default function Home() {
               posts.length == 3 ? 'justify-between' : 'gap-10'
             }`}
           >
-            {posts.map((post, index) => (
+            {recentPosts.map((post, index) => (
               <RecentPost key={index} post={post} />
             ))}
           </div>
