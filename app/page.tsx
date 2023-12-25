@@ -5,6 +5,20 @@ import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { compareDesc } from 'date-fns'
+import { Suspense } from 'react'
+
+function PostListFallback() {
+  return (
+    <div className="flex flex-wrap justify-between gap-8">
+      {Array.from({ length: 4 }, (_, index) => (
+        <div
+          key={index}
+          className="h-[205px] w-[520px] animate-pulse rounded-md bg-gray-200"
+        />
+      ))}
+    </div>
+  )
+}
 
 export default function Home() {
   const postsOrderByDesc = allPosts.sort((a, b) =>
@@ -21,10 +35,10 @@ export default function Home() {
           <PageTitle>Recent Posts</PageTitle>
           <div
             className={`flex ${
-              recentPosts.length == 3 ? 'justify-between' : 'gap-10'
+              posts.length == 3 ? 'justify-between' : 'gap-10'
             }`}
           >
-            {recentPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <RecentPost key={index} post={post} />
             ))}
           </div>
@@ -34,7 +48,9 @@ export default function Home() {
             <PageTitle>All Posts</PageTitle>
             <SearchBar />
           </div>
-          <PostList posts={posts} />
+          <Suspense fallback={<PostListFallback />}>
+            <PostList posts={posts} />
+          </Suspense>
         </div>
       </div>
     </PageScreen>

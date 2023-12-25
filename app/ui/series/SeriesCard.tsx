@@ -2,11 +2,13 @@
 
 import { Post } from '@/.contentlayer/generated'
 import Badge from '@/app/ui/Badge'
+import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
 import PostDate from '@/app/ui/home/post/PostDate'
 import SeriesStack from '@/app/ui/series/SeriesStack'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { Suspense } from 'react'
 
 interface Props {
   series: Post[]
@@ -52,9 +54,11 @@ export default function SeriesCard({ series }: Props) {
               {body.raw}
             </div>
             <div className="inline-flex items-start justify-start gap-2 py-2">
-              {tags.map((tag, index) => (
-                <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
-              ))}
+              <Suspense fallback={<TagsFallBack tags={tags} />}>
+                {tags.map((tag, index) => (
+                  <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
+                ))}
+              </Suspense>
             </div>
           </div>
         </div>

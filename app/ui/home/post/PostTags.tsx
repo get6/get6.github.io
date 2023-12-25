@@ -1,7 +1,9 @@
 'use client'
 
 import Badge from '@/app/ui/Badge'
+import TagsFallBack from '@/app/ui/TagsFallback'
 import { useRouter } from 'next/navigation'
+import { Suspense } from 'react'
 
 interface Props {
   tags: string[]
@@ -17,9 +19,11 @@ export default function PostTags({ tags }: Props) {
 
   return (
     <div className="flex w-full justify-end gap-2">
-      {tags.map((tag, index) => (
-        <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
-      ))}
+      <Suspense fallback={<TagsFallBack tags={tags} />}>
+        {tags.map((tag, index) => (
+          <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
+        ))}
+      </Suspense>
     </div>
   )
 }

@@ -16,7 +16,7 @@ export default function AnotherPost({ post }: Props) {
 
   return (
     <div
-      className="hover h-[234px] w-[282px] border border-black hover:cursor-pointer"
+      className="h-[234px] w-[282px] border border-black hover:cursor-pointer"
       onClick={() => push(post.url)}
     >
       <div className="relative h-[162px] w-full border-b border-black">

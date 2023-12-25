@@ -50,12 +50,7 @@ export default function Post({ params }: { params: { slug: string } }) {
       {0 < otherPosts.length && (
         <div className="flex justify-center">
           <div className="flex max-w-max flex-col gap-4">
-            <div className="flex flex-none grow-0 justify-between">
-              <span className="font-extralight">Other posts</span>
-              <span className="font-extralight hover:cursor-pointer">
-                See all posts in Life&apos;s tag
-              </span>
-            </div>
+            <span className="font-extralight">Other posts</span>
             <div className="flex flex-none grow-0 justify-center gap-4">
               {otherPosts.map((post, index) => (
                 <AnotherPost key={index} post={post} />

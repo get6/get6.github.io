@@ -2,11 +2,13 @@
 
 import { Post } from '@/.contentlayer/generated'
 import Badge from '@/app/ui/Badge'
+import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
 import Tooltip from '@/app/ui/Tooltip'
 import PostDate from '@/app/ui/home/post/PostDate'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { Suspense } from 'react'
 
 interface Props {
   post: Post
@@ -48,9 +50,11 @@ export default function RecentPost({ post }: Props) {
           </div>
         </div>
         <div className="inline-flex items-start justify-start gap-2 self-stretch">
-          {tags.map((tag, index) => (
-            <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
-          ))}
+          <Suspense fallback={<TagsFallBack tags={tags} />}>
+            {tags.map((tag, index) => (
+              <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
+            ))}
+          </Suspense>
         </div>
       </div>
     </div>
