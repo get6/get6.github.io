@@ -22,7 +22,8 @@ const nextConfig = {
   },
   ...(isGithubActions && {
     output: 'export',
-    assetPrefix: 'https://get6.github.io',
+    // assetPrefix: 'https://get6.github.io',
+    assetPrefix: './',
   }),
 }
 
