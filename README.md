@@ -7,39 +7,22 @@
 
 참여자 목록
 
-- [강지호(jihkang)](https://profile.intra.42.fr/users/jihkang)
-- [김동현(donghyk2)](https://profile.intra.42.fr/users/donghyk2)
-- [김성욱(sungwook)](https://profile.intra.42.fr/users/sungwook)
-- [김한결(hakim)](https://profile.intra.42.fr/users/hakim)
-- [이소현(sohlee)](https://profile.intra.42.fr/users/sohlee)
-- [황성준(sunhwang)](https://profile.intra.42.fr/users/sunhwang)
+- [강지호](https://github.com/jihkang) [(jihkang)](https://profile.intra.42.fr/users/jihkang)
+- [김동현](https://github.com/donghyun1998) [(donghyk2)](https://profile.intra.42.fr/users/donghyk2)
+- [김성욱](https://github.com/42sungwook) [(sungwook)](https://profile.intra.42.fr/users/sungwook)
+- [김한결](https://github.com/triplecheeseburger) [(hakim)](https://profile.intra.42.fr/users/hakim)
+- [이소현](https://github.com/aeyongdodam) [(sohlee)](https://profile.intra.42.fr/users/sohlee)
+- [황성준](https://github.com/get6) [(sunhwang)](https://profile.intra.42.fr/users/sunhwang)
 
 ---
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+## 실행 명령어
 
 ```bash
-pnpm dev
+pnpm dev # 개발 모드 실행
+pnpm build # 빌드 실행
+npx http-server out # out 폴더 참조해서 스태틱 사이트 실행
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## 블로그 개발 환경
 
