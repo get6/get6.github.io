@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "posts/post-012.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "posts/post-012.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "posts/post-012.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202312271313.md"
+                "file": "posts/post-012.md"
               }
             }
           }
@@ -151,15 +151,17 @@
   },
   "active": "eee605a79becdcad",
   "lastOpenFiles": [
-    "template/Post template.md",
+    "assets/Pasted image 20231220144643.png",
+    "assets/MailAttachment.jpeg",
     "posts/202312271313.md",
+    "templates/Post template.md",
+    "templates",
     "posts/202312271402.md",
     "posts/202312271403.md",
     "posts/Untitled.md",
     "posts/202312271400.md",
     "posts/post-013.md",
     "posts/post-01.md",
-    "template",
     "Untitled.md",
     "posts/post-014.md",
     "posts/post-012.md",
@@ -167,8 +169,6 @@
     "books/슈독 나이키 창업자 필 나이트 자서전.md",
     "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
     "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
-    "assets/Pasted image 20231220144643.png",
-    "assets/MailAttachment.jpeg",
     "202312182025.md",
     "books/MAPS.md",
     "books/학교 가는 길 - 예스24.md",

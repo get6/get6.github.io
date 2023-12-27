@@ -201,7 +201,7 @@ export const Book = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'blog',
-  contentDirExclude: ['.obsidian', 'assets'],
+  contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
   markdown: {
     remarkPlugins: [
