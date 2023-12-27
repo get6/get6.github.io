@@ -38,18 +38,16 @@ export default function RecentPost({ post }: Props) {
           sizes="(min-width: 1024px) 343px, (max-width: 1024px) 100vw"
         />
       </div>
-      <div className="inline-flex h-[174px] w-full flex-col items-start justify-center gap-4 px-6">
-        <div className="flex h-[88px] flex-col items-start justify-start gap-2 self-stretch">
+      <div className="flex h-[174px] flex-col justify-center gap-4 px-6">
+        <div className="flex h-[88px] flex-col gap-2 self-stretch">
           <span className="group relative flex">
             <Tooltip date={date} />
             <PostDate date={date} body={body.raw} />
           </span>
           <Title>{title}</Title>
-          <div className="self-stretch truncate text-base font-normal">
-            {body.raw}
-          </div>
+          <div className="truncate font-normal">{body.raw.slice(0, 50)}</div>
         </div>
-        <div className="inline-flex items-start justify-start gap-2 self-stretch">
+        <div className="flex gap-2">
           <Suspense fallback={<TagsFallBack tags={tags} />}>
             {tags.map((tag, index) => (
               <Badge key={index} name={tag} onClick={handleTagClick(tag)} />

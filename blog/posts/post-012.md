@@ -19,3 +19,9 @@ int main()
     return 0;
 }
 ```
+
+	asdasd
+
+asdasd
+
+버그같다

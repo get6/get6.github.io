@@ -39,7 +39,7 @@ export default function Home() {
           <PageTitle>Recent Posts</PageTitle>
           <div
             className={`flex ${
-              posts.length == 3 ? 'justify-between' : 'gap-10'
+              recentPosts.length == 3 ? 'justify-between' : 'gap-10'
             }`}
           >
             {recentPosts.map((post, index) => (

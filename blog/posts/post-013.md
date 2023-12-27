@@ -1,16 +1,17 @@
 ---
-title: My First Post3222
+title: remark-obsidian test
 date: 2021-12-24
 tags: [hi3, hi4]
 ---
 
-Ullamco et nostrud magna commodo nostrud ...
+Disappear obsidian internal links when I use remark-opsidian with Contentlayer
 
-ㅁㄴㅇㅁㄴㅇ
-![asdasd](../assets/MailAttachment.jpeg)
-![[MailAttachment.jpeg]]
 ![[Pasted image 20231220144643.png]]
 
-asdas
+[[post-012]]
+
+[[MailAttachment.jpeg]]
+
+Hello
 
 
