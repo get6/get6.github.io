@@ -20,6 +20,10 @@ function PostListFallback() {
   )
 }
 
+function SearchBarFallback() {
+  return <div className="h-12 w-80 animate-pulse rounded-md bg-gray-200" />
+}
+
 export default function Home() {
   const postsOrderByDesc = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date)),
@@ -46,7 +50,9 @@ export default function Home() {
         <div className="flex flex-col gap-4">
           <div className="flex justify-between">
             <PageTitle>All Posts</PageTitle>
-            <SearchBar />
+            <Suspense fallback={<SearchBarFallback />}>
+              <SearchBar />
+            </Suspense>
           </div>
           <Suspense fallback={<PostListFallback />}>
             <PostList posts={posts} />

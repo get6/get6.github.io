@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  article > *:is(h1, h2, h3, h4, h5, h6) {
+    @apply flex items-center gap-2 scroll-mt-4;
+  }
+  *:is(h1, h2, h3, h4, h5, h6) > a {
+    @apply hover:text-gray-700 no-underline !important;
+  }
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
