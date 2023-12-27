@@ -7,5 +7,23 @@
       ],
       "key": "K"
     }
+  ],
+  "workspace:new-tab": [],
+  "templater-obsidian:template/Post template.md": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "T"
+    }
+  ],
+  "file-explorer:new-file": [],
+  "zk-prefixer": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
   ]
 }

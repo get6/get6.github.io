@@ -1,5 +1,8 @@
 {
   "propertiesInDocument": "source",
   "attachmentFolderPath": "assets",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "posts",
+  "newLinkFormat": "absolute"
 }

@@ -8,11 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9f77c9d182a0b9d0",
+            "id": "eee605a79becdcad",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "posts/202312271313.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "posts/202312271313.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "posts/202312271313.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "posts/202312271313.md"
+              }
             }
           }
         ]
@@ -137,21 +145,30 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "zk-prefixer:Create new unique note": false,
-      "kr-book-info-plugin:Add Book Info": false
+      "kr-book-info-plugin:Add Book Info": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "9f77c9d182a0b9d0",
+  "active": "eee605a79becdcad",
   "lastOpenFiles": [
+    "template/Post template.md",
+    "posts/202312271313.md",
+    "posts/202312271402.md",
+    "posts/202312271403.md",
+    "posts/Untitled.md",
+    "posts/202312271400.md",
     "posts/post-013.md",
-    "posts/post-012.md",
     "posts/post-01.md",
-    "assets/MailAttachment.jpeg",
-    "books/슈독 나이키 창업자 필 나이트 자서전.md",
+    "template",
+    "Untitled.md",
     "posts/post-014.md",
-    "assets/Pasted image 20231220144643.png",
+    "posts/post-012.md",
     "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
+    "books/슈독 나이키 창업자 필 나이트 자서전.md",
     "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
+    "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
+    "assets/Pasted image 20231220144643.png",
+    "assets/MailAttachment.jpeg",
     "202312182025.md",
     "books/MAPS.md",
     "books/학교 가는 길 - 예스24.md",
