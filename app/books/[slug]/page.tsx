@@ -119,7 +119,7 @@ export default function Book({ params }: { params: { slug: string } }) {
           </div>
         </div>
         <Line />
-        <div
+        <article
           className="prose dark:prose-invert prose-img:mx-auto"
           dangerouslySetInnerHTML={{ __html: body.html }}
         />
