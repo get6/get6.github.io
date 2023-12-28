@@ -40,7 +40,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           <Line />
           <article
             // className="prose h-full w-full max-w-none break-all [&>*:last-child]:mb-0 [&>*]:mb-3"
-            className="prose dark:prose-invert"
+            className="prose dark:prose-invert prose-img:mx-auto"
             dangerouslySetInnerHTML={{ __html: post.body.html }}
           />
           {/* <MDXContent /> */}
