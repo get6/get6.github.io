@@ -30,16 +30,17 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   return (
     <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-20">
-      <div className="flex h-full w-[1240px] flex-col items-center gap-4 border border-black p-16">
-        <div className="flex w-full justify-center text-5xl">{title}</div>
-        <div className="flex w-full justify-between">
+      <div className="flex h-full w-[878px] flex-col items-center gap-4 border border-black p-16">
+        <h1 className="flex w-full justify-center text-4xl">{title}</h1>
+        <div className="flex w-full items-center justify-between">
           <PostDate date={date} body={body.raw} isDetail />
           <ToastPostal />
         </div>
-        <div className="flex w-full flex-col gap-8">
+        <div className="flex w-full flex-col items-center justify-center gap-8">
           <Line />
           <article
-            className="prose h-full w-full max-w-none break-all [&>*:last-child]:mb-0 [&>*]:mb-3"
+            // className="prose h-full w-full max-w-none break-all [&>*:last-child]:mb-0 [&>*]:mb-3"
+            className="prose dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: post.body.html }}
           />
           {/* <MDXContent /> */}
