@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/post-012.md",
+                "file": "posts/202312272348.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/post-012.md",
+                "file": "posts/202312272348.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/post-012.md",
+                "file": "posts/202312272348.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/post-012.md"
+                "file": "posts/202312272348.md"
               }
             }
           }
@@ -151,31 +151,35 @@
   },
   "active": "eee605a79becdcad",
   "lastOpenFiles": [
+    "posts/post-01.md",
+    "templates/Post template.md",
+    "posts/202312272348.md",
+    "posts/202312271647.md",
+    "posts/202312271914.md",
+    "posts/202312271313.md",
+    "posts/202312271514.md",
+    "posts/202312271551.md",
+    "posts/202312271545.md",
+    "posts/post-012.md",
+    "posts/202312271520.md",
+    "posts/202312271524.md",
+    "posts/202312271513.md",
     "assets/Pasted image 20231220144643.png",
     "assets/MailAttachment.jpeg",
-    "posts/202312271313.md",
-    "templates/Post template.md",
     "templates",
+    "template/Post template.md",
     "posts/202312271402.md",
     "posts/202312271403.md",
     "posts/Untitled.md",
     "posts/202312271400.md",
     "posts/post-013.md",
-    "posts/post-01.md",
+    "template",
     "Untitled.md",
     "posts/post-014.md",
-    "posts/post-012.md",
     "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
     "books/슈독 나이키 창업자 필 나이트 자서전.md",
     "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
     "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
-    "202312182025.md",
-    "books/MAPS.md",
-    "books/학교 가는 길 - 예스24.md",
-    "books/Obsidian Clipper.md",
-    "Chrome Clippings.md",
-    "슈독 나이키 창업자 필 나이트 자서전.md",
-    "202312042043.md",
-    "202312042044.md"
+    "202312182025.md"
   ]
 }

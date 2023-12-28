@@ -22,10 +22,7 @@ const remarkSourceRedirect = (options: any) => (tree: any, file: any) => {
     const image = node.children.find((child: any) => child.type === 'image')
     if (image) {
       if (image.url.startsWith('http')) return
-
       if (image.url.startsWith('../')) image.url = image.url.replace('../', '')
-
-      // image.url = `assets/${slug}/${image.url}`
       image.url = `blog/${image.url}`
     }
   })
@@ -132,6 +129,7 @@ export const Post = defineDocumentType(() => ({
       of: { type: 'string' },
     },
     series_title: { type: 'string' },
+    note: { type: 'string' },
   },
   computedFields: {
     url: {

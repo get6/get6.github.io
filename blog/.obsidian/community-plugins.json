@@ -1,5 +1,6 @@
 [
   "kr-book-info-plugin",
   "templater-obsidian",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-linter"
 ]
