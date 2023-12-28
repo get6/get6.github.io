@@ -26,7 +26,6 @@ export default function Post({ params }: { params: { slug: string } }) {
     .slice(0, 3)
 
   const { date, title, body, tags } = post
-  // const MDXContent = useMDXComponent(post.body.code)
 
   return (
     <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-20">
@@ -39,7 +38,6 @@ export default function Post({ params }: { params: { slug: string } }) {
         <div className="flex w-full flex-col items-center justify-center gap-8">
           <Line />
           <article
-            // className="prose h-full w-full max-w-none break-all [&>*:last-child]:mb-0 [&>*]:mb-3"
             className="prose dark:prose-invert prose-img:mx-auto"
             dangerouslySetInnerHTML={{ __html: post.body.html }}
           />

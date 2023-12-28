@@ -1,4 +1,5 @@
 import { allBooks } from '@/.contentlayer/generated'
+import { BookStatus } from '@/app/lib/definitions'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
@@ -37,6 +38,8 @@ export default function Book({ params }: { params: { slug: string } }) {
     tag,
     my_rate,
     cover_url,
+    status,
+    book_url,
   } = book
 
   const stars = [
@@ -70,10 +73,12 @@ export default function Book({ params }: { params: { slug: string } }) {
               </div>
 
               <p className="text-sm">저자: {author}</p>
-              <p className="flex items-center gap-1 text-sm">
-                추천:
-                <span className="flex">{stars.map((star) => star)}</span>
-              </p>
+              {status === BookStatus.Finished && (
+                <p className="flex items-center gap-1 text-sm">
+                  추천:
+                  <span className="flex">{stars.map((star) => star)}</span>
+                </p>
+              )}
               <p className="text-sm">쪽수: {total_page}</p>
               <p className="text-sm">
                 발행일: {format(new Date(publish_date), 'yyyy-MM-dd')}
@@ -106,14 +111,16 @@ export default function Book({ params }: { params: { slug: string } }) {
                   .join(', ')}
               </p>
             </div>
-            <Link href={book.url} className="text-xs text-blue-500">
-              yes24로 책 보러가기
-            </Link>
+            {book_url && (
+              <Link href={book_url} className="text-xs text-blue-500">
+                yes24로 책 보러가기
+              </Link>
+            )}
           </div>
         </div>
         <Line />
         <div
-          className="[&>*:last-child]:mb-0 [&>*]:mb-3"
+          className="prose dark:prose-invert prose-img:mx-auto"
           dangerouslySetInnerHTML={{ __html: body.html }}
         />
         <Line />

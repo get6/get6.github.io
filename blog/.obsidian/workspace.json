@@ -13,8 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202312272348.md",
+                "file": "books/엔터프라이즈 플러터 핸드북.md",
                 "mode": "source",
+                "backlinks": false,
                 "source": false
               }
             }
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202312272348.md",
+                "file": "books/엔터프라이즈 플러터 핸드북.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202312272348.md",
+                "file": "books/엔터프라이즈 플러터 핸드북.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202312272348.md"
+                "file": "books/엔터프라이즈 플러터 핸드북.md"
               }
             }
           }
@@ -151,6 +152,11 @@
   },
   "active": "eee605a79becdcad",
   "lastOpenFiles": [
+    "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
+    "books/슈독 나이키 창업자 필 나이트 자서전.md",
+    "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
+    "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
+    "books/엔터프라이즈 플러터 핸드북.md",
     "posts/post-01.md",
     "templates/Post template.md",
     "posts/202312272348.md",
@@ -175,11 +181,6 @@
     "posts/post-013.md",
     "template",
     "Untitled.md",
-    "posts/post-014.md",
-    "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
-    "202312182025.md"
+    "posts/post-014.md"
   ]
 }
