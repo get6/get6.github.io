@@ -1,4 +1,5 @@
 import { allBooks } from '@/.contentlayer/generated'
+import { BookStatus } from '@/app/lib/definitions'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
 import PageTitle from '@/app/ui/home/PageTitle'
@@ -10,9 +11,19 @@ export default function Books() {
     compareDesc(new Date(a.start_read_date), new Date(b.start_read_date)),
   )
 
-  const readingBooks = books.filter((book) => book.status === 'reading')
-  const finishedBooks = books.filter((book) => book.status === 'finished')
-  const toReadBooks = books.filter((book) => book.status === 'to_read')
+  const readingBooks = books.filter(
+    (book) => book.status === BookStatus.Reading,
+  )
+  const finishedBooks = books
+    .filter((book) => book.status === BookStatus.Finished)
+    .sort((a, b) =>
+      compareDesc(new Date(a.finish_read_date), new Date(b.finish_read_date)),
+    )
+  const toReadBooks = books
+    .filter((book) => book.status === BookStatus.ToRead)
+    .sort((a, b) =>
+      compareDesc(new Date(a.publish_date), new Date(b.publish_date)),
+    )
 
   return (
     <PageScreen>
