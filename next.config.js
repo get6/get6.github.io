@@ -12,7 +12,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'image.yes24.com',
-        pathname: '/goods/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',

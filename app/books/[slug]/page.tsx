@@ -111,11 +111,9 @@ export default function Book({ params }: { params: { slug: string } }) {
                   .join(', ')}
               </p>
             </div>
-            {book_url && (
-              <Link href={book_url} className="text-xs text-blue-500">
-                yes24로 책 보러가기
-              </Link>
-            )}
+            <Link href={book_url} className="text-xs text-blue-500">
+              yes24로 책 보러가기
+            </Link>
           </div>
         </div>
         <Line />

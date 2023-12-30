@@ -2,12 +2,11 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
 import remarkEmbedImages from 'remark-embed-images'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
-import remarkObsidian from 'remark-obsidian'
 import { visit } from 'unist-util-visit'
-import rehypeSlug from 'rehype-slug'
 
 /**
  * @type {import('unified').Plugin<[], Root>}
@@ -183,7 +182,7 @@ export const Book = defineDocumentType(() => ({
     finish_read_date: { type: 'date', required: true },
     my_rate: { type: 'number', required: true },
     book_note: { type: 'string' },
-    book_url: { type: 'string' },
+    book_url: { type: 'string', required: true },
   },
   computedFields: {
     url: {
