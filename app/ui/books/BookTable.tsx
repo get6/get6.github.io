@@ -38,10 +38,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
             }`}
             onClick={() => isFinished && push(book.url)}
           >
-            <th
-              scope="row"
-              className="flex items-center gap-2 whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-            >
+            <th scope="row" className="flex items-center gap-2 px-6 py-4">
               <div className="relative h-6 w-4">
                 <Image
                   className="object-cover object-top"
@@ -52,20 +49,25 @@ export default function BookTable({ books, isFinished = false }: Props) {
                   sizes="(min-width: 1024px) 24px, (max-width: 1024px) 100vw"
                 />
               </div>
-              {book.title}
+              <span className="max-w-xs truncate font-medium text-gray-900 dark:text-white">
+                {book.title}
+              </span>
             </th>
-            <td className="px-6 py-4">{book.author}</td>
-            <td className="px-6 py-4">
+            <td className="truncate px-6 py-4">
+              {book.author.split(', ').length > 1
+                ? `${book.author.split(', ')[1]}...`
+                : book.author}
+            </td>
+            <td className="truncate px-6 py-4">
               {format(new Date(book.publish_date), 'yyyy-MM-dd')}
             </td>
-            {/* <td className="px-6 py-4">&#8361;30,000</td> */}
             <td className="px-6 py-4">{book.tag.split(' ')[2]}</td>
             <td className="px-6 py-4">
               <LinkIcon
                 className="h-5 w-5 hover:cursor-pointer hover:text-blue-500"
                 onClick={(e) => {
                   e.stopPropagation()
-                  push(book.url)
+                  window.open(book.book_url, '_blank')
                 }}
               />
             </td>
