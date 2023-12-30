@@ -4,7 +4,7 @@ import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import { StarIcon } from '@heroicons/react/24/outline'
+import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
 import { format, intervalToDuration } from 'date-fns'
 import Image from 'next/image'
@@ -67,7 +67,7 @@ export default function Book({ params }: { params: { slug: string } }) {
           </div>
           <div className="flex flex-col justify-between">
             <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-2">
                 <Title>{title}</Title>
                 <ToastPostal />
               </div>
@@ -94,11 +94,11 @@ export default function Book({ params }: { params: { slug: string } }) {
                   <span className="font-semibold">ing</span>
                 )}
                 {start_read_date < finish_read_date && (
-                  <span className="font-semibold text-red-500">
-                    {` +${intervalToDuration({
+                  <span className="text-red-500">
+                    {` (${intervalToDuration({
                       start: new Date(start_read_date),
                       end: new Date(finish_read_date),
-                    }).days!.toString()}일`}
+                    }).days!.toString()}일)`}
                   </span>
                 )}
               </p>
@@ -111,8 +111,12 @@ export default function Book({ params }: { params: { slug: string } }) {
                   .join(', ')}
               </p>
             </div>
-            <Link href={book_url} className="text-xs text-blue-500">
+            <Link
+              href={book_url}
+              className="flex shrink-0 items-center gap-1 text-xs text-blue-500"
+            >
               yes24로 책 보러가기
+              <ArrowUpRightIcon className="h-3 w-3" />
             </Link>
           </div>
         </div>

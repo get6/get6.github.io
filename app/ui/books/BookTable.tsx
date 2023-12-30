@@ -55,7 +55,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
             </th>
             <td className="truncate px-6 py-4">
               {book.author.split(', ').length > 1
-                ? `${book.author.split(', ')[1]}...`
+                ? `${book.author.split(', ')[0]}...`
                 : book.author}
             </td>
             <td className="truncate px-6 py-4">
