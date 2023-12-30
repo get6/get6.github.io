@@ -39,11 +39,13 @@ export default function RecentPost({ post }: Props) {
         />
       </div>
       <div className="flex h-[174px] flex-col justify-center gap-4 px-6">
-        <div className="flex h-[88px] flex-col gap-2 self-stretch">
-          <span className="group relative flex">
-            <Tooltip date={date} />
-            <PostDate date={date} body={body.raw} />
-          </span>
+        <div className="flex h-[88px] flex-col gap-2">
+          <div className="flex">
+            <span className="group relative flex items-center">
+              <Tooltip date={date} />
+              <PostDate date={date} body={body.raw} />
+            </span>
+          </div>
           <Title>{title}</Title>
           <div className="truncate font-normal">{body.raw.slice(0, 50)}</div>
         </div>
