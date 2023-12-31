@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202312311851.md",
+                "file": "posts/202312271313.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202312311851.md",
+                "file": "posts/202312271313.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202312311851.md",
+                "file": "posts/202312271313.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202312311851.md"
+                "file": "posts/202312271313.md"
               }
             }
           }
@@ -152,13 +152,13 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
+    "posts/202312311851.md",
     "posts/202312311852.md",
     "posts/202312311853.md",
     "posts/202312311902.md",
     "posts/post-012.md",
     "templates/Post template.md",
     "posts/post-01.md",
-    "posts/202312311851.md",
     "posts/202312311838.md",
     "posts/202312271313.md",
     "assets/MailAttachment.jpeg",

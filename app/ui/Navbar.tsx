@@ -1,9 +1,9 @@
 'use client'
 
 import { blog_title } from '@/app/lib/definitions'
+import Logo from '@/app/ui/Logo'
 import { HashtagIcon } from '@heroicons/react/20/solid'
 import { SunIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -19,17 +19,17 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="flex h-8 items-center justify-start divide-x divide-black border border-black bg-white">
-      <div className="px-8 sm:px-2 md:px-2 lg:px-3">
+    <nav className="flex h-8 items-center justify-start divide-x divide-black border border-black bg-white dark:divide-white dark:border-white dark:bg-black">
+      <div className="px-8 dark:text-white sm:px-2 md:px-2 lg:px-3">
         <Link
           href="/"
           className="flex items-center text-sm font-light hover:cursor-pointer"
         >
-          <Image src={'/favicon.ico'} alt="favicon" width={24} height={24} />
+          <Logo />
           {blog_title}
         </Link>
       </div>
-      <div className="flex grow items-center justify-center divide-x divide-black self-stretch">
+      <div className="flex grow items-center justify-center divide-x divide-black self-stretch dark:divide-white">
         {menus.map((menu, index) => (
           <div
             key={index}
@@ -37,7 +37,7 @@ export default function Navbar() {
           >
             <Link
               href={menu.href}
-              className={`text-center text-sm font-thin hover:cursor-pointer hover:text-blue-600 ${
+              className={`text-center text-sm font-thin hover:cursor-pointer hover:text-blue-600 dark:text-white ${
                 pathname === menu.href &&
                 'font-normal text-blue-600 underline underline-offset-4'
               }`}
