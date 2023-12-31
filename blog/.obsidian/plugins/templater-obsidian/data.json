@@ -21,11 +21,9 @@
   ],
   "syntax_highlighting": true,
   "syntax_highlighting_mobile": false,
-  "enabled_templates_hotkeys": [
-    "templates/Post template.md"
-  ],
+  "enabled_templates_hotkeys": [],
   "startup_templates": [
-    ""
+    "templates/Post template.md"
   ],
   "enable_ribbon_icon": true
 }

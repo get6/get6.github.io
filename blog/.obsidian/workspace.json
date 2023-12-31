@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "books/마케팅이다.md",
+                "file": "posts/202312311851.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "books/마케팅이다.md",
+                "file": "posts/202312311851.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "books/마케팅이다.md",
+                "file": "posts/202312311851.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "books/마케팅이다.md"
+                "file": "posts/202312311851.md"
               }
             }
           }
@@ -152,10 +152,19 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
-    "books/스토리의 과학 팔리는 브랜드에는 공식이 있다.md",
-    "books/마케팅이다.md",
-    "posts/202312301624.md",
+    "posts/202312311852.md",
+    "posts/202312311853.md",
+    "posts/202312311902.md",
+    "posts/post-012.md",
+    "templates/Post template.md",
+    "posts/post-01.md",
+    "posts/202312311851.md",
+    "posts/202312311838.md",
     "posts/202312271313.md",
+    "assets/MailAttachment.jpeg",
+    "books/마케팅이다.md",
+    "books/스토리의 과학 팔리는 브랜드에는 공식이 있다.md",
+    "posts/202312301624.md",
     "posts/42서울을 준비하는 사람들을 위한 책 추천.md",
     "books/슈독 나이키 창업자 필 나이트 자서전.md",
     "books/머신러닝 시스템 설계.md",
@@ -170,16 +179,7 @@
     "books/HTTP 완벽 가이드.md",
     "books/HTTP 완벽 가이드.md",
     "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
-    "books/Do it 프로덕트 디자인 입문 with 피그마.md",
-    "books/asd.md",
-    "books/프로덕트 리더십.md",
-    "books/프로덕트 리더십.md",
-    "books/켄트 벡의 구현 패턴.md",
-    "books/추천 시스템 입문.md",
-    "books/제품의 탄생.md",
-    "books/제품의 탄생.md",
     "assets/Pasted image 20231220144643.png",
-    "assets/MailAttachment.jpeg",
     "templates",
     "template"
   ]
