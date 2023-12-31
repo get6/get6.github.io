@@ -4,7 +4,7 @@ about: 화면 속 어떤 구성인지 작성해주세요.
 title: "[comp] "
 labels: ["comp"]
 assignees: get6
-projects: ["get6/projects/4"]
+projects: ["get6/4"]
 ---
 
 ## 📢 Description

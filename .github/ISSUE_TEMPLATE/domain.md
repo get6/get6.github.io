@@ -4,7 +4,7 @@ about: 어떤 영역인지 작성해주세요.
 title: "[domain] "
 labels: ["domain"]
 assignees: get6
-projects: ["get6/projects/4"]
+projects: ["get6/4"]
 ---
 
 ## 📢 Description

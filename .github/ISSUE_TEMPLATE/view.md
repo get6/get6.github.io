@@ -4,7 +4,7 @@ about: 어떤 화면인지 작성해주세요.
 title: "[view] "
 labels: ["view"]
 assignees: get6
-projects: ["get6/projects/4"]
+projects: ["get6/4"]
 ---
 
 ## 📢 Description

@@ -4,7 +4,7 @@ about: 어떤 오류인지 작성해주세요.
 title: "[fix] "
 labels: ["bug"]
 assignees: get6
-projects: ["get6/projects/4"]
+projects: ["get6/4"]
 ---
 
 ## 🪜 Branch
