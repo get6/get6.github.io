@@ -23,10 +23,10 @@ export default function PrevPost({ post }: Props) {
 
   return (
     <div
-      className="flex h-[205px] w-[520px] border border-black bg-white hover:cursor-pointer"
+      className="flex h-[205px] w-[520px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
       onClick={() => push(post.url)}
     >
-      <div className="flex min-w-[164px] border-r border-black">
+      <div className="flex min-w-[164px] border-r border-black dark:border-white">
         <div className="relative w-full">
           <Image
             className="object-cover object-top"
@@ -42,7 +42,9 @@ export default function PrevPost({ post }: Props) {
         <div className="flex flex-col gap-2">
           <PostDate date={date} body={body.raw} />
           <Title>{title}</Title>
-          <div className="truncate font-normal">{body.raw.slice(0, 50)}</div>
+          <div className="truncate font-normal dark:text-white">
+            {body.raw.slice(0, 50)}
+          </div>
         </div>
         <div className="flex gap-2 py-2">
           {tags.map((tag, index) => (

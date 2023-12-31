@@ -4,33 +4,52 @@ import GithubIcon from '@/app/ui/social/GithubIcon'
 import InstagramIcon from '@/app/ui/social/InstagramIcon'
 import YoutubeIcon from '@/app/ui/social/YoutubeIcon'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 export default function About() {
+  const channels = [
+    {
+      icon: <GithubIcon className="h-6 w-6" />,
+      href: 'https://github.com/get6/',
+    },
+    {
+      icon: <InstagramIcon className="h-6 w-6" />,
+      href: 'https://www.instagram.com/ittae.me/',
+    },
+    {
+      icon: <YoutubeIcon className="h-6 w-6" />,
+      href: 'https://www.youtube.com/@ittae/',
+    },
+    {
+      icon: <EnvelopeIcon className="h-6 w-6" />,
+      href: 'mailto:ittae.com@gmail.com',
+    },
+  ]
+
   return (
     <PageScreen>
-      <div className="w-[888px] border border-black bg-white">
+      <div className="w-[888px] border border-black bg-white dark:border-white dark:bg-black">
         <MyCarousel />
         <div className="flex flex-col gap-6 px-4 py-8">
           <div className="flex justify-center">
-            <h1 className="text-4xl font-semibold">
+            <h1 className="text-4xl font-semibold dark:text-white">
               Hello! 여기까지 와줘서 고마워요.
             </h1>
           </div>
-          <div className="flex justify-end gap-2">
-            <a href="https://github.com/get6/" target="_blank">
-              <GithubIcon className="h-6 w-6" />
-            </a>
-            <a href="https://www.instagram.com/ittae.me/" target="_blank">
-              <InstagramIcon className="h-6 w-6" />
-            </a>
-            <a href="https://www.youtube.com/@ittae/" target="_blank">
-              <YoutubeIcon className="h-6 w-6" />
-            </a>
-            <a href="mailto:ittae.com@gmail.com">
-              <EnvelopeIcon className="h-6 w-6" />
-            </a>
+          <div className="flex justify-end gap-2 dark:text-white">
+            {channels.map((channel, index) => (
+              <Link
+                key={index}
+                href={channel.href}
+                {...(index !== channels.length - 1 && {
+                  target: '_blank',
+                })}
+              >
+                {channel.icon}
+              </Link>
+            ))}
           </div>
-          <div className="space-y-4">
+          <div className="space-y-4 dark:text-white">
             <p>
               반갑습니다. 저는 황성준입니다 😃 저는 지금 42서울에서 공통과정을
               마친 뒤 &quot;

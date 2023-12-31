@@ -16,10 +16,10 @@ export default function ReadingBook({ book }: Props) {
 
   return (
     <a
-      className="flex w-[250px] flex-col border border-black bg-white hover:cursor-pointer"
+      className="flex w-[250px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
       href={book.url}
     >
-      <div className="relative h-[370px] w-full border-b border-black">
+      <div className="relative h-[370px] w-full border-b border-black dark:border-white">
         <Image
           className="object-cover object-top"
           src={cover_url}
@@ -30,9 +30,9 @@ export default function ReadingBook({ book }: Props) {
         />
       </div>
       <div className="flex min-h-max flex-col justify-center gap-2 px-6 py-2">
-        <h1 className="text-xl font-bold">{title}</h1>
-        <span className="text-sm">{author}</span>
-        <div className="flex gap-1 text-sm">
+        <h1 className="text-xl font-bold dark:text-white">{title}</h1>
+        <span className="text-sm dark:text-white">{author}</span>
+        <div className="flex gap-1 text-sm dark:text-white">
           <span>📖 {format(new Date(start_read_date), 'yyyy-MM-dd')}</span>
           <span className="font-semibold text-red-500">
             {`+${daysOfReading}일째`}

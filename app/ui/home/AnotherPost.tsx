@@ -16,10 +16,10 @@ export default function AnotherPost({ post }: Props) {
 
   return (
     <div
-      className="flex h-[234px] max-h-full w-[282px] flex-col border border-black hover:cursor-pointer"
+      className="flex h-[234px] max-h-full w-[282px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
       onClick={() => push(post.url)}
     >
-      <div className="relative flex min-h-[162px] w-full border-b border-black">
+      <div className="relative flex min-h-[162px] w-full border-b border-black dark:border-white">
         <Image
           className="object-cover object-top"
           src={cover_image}

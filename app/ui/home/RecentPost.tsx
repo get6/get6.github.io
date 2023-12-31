@@ -25,10 +25,10 @@ export default function RecentPost({ post }: Props) {
 
   return (
     <div
-      className="h-[517px] w-[343px] border border-black bg-white hover:cursor-pointer"
+      className="h-[517px] w-[343px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
       onClick={() => push(post.url)}
     >
-      <div className="relative h-[343px] w-full border-b border-black">
+      <div className="relative h-[343px] w-full border-b border-black dark:border-white">
         <Image
           className="object-cover object-top"
           src={cover_image}
@@ -47,7 +47,9 @@ export default function RecentPost({ post }: Props) {
             </span>
           </div>
           <Title>{title}</Title>
-          <div className="truncate font-normal">{body.raw.slice(0, 50)}</div>
+          <div className="truncate font-normal dark:text-white">
+            {body.raw.slice(0, 50)}
+          </div>
         </div>
         <div className="flex gap-2">
           <Suspense fallback={<TagsFallBack tags={tags} />}>

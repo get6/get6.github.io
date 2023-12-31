@@ -31,11 +31,11 @@ export default function SeriesCard({ series }: Props) {
 
   return (
     <div
-      className="flex bg-white hover:cursor-pointer"
+      className="flex bg-white hover:cursor-pointer dark:bg-black"
       onClick={() => push(url)}
     >
-      <div className="flex h-[240px] w-[720px] border border-black">
-        <div className="relative h-full w-[192px] border-r border-black">
+      <div className="flex h-[240px] w-[720px] border border-black dark:border-white">
+        <div className="relative h-full w-[192px] border-r border-black dark:border-white">
           <Image
             className="object-cover object-top"
             src={cover_image}
@@ -48,9 +48,9 @@ export default function SeriesCard({ series }: Props) {
         <div className="flex flex-auto flex-col justify-center gap-4 px-6">
           <div className="flex flex-col gap-2">
             <PostDate date={date} body={body.raw} />
-            <h2 className="text-xl font-semibold">{title}</h2>
+            <h2 className="text-xl font-semibold dark:text-white">{title}</h2>
             <Title>{series[0].series_title}</Title>
-            <div className="self-stretch truncate text-base font-normal">
+            <div className="self-stretch truncate text-base font-normal dark:text-white">
               {body.raw}
             </div>
             <div className="inline-flex items-start justify-start gap-2 py-2">
