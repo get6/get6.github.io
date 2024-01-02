@@ -11,3 +11,9 @@ export enum BookStatus {
   Reading = 'reading', // 읽고 있어
   Finished = 'finished', // 읽었어
 }
+
+export enum ThemeState {
+  Light = 'light',
+  Dark = 'dark',
+  System = 'system',
+}

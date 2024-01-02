@@ -1,11 +1,11 @@
-import ThemeImage from '@/app/ui/ThemeImage'
+import Image from 'next/image'
 
 export default function Logo() {
   return (
-    <ThemeImage
-      srcLight="/favicon.ico"
-      srcDark="/favicon-dark.ico"
-      alt="favicon"
+    <Image
+      src="/images/logo.png"
+      className="h-6 w-6"
+      alt="logo"
       width={24}
       height={24}
     />

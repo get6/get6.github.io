@@ -1,4 +1,5 @@
 import { blog_description, blog_title } from '@/app/lib/definitions'
+import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -13,13 +14,13 @@ export const metadata: Metadata = {
     {
       rel: 'icon',
       type: 'image/x-icon',
-      url: '/favicon.ico',
+      url: '/icons/favicon.ico',
       media: '(prefers-color-scheme: light)',
     },
     {
       rel: 'icon',
       type: 'image/x-icon',
-      url: '/favicon-dark.ico',
+      url: '/icons/favicon-dark.ico',
       media: '(prefers-color-scheme: dark)',
     },
   ],
@@ -31,12 +32,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko" className="dark">
-      <body className={`${inter.className} dark:bg-black`}>
-        <header>
-          <Navbar />
-        </header>
-        {children}
+    <html lang="ko" suppressHydrationWarning>
+      <body className={`${inter.className}`}>
+        <Providers>
+          <header>
+            <Navbar />
+          </header>
+          {children}
+        </Providers>
       </body>
     </html>
   )

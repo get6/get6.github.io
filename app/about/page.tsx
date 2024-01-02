@@ -28,15 +28,15 @@ export default function About() {
 
   return (
     <PageScreen>
-      <div className="w-[888px] border border-black bg-white dark:border-white dark:bg-black">
+      <div className="w-[888px] border border-black bg-white shadow-2xl dark:border-white dark:bg-black">
         <MyCarousel />
-        <div className="flex flex-col gap-6 px-4 py-8">
+        <div className="flex flex-col gap-6 border-t border-white px-4 py-8 dark:border-white">
           <div className="flex justify-center">
             <h1 className="text-4xl font-semibold dark:text-white">
               Hello! 여기까지 와줘서 고마워요.
             </h1>
           </div>
-          <div className="flex justify-end gap-2 dark:text-white">
+          <div className="flex items-center justify-end gap-2 dark:text-white">
             {channels.map((channel, index) => (
               <Link
                 key={index}
