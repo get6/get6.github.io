@@ -1,5 +1,6 @@
 import { Book } from '@/.contentlayer/generated'
-import { differenceInCalendarDays, format } from 'date-fns'
+import DaysOfReading from '@/app/ui/books/DaysOfReading'
+import { format } from 'date-fns'
 import Image from 'next/image'
 
 interface Props {
@@ -9,10 +10,7 @@ interface Props {
 export default function ReadingBook({ book }: Props) {
   const { title, author, start_read_date, cover_url } = book
 
-  const daysOfReading = differenceInCalendarDays(
-    new Date(),
-    new Date(start_read_date),
-  )
+  const startReadDate = new Date(start_read_date)
 
   return (
     <a
@@ -33,10 +31,8 @@ export default function ReadingBook({ book }: Props) {
         <h1 className="text-xl font-bold dark:text-white">{title}</h1>
         <span className="text-sm dark:text-white">{author}</span>
         <div className="flex gap-1 text-sm dark:text-white">
-          <span>📖 {format(new Date(start_read_date), 'yyyy-MM-dd')}</span>
-          <span className="font-semibold text-red-500">
-            {`+${daysOfReading}일째`}
-          </span>
+          <span>📖 {format(startReadDate, 'yyyy-MM-dd')}</span>
+          <DaysOfReading startReadDate={startReadDate} />
         </div>
       </div>
     </a>
