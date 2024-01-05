@@ -1,5 +1,5 @@
 import { Book } from '@/.contentlayer/generated'
-import { format, intervalToDuration } from 'date-fns'
+import { differenceInCalendarDays, format } from 'date-fns'
 import Image from 'next/image'
 
 interface Props {
@@ -7,12 +7,12 @@ interface Props {
 }
 
 export default function ReadingBook({ book }: Props) {
-  const { title, author, start_read_date, status, cover_url } = book
+  const { title, author, start_read_date, cover_url } = book
 
-  const daysOfReading = intervalToDuration({
-    start: new Date(start_read_date),
-    end: new Date(),
-  }).days!.toString()
+  const daysOfReading = differenceInCalendarDays(
+    new Date(),
+    new Date(start_read_date),
+  )
 
   return (
     <a

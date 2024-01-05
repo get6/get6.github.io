@@ -6,7 +6,7 @@ import ToastPostal from '@/app/ui/ToastPostal'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
-import { format, intervalToDuration } from 'date-fns'
+import { differenceInCalendarDays, format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -50,6 +50,11 @@ export default function Book({ params }: { params: { slug: string } }) {
       <StarIcon key={i} className="h-4 w-4" />
     )),
   ]
+
+  const daysOfReading = differenceInCalendarDays(
+    new Date(finish_read_date),
+    new Date(start_read_date),
+  )
 
   return (
     <PageScreen>
@@ -95,10 +100,7 @@ export default function Book({ params }: { params: { slug: string } }) {
                 )}
                 {start_read_date < finish_read_date && (
                   <span className="text-red-500">
-                    {` (${intervalToDuration({
-                      start: new Date(start_read_date),
-                      end: new Date(finish_read_date),
-                    }).days!.toString()}일)`}
+                    {` (${daysOfReading}일)`}
                   </span>
                 )}
               </p>

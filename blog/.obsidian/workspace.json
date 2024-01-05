@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "books/생각하라 그리고 부자가 되어라.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "books/생각하라 그리고 부자가 되어라.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "books/생각하라 그리고 부자가 되어라.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202312271313.md"
+                "file": "books/생각하라 그리고 부자가 되어라.md"
               }
             }
           }
@@ -152,6 +152,10 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
+    "books/인간관계론.md",
+    "books/생각하라 그리고 부자가 되어라.md",
+    "books/성공의 법칙.md",
+    "posts/202312271313.md",
     "posts/202312311851.md",
     "posts/202312311852.md",
     "posts/202312311853.md",
@@ -160,7 +164,6 @@
     "templates/Post template.md",
     "posts/post-01.md",
     "posts/202312311838.md",
-    "posts/202312271313.md",
     "assets/MailAttachment.jpeg",
     "books/마케팅이다.md",
     "books/스토리의 과학 팔리는 브랜드에는 공식이 있다.md",
@@ -176,9 +179,6 @@
     "books/Unit Testing 단위 테스트.md",
     "books/IT 리더의 자리.md",
     "books/IT 리더의 자리.md",
-    "books/HTTP 완벽 가이드.md",
-    "books/HTTP 완벽 가이드.md",
-    "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
     "assets/Pasted image 20231220144643.png",
     "templates",
     "template"
