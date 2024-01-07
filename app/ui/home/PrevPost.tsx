@@ -23,7 +23,7 @@ export default function PrevPost({ post }: Props) {
 
   return (
     <div
-      className="flex h-[205px] w-[520px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
+      className="flex h-[205px] w-[520px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
       onClick={() => push(post.url)}
     >
       <div className="flex min-w-[164px] border-r border-black dark:border-white">

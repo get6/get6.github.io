@@ -25,7 +25,7 @@ export default function RecentPost({ post }: Props) {
 
   return (
     <div
-      className="h-[517px] w-[343px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
+      className="h-[517px] w-[343px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
       onClick={() => push(post.url)}
     >
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">

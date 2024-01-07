@@ -14,7 +14,7 @@ export default function ReadingBook({ book }: Props) {
 
   return (
     <a
-      className="flex w-[250px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-black"
+      className="flex w-[250px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
       href={book.url}
     >
       <div className="relative h-[370px] w-full border-b border-black dark:border-white">

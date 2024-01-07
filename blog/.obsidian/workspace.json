@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "books/생각하라 그리고 부자가 되어라.md",
+                "file": "posts/202401071414.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "books/생각하라 그리고 부자가 되어라.md",
+                "file": "posts/202401071414.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "books/생각하라 그리고 부자가 되어라.md",
+                "file": "posts/202401071414.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "books/생각하라 그리고 부자가 되어라.md"
+                "file": "posts/202401071414.md"
               }
             }
           }
@@ -152,8 +152,13 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
-    "books/인간관계론.md",
+    "books/디지털 트랜스포메이션 엔진.md",
+    "posts/202401071414.md",
+    "books/사이트 신뢰성 엔지니어링.md",
+    "books/IT 리더의 자리.md",
+    "books/IT 리더의 자리 애자일 환경에서 CIO로 살아남기 위한 전략.md",
     "books/생각하라 그리고 부자가 되어라.md",
+    "books/인간관계론.md",
     "books/성공의 법칙.md",
     "posts/202312271313.md",
     "posts/202312311851.md",
@@ -174,11 +179,6 @@
     "books/만화 경영전략 설전  혁신편.md",
     "books/실전 피그마.md",
     "books/도커 컨테이너 빌드업.md",
-    "books/UX UI 디자이너를 위한 실무 피그마.md",
-    "books/단위 테스트.md",
-    "books/Unit Testing 단위 테스트.md",
-    "books/IT 리더의 자리.md",
-    "books/IT 리더의 자리.md",
     "assets/Pasted image 20231220144643.png",
     "templates",
     "template"

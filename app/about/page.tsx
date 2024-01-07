@@ -28,7 +28,7 @@ export default function About() {
 
   return (
     <PageScreen>
-      <div className="w-[888px] border border-black bg-white shadow-2xl dark:border-white dark:bg-black">
+      <div className="w-[888px] border border-black bg-white shadow-2xl dark:border-white dark:bg-gray-900">
         <MyCarousel />
         <div className="flex flex-col gap-6 border-t border-white px-4 py-8 dark:border-white">
           <div className="flex justify-center">

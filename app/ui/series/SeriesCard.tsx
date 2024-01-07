@@ -31,7 +31,7 @@ export default function SeriesCard({ series }: Props) {
 
   return (
     <div
-      className="flex bg-white hover:cursor-pointer dark:bg-black"
+      className="flex bg-white hover:cursor-pointer dark:bg-gray-900"
       onClick={() => push(url)}
     >
       <div className="flex h-[240px] w-[720px] border border-black dark:border-white">

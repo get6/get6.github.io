@@ -29,7 +29,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   return (
     <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-20">
-      <div className="flex h-full w-[878px] flex-col items-center gap-4 border border-black p-16">
+      <div className="flex h-full w-[878px] flex-col items-center gap-4 border border-black p-16 dark:border-white">
         <h1 className="flex w-full justify-center text-4xl">{title}</h1>
         <div className="flex w-full items-center justify-between">
           <PostDate date={date} body={body.raw} isDetail />

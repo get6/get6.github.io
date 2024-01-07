@@ -20,7 +20,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="flex h-8 items-center justify-start divide-x divide-black border border-black bg-white dark:divide-white dark:border-white dark:bg-black">
+    <nav className="flex h-8 items-center justify-start divide-x divide-black border border-black bg-white dark:divide-white dark:border-white dark:bg-gray-900">
       <div className="px-8 dark:text-white sm:px-2 md:px-2 lg:px-3">
         <Link
           href="/"

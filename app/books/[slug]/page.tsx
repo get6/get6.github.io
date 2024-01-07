@@ -58,9 +58,9 @@ export default function Book({ params }: { params: { slug: string } }) {
 
   return (
     <PageScreen>
-      <div className="flex flex-col gap-8 border border-black px-6 py-16">
+      <div className="flex flex-col gap-8 border border-black px-6 py-16 dark:border-white">
         <div className="flex gap-10">
-          <div className="relative h-96 w-64 border border-black">
+          <div className="relative h-96 w-64 border border-black dark:border-white">
             <Image
               className="aspect-auto object-cover object-top"
               src={cover_url}
