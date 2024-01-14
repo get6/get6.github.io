@@ -16,11 +16,11 @@ export default function ReadingBook({ book }: Props) {
 
   return (
     <Link
-      className="flex h-[448px] w-[888px] flex-col gap-2 rounded-lg bg-white p-2"
+      className="flex h-[448px] w-[888px] flex-col gap-2 rounded-lg bg-white p-2 dark:bg-gray-900"
       href={book.url}
     >
       <div className="relative h-full w-full">
-        <div className="absolute bottom-0 left-0 h-[140px] w-full rounded-lg bg-blue-100" />
+        <div className="absolute bottom-0 left-0 h-[140px] w-full rounded-lg bg-blue-100 dark:bg-blue-950" />
         <div className="absolute top-2 flex w-full items-center justify-center">
           <div className="flex w-[720px]">
             <div className="relative flex h-[416px] min-w-[280px] border border-black">
