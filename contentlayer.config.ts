@@ -172,6 +172,7 @@ export const Book = defineDocumentType(() => ({
     // },
     tag: { type: 'string', required: true },
     title: { type: 'string', required: true },
+    subtitle: { type: 'string' },
     author: { type: 'string', required: true },
     category: { type: 'string', required: true },
     total_page: { type: 'number', required: true },
