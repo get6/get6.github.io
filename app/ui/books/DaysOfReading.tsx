@@ -1,25 +1,19 @@
 'use client'
 
+import { todayState } from '@/app/state/date-state'
 import { differenceInCalendarDays } from 'date-fns'
-import { useEffect, useState } from 'react'
+import { useRecoilValue } from 'recoil'
 
 interface Props {
   startReadDate: Date
 }
 
 export default function DaysOfReading({ startReadDate }: Props) {
-  const [clientDate, setClientDate] = useState<Date | null>(null)
-
-  useEffect(() => {
-    const currentDate = new Date()
-    setClientDate(currentDate)
-  }, [])
+  const today = useRecoilValue(todayState)
 
   return (
-    clientDate && (
-      <span className="font-semibold text-red-500">
-        +{differenceInCalendarDays(clientDate, startReadDate)}일째
-      </span>
-    )
+    <span className="font-semibold text-red-500">
+      +{differenceInCalendarDays(today, startReadDate)}일째
+    </span>
   )
 }
