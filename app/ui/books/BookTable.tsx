@@ -32,7 +32,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
         {books.map((book, index) => (
           <tr
             key={index}
-            className={`border-b bg-white dark:border-gray-700 dark:bg-gray-800  ${
+            className={`max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800 ${
               isFinished &&
               'hover:cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600'
             }`}
@@ -61,7 +61,10 @@ export default function BookTable({ books, isFinished = false }: Props) {
             <td className="truncate px-6 py-4">
               {format(new Date(book.publish_date), 'yyyy-MM-dd')}
             </td>
-            <td className="px-6 py-4">{book.tag.split(' ')[2]}</td>
+            {/* TODO: subtitle 추가되면 여기 영역도 조금 여유가 생길 듯 */}
+            <td className="max-w-[122px] truncate px-6 py-4">
+              {book.tag.split(' ')[2]}
+            </td>
             <td className="px-6 py-4">
               <LinkIcon
                 className="h-5 w-5 hover:cursor-pointer hover:text-blue-500"
