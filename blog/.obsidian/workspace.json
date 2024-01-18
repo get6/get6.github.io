@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202401071414.md",
+                "file": "books/사용자 스토리 맵 만들기.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202401071414.md",
+                "file": "books/사용자 스토리 맵 만들기.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202401071414.md",
+                "file": "books/사용자 스토리 맵 만들기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202401071414.md"
+                "file": "books/사용자 스토리 맵 만들기.md"
               }
             }
           }
@@ -152,8 +152,11 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
-    "books/디지털 트랜스포메이션 엔진.md",
+    "books/변화하는 세계질서.md",
+    "books/사용자 스토리 맵 만들기.md",
+    "books/원칙 PRINCIPLES.md",
     "posts/202401071414.md",
+    "books/디지털 트랜스포메이션 엔진.md",
     "books/사이트 신뢰성 엔지니어링.md",
     "books/IT 리더의 자리.md",
     "books/IT 리더의 자리 애자일 환경에서 CIO로 살아남기 위한 전략.md",
@@ -176,9 +179,6 @@
     "posts/42서울을 준비하는 사람들을 위한 책 추천.md",
     "books/슈독 나이키 창업자 필 나이트 자서전.md",
     "books/머신러닝 시스템 설계.md",
-    "books/만화 경영전략 설전  혁신편.md",
-    "books/실전 피그마.md",
-    "books/도커 컨테이너 빌드업.md",
     "assets/Pasted image 20231220144643.png",
     "templates",
     "template"
