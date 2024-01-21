@@ -1,4 +1,5 @@
 import { allPosts } from '@/.contentlayer/generated'
+import Article from '@/app/ui/Article'
 import Line from '@/app/ui/Line'
 import ToastPostal from '@/app/ui/ToastPostal'
 import AnotherPost from '@/app/ui/home/AnotherPost'
@@ -38,12 +39,9 @@ export default function Post({ params }: { params: { slug: string } }) {
           <PostDate date={date} body={body.raw} isDetail />
           <ToastPostal />
         </div>
-        <div className="flex w-full flex-col items-center justify-center">
+        <div className="flex w-full flex-col items-center">
           <Line className="prose" />
-          <article
-            className="prose dark:prose-invert prose-img:mx-auto lg:pb-4"
-            dangerouslySetInnerHTML={{ __html: post.body.html }}
-          />
+          <Article html={body.html} />
           <Line className="prose" />
         </div>
         <PostTags tags={tags} />

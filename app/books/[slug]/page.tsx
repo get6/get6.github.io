@@ -1,5 +1,6 @@
 import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
+import Article from '@/app/ui/Article'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
@@ -120,10 +121,7 @@ export default function Book({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <Line className="prose" />
-      <article
-        className="prose dark:prose-invert prose-img:mx-auto"
-        dangerouslySetInnerHTML={{ __html: body.html }}
-      />
+      <Article html={body.html} />
       <Line className="prose" />
     </DetailScreen>
   )
