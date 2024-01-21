@@ -21,7 +21,7 @@ export default function SearchBar() {
   }, 300)
 
   return (
-    <div className="relative flex h-12 w-80 items-center overflow-hidden rounded-md border border-black bg-white dark:border-white dark:bg-gray-900">
+    <div className="relative flex h-10 w-48 items-center overflow-hidden rounded-md border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-12 lg:w-80">
       <div className="grid h-full w-12 place-items-center text-gray-400">
         <MagnifyingGlassIcon className="h-4 w-4" />
       </div>

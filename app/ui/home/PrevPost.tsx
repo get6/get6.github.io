@@ -2,6 +2,7 @@
 
 import { Post } from '@/.contentlayer/generated'
 import Badge from '@/app/ui/Badge'
+import Line from '@/app/ui/Line'
 
 import Title from '@/app/ui/Title'
 import PostDate from '@/app/ui/home/post/PostDate'
@@ -23,10 +24,10 @@ export default function PrevPost({ post }: Props) {
 
   return (
     <div
-      className="flex h-[205px] w-[520px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
+      className="flex h-[120px] w-[344px] border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
       onClick={() => push(post.url)}
     >
-      <div className="flex min-w-[164px] border-r border-black dark:border-white">
+      <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
         <div className="relative w-full">
           <Image
             className="object-cover object-top"
@@ -38,15 +39,18 @@ export default function PrevPost({ post }: Props) {
           />
         </div>
       </div>
-      <div className="flex flex-col justify-center gap-4 overflow-auto px-6">
-        <div className="flex flex-col gap-2">
+      <div className="flex flex-col justify-center overflow-auto px-6 lg:gap-4">
+        <div className="flex flex-col justify-between lg:gap-2">
           <PostDate date={date} body={body.raw} />
           <Title>{title}</Title>
-          <div className="truncate font-normal dark:text-white">
+          <div className="truncate text-sm font-normal dark:text-white lg:text-base">
             {body.raw.slice(0, 50)}
           </div>
         </div>
-        <div className="flex gap-2 py-2">
+        <div className="py-2 lg:py-0">
+          <Line />
+        </div>
+        <div className="flex gap-2">
           {tags.map((tag, index) => (
             <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
           ))}

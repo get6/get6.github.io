@@ -34,21 +34,19 @@ export default function Home() {
 
   return (
     <PageScreen>
-      <div className="flex w-full flex-col gap-8">
-        <div className="flex flex-col gap-4">
+      <div className="flex w-min flex-col items-center gap-8 lg:w-full">
+        <div className="flex flex-col gap-4 lg:w-full">
           <PageTitle>Recent Posts</PageTitle>
           <div
-            className={`flex ${
-              recentPosts.length == 3 ? 'justify-between' : 'gap-10'
-            }`}
+            className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
           >
             {recentPosts.map((post, index) => (
               <RecentPost key={index} post={post} />
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="flex justify-between">
+        <div className="flex flex-col gap-4 lg:w-full">
+          <div className="flex min-w-[344px] justify-between">
             <PageTitle>All Posts</PageTitle>
             <Suspense fallback={<SearchBarFallback />}>
               <SearchBar />
