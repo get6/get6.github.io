@@ -16,7 +16,7 @@ export function TableBody({ children }: Props) {
 
 export default function Table({ children }: Props) {
   return (
-    <div className="rounded-lg shadow-md">
+    <div className="overflow-x-auto rounded-lg shadow-md">
       <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
         {children}
       </table>

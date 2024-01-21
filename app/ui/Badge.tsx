@@ -20,14 +20,14 @@ export default function Badge({
 
   return (
     <span
-      className={`rounded-full px-2.5 py-0.5 font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200  dark:text-gray-300 dark:hover:bg-gray-600
+      className={`rounded-full px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-600
      
         ${
           name === param
             ? 'bg-gray-200 dark:bg-gray-600'
             : 'bg-gray-100 dark:bg-gray-700'
         }
-      ${isLarge ? 'text-sm' : 'text-xs'}
+      ${isLarge && 'text-sm'}
       `}
       onClick={onClick}
     >
