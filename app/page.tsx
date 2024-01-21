@@ -34,8 +34,8 @@ export default function Home() {
 
   return (
     <PageScreen>
-      <div className="flex w-min flex-col items-center gap-8 lg:w-full">
-        <div className="flex flex-col gap-4 lg:w-full">
+      <div className="flex w-full flex-col items-center gap-8">
+        <div className="flex w-full flex-col gap-4">
           <PageTitle>Recent Posts</PageTitle>
           <div
             className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
@@ -45,7 +45,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-4 lg:w-full">
+        <div className="flex w-full flex-col gap-4">
           <div className="flex min-w-[344px] justify-between">
             <PageTitle>All Posts</PageTitle>
             <Suspense fallback={<SearchBarFallback />}>
