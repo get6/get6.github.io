@@ -22,9 +22,9 @@ export default function Series() {
 
   return (
     <PageScreen>
-      <div className="flex w-full max-w-[888px] flex-col gap-4">
+      <div className="flex w-full flex-col gap-4 lg:max-w-[888px]">
         <PageTitle>Series</PageTitle>
-        <div className="flex flex-col place-items-center gap-6">
+        <div className="flex w-full flex-col justify-center gap-6">
           {seriesArray.map((series, index) => (
             <SeriesCard key={index} series={series} />
           ))}
