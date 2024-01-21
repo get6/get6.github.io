@@ -4,6 +4,7 @@ import ToastPostal from '@/app/ui/ToastPostal'
 import AnotherPost from '@/app/ui/home/AnotherPost'
 import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
+import DetailScreen from '@/app/ui/layout/DetailScreen'
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post.slug }))
@@ -28,8 +29,8 @@ export default function Post({ params }: { params: { slug: string } }) {
   const { date, title, body, tags } = post
 
   return (
-    <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-4 lg:p-20">
-      <div className="flex h-full flex-col items-center gap-4 border border-black p-8 dark:border-white lg:w-[878px] lg:p-10">
+    <>
+      <DetailScreen>
         <h1 className="flex w-full justify-center text-2xl lg:text-4xl">
           {title}
         </h1>
@@ -46,10 +47,10 @@ export default function Post({ params }: { params: { slug: string } }) {
           <Line className="prose" />
         </div>
         <PostTags tags={tags} />
-      </div>
+      </DetailScreen>
       {0 < otherPosts.length && (
-        <div className="flex w-full justify-center lg:w-fit">
-          <div className="flex w-full flex-col justify-center gap-4">
+        <div className="flex w-screen items-center justify-center pb-8 lg:pb-16">
+          <div className="flex w-full flex-col justify-center gap-4 px-4 lg:w-fit lg:px-0">
             <span className="text-sm font-extralight lg:text-base">
               Other posts
             </span>
@@ -61,6 +62,6 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
         </div>
       )}
-    </main>
+    </>
   )
 }
