@@ -11,9 +11,9 @@ interface Props {
 export default function PostDate({ date, body, isDetail = false }: Props) {
   return (
     <span
-      className={`${
-        isDetail ? 'text-sm font-light' : 'text-xs font-normal'
-      } dark:text-white`}
+      className={`text-xs dark:text-white ${
+        isDetail ? 'font-light lg:text-sm' : 'font-normal'
+      }`}
     >
       {format(new Date(date), 'MMM d')}&nbsp;・&nbsp;{readingTime(body)} min
     </span>

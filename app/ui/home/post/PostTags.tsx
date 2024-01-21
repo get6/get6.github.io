@@ -18,7 +18,7 @@ export default function PostTags({ tags }: Props) {
   }
 
   return (
-    <div className="flex w-full justify-end gap-2">
+    <div className="prose flex w-full justify-end gap-2">
       <Suspense fallback={<TagsFallBack tags={tags} />}>
         {tags.map((tag, index) => (
           <Badge key={index} name={tag} onClick={handleTagClick(tag)} />

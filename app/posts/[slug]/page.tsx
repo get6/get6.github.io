@@ -28,29 +28,32 @@ export default function Post({ params }: { params: { slug: string } }) {
   const { date, title, body, tags } = post
 
   return (
-    <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-20">
-      <div className="flex h-full w-[878px] flex-col items-center gap-4 border border-black p-16 dark:border-white">
-        <h1 className="flex w-full justify-center text-4xl">{title}</h1>
-        <div className="flex w-full items-center justify-between">
+    <main className="flex min-h-screen flex-col place-content-start place-items-center gap-4 p-4 lg:p-20">
+      <div className="flex h-full flex-col items-center gap-4 border border-black p-8 dark:border-white lg:w-[878px] lg:p-10">
+        <h1 className="flex w-full justify-center text-2xl lg:text-4xl">
+          {title}
+        </h1>
+        <div className="prose flex w-full items-center justify-between">
           <PostDate date={date} body={body.raw} isDetail />
           <ToastPostal />
         </div>
-        <div className="flex w-full flex-col items-center justify-center gap-8">
-          <Line />
+        <div className="flex w-full flex-col items-center justify-center">
+          <Line className="prose" />
           <article
-            className="prose dark:prose-invert prose-img:mx-auto"
+            className="prose dark:prose-invert prose-img:mx-auto lg:pb-4"
             dangerouslySetInnerHTML={{ __html: post.body.html }}
           />
-          {/* <MDXContent /> */}
-          <Line />
+          <Line className="prose" />
         </div>
         <PostTags tags={tags} />
       </div>
       {0 < otherPosts.length && (
-        <div className="flex justify-center">
-          <div className="flex max-w-max flex-col gap-4">
-            <span className="font-extralight">Other posts</span>
-            <div className="flex flex-none grow-0 justify-center gap-4">
+        <div className="flex w-full justify-center lg:w-fit">
+          <div className="flex w-full flex-col justify-center gap-4">
+            <span className="text-sm font-extralight lg:text-base">
+              Other posts
+            </span>
+            <div className="flex gap-4 overflow-x-auto">
               {otherPosts.map((post, index) => (
                 <AnotherPost key={index} post={post} />
               ))}

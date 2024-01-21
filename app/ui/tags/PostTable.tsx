@@ -44,10 +44,10 @@ export default function PostTable({ posts }: Props) {
             >
               {post.title}
             </th>
-            <td className="px-6 py-4">
+            <td className="truncate px-6 py-4">
               {format(new Date(post.date), 'yyyy-MM-dd')}
             </td>
-            <td className="px-6 py-4">{post.tags.join(' ')}</td>
+            <td className="truncate px-6 py-4">{post.tags.join(' ')}</td>
           </tr>
         ))}
       </TableBody>
