@@ -55,16 +55,23 @@ export default function About() {
               </div>
               <div className="space-y-4 dark:text-white">
                 <p>
-                  반갑습니다. 저는 황성준입니다 😃 저는 지금 42서울에서
-                  공통과정을 마친 뒤 &quot;
-                  <a
+                  반갑습니다. 제 이름은 황성준입니다 😃 저는 23년 12월에&nbsp;
+                  <Link
+                    href="https://42seoul.kr/"
+                    target="_blank"
+                    className="text-blue-500"
+                  >
+                    42서울
+                  </Link>
+                  에서 공통과정을 마친 뒤 &quot;
+                  <Link
                     href="https://ittae.com/"
                     target="_blank"
                     className="font-semibold text-blue-500 underline"
                   >
                     이때
-                  </a>
-                  &quot; 라는 공유 캘린더 서비스를 만들고 있습니다.
+                  </Link>
+                  &quot;&nbsp;라는 공유 캘린더 서비스를 만들고 있습니다.
                 </p>
                 <p>
                   이 블로그는 제가 개발하면서 배운 것들을 기록하고, 제가 겪은
@@ -96,6 +103,9 @@ export default function About() {
                   연락주세요!
                 </p>
                 <p>감사합니다. 오늘도 좋은 하루 보내세요! 🙏🏻</p>
+              </div>
+              <div className="flex justify-center text-sm">
+                ✨ I&apos;m gonna live every minute of it.
               </div>
             </div>
           </div>
