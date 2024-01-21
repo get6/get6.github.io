@@ -87,9 +87,10 @@ export default function Navbar() {
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900">
             {menus.map((menu, index) => (
               <li key={index}>
-                <Link
-                  href={menu.href}
-                  className={`
+                <button onClick={toggleMenu}>
+                  <Link
+                    href={menu.href}
+                    className={`
                     ${
                       pathname === menu.href &&
                       'block rounded bg-blue-700 px-3 py-2 text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500'
@@ -98,21 +99,24 @@ export default function Navbar() {
                       pathname !== menu.href &&
                       'block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500'
                     }`}
-                >
-                  {menu.name}
-                </Link>
+                  >
+                    {menu.name}
+                  </Link>
+                </button>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <Link
-        href="/"
-        className="flex h-full items-center justify-center gap-2 text-xl font-light hover:cursor-pointer dark:text-white"
-      >
-        <Logo />
-        {blog_title}
-      </Link>
+      <button onClick={() => setIsMenuOpen(false)}>
+        <Link
+          href="/"
+          className="flex h-full items-center justify-center gap-2 text-xl font-light hover:cursor-pointer dark:text-white"
+        >
+          <Logo />
+          {blog_title}
+        </Link>
+      </button>
       <div className="flex h-full items-center px-4">
         <ThemeToggle />
       </div>
