@@ -1,6 +1,7 @@
 import { Book } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
 import DaysOfReading from '@/app/ui/books/DaysOfReading'
+import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,7 +15,7 @@ export default function ReadingBook({ book }: Props) {
 
   const startReadDate = new Date(start_read_date)
 
-  return (
+  const lgBookCard = (
     <Link
       className="flex h-[448px] w-[888px] flex-col gap-2 rounded-lg bg-white p-2 dark:bg-gray-900"
       href={book.url}
@@ -23,7 +24,7 @@ export default function ReadingBook({ book }: Props) {
         <div className="absolute bottom-0 left-0 h-[140px] w-full rounded-lg bg-blue-100 dark:bg-blue-950" />
         <div className="absolute top-2 flex w-full items-center justify-center">
           <div className="flex w-[720px]">
-            <div className="relative flex h-[416px] min-w-[280px] border border-black">
+            <div className="relative flex h-[416px] min-w-[280px] border border-black dark:border-white">
               <Image
                 className="object-cover object-top"
                 src={cover_url}
@@ -61,5 +62,14 @@ export default function ReadingBook({ book }: Props) {
         </div>
       </div>
     </Link>
+  )
+
+  const defaultBookCard = <ReadingBookCard book={book} />
+
+  return (
+    <>
+      <div className="hidden lg:flex">{lgBookCard}</div>
+      <div className="flex justify-center lg:hidden">{defaultBookCard}</div>
+    </>
   )
 }

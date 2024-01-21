@@ -1,10 +1,8 @@
 import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
 import BookTable from '@/app/ui/books/BookTable'
-import {
-  default as ReadingBook,
-  default as SampleBook,
-} from '@/app/ui/books/ReadingBook'
+import ReadingBook from '@/app/ui/books/ReadingBook'
+import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { compareDesc } from 'date-fns'
@@ -36,7 +34,7 @@ export default function Books() {
             {readingBooks.length == 1 && (
               <>
                 <PageTitle>Book I am reading</PageTitle>
-                <SampleBook book={readingBooks[0]} />
+                <ReadingBook book={readingBooks[0]} />
               </>
             )}
             {readingBooks.length > 1 && (
@@ -44,7 +42,7 @@ export default function Books() {
                 <PageTitle>Reading list</PageTitle>
                 <div className="flex w-full justify-between gap-4">
                   {readingBooks.map((book, index) => (
-                    <ReadingBook key={index} book={book} />
+                    <ReadingBookCard key={index} book={book} />
                   ))}
                 </div>
               </>
