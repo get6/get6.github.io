@@ -59,10 +59,10 @@ export default function Book({ params }: { params: { slug: string } }) {
 
   return (
     <DetailScreen>
-      <div className="flex gap-4 lg:gap-10">
-        <div className="relative h-48 w-36 border border-black dark:border-white lg:h-96 lg:w-64">
+      <div className="flex w-full justify-center gap-4 lg:gap-8">
+        <div className="relative w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
           <Image
-            className="aspect-auto object-cover object-left-top"
+            className="object-cover object-left-top"
             src={cover_url}
             alt={title}
             priority
@@ -70,7 +70,7 @@ export default function Book({ params }: { params: { slug: string } }) {
             sizes="(min-width: 1024px) 256px, (max-width: 1024px) 100vw"
           />
         </div>
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between lg:max-w-md">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between gap-2">
               <Title>{title}</Title>
