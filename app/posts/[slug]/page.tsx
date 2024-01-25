@@ -47,7 +47,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         <PostTags tags={tags} />
       </DetailScreen>
       {0 < otherPosts.length && (
-        <div className="flex w-screen items-center justify-center pb-8 lg:pb-16">
+        <div className="flex items-center justify-center pb-8 lg:pb-16">
           <div className="flex w-full flex-col justify-center gap-4 px-4 lg:w-fit lg:px-0">
             <span className="text-sm font-extralight lg:text-base">
               Other posts
