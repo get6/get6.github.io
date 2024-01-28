@@ -3,7 +3,7 @@ import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import GithubIcon from '@/app/ui/social/GithubIcon'
 import InstagramIcon from '@/app/ui/social/InstagramIcon'
-import YoutubeIcon from '@/app/ui/social/YoutubeIcon'
+import LinkedInIcon from '@/app/ui/social/LinkedInIcon'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
@@ -14,13 +14,17 @@ export default function About() {
       href: 'https://github.com/get6/',
     },
     {
+      icon: <LinkedInIcon className="h-6 w-6" />,
+      href: 'https://www.linkedin.com/in/ittae/',
+    },
+    {
       icon: <InstagramIcon className="h-6 w-6" />,
       href: 'https://www.instagram.com/ittae.me/',
     },
-    {
-      icon: <YoutubeIcon className="h-6 w-6" />,
-      href: 'https://www.youtube.com/@ittae/',
-    },
+    // {
+    //   icon: <YoutubeIcon className="h-6 w-6" />,
+    //   href: 'https://www.youtube.com/@ittae/',
+    // },
     {
       icon: <EnvelopeIcon className="h-6 w-6" />,
       href: 'mailto:ittae.com@gmail.com',
