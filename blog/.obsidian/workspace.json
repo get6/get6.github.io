@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "books/사용자 스토리 맵 만들기.md",
+                "file": "books/더 시스템 THE SYSTEM.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "books/사용자 스토리 맵 만들기.md",
+                "file": "books/더 시스템 THE SYSTEM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "books/사용자 스토리 맵 만들기.md",
+                "file": "books/더 시스템 THE SYSTEM.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "books/사용자 스토리 맵 만들기.md"
+                "file": "books/더 시스템 THE SYSTEM.md"
               }
             }
           }
@@ -152,8 +152,14 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
-    "books/변화하는 세계질서.md",
+    "books/로지컬 씽킹.md",
+    "books/더 시스템 THE SYSTEM.md",
+    "books/살아 보니 시간 바로 지금에 관한 이야기.md",
+    "books/1초의 탄생.md",
+    "books/우주의 가장 위대한 생각들.md",
+    "books/시간은 어떻게 돈이 되었는가.md",
     "books/사용자 스토리 맵 만들기.md",
+    "books/변화하는 세계질서.md",
     "books/원칙 PRINCIPLES.md",
     "posts/202401071414.md",
     "books/디지털 트랜스포메이션 엔진.md",
@@ -173,12 +179,6 @@
     "posts/post-01.md",
     "posts/202312311838.md",
     "assets/MailAttachment.jpeg",
-    "books/마케팅이다.md",
-    "books/스토리의 과학 팔리는 브랜드에는 공식이 있다.md",
-    "posts/202312301624.md",
-    "posts/42서울을 준비하는 사람들을 위한 책 추천.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전.md",
-    "books/머신러닝 시스템 설계.md",
     "assets/Pasted image 20231220144643.png",
     "templates",
     "template"
