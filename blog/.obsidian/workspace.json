@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "books/더 시스템 THE SYSTEM.md",
+                "file": "posts/202401291636.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "books/더 시스템 THE SYSTEM.md",
+                "file": "posts/202401291636.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "books/더 시스템 THE SYSTEM.md",
+                "file": "posts/202401291636.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "books/더 시스템 THE SYSTEM.md"
+                "file": "posts/202401291636.md"
               }
             }
           }
@@ -152,8 +152,16 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
-    "books/로지컬 씽킹.md",
+    "posts/202312301624.md",
+    "posts/202401071414.md",
+    "posts/202401291636.md",
+    "posts/202402021525.md",
+    "assets/university_business_receipt_screenshot.png",
+    "assets/inu_business_edu.png",
+    "books/OpenAPI와 스웨거를 활용한 실전 API 설계.md",
+    "books/트래픽 설계자.md",
     "books/더 시스템 THE SYSTEM.md",
+    "books/로지컬 씽킹.md",
     "books/살아 보니 시간 바로 지금에 관한 이야기.md",
     "books/1초의 탄생.md",
     "books/우주의 가장 위대한 생각들.md",
@@ -161,7 +169,6 @@
     "books/사용자 스토리 맵 만들기.md",
     "books/변화하는 세계질서.md",
     "books/원칙 PRINCIPLES.md",
-    "posts/202401071414.md",
     "books/디지털 트랜스포메이션 엔진.md",
     "books/사이트 신뢰성 엔지니어링.md",
     "books/IT 리더의 자리.md",
@@ -173,11 +180,6 @@
     "posts/202312311851.md",
     "posts/202312311852.md",
     "posts/202312311853.md",
-    "posts/202312311902.md",
-    "posts/post-012.md",
-    "templates/Post template.md",
-    "posts/post-01.md",
-    "posts/202312311838.md",
     "assets/MailAttachment.jpeg",
     "assets/Pasted image 20231220144643.png",
     "templates",
