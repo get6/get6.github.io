@@ -32,7 +32,7 @@ export default function Post({ params }: { params: { slug: string } }) {
   return (
     <>
       <DetailScreen>
-        <h1 className="flex w-full justify-center text-2xl lg:text-4xl">
+        <h1 className="flex w-full justify-center text-2xl lg:w-[650px] lg:text-4xl">
           {title}
         </h1>
         <div className="prose flex w-full items-center justify-between">

@@ -39,7 +39,7 @@ export default function RecentPost({ post }: Props) {
         />
       </div>
       <div className="flex h-[174px] flex-col justify-center gap-4 px-6">
-        <div className="flex h-[88px] flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className="flex">
             <span className="group relative flex items-center">
               <Tooltip date={date} />
