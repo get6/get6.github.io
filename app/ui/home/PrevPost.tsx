@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function PrevPost({ post }: Props) {
-  const { cover_image, date, title, body, tags } = post
+  const { url, cover_image, date, title, body, tags, summary } = post
   const { push } = useRouter()
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
@@ -25,7 +25,7 @@ export default function PrevPost({ post }: Props) {
   return (
     <div
       className="flex aspect-square h-[120px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
-      onClick={() => push(post.url)}
+      onClick={() => push(url)}
     >
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
         <div className="relative w-full">
@@ -44,7 +44,7 @@ export default function PrevPost({ post }: Props) {
           <PostDate date={date} body={body.raw} />
           <Title>{title}</Title>
           <div className="truncate text-sm font-normal dark:text-white lg:text-base">
-            {body.raw.slice(0, 50)}
+            {summary}
           </div>
         </div>
         <div className="py-2 lg:py-0">

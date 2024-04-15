@@ -3,7 +3,6 @@
 import { blog_title } from '@/app/lib/definitions'
 import Logo from '@/app/ui/Logo'
 import ThemeToggle from '@/app/ui/home/ThemeToggle'
-
 import { HashtagIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
@@ -24,7 +23,7 @@ export default function Navbar() {
   const menus = [
     { name: 'Books', href: '/books' },
     // { name: 'Life', href: '/life' },
-    { name: 'Series', href: '/series' },
+    // { name: 'Series', href: '/series' },
     { name: 'Tags', href: '/tags' },
     { name: 'About me', href: '/about' },
   ]
@@ -84,7 +83,7 @@ export default function Navbar() {
         } absolute left-2 top-10 z-10 md:block`}
       >
         <div className=" w-full items-center justify-between md:order-1 md:flex md:w-auto">
-          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900">
+          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900 rtl:space-x-reverse">
             {menus.map((menu, index) => (
               <li key={index}>
                 <button onClick={toggleMenu}>

@@ -11,8 +11,13 @@
             "id": "d21af69ae22de800",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "posts/202404151521.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "posts/202404151521.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "posts/202404151521.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "posts/202404151521.md"
+              }
             }
           }
         ]
@@ -142,16 +151,21 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
+    "posts/202401071414.md",
+    "posts/202404151521.md",
+    "assets/Pasted image 20231220144643.png",
+    "books/디지털 트랜스포메이션 엔진.md",
+    "books/더 시스템 THE SYSTEM.md",
+    "books/모두의 네트워크.md",
+    "posts/202402021525.md",
+    "posts/202402112036.md",
+    "posts/202401291636.md",
     "posts/202404141129.md",
     "posts/202404141130.md",
-    "posts/202401291636.md",
     "templates/Post template.md",
     "posts/202312301624.md",
     "books/1초의 탄생.md",
     "posts/202404092355.md",
-    "posts/202402112036.md",
-    "posts/202402021525.md",
-    "posts/202401071414.md",
     "posts/202312271313.md",
     "assets/university_business_receipt_screenshot.png",
     "books/엔터프라이즈 플러터 핸드북.md",
@@ -165,13 +179,8 @@
     "books/논리적 사고를 기르는 알고리즘.md",
     "books/THE GOAL 더 골 2.md",
     "books/THE GOAL 더 골 1.md",
-    "books/구글은 소프트웨어를 어떻게 테스트하는가.md",
-    "books/사용자 스토리 맵 만들기.md",
-    "books/Obsidian Clipper.md",
-    "books/트래픽 설계자.md",
     "assets/inu_business_edu.png",
     "assets/MailAttachment.jpeg",
-    "assets/Pasted image 20231220144643.png",
     "templates",
     "template"
   ]

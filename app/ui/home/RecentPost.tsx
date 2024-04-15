@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function RecentPost({ post }: Props) {
-  const { cover_image, date, title, body, tags } = post
+  const { url, cover_image, date, title, body, tags, summary } = post
   const { push } = useRouter()
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
@@ -26,7 +26,7 @@ export default function RecentPost({ post }: Props) {
   return (
     <div
       className="aspect-square h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:w-[343px]"
-      onClick={() => push(post.url)}
+      onClick={() => push(url)}
     >
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">
         <Image
@@ -47,9 +47,7 @@ export default function RecentPost({ post }: Props) {
             </span>
           </div>
           <Title>{title}</Title>
-          <div className="truncate font-normal dark:text-white">
-            {body.raw.slice(0, 50)}
-          </div>
+          <div className="truncate font-normal dark:text-white">{summary}</div>
         </div>
         <div className="flex gap-2">
           <Suspense fallback={<TagsFallBack tags={tags} />}>
