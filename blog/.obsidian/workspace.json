@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "de5dbed71af17a11",
+        "id": "547edfd78d4b070a",
         "type": "tabs",
         "children": [
           {
-            "id": "d21af69ae22de800",
+            "id": "3fc5eaeedc94d23f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "posts/202404151715.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "posts/202404151715.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202312271313.md",
+                "file": "posts/202404151715.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202312271313.md"
+                "file": "posts/202404151715.md"
               }
             }
           }
@@ -149,11 +149,12 @@
       "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "d21af69ae22de800",
+  "active": "3fc5eaeedc94d23f",
   "lastOpenFiles": [
+    "posts/202404151715.md",
+    "posts/202312271313.md",
     "posts/202401291636.md",
     "books/엔터프라이즈 플러터 핸드북.md",
-    "posts/202312271313.md",
     "posts/202404092355.md",
     "posts/202401071414.md",
     "posts/202404151521.md",
@@ -178,7 +179,6 @@
     "books/마케팅 설계자.md",
     "books/논리적 사고를 기르는 알고리즘.md",
     "books/THE GOAL 더 골 2.md",
-    "books/THE GOAL 더 골 1.md",
     "assets/inu_business_edu.png",
     "assets/MailAttachment.jpeg",
     "templates",
