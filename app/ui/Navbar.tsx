@@ -1,6 +1,6 @@
 'use client'
 
-import { blog_title } from '@/app/lib/definitions'
+import { blog_title, menus } from '@/app/lib/definitions'
 import Logo from '@/app/ui/Logo'
 import ThemeToggle from '@/app/ui/home/ThemeToggle'
 import { HashtagIcon } from '@heroicons/react/20/solid'
@@ -19,14 +19,6 @@ export default function Navbar() {
   }
 
   const pathname = usePathname()
-
-  const menus = [
-    { name: 'Books', href: '/books' },
-    // { name: 'Life', href: '/life' },
-    // { name: 'Series', href: '/series' },
-    { name: 'Tags', href: '/tags' },
-    { name: 'About me', href: '/about' },
-  ]
 
   const mdNavbar = (
     <>

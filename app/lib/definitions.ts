@@ -17,3 +17,14 @@ export enum ThemeState {
   Dark = 'dark',
   System = 'system',
 }
+
+export const BASE_URL = 'https://get6.github.io'
+
+export const menus = [
+  // { name: 'Posts', href: '/posts' },
+  { name: 'Books', href: '/books' },
+  // { name: 'Life', href: '/life' },
+  // { name: 'Series', href: '/series' },
+  { name: 'Tags', href: '/tags' },
+  { name: 'About me', href: '/about' },
+]

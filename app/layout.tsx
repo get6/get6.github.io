@@ -1,4 +1,4 @@
-import { blog_description, blog_title } from '@/app/lib/definitions'
+import { BASE_URL, blog_description, blog_title } from '@/app/lib/definitions'
 import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
 import { Metadata } from 'next'
@@ -10,9 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NODE_ENV === 'production'
-      ? 'https://get6.github.io'
-      : 'http://localhost:3000',
+    process.env.NODE_ENV === 'production' ? BASE_URL : 'http://localhost:3000',
   ),
   title: blog_title,
   description: blog_description,

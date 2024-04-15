@@ -14,7 +14,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const slug = decodeURIComponent(params.slug)
   const post = allPosts.find((post) => post.slug === slug)
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
-  return { title: post.title }
+  return { title: post.title, description: post.summary }
 }
 
 export default function Post({ params }: { params: { slug: string } }) {

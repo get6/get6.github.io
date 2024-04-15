@@ -19,7 +19,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const book = allBooks.find((book) => book.slug === slug)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
-  return { title: book.title }
+  return { title: book.title, description: book.body }
 }
 
 export default function Book({ params }: { params: { slug: string } }) {
