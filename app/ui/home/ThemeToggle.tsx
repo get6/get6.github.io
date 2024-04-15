@@ -9,7 +9,7 @@ export default function ThemeToggle() {
   useEffect(() => {
     const isComment = document.querySelector('iframe.utterances-frame')
     if (isComment) {
-      const utterancesTheme = `github-${theme}`
+      const utterancesTheme = `github-${theme === undefined ? 'light' : theme}`
       const utterancesEl = document.querySelector(
         'iframe.utterances-frame',
       ) as HTMLIFrameElement
@@ -19,7 +19,7 @@ export default function ThemeToggle() {
         'https://utteranc.es/',
       )
     }
-  }, [theme])
+  })
 
   return (
     <SunIcon
