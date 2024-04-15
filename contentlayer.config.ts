@@ -146,7 +146,7 @@ export default makeSource({
       remarkToc,
       remarkSourceRedirect,
       remarkEmbedImages,
-      remarkLint,
+      remarkLint as any,
     ],
     rehypePlugins: [
       rehypeSlug,
@@ -173,7 +173,7 @@ export default makeSource({
         },
       ],
       rehypeHighlight,
-      rehypePrettyCode,
+      rehypePrettyCode as any,
     ],
   },
   date: {

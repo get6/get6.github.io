@@ -106,9 +106,6 @@ devDependencies:
   remark-callout:
     specifier: ^1.1.1
     version: 1.1.1
-  remark-callouts:
-    specifier: ^2.0.0
-    version: 2.0.0
   remark-embed-images:
     specifier: ^4.0.0
     version: 4.0.0
@@ -121,12 +118,6 @@ devDependencies:
   remark-lint:
     specifier: ^9.1.2
     version: 9.1.2
-  remark-obsidian:
-    specifier: ^1.8.0
-    version: 1.8.0
-  remark-obsidian-callout:
-    specifier: ^1.1.3
-    version: 1.1.3
   remark-parse:
     specifier: ^11.0.0
     version: 11.0.0
@@ -5237,16 +5228,6 @@ packages:
       svg-parser: 2.0.4
     dev: true
 
-  /remark-callouts@2.0.0:
-    resolution: {integrity: sha512-kTtBca6NzVNVn71wKMBiliSS/XEtYr6CQgWFQt+s6lkqtHHwHsfP4PxsqFbL98m9nxqlnqTyoYfNr1//u9jrlA==}
-    dependencies:
-      mdast-util-from-markdown: 1.3.1
-      svg-parser: 2.0.4
-      unist-util-visit: 4.1.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /remark-embed-images@4.0.0:
     resolution: {integrity: sha512-c8qQMdhNTSO9TMMfbvf5CWI+HhIX5UZPTBVNaNSpxaEuRt0KCLFk68s5CQ7szbSERLnpos+c9K6xZoILWRh+eQ==}
     dependencies:
@@ -5327,16 +5308,6 @@ packages:
       vfile: 5.3.7
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /remark-obsidian-callout@1.1.3:
-    resolution: {integrity: sha512-q2jZgPMHP5Wyq0WgeGdwboPoepqN7Ib77iWagEKThZjtl1wUd7/f2tdErdPr/LeZu9K7I6r52XylwhLs5GJi9g==}
-    dependencies:
-      unist-util-visit: 4.1.2
-    dev: true
-
-  /remark-obsidian@1.8.0:
-    resolution: {integrity: sha512-nzL47ykZubW/ELAetSE8+73BFX8kGO+64//7pYnsEuEUrEz5x4AHP9wYhsceFkfK6oftAyugy1FkPcThhdyD2g==}
     dev: true
 
   /remark-parse@10.0.2:
