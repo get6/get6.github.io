@@ -1,5 +1,6 @@
 import { allPosts } from '@/.contentlayer/generated'
 import Article from '@/app/ui/Article'
+import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
 import ToastPostal from '@/app/ui/ToastPostal'
 import AnotherPost from '@/app/ui/home/AnotherPost'
@@ -45,6 +46,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           <Line className="prose" />
         </div>
         <PostTags tags={tags} />
+        <GithubComment />
       </DetailScreen>
       {0 < otherPosts.length && (
         <div className="flex items-center justify-center pb-8 lg:pb-16">
