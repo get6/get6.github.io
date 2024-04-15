@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202404151521.md",
+                "file": "posts/202401071414.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202404151521.md",
+                "file": "posts/202401071414.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202404151521.md",
+                "file": "posts/202401071414.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202404151521.md"
+                "file": "posts/202401071414.md"
               }
             }
           }
@@ -151,8 +151,8 @@
   },
   "active": "d21af69ae22de800",
   "lastOpenFiles": [
-    "posts/202401071414.md",
     "posts/202404151521.md",
+    "posts/202401071414.md",
     "assets/Pasted image 20231220144643.png",
     "books/디지털 트랜스포메이션 엔진.md",
     "books/더 시스템 THE SYSTEM.md",
