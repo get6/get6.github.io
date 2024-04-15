@@ -1,6 +1,7 @@
 import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
 import Article from '@/app/ui/Article'
+import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
@@ -123,6 +124,7 @@ export default function Book({ params }: { params: { slug: string } }) {
       <Line className="prose" />
       <Article html={body.html} />
       <Line className="prose" />
+      <GithubComment />
     </DetailScreen>
   )
 }
