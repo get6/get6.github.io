@@ -29,6 +29,12 @@ export const metadata: Metadata = {
       media: '(prefers-color-scheme: dark)',
     },
   ],
+  verification: {
+    google: 'TKcf-2ROx-mSTXqWfCfdwRGHICOHF8NpvuGfTY650o0',
+    other: {
+      naver: '6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a',
+    },
+  },
 }
 
 export default function RootLayout({
@@ -39,10 +45,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <Head>
-        <meta
-          name="google-site-verification"
-          content="TKcf-2ROx-mSTXqWfCfdwRGHICOHF8NpvuGfTY650o0"
-        />
+        <meta name="google-site-verification" content="" />
         <meta
           name="naver-site-verification"
           content="6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a"
