@@ -3,7 +3,6 @@ import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Head from 'next/head'
 import Script from 'next/script'
 import './globals.css'
 
@@ -44,13 +43,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <Head>
-        <meta name="google-site-verification" content="" />
-        <meta
-          name="naver-site-verification"
-          content="6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a"
-        />
-      </Head>
       <body className={`${inter.className} dark:bg-gray-900`}>
         <Providers>
           <header>
