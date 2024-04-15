@@ -43,6 +43,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="TKcf-2ROx-mSTXqWfCfdwRGHICOHF8NpvuGfTY650o0"
         />
+        <meta
+          name="naver-site-verification"
+          content="6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a"
+        />
       </Head>
       <body className={`${inter.className} dark:bg-gray-900`}>
         <Providers>
