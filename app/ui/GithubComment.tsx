@@ -1,13 +1,9 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect } from 'react'
 
 export default function GithubComment() {
   const { resolvedTheme } = useTheme()
-  const utterancesTheme = `github-${resolvedTheme}`
-
-  useEffect(() => {})
 
   return (
     <section
@@ -22,7 +18,7 @@ export default function GithubComment() {
         script.setAttribute('repo', 'get6/get6.github.io')
         script.setAttribute('issue-term', 'title')
         script.setAttribute('lable', '✨💬✨')
-        script.setAttribute('theme', utterancesTheme)
+        script.setAttribute('theme', `github-${resolvedTheme}`)
 
         element.replaceChildren(script)
       }}
