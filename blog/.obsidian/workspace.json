@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202404151715.md",
+                "file": "posts/202404241250.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202404151715.md",
+                "file": "posts/202404241250.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202404151715.md",
+                "file": "posts/202404241250.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202404151715.md"
+                "file": "posts/202404241250.md"
               }
             }
           }
@@ -151,7 +151,10 @@
   },
   "active": "3fc5eaeedc94d23f",
   "lastOpenFiles": [
+    "assets/red-dot.png",
+    "assets/grey-dot.png",
     "posts/202404151715.md",
+    "posts/202404241250.md",
     "posts/202312271313.md",
     "posts/202401291636.md",
     "books/엔터프라이즈 플러터 핸드북.md",
@@ -177,8 +180,6 @@
     "books/이펙티브 엔지니어.md",
     "books/설득의 심리학 4부작 세트.md",
     "books/마케팅 설계자.md",
-    "books/논리적 사고를 기르는 알고리즘.md",
-    "books/THE GOAL 더 골 2.md",
     "assets/inu_business_edu.png",
     "assets/MailAttachment.jpeg",
     "templates",
