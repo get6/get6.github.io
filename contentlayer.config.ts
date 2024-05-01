@@ -68,6 +68,15 @@ const rehypeImageSize = () => (tree: any) => {
   })
 }
 
+const getSummary = (body: string) => {
+  // 정규 표현식을 사용하여 HTML 태그 제거
+  const regex = /<[^>]+>/g
+  const text = body.replace(regex, '')
+
+  // 공백 제거
+  return text.replace(/\s+/g, ' ').trim()
+}
+
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.md`,
@@ -111,14 +120,7 @@ export const Post = defineDocumentType(() => ({
     },
     summary: {
       type: 'string',
-      resolve: (post) => {
-        // 정규 표현식을 사용하여 HTML 태그 제거
-        const regex = /<[^>]+>/g
-        const text = post.body.html.replace(regex, '')
-
-        // 공백 제거
-        return text.replace(/\s+/g, ' ').trim()
-      },
+      resolve: (post) => getSummary(post.body.html),
     },
   },
 }))
@@ -156,6 +158,10 @@ export const Book = defineDocumentType(() => ({
     slug: {
       type: 'string',
       resolve: (book) => book._raw.flattenedPath.replace(/^books\//, ''),
+    },
+    summary: {
+      type: 'string',
+      resolve: (book) => getSummary(book.body.html),
     },
   },
 }))

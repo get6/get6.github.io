@@ -56,7 +56,7 @@ export default function Tags() {
           </Suspense>
         </div>
         <Suspense fallback={<PostTableFallback />}>
-          <PostTable posts={allPosts} />
+          <PostTable />
         </Suspense>
       </div>
     </PageScreen>
