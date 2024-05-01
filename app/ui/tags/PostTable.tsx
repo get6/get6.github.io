@@ -45,7 +45,7 @@ export default function PostTable() {
             <td className="truncate px-6 py-4">
               {format(new Date(post.date), 'yyyy-MM-dd')}
             </td>
-            <td className="truncate px-6 py-4">{post.tags.join(' ')}</td>
+            <td className="truncate px-6 py-4">{post.tags.join(', ')}</td>
           </tr>
         ))}
         {posts.length === 0 && (
