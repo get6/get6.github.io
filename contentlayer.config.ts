@@ -43,6 +43,31 @@ const remarkSourceRedirect =
     })
   }
 
+const rehypeImageSize = () => (tree: any) => {
+  // 이미지를 포함한 p 태그에 클래스 추가
+  visit(tree, 'element', (node: any) => {
+    if (
+      node.tagName === 'p' &&
+      1 <= node.children.length &&
+      node.children[0].tagName === 'img'
+    ) {
+      node.properties.className = 'flex flex-wrap justify-center gap-4'
+    } else if (node.tagName === 'img') {
+      const src = node.properties.src
+      const alt = node.properties.alt
+
+      if (src && alt) {
+        if (alt.toString().includes('|')) {
+          const width = alt.split('|').map((s: string) => s.trim())[1]
+          node.properties.width = width
+        }
+      } else if (src && !alt) {
+        node.properties.alt = 'image'
+      }
+    }
+  })
+}
+
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.md`,
@@ -149,6 +174,7 @@ export default makeSource({
       remarkLint as any,
     ],
     rehypePlugins: [
+      rehypeImageSize,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
