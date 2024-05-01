@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "547edfd78d4b070a",
+        "id": "6eceb4acdd0d530f",
         "type": "tabs",
         "children": [
           {
-            "id": "3fc5eaeedc94d23f",
+            "id": "b002133548f1c1f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -66,8 +66,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -150,38 +149,37 @@
       "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "3fc5eaeedc94d23f",
+  "active": "b002133548f1c1f6",
   "lastOpenFiles": [
+    "posts/202404241250.md",
+    "posts/202404151715.md",
+    "posts/202404092355.md",
+    "posts/202402112036.md",
+    "posts/202402021525.md",
+    "posts/202401291636.md",
+    "posts/202401071414.md",
+    "assets/blog-figma-design.png",
+    "posts/202312301624.md",
+    "assets/la-piscine-sunhwang-level.png",
+    "assets/the-baleun-coding-blog.png",
+    "posts/202312271313.md",
+    "posts/202405011016.md",
+    "books/1초의 탄생.md",
     "assets/vaporfly-3-prototype.webp",
     "assets/vaporfly-3-grey.webp",
-    "posts/202405011016.md",
     "assets/bondi-8-grey.webp",
     "assets/prototype-vaporfly.webp",
     "assets/hoka-shoes-in-kream.png",
     "assets/hoka-wide-size-table.png",
     "assets/marathonia.jpeg",
-    "posts/202404241250.md",
-    "assets/decathlon-order-detail.png",
-    "assets/red-dot.png",
-    "assets/grey-dot.png",
-    "posts/202404151715.md",
-    "posts/202312271313.md",
-    "posts/202401291636.md",
     "books/엔터프라이즈 플러터 핸드북.md",
-    "posts/202404092355.md",
-    "posts/202401071414.md",
     "posts/202404151521.md",
-    "assets/Pasted image 20231220144643.png",
     "books/디지털 트랜스포메이션 엔진.md",
     "books/더 시스템 THE SYSTEM.md",
     "books/모두의 네트워크.md",
-    "posts/202402021525.md",
-    "posts/202402112036.md",
     "posts/202404141129.md",
     "posts/202404141130.md",
     "templates/Post template.md",
-    "posts/202312301624.md",
-    "books/1초의 탄생.md",
     "books/내가 원하는 곳에 나를 데려가라.md",
     "books/혁신기업의 딜레마.md",
     "books/코딩도 하고 사장도 합니다.md",
