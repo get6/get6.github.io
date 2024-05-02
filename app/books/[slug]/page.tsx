@@ -1,6 +1,7 @@
 import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
 import Article from '@/app/ui/Article'
+import FormattedDate from '@/app/ui/FormattedDate'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
@@ -8,7 +9,7 @@ import ToastPostal from '@/app/ui/ToastPostal'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
-import { differenceInCalendarDays, format } from 'date-fns'
+import { differenceInCalendarDays } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -87,15 +88,12 @@ export default function Book({ params }: { params: { slug: string } }) {
             )}
             <p className="text-xs lg:text-sm">쪽수: {total_page}</p>
             <p className="text-xs lg:text-sm">
-              발행일: {format(new Date(publish_date), 'yyyy-MM-dd')}
+              발행일: <FormattedDate date={publish_date} />
             </p>
             <p className="text-xs lg:text-sm">
-              {`독서 기간: ${format(
-                new Date(start_read_date),
-                'yyyy-MM-dd',
-              )} ~ `}
+              독서 기간: <FormattedDate date={start_read_date} /> ~{' '}
               {start_read_date < finish_read_date ? (
-                `${format(new Date(finish_read_date), 'yyyy-MM-dd')}`
+                <FormattedDate date={finish_read_date} />
               ) : (
                 <span className="font-semibold">ing</span>
               )}

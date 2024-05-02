@@ -1,6 +1,6 @@
 import { readingTime } from '@/app/lib/utils'
+import FormattedDate from '@/app/ui/FormattedDate'
 import { IsoDateTimeString } from 'contentlayer/core'
-import { format } from 'date-fns'
 
 interface Props {
   date: IsoDateTimeString
@@ -15,7 +15,8 @@ export default function PostDate({ date, body, isDetail = false }: Props) {
         isDetail ? 'font-light lg:text-sm' : 'font-normal'
       }`}
     >
-      {format(new Date(date), 'MMM d')}&nbsp;・&nbsp;{readingTime(body)} min
+      <FormattedDate date={date} formatStr="MMM d" />
+      &nbsp;・&nbsp;{readingTime(body)} min
     </span>
   )
 }

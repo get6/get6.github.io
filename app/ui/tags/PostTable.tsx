@@ -1,8 +1,8 @@
 'use client'
 
 import { allPosts } from '@/.contentlayer/generated'
+import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
-import { format } from 'date-fns'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function PostTable() {
@@ -43,7 +43,7 @@ export default function PostTable() {
               {post.title}
             </th>
             <td className="truncate px-6 py-4">
-              {format(new Date(post.date), 'yyyy-MM-dd')}
+              <FormattedDate date={post.date} />
             </td>
             <td className="truncate px-6 py-4">{post.tags.join(', ')}</td>
           </tr>

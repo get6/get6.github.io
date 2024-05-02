@@ -1,9 +1,9 @@
 'use client'
 
 import { Book } from '@/.contentlayer/generated'
+import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
-import { format } from 'date-fns'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
@@ -59,7 +59,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
                 : book.author}
             </td>
             <td className="truncate px-6 py-4">
-              {format(new Date(book.publish_date), 'yyyy-MM-dd')}
+              <FormattedDate date={book.publish_date} />
             </td>
             {/* TODO: subtitle 추가되면 여기 영역도 조금 여유가 생길 듯 */}
             <td className="max-w-[122px] truncate px-6 py-4">
