@@ -28,3 +28,5 @@ export const menus = [
   { name: 'Tags', href: '/tags' },
   { name: 'About me', href: '/about' },
 ]
+
+export const pId = '1411731962767238'
