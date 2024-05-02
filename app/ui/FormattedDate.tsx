@@ -16,7 +16,7 @@ export default function FormattedDate({
 
   useEffect(() => {
     setStr(format(new Date(date), formatStr))
-  }, [date])
+  }, [date, formatStr])
 
   return <time dateTime={date}>{str}</time>
 }
