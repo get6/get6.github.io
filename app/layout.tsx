@@ -1,3 +1,4 @@
+import AdSense from '@/app/AdSense'
 import { BASE_URL, blog_description, blog_title } from '@/app/lib/definitions'
 import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
@@ -43,6 +44,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        <AdSense />
+      </head>
       <body className={`${inter.className} dark:bg-gray-900`}>
         <Providers>
           <header>
@@ -63,11 +67,6 @@ export default function RootLayout({
               gtag('config', 'G-YGW2B2X46K');
               `}
             </Script>
-            <Script
-              async
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1411731962767238"
-              crossOrigin="anonymous"
-            ></Script>
           </>
         )}
       </body>
