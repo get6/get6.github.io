@@ -7,7 +7,7 @@ import { HashtagIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function Navbar() {
   // State to keep track of whether the menu is open
@@ -113,14 +113,6 @@ export default function Navbar() {
       </div>
     </>
   )
-
-  useEffect(() => {
-    try {
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch (err) {
-      console.log(err)
-    }
-  }, [])
 
   return (
     <nav className="bg-white dark:bg-gray-900">
