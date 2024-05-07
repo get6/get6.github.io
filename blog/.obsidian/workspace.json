@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405011016.md",
+                "file": "posts/202405071624.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405011016.md",
+                "file": "posts/202405071624.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405011016.md",
+                "file": "posts/202405071624.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405011016.md"
+                "file": "posts/202405071624.md"
               }
             }
           }
@@ -151,6 +151,8 @@
   },
   "active": "b002133548f1c1f6",
   "lastOpenFiles": [
+    "posts/202405011016.md",
+    "posts/202405071624.md",
     "posts/202404241250.md",
     "posts/202404151715.md",
     "posts/202404092355.md",
@@ -163,7 +165,6 @@
     "assets/la-piscine-sunhwang-level.png",
     "assets/the-baleun-coding-blog.png",
     "posts/202312271313.md",
-    "posts/202405011016.md",
     "books/1초의 탄생.md",
     "assets/vaporfly-3-prototype.webp",
     "assets/vaporfly-3-grey.webp",
