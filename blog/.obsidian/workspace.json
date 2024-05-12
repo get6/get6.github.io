@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405071624.md",
+                "file": "books/일을 잘 맡긴다는 것.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "블로그",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405071624.md",
+                "file": "books/일을 잘 맡긴다는 것.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405071624.md",
+                "file": "books/일을 잘 맡긴다는 것.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405071624.md"
+                "file": "books/일을 잘 맡긴다는 것.md"
               }
             }
           }
@@ -151,8 +151,22 @@
   },
   "active": "b002133548f1c1f6",
   "lastOpenFiles": [
-    "posts/202405011016.md",
+    "books/그래서, 인터널브랜딩.md",
+    "books/일을 잘 맡긴다는 것.md",
+    "books/상자 밖에 있는 사람.md",
+    "books/90일 만에 당신의 회사를 고수익 기업으로 바꿔라.md",
+    "books/이것부터 해결하라.md",
+    "books/비상식적 성공 법칙.md",
+    "books/시장을 뒤흔드는 크로스오버 아이디어.md",
+    "books/피터 드러커의 최고의 질문.md",
+    "books/매니징 유니클로는 왜 이 책을 경영바이블로 삼았는가.md",
+    "books/마스터스 오브 스케일.md",
+    "books/1초의 탄생.md",
+    "books/Obsidian Clipper.md",
+    "posts/202312271313.md",
+    "books/엔터프라이즈 플러터 핸드북.md",
     "posts/202405071624.md",
+    "posts/202405011016.md",
     "posts/202404241250.md",
     "posts/202404151715.md",
     "posts/202404092355.md",
@@ -164,8 +178,6 @@
     "posts/202312301624.md",
     "assets/la-piscine-sunhwang-level.png",
     "assets/the-baleun-coding-blog.png",
-    "posts/202312271313.md",
-    "books/1초의 탄생.md",
     "assets/vaporfly-3-prototype.webp",
     "assets/vaporfly-3-grey.webp",
     "assets/bondi-8-grey.webp",
@@ -173,20 +185,8 @@
     "assets/hoka-shoes-in-kream.png",
     "assets/hoka-wide-size-table.png",
     "assets/marathonia.jpeg",
-    "books/엔터프라이즈 플러터 핸드북.md",
     "posts/202404151521.md",
     "books/디지털 트랜스포메이션 엔진.md",
-    "books/더 시스템 THE SYSTEM.md",
-    "books/모두의 네트워크.md",
-    "posts/202404141129.md",
-    "posts/202404141130.md",
-    "templates/Post template.md",
-    "books/내가 원하는 곳에 나를 데려가라.md",
-    "books/혁신기업의 딜레마.md",
-    "books/코딩도 하고 사장도 합니다.md",
-    "books/진화된 마케팅 그로스 해킹.md",
-    "books/이펙티브 엔지니어.md",
-    "books/설득의 심리학 4부작 세트.md",
     "templates",
     "template"
   ]
