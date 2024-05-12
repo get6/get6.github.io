@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "books/일을 잘 맡긴다는 것.md",
+                "file": "posts/202405121626.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "books/일을 잘 맡긴다는 것.md",
+                "file": "posts/202405121626.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "books/일을 잘 맡긴다는 것.md",
+                "file": "posts/202405121626.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "books/일을 잘 맡긴다는 것.md"
+                "file": "posts/202405121626.md"
               }
             }
           }
@@ -151,8 +151,11 @@
   },
   "active": "b002133548f1c1f6",
   "lastOpenFiles": [
-    "books/그래서, 인터널브랜딩.md",
+    "assets/ebs-license-fee.jpeg",
+    "posts/202405121633.md",
+    "posts/202405121626.md",
     "books/일을 잘 맡긴다는 것.md",
+    "books/그래서, 인터널브랜딩.md",
     "books/상자 밖에 있는 사람.md",
     "books/90일 만에 당신의 회사를 고수익 기업으로 바꿔라.md",
     "books/이것부터 해결하라.md",
@@ -175,7 +178,6 @@
     "posts/202401291636.md",
     "posts/202401071414.md",
     "assets/blog-figma-design.png",
-    "posts/202312301624.md",
     "assets/la-piscine-sunhwang-level.png",
     "assets/the-baleun-coding-blog.png",
     "assets/vaporfly-3-prototype.webp",
@@ -185,8 +187,6 @@
     "assets/hoka-shoes-in-kream.png",
     "assets/hoka-wide-size-table.png",
     "assets/marathonia.jpeg",
-    "posts/202404151521.md",
-    "books/디지털 트랜스포메이션 엔진.md",
     "templates",
     "template"
   ]
