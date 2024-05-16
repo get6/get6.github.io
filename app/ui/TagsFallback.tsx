@@ -8,7 +8,7 @@ export default function TagsFallBack({ tags }: Props) {
       {tags.map((_, index) => (
         <div
           key={index}
-          className="h-6 w-12 animate-pulse rounded-full bg-gray-200 px-2.5 py-0.5 dark:bg-gray-600"
+          className="h-5 w-12 animate-pulse rounded-full bg-gray-200 px-2.5 py-0.5 dark:bg-gray-600"
         />
       ))}
     </>
