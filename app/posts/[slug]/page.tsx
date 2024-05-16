@@ -1,4 +1,5 @@
 import { allPosts } from '@/.contentlayer/generated'
+import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
@@ -7,15 +8,27 @@ import AnotherPost from '@/app/ui/home/AnotherPost'
 import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
+import { Metadata } from 'next'
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post.slug }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = ({
+  params,
+}: {
+  params: { slug: string }
+}): Metadata => {
   const slug = decodeURIComponent(params.slug)
   const post = allPosts.find((post) => post.slug === slug)
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
-  return { title: post.title, description: post.summary.slice(0, 160) }
+
+  return {
+    title: post.title,
+    description: sliceDesc(post.summary, 160),
+    openGraph: {
+      images: [post.cover_image],
+    },
+  }
 }
 
 export default function Post({ params }: { params: { slug: string } }) {

@@ -1,5 +1,6 @@
 import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
+import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
 import GithubComment from '@/app/ui/GithubComment'
@@ -10,18 +11,29 @@ import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
 import { differenceInCalendarDays } from 'date-fns'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export const generateStaticParams = async () =>
   allBooks.map((book) => ({ slug: book.slug }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = ({
+  params,
+}: {
+  params: { slug: string }
+}): Metadata => {
   const slug = decodeURIComponent(params.slug)
   const book = allBooks.find((book) => book.slug === slug)
-
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
-  return { title: book.title, description: book.summary.slice(0, 160) }
+
+  return {
+    title: book.title,
+    description: sliceDesc(book.summary, 160),
+    openGraph: {
+      images: [book.cover_url],
+    },
+  }
 }
 
 export default function Book({ params }: { params: { slug: string } }) {

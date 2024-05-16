@@ -5,3 +5,7 @@ export const readingTime = (text: string) => {
   const numberOfWords = text.split(/\s/g).length
   return Math.ceil(numberOfWords / wordsPerMinute)
 }
+
+export const sliceDesc = (text: string, length: number) => {
+  return text.slice(0, length) + '...'
+}

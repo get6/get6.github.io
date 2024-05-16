@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     process.env.NODE_ENV === 'production' ? BASE_URL : 'http://localhost:3000',
   ),
   title: blog_title,
-  description: blog_description.slice(0, 160),
+  description: blog_description,
   icons: [
     {
       rel: 'icon',
