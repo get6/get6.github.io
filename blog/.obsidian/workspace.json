@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405121626.md",
+                "file": "posts/202405121633.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405121626.md",
+                "file": "posts/202405121633.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405121626.md",
+                "file": "posts/202405121633.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405121626.md"
+                "file": "posts/202405121633.md"
               }
             }
           }
@@ -151,9 +151,10 @@
   },
   "active": "b002133548f1c1f6",
   "lastOpenFiles": [
-    "assets/ebs-license-fee.jpeg",
-    "posts/202405121633.md",
     "posts/202405121626.md",
+    "posts/202405121633.md",
+    "posts/202405071624.md",
+    "assets/ebs-license-fee.jpeg",
     "books/일을 잘 맡긴다는 것.md",
     "books/그래서, 인터널브랜딩.md",
     "books/상자 밖에 있는 사람.md",
@@ -168,7 +169,6 @@
     "books/Obsidian Clipper.md",
     "posts/202312271313.md",
     "books/엔터프라이즈 플러터 핸드북.md",
-    "posts/202405071624.md",
     "posts/202405011016.md",
     "posts/202404241250.md",
     "posts/202404151715.md",
@@ -186,7 +186,6 @@
     "assets/prototype-vaporfly.webp",
     "assets/hoka-shoes-in-kream.png",
     "assets/hoka-wide-size-table.png",
-    "assets/marathonia.jpeg",
     "templates",
     "template"
   ]

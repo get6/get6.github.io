@@ -10,37 +10,64 @@ import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
 import { visit } from 'unist-util-visit'
 
+const getImageType = (contentType: string): string => {
+  if (contentType) {
+    const matches = contentType.match(/image\/(\w+)/)
+    if (matches && matches[1]) {
+      return matches[1]
+    }
+  }
+  return 'jpeg' // 기본값 JPEG로 설정
+}
+
+const toDataURI = async (url: string) => {
+  // 이미지 요청
+  const res = await fetch(url)
+
+  // 응답 확인
+  if (!res.ok) return url
+
+  // 이미지 데이터 가져오기
+  const imageData = await res.arrayBuffer()
+
+  // Base64 문자열로 변환
+  const base64 = Buffer.from(imageData).toString('base64')
+  const contentType = res.headers.get('Content-Type') || 'image/jpeg'
+  // Base64 문자열 반환
+  return `data:image/${getImageType(contentType)};base64,${base64}`
+}
+
 /**
  * @type {import('unified').Plugin<[], Root>}
- * Analyzes local markdown/MDX images & videos and rewrites their `src`.
- * Supports both markdown-style images, MDX <Image /> components, and `source`
- * elements. Can be easily adapted to support other sources too.
- * @param {string} options.root - The root path when reading the image file.
+ * @param {string} options.root -
  */
 const remarkSourceRedirect =
-  (options?: void | undefined) => (tree: any, file: any) => {
-    // This matches all images that use the markdown standard format ![label](path).
+  (options?: void | undefined) => async (tree: any, file: any) => {
+    const images: any[] = []
     visit(tree, 'paragraph', (node) => {
       const image = node.children.find((child: any) => child.type === 'image')
       if (image) {
-        if (image.url.startsWith('http')) return
-        if (image.url.startsWith('../'))
-          image.url = image.url.replace('../', '')
-        image.url = `./blog/${image.url}`
+        if (image.url.startsWith('http')) images.push(node)
+        else {
+          const parsedUrl = image.url.startsWith('../')
+            ? image.url.replace('../', '')
+            : image.url
+          image.url = `./blog/${parsedUrl}`
+        }
       }
     })
-    // This matches all MDX' <Image /> components & source elements that I'm
-    // using within a custom <Video /> component.
-    // Feel free to update it if you're using a different component name.
-    visit(tree, 'mdxJsxFlowElement', (node) => {
-      // I didn't test this
-      if (node.name === 'Image' || node.name === 'source') {
-        const srcAttr = node.attributes.find(
-          (attribute: any) => attribute.name === 'src',
-        )
-        srcAttr.value = `blog/${srcAttr.value}`
-      }
-    })
+
+    const promises: Promise<any>[] = []
+    for (const node of images) {
+      const image = node.children.find((child: any) => child.type === 'image')
+      promises.push(
+        new Promise(async (resolve) => {
+          image.url = await toDataURI(image.url)
+          resolve(image.url)
+        }),
+      )
+    }
+    await Promise.all(promises)
   }
 
 const rehypeImageSize = () => (tree: any) => {
