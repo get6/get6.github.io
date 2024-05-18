@@ -1,8 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeExternalLinks from 'rehype-external-links'
 import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
 import remarkEmbedImages from 'remark-embed-images'
 import remarkGfm from 'remark-gfm'
@@ -140,9 +142,31 @@ export const Post = defineDocumentType(() => ({
       resolve: (post) => post._raw.flattenedPath.replace(/^posts\//, ''),
     },
     toc: {
-      type: 'json',
-      resolve: async (post) => {
-        return [{ level: 1, title: post.title }]
+      type: 'list',
+      resolve: (post) => {
+        const headers = post.body.html.match(
+          /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g,
+        )
+        if (headers) {
+          const res = headers.map((header) => {
+            const matches = header.match(
+              /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
+            )
+            if (matches) {
+              const title = matches[3]
+              return {
+                level: parseInt(matches[1]),
+                id: matches[2],
+                title: title.slice(0, title.indexOf('<')),
+              }
+            }
+            return null
+          })
+          // console.log(res)
+          return res
+        } else {
+          return null
+        }
       },
     },
     summary: {
@@ -200,6 +224,7 @@ export default makeSource({
   markdown: {
     remarkPlugins: [
       remarkGfm,
+      remarkBreaks,
       remarkCallout,
       remarkToc,
       remarkSourceRedirect,
@@ -229,6 +254,14 @@ export default makeSource({
               },
             ],
           },
+        },
+      ],
+      [
+        rehypeExternalLinks,
+        {
+          rel: ['noopener', 'noreferrer'],
+          target: '_blank',
+          properties: { className: "after:content-['_↗']" },
         },
       ],
       rehypeHighlight,
