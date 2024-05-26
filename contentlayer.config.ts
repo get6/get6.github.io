@@ -133,8 +133,7 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (post) => {
         const image = post.body.html.match(/<img.*?src=["'](.*?)["'].*?>/)?.[1]
-        const cover_image = image ? image : '/images/alt_image.jpg'
-        return cover_image
+        return image ?? '/images/alt_image.jpg'
       },
     },
     slug: {
@@ -162,7 +161,6 @@ export const Post = defineDocumentType(() => ({
             }
             return null
           })
-          // console.log(res)
           return res
         } else {
           return null

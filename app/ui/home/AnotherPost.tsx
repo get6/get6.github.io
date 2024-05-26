@@ -20,6 +20,8 @@ export default function AnotherPost({ post }: Props) {
     >
       <div className="relative flex min-h-[162px] w-full border-b border-black dark:border-white">
         <Image
+          placeholder="blur"
+          blurDataURL={`/_next/image?url=${cover_image}&w=16&q=1`}
           className="object-cover"
           src={cover_image}
           alt="cover_image"

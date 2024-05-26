@@ -1,13 +1,17 @@
 const { withContentlayer } = require('next-contentlayer')
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction =
+  (process.env.GITHUB_ACTIONS ?? false) || process.env.NODE_ENV === 'production'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: isProduction ? 'export' : 'standalone',
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    // loader: 'custom',
+    // loaderFile: './scripts/image-loader.ts',
+    unoptimized: isProduction ? true : false,
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,12 +24,6 @@ const nextConfig = {
       },
     ],
   },
-  ...((isGithubActions || isProduction) && {
-    output: 'export',
-    images: {
-      unoptimized: true,
-    },
-  }),
 }
 
 module.exports = withContentlayer(nextConfig)

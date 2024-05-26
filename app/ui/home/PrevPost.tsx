@@ -30,6 +30,8 @@ export default function PrevPost({ post }: Props) {
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
         <div className="relative w-full">
           <Image
+            placeholder="blur"
+            blurDataURL={`/_next/image?url=${cover_image}&w=16&q=1`}
             className="object-cover object-top"
             src={cover_image}
             alt="cover_image"

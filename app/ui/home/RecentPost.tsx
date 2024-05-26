@@ -30,6 +30,8 @@ export default function RecentPost({ post }: Props) {
     >
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">
         <Image
+          placeholder="blur"
+          blurDataURL={`/_next/image?url=${cover_image}&w=16&q=1`}
           className="object-cover object-top"
           src={cover_image}
           alt="cover_image"
