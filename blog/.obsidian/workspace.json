@@ -11,8 +11,13 @@
             "id": "ac71757d2c13924a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "posts/202405262014.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "posts/202405262014.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "posts/202405262014.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "posts/202405262014.md"
+              }
             }
           }
         ]
@@ -142,6 +151,13 @@
   },
   "active": "ac71757d2c13924a",
   "lastOpenFiles": [
+    "posts/202405262011.md",
+    "posts/202405262014.md",
+    "posts/202405261906.md",
+    "posts/202405261733.md",
+    "assets/Public_key_encryption_keys.png",
+    "books/~$1초의 탄생.md",
+    "assets/cors-url.png",
     "posts/202405261318.md",
     "assets/growing-by-getting-out-of-your-comfort-zone-and-trying-new-ways.jpg",
     "assets/an-attitude-that-can-earn-the-trust-of-colleagues.jpg",
@@ -151,8 +167,6 @@
     "assets/ability-to-understand-the–impact-and-priority-of-work.jpg",
     "assets/a-sense-of-ownership-of-the-product.jpg",
     "assets/make-users-feel-the-liveliness-of-the-service-created.jpg",
-    "assets/mindset-that-values-user-experience.jpg",
-    "assets/ux-store-jJT2r2n7lYA-unsplash (1).jpg",
     "posts/202405241205.md",
     "posts/202405121633.md",
     "books/엔터프라이즈 플러터 핸드북.md",
@@ -172,11 +186,6 @@
     "books/1초의 탄생.md",
     "books/Obsidian Clipper.md",
     "posts/202312271313.md",
-    "posts/202405011016.md",
-    "posts/202404241250.md",
-    "posts/202404151715.md",
-    "posts/202404092355.md",
-    "posts/202402112036.md",
     "templates",
     "template"
   ]
