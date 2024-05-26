@@ -49,20 +49,20 @@ export default function Toc({ headers }: Props) {
 
   return (
     headers && (
-      <nav className="sticky top-14 hidden h-fit pr-6 pt-10 xl:block">
+      <nav className="sticky top-14 hidden h-fit max-w-xs pr-6 pt-10 xl:block">
         <h2 className="mb-4 text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
           On this page
         </h2>
         <hr className=" h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
         <ul className="mt-4 snap-y snap-mandatory" ref={headingsList}>
           {headers.map((header, index) => {
-            let margin = ''
+            let margin = '' // level 2는 마진을 적용하지 않음
             if (header.level === 3) margin = 'ml-4'
             if (header.level === 4) margin = 'ml-8'
             if (header.level === 5) margin = 'ml-12'
             if (header.level === 6) margin = 'ml-16'
             return (
-              <li key={index} className="mb-1 snap-center">
+              <li key={index} className="mb-1 snap-center truncate">
                 <a
                   href={`#${header.id}`}
                   className={`mb-1 text-sm font-medium hover:text-blue-600 dark:hover:text-blue-500
