@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405241205.md",
+                "file": "posts/202405261318.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405241205.md",
+                "file": "posts/202405261318.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405241205.md",
+                "file": "posts/202405261318.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405241205.md"
+                "file": "posts/202405261318.md"
               }
             }
           }
@@ -151,22 +151,24 @@
   },
   "active": "b002133548f1c1f6",
   "lastOpenFiles": [
-    "assets/ebs-great-minds-2-5-2.png",
-    "assets/ebs-great-minds-2-5-1.png",
-    "assets/ebs-great-minds-2-4-2.png",
-    "assets/ebs-great-minds-2-4-1.png",
-    "assets/ebs-great-minds-2-3-1.png",
-    "assets/ebs-great-minds-1-1-1.png",
+    "assets/growing-by-getting-out-of-your-comfort-zone-and-trying-new-ways.jpg",
+    "assets/an-attitude-that-can-earn-the-trust-of-colleagues.jpg",
+    "assets/ability-to-write-maintainable-code.jpg",
+    "assets/complete-the-product-within-the-promised-time-frame.jpg",
+    "assets/understanding-of-the-product.jpg",
+    "assets/ability-to-understand-the–impact-and-priority-of-work.jpg",
+    "assets/a-sense-of-ownership-of-the-product.jpg",
+    "assets/make-users-feel-the-liveliness-of-the-service-created.jpg",
+    "assets/mindset-that-values-user-experience.jpg",
+    "assets/ux-store-jJT2r2n7lYA-unsplash (1).jpg",
     "posts/202405241205.md",
-    "assets/ebs-great-minds-2-2-1.png",
+    "posts/202405261318.md",
+    "assets/ebs-great-minds-2-5-2.png",
     "posts/202405121633.md",
-    "assets/ebs-great-minds-2-1-2.png",
-    "assets/ebs-great-minds-2-1-1.png",
     "books/엔터프라이즈 플러터 핸드북.md",
     "books/stay alive - Google 검색.md",
     "posts/202405121626.md",
     "posts/202405071624.md",
-    "assets/ebs-license-fee.jpeg",
     "books/일을 잘 맡긴다는 것.md",
     "books/그래서, 인터널브랜딩.md",
     "books/상자 밖에 있는 사람.md",
@@ -185,8 +187,6 @@
     "posts/202404151715.md",
     "posts/202404092355.md",
     "posts/202402112036.md",
-    "posts/202402021525.md",
-    "assets/blog-figma-design.png",
     "templates",
     "template"
   ]
