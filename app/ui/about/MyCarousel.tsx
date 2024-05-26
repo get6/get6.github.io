@@ -33,6 +33,7 @@ export default function MyCarousel() {
         <div key={index} className="relative h-[370px]">
           <Image
             className="object-cover"
+            placeholder="blur"
             style={{ objectPosition: image.objectPosition }}
             src={image.src}
             alt={`me-${index}`}

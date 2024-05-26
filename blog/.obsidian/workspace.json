@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6eceb4acdd0d530f",
+        "id": "1757c372d2511a15",
         "type": "tabs",
         "children": [
           {
-            "id": "b002133548f1c1f6",
+            "id": "ac71757d2c13924a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "posts/202405261318.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -86,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405261318.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405261318.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "posts/202405261318.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -149,8 +140,9 @@
       "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "b002133548f1c1f6",
+  "active": "ac71757d2c13924a",
   "lastOpenFiles": [
+    "posts/202405261318.md",
     "assets/growing-by-getting-out-of-your-comfort-zone-and-trying-new-ways.jpg",
     "assets/an-attitude-that-can-earn-the-trust-of-colleagues.jpg",
     "assets/ability-to-write-maintainable-code.jpg",
@@ -162,8 +154,6 @@
     "assets/mindset-that-values-user-experience.jpg",
     "assets/ux-store-jJT2r2n7lYA-unsplash (1).jpg",
     "posts/202405241205.md",
-    "posts/202405261318.md",
-    "assets/ebs-great-minds-2-5-2.png",
     "posts/202405121633.md",
     "books/엔터프라이즈 플러터 핸드북.md",
     "books/stay alive - Google 검색.md",
