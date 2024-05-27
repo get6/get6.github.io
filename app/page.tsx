@@ -13,7 +13,7 @@ function PostListFallback() {
       {Array.from({ length: 4 }, (_, index) => (
         <div
           key={index}
-          className="h-[205px] w-[520px] animate-pulse rounded-md bg-gray-200"
+          className="h-[205px] w-[520px] animate-pulse rounded-md bg-gray-200 dark:bg-gray-600"
         />
       ))}
     </div>
@@ -21,7 +21,9 @@ function PostListFallback() {
 }
 
 function SearchBarFallback() {
-  return <div className="h-12 w-80 animate-pulse rounded-md bg-gray-200" />
+  return (
+    <div className="h-12 w-80 animate-pulse rounded-md bg-gray-200 dark:bg-gray-600" />
+  )
 }
 
 export default function Home() {

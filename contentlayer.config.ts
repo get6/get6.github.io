@@ -6,7 +6,6 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
-import remarkEmbedImages from 'remark-embed-images'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
@@ -54,22 +53,22 @@ const remarkSourceRedirect =
           const parsedUrl = image.url.startsWith('../')
             ? image.url.replace('../', '')
             : image.url
-          image.url = `./blog/${parsedUrl}`
+          image.url = `/blog/${parsedUrl}`
         }
       }
     })
-
-    const promises: Promise<any>[] = []
-    for (const node of images) {
-      const image = node.children.find((child: any) => child.type === 'image')
-      promises.push(
-        new Promise(async (resolve) => {
-          image.url = await toDataURI(image.url)
-          resolve(image.url)
-        }),
-      )
-    }
-    await Promise.all(promises)
+    // base64는 외부 이미지를 blur 처리하는 용도로 가져와도 좋을 것 같다. 0.1 퀄리티로 아주 작은 이미지를 가져와서 블러 처리
+    // const promises: Promise<any>[] = []
+    // for (const node of images) {
+    //   const image = node.children.find((child: any) => child.type === 'image')
+    //   promises.push(
+    //     new Promise(async (resolve) => {
+    //       image.url = await toDataURI(image.url)
+    //       resolve(image.url)
+    //     }),
+    //   )
+    // }
+    // await Promise.all(promises)
   }
 
 const rehypeImageSize = () => (tree: any) => {
@@ -104,6 +103,31 @@ const getSummary = (body: string) => {
 
   // 공백 제거
   return text.replace(/\s+/g, ' ').trim()
+}
+
+// 목차 추출
+const getTOC = (html: string) => {
+  const headers = html.match(/<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g)
+  if (headers) {
+    const res = headers.map((header) => {
+      const matches = header.match(
+        /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
+      )
+      if (matches) {
+        const title = matches[3]
+        return {
+          level: parseInt(matches[1]),
+          id: matches[2],
+          title: title.slice(0, title.indexOf('<')),
+        }
+      }
+      return null
+    })
+    if (1 < res.length) return res
+    return null
+  } else {
+    return null
+  }
 }
 
 export const Post = defineDocumentType(() => ({
@@ -142,30 +166,7 @@ export const Post = defineDocumentType(() => ({
     },
     toc: {
       type: 'list',
-      resolve: (post) => {
-        const headers = post.body.html.match(
-          /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g,
-        )
-        if (headers) {
-          const res = headers.map((header) => {
-            const matches = header.match(
-              /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
-            )
-            if (matches) {
-              const title = matches[3]
-              return {
-                level: parseInt(matches[1]),
-                id: matches[2],
-                title: title.slice(0, title.indexOf('<')),
-              }
-            }
-            return null
-          })
-          return res
-        } else {
-          return null
-        }
-      },
+      resolve: (post) => getTOC(post.body.html),
     },
     summary: {
       type: 'string',
@@ -212,6 +213,10 @@ export const Book = defineDocumentType(() => ({
       type: 'string',
       resolve: (book) => getSummary(book.body.html),
     },
+    toc: {
+      type: 'list',
+      resolve: (book) => getTOC(book.body.html),
+    },
   },
 }))
 
@@ -226,7 +231,6 @@ export default makeSource({
       remarkCallout,
       remarkToc,
       remarkSourceRedirect,
-      remarkEmbedImages,
       remarkLint as any,
     ],
     rehypePlugins: [

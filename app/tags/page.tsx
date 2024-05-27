@@ -21,7 +21,7 @@ function PostTableFallback() {
       {Array.from({ length: 5 }, (_, index) => (
         <div
           key={index}
-          className="h-8 w-full animate-pulse rounded-md bg-gray-200"
+          className="h-8 w-full animate-pulse rounded-md bg-gray-200 dark:bg-gray-600"
         />
       ))}
     </div>

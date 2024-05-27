@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "copy-dir": "cp -r blog/assets public/blog/",
+    "predev": "pnpm copy-dir",
+    "prebuild": "pnpm copy-dir"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
