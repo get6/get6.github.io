@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405262014.md",
+                "file": "posts/202405261906.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405262014.md",
+                "file": "posts/202405261906.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405262014.md",
+                "file": "posts/202405261906.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405262014.md"
+                "file": "posts/202405261906.md"
               }
             }
           }
@@ -153,6 +153,7 @@
   "lastOpenFiles": [
     "posts/202405262011.md",
     "posts/202405262014.md",
+    "assets/nasa-earth.jpg",
     "posts/202405261906.md",
     "posts/202405261733.md",
     "assets/Public_key_encryption_keys.png",
@@ -166,7 +167,6 @@
     "assets/understanding-of-the-product.jpg",
     "assets/ability-to-understand-the–impact-and-priority-of-work.jpg",
     "assets/a-sense-of-ownership-of-the-product.jpg",
-    "assets/make-users-feel-the-liveliness-of-the-service-created.jpg",
     "posts/202405241205.md",
     "posts/202405121633.md",
     "books/엔터프라이즈 플러터 핸드북.md",
