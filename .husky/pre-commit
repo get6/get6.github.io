@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pnpm exec husky install
+
+exit 0
