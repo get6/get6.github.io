@@ -1,27 +1,9 @@
-# 블로그 개발 스터디
-
-이 저장소는 42서울 교육생들이 모여 개인 블로그를 만드는 데 사용되는 보일러플레이트입니다.\
-누구나 자유롭게 가져가서 개선하고 블로그용으로 사용하셔도 됩니다.
-
-기간: 23.11.27 ~ 23.12.22
-
-참여자 목록
-
-- [강지호](https://github.com/jihkang) [(jihkang)](https://profile.intra.42.fr/users/jihkang)
-- [김동현](https://github.com/donghyun1998) [(donghyk2)](https://profile.intra.42.fr/users/donghyk2)
-- [김성욱](https://github.com/42sungwook) [(sungwook)](https://profile.intra.42.fr/users/sungwook)
-- [김한결](https://github.com/triplecheeseburger) [(hakim)](https://profile.intra.42.fr/users/hakim)
-- [이소현](https://github.com/aeyongdodam) [(sohlee)](https://profile.intra.42.fr/users/sohlee)
-- [황성준](https://github.com/get6) [(sunhwang)](https://profile.intra.42.fr/users/sunhwang)
-
----
-
 ## 실행 명령어
 
 ```bash
 pnpm dev # 개발 모드 실행
 pnpm build # 빌드 실행
-npx http-server out # out 폴더 참조해서 스태틱 사이트 실행
+pnpm exec http-server out # out 폴더 참조해서 스태틱 사이트 실행
 ```
 
 ## 블로그 개발 환경
@@ -49,11 +31,6 @@ VS Code에서 개발을 할 때, 저장 시 Prettier가 적용되면 코드 라�
 - Prettier - Code formatter
 - PostCSS Language Support
 - ESLint
-
-클러스터 맥으로 개발하는 경우에는 몇가지 extensions이 더 필요합니다.
-- Dev Containers
-- Docker
-- YAML
 
 ### settings.json
 
