@@ -49,7 +49,7 @@ export default function Toc({ headers }: Props) {
 
   return (
     headers && (
-      <nav className="sticky top-14 hidden h-fit max-w-xs pr-6 pt-10 xl:block">
+      <nav className="sticky top-14 hidden h-fit pr-6 pt-10 xl:block xl:max-w-64 2xl:max-w-xs">
         <h2 className="mb-4 text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
           On this page
         </h2>

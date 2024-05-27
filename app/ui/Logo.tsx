@@ -8,6 +8,7 @@ export default function Logo() {
       alt="logo"
       width={24}
       height={24}
+      priority
     />
   )
 }

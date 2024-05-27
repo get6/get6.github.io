@@ -8,7 +8,7 @@ interface Props {
 export default function AsideHelper({ headers }: Props) {
   return (
     headers && (
-      <aside className="hidden xl:invisible xl:block">
+      <aside className="hidden max-w-fit xl:invisible xl:block">
         <Toc headers={headers} />
       </aside>
     )

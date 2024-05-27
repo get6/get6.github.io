@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405261906.md",
+                "file": "books/그래서, 인터널브랜딩.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405261906.md",
+                "file": "books/그래서, 인터널브랜딩.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405261906.md",
+                "file": "books/그래서, 인터널브랜딩.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405261906.md"
+                "file": "books/그래서, 인터널브랜딩.md"
               }
             }
           }
@@ -151,10 +151,17 @@
   },
   "active": "ac71757d2c13924a",
   "lastOpenFiles": [
-    "posts/202405262011.md",
+    "books/팩트풀니스 우리가 세상을 오해하는 10가지 이유와 세상이 생각보다 괜찮은 이유.md",
+    "books/그래서, 인터널브랜딩.md",
+    "books/도커 컨테이너 빌드업.md",
+    "assets/mailAttachment.jpeg",
+    "assets/public_key_encryption_keys.png",
     "posts/202405262014.md",
-    "assets/nasa-earth.jpg",
+    "posts/202405262011.md",
+    "posts/202312301624.md",
+    "posts/202402112036.md",
     "posts/202405261906.md",
+    "assets/nasa-earth.jpg",
     "posts/202405261733.md",
     "assets/Public_key_encryption_keys.png",
     "books/~$1초의 탄생.md",
@@ -165,8 +172,6 @@
     "assets/ability-to-write-maintainable-code.jpg",
     "assets/complete-the-product-within-the-promised-time-frame.jpg",
     "assets/understanding-of-the-product.jpg",
-    "assets/ability-to-understand-the–impact-and-priority-of-work.jpg",
-    "assets/a-sense-of-ownership-of-the-product.jpg",
     "posts/202405241205.md",
     "posts/202405121633.md",
     "books/엔터프라이즈 플러터 핸드북.md",
@@ -174,7 +179,6 @@
     "posts/202405121626.md",
     "posts/202405071624.md",
     "books/일을 잘 맡긴다는 것.md",
-    "books/그래서, 인터널브랜딩.md",
     "books/상자 밖에 있는 사람.md",
     "books/90일 만에 당신의 회사를 고수익 기업으로 바꿔라.md",
     "books/이것부터 해결하라.md",
@@ -183,9 +187,6 @@
     "books/피터 드러커의 최고의 질문.md",
     "books/매니징 유니클로는 왜 이 책을 경영바이블로 삼았는가.md",
     "books/마스터스 오브 스케일.md",
-    "books/1초의 탄생.md",
-    "books/Obsidian Clipper.md",
-    "posts/202312271313.md",
     "templates",
     "template"
   ]

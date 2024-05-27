@@ -9,6 +9,7 @@ import remarkCallout from 'remark-callout'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
+import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
 
 const getImageType = (contentType: string): string => {
@@ -19,6 +20,30 @@ const getImageType = (contentType: string): string => {
     }
   }
   return 'jpeg' // 기본값 JPEG로 설정
+}
+
+// 외부 이미지를 가져와서 블러 처리
+const toBlurDataURL = async (url: string) => {
+  const params = new URL(url).searchParams
+  const w = Number(params.get('w')) || 16
+  const h = Number(params.get('h')) || 16
+
+  // 이미지 요청
+  const res = await fetch(url)
+  // 응답 확인
+  if (!res.ok) return ''
+
+  const imageData = await res.arrayBuffer()
+  const image = sharp(imageData)
+  const imgAspectRatio = w / h
+  const blurDataURL = await image
+    .resize(8, Math.round(8 / imgAspectRatio))
+    .png({
+      quality: 75,
+    })
+    .toBuffer()
+    .then((buffer) => `data:image/png;base64,${buffer.toString('base64')}`)
+  return blurDataURL
 }
 
 const toDataURI = async (url: string) => {
@@ -48,12 +73,9 @@ const remarkSourceRedirect =
     visit(tree, 'paragraph', (node) => {
       const image = node.children.find((child: any) => child.type === 'image')
       if (image) {
-        if (image.url.startsWith('http')) images.push(node)
+        if (image.url.includes('://')) images.push(node)
         else {
-          const parsedUrl = image.url.startsWith('../')
-            ? image.url.replace('../', '')
-            : image.url
-          image.url = `/blog/${parsedUrl}`
+          image.url = `/blog/${image.url}`
         }
       }
     })
@@ -61,12 +83,14 @@ const remarkSourceRedirect =
     // const promises: Promise<any>[] = []
     // for (const node of images) {
     //   const image = node.children.find((child: any) => child.type === 'image')
-    //   promises.push(
-    //     new Promise(async (resolve) => {
-    //       image.url = await toDataURI(image.url)
-    //       resolve(image.url)
-    //     }),
-    //   )
+    //   if (image.url.includes('images.unsplash.com')) {
+    //     promises.push(
+    //       new Promise(async (resolve) => {
+    //         // image.url = await toDataURI(image.url)
+    //         resolve(image.url)
+    //       }),
+    //     )
+    //   }
     // }
     // await Promise.all(promises)
   }
