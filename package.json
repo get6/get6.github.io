@@ -9,7 +9,8 @@
     "lint": "next lint",
     "copy-dir": "cp -r blog/assets public/blog/",
     "predev": "pnpm copy-dir",
-    "prebuild": "pnpm copy-dir"
+    "prebuild": "pnpm copy-dir",
+    "prepare": "husky"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
@@ -37,6 +38,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
     "postcss": "^8",
     "prettier": "^3",
     "prettier-plugin-tailwindcss": "^0.5.14",
@@ -57,5 +60,12 @@
     "remark-toc": "^9.0.0",
     "tailwindcss": "^3",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write --ignore-unknown",
+      "eslint --fix"
+    ],
+    "*.md": "prettier --list-different"
   }
 }
