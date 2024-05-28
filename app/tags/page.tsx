@@ -1,10 +1,10 @@
-import { allPosts } from '@/.contentlayer/generated'
 import { Tag } from '@/app/lib/definitions'
 import TagsFallBack from '@/app/ui/TagsFallback'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import PostTable from '@/app/ui/tags/PostTable'
 import TagList from '@/app/ui/tags/TagList'
+import { allPosts } from 'contentlayer/generated'
 import { Suspense } from 'react'
 
 function TagListFallback({ tags }: { tags: string[] }) {

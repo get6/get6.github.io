@@ -1,5 +1,5 @@
-import { allBooks, allPosts } from '@/.contentlayer/generated'
 import { BASE_URL } from '@/app/lib/definitions'
+import { allBooks, allPosts } from 'contentlayer/generated'
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {

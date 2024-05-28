@@ -1,21 +1,19 @@
 'use client'
 
-import { Post } from '@/.contentlayer/generated'
+import { getCoverImage, getSummary } from '@/app/lib/utils'
 import Badge from '@/app/ui/Badge'
 import Line from '@/app/ui/Line'
-
 import Title from '@/app/ui/Title'
 import PostDate from '@/app/ui/home/post/PostDate'
+import { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-interface Props {
-  post: Post
-}
-
-export default function PrevPost({ post }: Props) {
-  const { url, cover_image, date, title, body, tags, summary } = post
+export default function PrevPost({ post }: { post: Post }) {
   const { push } = useRouter()
+  const { url, date, title, body, tags } = post
+  const summary = getSummary(post)
+  const cover_image = getCoverImage(post)
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()

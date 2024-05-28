@@ -1,5 +1,5 @@
-import { Book } from '@/.contentlayer/generated'
 import DaysOfReading from '@/app/ui/books/DaysOfReading'
+import { Book } from 'contentlayer/generated'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'

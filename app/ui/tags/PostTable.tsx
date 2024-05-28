@@ -1,8 +1,8 @@
 'use client'
 
-import { allPosts } from '@/.contentlayer/generated'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
+import { allPosts } from 'contentlayer/generated'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function PostTable() {

@@ -1,9 +1,9 @@
 'use client'
 
-import { Book } from '@/.contentlayer/generated'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
+import { Book } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 

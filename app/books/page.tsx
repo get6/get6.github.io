@@ -1,10 +1,10 @@
-import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
 import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
+import { allBooks } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 
 export default function Books() {

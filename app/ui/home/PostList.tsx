@@ -1,8 +1,8 @@
 'use client'
 
-import { Post } from '@/.contentlayer/generated'
 import PrevPost from '@/app/ui/home/PrevPost'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
+import { Post } from 'contentlayer/generated'
 import { useSearchParams } from 'next/navigation'
 
 interface Props {

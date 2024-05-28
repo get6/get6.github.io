@@ -1,17 +1,15 @@
 'use client'
 
-import { Post } from '@/.contentlayer/generated'
+import { getCoverImage } from '@/app/lib/utils'
 import PostDate from '@/app/ui/home/post/PostDate'
+import { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-interface Props {
-  post: Post
-}
-
-export default function AnotherPost({ post }: Props) {
-  const { cover_image, title, date, body } = post
+export default function AnotherPost({ post }: { post: Post }) {
   const { push } = useRouter()
+  const { title, date, body } = post
+  const cover_image = getCoverImage(post)
 
   return (
     <div

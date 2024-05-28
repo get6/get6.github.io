@@ -1,7 +1,7 @@
-import { Post, allPosts } from '@/.contentlayer/generated'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import SeriesCard from '@/app/ui/series/SeriesCard'
+import { Post, allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 
 export default function Series() {

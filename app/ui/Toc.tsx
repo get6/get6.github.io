@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 interface Props {
-  headers: { title: string; id: string; level: number }[]
+  headers: ToC[]
 }
 
 export default function Toc({ headers }: Props) {

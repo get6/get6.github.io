@@ -1,7 +1,7 @@
-import { Book } from '@/.contentlayer/generated'
 import Line from '@/app/ui/Line'
 import DaysOfReading from '@/app/ui/books/DaysOfReading'
 import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
+import { Book } from 'contentlayer/generated'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'

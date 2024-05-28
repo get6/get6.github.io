@@ -1,9 +1,9 @@
-import { allPosts } from '@/.contentlayer/generated'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
+import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { Suspense } from 'react'
 

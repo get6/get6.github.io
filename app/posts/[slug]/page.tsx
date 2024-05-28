@@ -1,5 +1,4 @@
-import { allPosts } from '@/.contentlayer/generated'
-import { sliceDesc } from '@/app/lib/utils'
+import { getCoverImage, getSummary, getToC, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
@@ -10,6 +9,7 @@ import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
+import { allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
 
 export const generateStaticParams = async () =>
@@ -22,13 +22,17 @@ export const generateMetadata = ({
 }): Metadata => {
   const slug = decodeURIComponent(params.slug)
   const post = allPosts.find((post) => post.slug === slug)
+
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
+
+  const summary = getSummary(post)
+  const cover_image = getCoverImage(post)
 
   return {
     title: post.title,
-    description: sliceDesc(post.summary, 160),
+    description: sliceDesc(summary, 160),
     openGraph: {
-      images: [post.cover_image],
+      images: [cover_image],
     },
   }
 }
@@ -43,14 +47,15 @@ export default function Post({ params }: { params: { slug: string } }) {
     .filter((other) => other.url !== slug && other.date < post.date)
     .slice(0, 3)
 
-  const { date, title, body, tags, toc } = post
+  const { date, title, body, tags } = post
+  const toc = getToC(post)
 
   return (
     <>
       <div
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
-        <AsideHelper headers={toc} />
+        {toc && <AsideHelper headers={toc} />}
         <DetailScreen>
           <h1 className="flex w-full justify-center text-2xl lg:w-[650px] lg:text-4xl">
             {title}
@@ -62,13 +67,13 @@ export default function Post({ params }: { params: { slug: string } }) {
           <div className="flex w-full flex-col items-center">
             <Line className="prose" />
             {/* TODO Mobile이면 toc가 여기에 나타나기 */}
-            <Article html={body.html} />
+            <Article code={body.code} />
             <Line className="prose" />
           </div>
           <PostTags tags={tags} />
           <GithubComment />
         </DetailScreen>
-        <Toc headers={toc} />
+        {toc && <Toc headers={toc} />}
       </div>
       {0 < otherPosts.length && (
         <div className="flex items-center justify-center pb-8 lg:pb-16">

@@ -1,6 +1,5 @@
-import { allBooks } from '@/.contentlayer/generated'
 import { BookStatus } from '@/app/lib/definitions'
-import { sliceDesc } from '@/app/lib/utils'
+import { getSummary, getToC, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
 import GithubComment from '@/app/ui/GithubComment'
@@ -12,6 +11,7 @@ import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
+import { allBooks } from 'contentlayer/generated'
 import { differenceInCalendarDays } from 'date-fns'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -27,11 +27,14 @@ export const generateMetadata = ({
 }): Metadata => {
   const slug = decodeURIComponent(params.slug)
   const book = allBooks.find((book) => book.slug === slug)
+
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
+
+  const summary = getSummary(book)
 
   return {
     title: book.title,
-    description: sliceDesc(book.summary, 160),
+    description: sliceDesc(summary, 160),
     openGraph: {
       images: [book.cover_url],
     },
@@ -57,8 +60,9 @@ export default function Book({ params }: { params: { slug: string } }) {
     cover_url,
     status,
     book_url,
-    toc,
   } = book
+
+  const toc = getToC(book)
 
   const stars = [
     Array.from({ length: my_rate }, (_, i) => (
@@ -79,7 +83,7 @@ export default function Book({ params }: { params: { slug: string } }) {
       <div
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
-        <AsideHelper headers={toc} />
+        {toc && <AsideHelper headers={toc} />}
         <DetailScreen>
           <div className="flex w-full justify-center gap-4 lg:gap-8">
             <div className="relative w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
@@ -140,11 +144,11 @@ export default function Book({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <Line className="prose" />
-          <Article html={body.html} />
+          <Article code={body.code} />
           <Line className="prose" />
           <GithubComment />
         </DetailScreen>
-        <Toc headers={toc} />
+        {toc && <Toc headers={toc} />}
       </div>
     </>
   )

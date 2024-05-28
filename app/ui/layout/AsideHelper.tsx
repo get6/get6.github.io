@@ -1,7 +1,7 @@
 import Toc from '@/app/ui/Toc'
 
 interface Props {
-  headers: { title: string; id: string; level: number }[]
+  headers: ToC[]
 }
 
 // Toc의 맞은편에 위치해서 게시글이 중앙에 위치하도록 함
