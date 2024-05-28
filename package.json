@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "copy-dir": "cp -r blog/assets public/blog/",
+    "copy-dir": "mkdir -p public/blog/assets && cp -r blog/assets/* public/blog/assets/",
     "predev": "pnpm copy-dir",
     "prebuild": "pnpm copy-dir",
     "prepare": "husky"
