@@ -99,19 +99,25 @@ const remarkSourceRedirect =
     // await Promise.all(promises)
   }
 
+const nameIsImg = (name: string) => name === 'img'
+
 const hasImage = (props: any) => {
   return (
     props.children instanceof Array &&
-    (props.children as any[]).some((child) => child.tagName === 'img')
+    (props.children as any[]).some((child) => nameIsImg(child.tagName))
   )
 }
 
 const rehypeImageSize = () => (tree: any) => {
   // 이미지를 포함한 p 태그에 클래스 추가
   visit(tree, 'element', (node: any) => {
-    if (node.tagName === 'p' && 1 < node.children.length && hasImage(node)) {
-      node.properties.className = ' flex flex-wrap justify-center gap-4'
-    } else if (node.tagName === 'img') {
+    if (node.tagName === 'p' && hasImage(node)) {
+      if (
+        1 <
+        node.children.filter((child: any) => nameIsImg(child.tagName)).length
+      )
+        node.properties.className = ' flex flex-wrap justify-center gap-4'
+    } else if (nameIsImg(node.tagName)) {
       const src = node.properties.src
       const alt = node.properties.alt
 
