@@ -89,6 +89,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Copy images
+        run: cp -r public/blog ./out/blog
 
   # Deployment job
   deploy:
