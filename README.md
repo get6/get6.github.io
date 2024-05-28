@@ -3,7 +3,7 @@
 ```bash
 pnpm dev # 개발 모드 실행
 pnpm build # 빌드 실행
-pnpm exec http-server out # out 폴더 참조해서 스태틱 사이트 실행
+npx http-server out # out 폴더 참조해서 스태틱 사이트 실행
 ```
 
 ## 블로그 개발 환경
