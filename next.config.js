@@ -9,8 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    // unoptimized: isProduction ? true : false,
-    unoptimized: true,
+    unoptimized: isProduction ? true : false,
     remotePatterns: [
       {
         protocol: 'https',
