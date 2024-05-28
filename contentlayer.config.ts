@@ -4,12 +4,16 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import rehypeStringify from 'rehype-stringify'
 import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
 import remarkToc from 'remark-toc'
 import sharp from 'sharp'
+import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
 
 const getImageType = (contentType: string): string => {
@@ -68,7 +72,7 @@ const toDataURI = async (url: string) => {
  * @param {string} options.root -
  */
 const remarkSourceRedirect =
-  (options?: void | undefined) => async (tree: any, file: any) => {
+  (options?: void | undefined) => (tree: any, file: any) => {
     const images: any[] = []
     visit(tree, 'paragraph', (node) => {
       const image = node.children.find((child: any) => child.type === 'image')
@@ -95,15 +99,18 @@ const remarkSourceRedirect =
     // await Promise.all(promises)
   }
 
+const hasImage = (props: any) => {
+  return (
+    props.children instanceof Array &&
+    (props.children as any[]).some((child) => child.tagName === 'img')
+  )
+}
+
 const rehypeImageSize = () => (tree: any) => {
   // 이미지를 포함한 p 태그에 클래스 추가
   visit(tree, 'element', (node: any) => {
-    if (
-      node.tagName === 'p' &&
-      1 <= node.children.length &&
-      node.children[0].tagName === 'img'
-    ) {
-      node.properties.className = 'flex flex-wrap justify-center gap-4'
+    if (node.tagName === 'p' && 1 < node.children.length && hasImage(node)) {
+      node.properties.className = ' flex flex-wrap justify-center gap-4'
     } else if (node.tagName === 'img') {
       const src = node.properties.src
       const alt = node.properties.alt
@@ -120,43 +127,51 @@ const rehypeImageSize = () => (tree: any) => {
   })
 }
 
-const getSummary = (body: string) => {
-  // 정규 표현식을 사용하여 HTML 태그 제거
-  const regex = /<[^>]+>/g
-  const text = body.replace(regex, '')
-
-  // 공백 제거
-  return text.replace(/\s+/g, ' ').trim()
-}
-
-// 목차 추출
-const getTOC = (html: string) => {
-  const headers = html.match(/<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g)
-  if (headers) {
-    const res = headers.map((header) => {
-      const matches = header.match(
-        /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
-      )
-      if (matches) {
-        const title = matches[3]
-        return {
-          level: parseInt(matches[1]),
-          id: matches[2],
-          title: title.slice(0, title.indexOf('<')),
-        }
-      }
-      return null
+const getHTML = async (raw: string) => {
+  const uni = await unified()
+    .use(remarkParse)
+    .use(remarkBreaks)
+    .use(remarkCallout)
+    .use(remarkToc)
+    .use(remarkRehype)
+    .use(rehypeImageSize)
+    .use(rehypeStringify)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      behavior: 'append',
+      properties: {
+        className: ['no-underline'],
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: {
+          className: 'no-underline',
+        },
+        children: [
+          {
+            type: 'text',
+            value: '#',
+          },
+        ],
+      },
     })
-    if (1 < res.length) return res
-    return null
-  } else {
-    return null
-  }
+    .use(rehypeExternalLinks, {
+      rel: ['noopener', 'noreferrer'],
+      target: '_blank',
+      properties: { className: "after:content-['_↗']" },
+    })
+    .use(rehypeHighlight)
+    .use(rehypePrettyCode)
+    .process(raw)
+
+  return String(uni)
 }
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `posts/**/*.md`,
+  contentType: 'mdx',
+  filePathPattern: `posts/**/*.{md,mdx}`,
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
@@ -177,31 +192,22 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (post) => `/${post._raw.flattenedPath}`,
     },
-    cover_image: {
-      type: 'string',
-      resolve: (post) => {
-        const image = post.body.html.match(/<img.*?src=["'](.*?)["'].*?>/)?.[1]
-        return image ?? '/images/alt_image.jpg'
-      },
-    },
     slug: {
       type: 'string',
       resolve: (post) => post._raw.flattenedPath.replace(/^posts\//, ''),
     },
-    toc: {
-      type: 'list',
-      resolve: (post) => getTOC(post.body.html),
-    },
-    summary: {
+    html: {
       type: 'string',
-      resolve: (post) => getSummary(post.body.html),
+      resolve: async (post) => await getHTML(post.body.raw),
     },
   },
 }))
 
 export const Book = defineDocumentType(() => ({
+  extensions: {},
   name: 'Book',
-  filePathPattern: `books/**/*.md`,
+  contentType: 'mdx',
+  filePathPattern: `books/**/*.{md,mdx}`,
   fields: {
     created: { type: 'date', required: true },
     // tag: {
@@ -233,67 +239,72 @@ export const Book = defineDocumentType(() => ({
       type: 'string',
       resolve: (book) => book._raw.flattenedPath.replace(/^books\//, ''),
     },
-    summary: {
+    html: {
       type: 'string',
-      resolve: (book) => getSummary(book.body.html),
-    },
-    toc: {
-      type: 'list',
-      resolve: (book) => getTOC(book.body.html),
+      resolve: async (book) => await getHTML(book.body.raw),
+      // const uni = unified()
+      // uni.use(remarkParse)
+      // const remakrs = remarkPlugins.slice(1)
+      // for (const plugin of remarkPlugins) uni.use(plugin)
+      // uni.use(remarkRehype)
+      // for (const plugin of rehypePlugins) uni.use(plugin)
+      // uni.use(rehypeStringify)
+      // await uni.process(book.body.raw)
     },
   },
 }))
+
+const remarkPlugins = [
+  remarkGfm,
+  remarkBreaks,
+  remarkCallout,
+  remarkToc,
+  remarkSourceRedirect,
+  remarkLint as any,
+]
+
+const rehypePlugins = [
+  rehypeImageSize,
+  rehypeSlug,
+  [
+    rehypeAutolinkHeadings,
+    {
+      behavior: 'append',
+      properties: {
+        className: ['no-underline'],
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: {
+          className: 'no-underline',
+        },
+        children: [
+          {
+            type: 'text',
+            value: '#',
+          },
+        ],
+      },
+    },
+  ],
+  [
+    rehypeExternalLinks,
+    {
+      rel: ['noopener', 'noreferrer'],
+      target: '_blank',
+      properties: { className: "after:content-['_↗']" },
+    },
+  ],
+  rehypeHighlight,
+  rehypePrettyCode as any,
+]
 
 export default makeSource({
   contentDirPath: 'blog',
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
-  markdown: {
-    remarkPlugins: [
-      remarkGfm,
-      remarkBreaks,
-      remarkCallout,
-      remarkToc,
-      remarkSourceRedirect,
-      remarkLint as any,
-    ],
-    rehypePlugins: [
-      rehypeImageSize,
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          properties: {
-            className: ['no-underline'],
-          },
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: {
-              className: 'no-underline',
-            },
-            children: [
-              {
-                type: 'text',
-                value: '#',
-              },
-            ],
-          },
-        },
-      ],
-      [
-        rehypeExternalLinks,
-        {
-          rel: ['noopener', 'noreferrer'],
-          target: '_blank',
-          properties: { className: "after:content-['_↗']" },
-        },
-      ],
-      rehypeHighlight,
-      rehypePrettyCode as any,
-    ],
-  },
+  mdx: { remarkPlugins, rehypePlugins },
   date: {
     timezone: 'Asia/Seoul',
   },
