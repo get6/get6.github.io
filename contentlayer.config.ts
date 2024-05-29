@@ -12,16 +12,6 @@ import remarkToc from 'remark-toc'
 import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
 
-const getImageType = (contentType: string): string => {
-  if (contentType) {
-    const matches = contentType.match(/image\/(\w+)/)
-    if (matches && matches[1]) {
-      return matches[1]
-    }
-  }
-  return 'jpeg' // 기본값 JPEG로 설정
-}
-
 // 외부 이미지를 가져와서 블러 처리
 const toBlurDataURL = async (url: string) => {
   const params = new URL(url).searchParams
@@ -32,21 +22,19 @@ const toBlurDataURL = async (url: string) => {
   const res = await fetch(url)
   // 응답 확인
   if (!res.ok) return ''
-  const contentType = res.headers.get('Content-Type') || 'image/png'
 
   const imageData = await res.arrayBuffer()
   const image = sharp(imageData)
   const imgAspectRatio = w / h
+
+  // Base64 문자열로 변환
   const blurDataURL = await image
     .resize(8, Math.round(8 / imgAspectRatio))
-    .png({
+    .webp({
       quality: 75,
     })
     .toBuffer()
-    .then(
-      (buffer) =>
-        `data:image/${getImageType(contentType)};base64,${buffer.toString('base64')}`,
-    )
+    .then((buffer) => `data:image/webp;base64,${buffer.toString('base64')}`)
   return blurDataURL
 }
 
@@ -61,18 +49,13 @@ const toDataURI = async (url: string) => {
   const imageData = await res.arrayBuffer()
   const image = sharp(imageData)
 
-  const contentType = res.headers.get('Content-Type') || 'image/jpeg'
   // Base64 문자열로 변환
-
   const dataURL = await image
-    .png({
+    .webp({
       quality: 75,
     })
     .toBuffer()
-    .then(
-      (buffer) =>
-        `data:image/${getImageType(contentType)};base64,${buffer.toString('base64')}`,
-    )
+    .then((buffer) => `data:image/webp;base64,${buffer.toString('base64')}`)
   return dataURL
 }
 
