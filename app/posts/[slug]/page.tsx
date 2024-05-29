@@ -1,4 +1,4 @@
-import { getCoverImage, getSummary, getToC, sliceDesc } from '@/app/lib/utils'
+import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
@@ -25,14 +25,11 @@ export const generateMetadata = ({
 
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
-  const summary = getSummary(post)
-  const cover_image = getCoverImage(post)
-
   return {
     title: post.title,
-    description: sliceDesc(summary, 160),
+    description: sliceDesc(post.summary, 160),
     openGraph: {
-      images: [cover_image],
+      images: [post.cover_image],
     },
   }
 }
@@ -47,8 +44,7 @@ export default function Post({ params }: { params: { slug: string } }) {
     .filter((other) => other.url !== slug && other.date < post.date)
     .slice(0, 3)
 
-  const { date, title, body, tags } = post
-  const toc = getToC(post)
+  const { date, title, body, tags, toc } = post
 
   return (
     <>
@@ -67,7 +63,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           <div className="flex w-full flex-col items-center">
             <Line className="prose" />
             {/* TODO Mobile이면 toc가 여기에 나타나기 */}
-            <Article code={body.code} />
+            <Article html={body.html} />
             <Line className="prose" />
           </div>
           <PostTags tags={tags} />

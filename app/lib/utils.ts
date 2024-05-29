@@ -1,5 +1,3 @@
-import { Book, Post } from 'contentlayer/generated'
-
 export const readingTime = (text: string) => {
   if (text.length < 1) return 0
 
@@ -12,44 +10,31 @@ export const sliceDesc = (text: string, length: number) => {
   return text.slice(0, length) + '...'
 }
 
-export const getCoverImage = (post: Post) => {
-  let image = '/images/alt_image.jpg'
-  const img = post.html.match(/<img.*?src=["'](.*?)["'].*?>/)?.[1]
-  image = img ?? image
-  return image
-}
+const baseUrl =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000/'
+    : process.env.NEXT_PUBLIC_DOMAIN
 
-// 목차 추출
-const createToC = (html: string): ToC[] | null => {
-  const headers = html.match(/<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g)
-  if (headers) {
-    const headerList: ToC[] = headers.map((header) => {
-      const matches = header.match(
-        /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
-      )
-      if (matches) {
-        const title = matches[3]
-        return {
-          level: parseInt(matches[1]),
-          id: matches[2],
-          title: title.slice(0, title.indexOf('<')),
-        }
-      } else return { level: 0, id: '', title: '' }
-    })
-    const filteredList = headerList.filter((header) => header.level !== 0)
-    if (1 < filteredList.length) return filteredList
-  }
-  return null
-}
+export const dynamicBlurDataUrl = async (url: string) => {
+  const base64str = await fetch(
+    `${baseUrl}/_next/image?url=${url}&w=16&q=75`,
+  ).then(async (res) => Buffer.from(await res.arrayBuffer()).toString('base64'))
 
-export const getToC = (doc: Post | Book): ToC[] | null => {
-  return createToC(doc.html)
-}
+  const blurSvg = `
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'>
+      <filter id='b' color-interpolation-filters='sRGB'>
+        <feGaussianBlur stdDeviation='1' />
+      </filter>
 
-export const getSummary = (doc: Post | Book) => {
-  // 정규 표현식을 사용하여 HTML 태그 제거
-  const regex = /<[^>]+>/g
-  const text = doc.html.replace(regex, '')
-  // 공백 제거
-  return text.replace(/\s+/g, ' ').trim()
+      <image preserveAspectRatio='none' filter='url(#b)' x='0' y='0' height='100%' width='100%' 
+      href='data:image/avif;base64,${base64str}' />
+    </svg>
+  `
+
+  const toBase64 = (str: string) =>
+    typeof window === 'undefined'
+      ? Buffer.from(str).toString('base64')
+      : window.btoa(str)
+
+  return `data:image/svg+xml;base64,${toBase64(blurSvg)}`
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { getCoverImage, getSummary } from '@/app/lib/utils'
 import Badge from '@/app/ui/Badge'
 import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
@@ -12,10 +11,8 @@ import { useRouter } from 'next/navigation'
 import { Suspense } from 'react'
 
 export default function RecentPost({ post }: { post: Post }) {
-  const { url, date, title, body, tags } = post
+  const { url, date, title, body, tags, cover_image, summary } = post
   const { push } = useRouter()
-  const summary = getSummary(post)
-  const cover_image = getCoverImage(post)
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -32,7 +29,6 @@ export default function RecentPost({ post }: { post: Post }) {
           className="object-cover object-top"
           src={cover_image}
           alt="cover_image"
-          priority
           fill
           sizes="(min-width: 1024px) 343px, (max-width: 1024px) 100vw"
         />

@@ -1,6 +1,5 @@
 'use client'
 
-import { getCoverImage } from '@/app/lib/utils'
 import PostDate from '@/app/ui/home/post/PostDate'
 import { Post } from 'contentlayer/generated'
 import Image from 'next/image'
@@ -8,8 +7,7 @@ import { useRouter } from 'next/navigation'
 
 export default function AnotherPost({ post }: { post: Post }) {
   const { push } = useRouter()
-  const { title, date, body } = post
-  const cover_image = getCoverImage(post)
+  const { title, date, body, cover_image } = post
 
   return (
     <div
@@ -21,7 +19,6 @@ export default function AnotherPost({ post }: { post: Post }) {
           className="object-cover"
           src={cover_image}
           alt="cover_image"
-          priority
           fill
           sizes="(min-width: 1024px) 282px, (max-width: 1024px) 100vw"
         />

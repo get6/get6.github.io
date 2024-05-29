@@ -1,5 +1,5 @@
 import { BookStatus } from '@/app/lib/definitions'
-import { getSummary, getToC, sliceDesc } from '@/app/lib/utils'
+import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
 import GithubComment from '@/app/ui/GithubComment'
@@ -30,11 +30,9 @@ export const generateMetadata = ({
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
-  const summary = getSummary(book)
-
   return {
     title: book.title,
-    description: sliceDesc(summary, 160),
+    description: sliceDesc(book.summary, 160),
     openGraph: {
       images: [book.cover_url],
     },
@@ -60,9 +58,8 @@ export default function Book({ params }: { params: { slug: string } }) {
     cover_url,
     status,
     book_url,
+    toc,
   } = book
-
-  const toc = getToC(book)
 
   const stars = [
     Array.from({ length: my_rate }, (_, i) => (
@@ -144,7 +141,7 @@ export default function Book({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <Line className="prose" />
-          <Article code={body.code} />
+          <Article html={body.html} />
           <Line className="prose" />
           <GithubComment />
         </DetailScreen>

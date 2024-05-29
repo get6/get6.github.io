@@ -1,6 +1,5 @@
 'use client'
 
-import { getCoverImage, getSummary } from '@/app/lib/utils'
 import Badge from '@/app/ui/Badge'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
@@ -11,9 +10,7 @@ import { useRouter } from 'next/navigation'
 
 export default function PrevPost({ post }: { post: Post }) {
   const { push } = useRouter()
-  const { url, date, title, body, tags } = post
-  const summary = getSummary(post)
-  const cover_image = getCoverImage(post)
+  const { url, date, title, body, tags, cover_image, summary } = post
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -28,12 +25,9 @@ export default function PrevPost({ post }: { post: Post }) {
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
         <div className="relative w-full">
           <Image
-            placeholder="blur"
-            blurDataURL={`/_next/image?url=${cover_image}&w=16&q=1`}
             className="object-cover object-top"
             src={cover_image}
             alt="cover_image"
-            priority
             fill
             sizes="(min-width: 1024px) 164px, (max-width: 1024px) 100vw"
           />

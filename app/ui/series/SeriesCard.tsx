@@ -1,6 +1,5 @@
 'use client'
 
-import { getCoverImage } from '@/app/lib/utils'
 import Badge from '@/app/ui/Badge'
 import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
@@ -17,13 +16,12 @@ interface Props {
 
 export default function SeriesCard({ series }: Props) {
   const { push } = useRouter()
-  const { date, title, body, tags, url } = series[0]
+  const { date, title, body, tags, url, cover_image } = series[0]
 
   if (!series[0].series_title)
     throw new Error(
       `Series not found for series_title: ${series[0].series_title}`,
     )
-  const cover_image = getCoverImage(series[0])
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()
