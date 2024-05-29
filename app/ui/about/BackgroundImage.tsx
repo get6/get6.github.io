@@ -1,36 +1,29 @@
 'use client'
 
-import bg from '@/public/images/about/bg.jpg'
-import dargBg from '@/public/images/about/dark-bg.jpg'
-
-import { useTheme } from 'next-themes'
 import Image, { ImageProps } from 'next/image'
 
 export default function BackgroundImage() {
-  const { resolvedTheme } = useTheme()
-
   const attributes: Omit<ImageProps, 'src' | 'alt'> = {
-    placeholder: 'blur',
     sizes: '100vw',
   }
-  const className =
-    'fixed left-0 top-0 z-[-1] h-full w-full object-cover select-none'
-
-  const isDark = resolvedTheme === 'dark'
 
   return (
     <>
       <Image
         {...attributes}
-        src={dargBg}
+        src="/images/about/dark-bg.jpg"
         alt="Dark mountain background image"
-        className={`${className} ${isDark ? 'block' : 'hidden'}`}
+        className="fixed left-0 top-0 z-[-1] hidden h-full w-full select-none object-cover dark:block"
+        width={2048}
+        height={1107}
       />
       <Image
         {...attributes}
-        src={bg}
+        src="/images/about/bg.jpg"
         alt="Mountain background image"
-        className={`${className} ${isDark ? 'hidden' : 'block'}`}
+        className="fixed left-0 top-0 z-[-1] block h-full w-full select-none object-cover dark:hidden"
+        width={2048}
+        height={1107}
       />
     </>
   )
