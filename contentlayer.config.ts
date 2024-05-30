@@ -11,6 +11,7 @@ import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
 import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
+import { getFirstImage } from './app/lib/utils'
 
 // 외부 이미지를 가져와서 블러 처리
 const toBlurDataURL = async (url: string) => {
@@ -186,12 +187,8 @@ export const Post = defineDocumentType(() => ({
     cover_image: {
       type: 'string',
       resolve: async (post) => {
-        const regex = /!\[[^\]]*\]\((.*?)\)/g
-        const match = regex.exec(post.body.raw)
-        if (match) {
-          // return match[1]
-          return await toDataURI(match[1])
-        }
+        const image = getFirstImage(post.body.raw)
+        if (image) return await toDataURI(image)
         return '/images/alt_image.jpg'
       },
     },
@@ -303,7 +300,5 @@ export default makeSource({
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
   markdown: { remarkPlugins, rehypePlugins },
-  date: {
-    timezone: 'Asia/Seoul',
-  },
+  date: { timezone: 'Asia/Seoul' },
 })

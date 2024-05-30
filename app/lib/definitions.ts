@@ -18,7 +18,10 @@ export enum ThemeState {
   System = 'system',
 }
 
-export const BASE_URL = 'https://get6.github.io'
+export const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://get6.github.io'
+    : 'http://localhost:3000'
 
 export const menus = [
   // { name: 'Posts', href: '/posts' },

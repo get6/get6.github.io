@@ -10,9 +10,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === 'production' ? BASE_URL : 'http://localhost:3000',
-  ),
+  metadataBase: new URL(BASE_URL),
   title: blog_title,
   description: blog_description,
   icons: [

@@ -6,7 +6,7 @@ export default function BackgroundImage() {
   const attributes: Omit<ImageProps, 'src' | 'alt'> = {
     sizes: '100vw',
   }
-
+  // TODO import했을 때는 번쩍이는게 없었는데 src로 옮기고 나서는 계속 발생함
   return (
     <>
       <Image

@@ -1,4 +1,4 @@
-import { sliceDesc } from '@/app/lib/utils'
+import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
@@ -29,7 +29,7 @@ export const generateMetadata = ({
     title: post.title,
     description: sliceDesc(post.summary, 160),
     openGraph: {
-      images: [post.cover_image],
+      images: [getOGImage(post.body.raw)],
     },
   }
 }
