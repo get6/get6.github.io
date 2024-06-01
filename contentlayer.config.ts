@@ -11,7 +11,6 @@ import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
 import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
-import { getFirstImage } from './app/lib/utils'
 
 // 외부 이미지를 가져와서 블러 처리
 const toBlurDataURL = async (url: string) => {
@@ -187,8 +186,12 @@ export const Post = defineDocumentType(() => ({
     cover_image: {
       type: 'string',
       resolve: async (post) => {
-        const image = getFirstImage(post.body.raw)
-        if (image) return await toDataURI(image)
+        const regex = /!\[[^\]]*\]\((.*?)\)/g
+        const match = regex.exec(post.body.raw)
+
+        if (match) {
+          return await toDataURI(match[1])
+        }
         return '/images/alt_image.jpg'
       },
     },
