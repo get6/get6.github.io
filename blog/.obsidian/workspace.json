@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202405262014.md",
+                "file": "posts/202406011520.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202405262014.md",
+                "file": "posts/202406011520.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202405262014.md",
+                "file": "posts/202406011520.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202405262014.md"
+                "file": "posts/202406011520.md"
               }
             }
           }
@@ -151,18 +151,29 @@
   },
   "active": "ac71757d2c13924a",
   "lastOpenFiles": [
-    "posts/202405281110.md",
-    "posts/202405262014.md",
+    "assets/riverpod-architecture-flow.png",
+    "assets/hevyplan-riverpod-course.png",
+    "assets/riverpod-clean-architecture.png",
+    "assets/riverpod_logo.png",
+    "posts/202405292207.md",
     "posts/202405272048.md",
+    "posts/202406011520.md",
+    "posts/202406011835.md",
+    "books/엔터프라이즈 플러터 핸드북.md",
+    "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
+    "posts/202405261906.md",
+    "posts/202405262011.md",
+    "posts/202405262014.md",
+    "assets/browsers.webp",
+    "books/어떤 곳에서도 안녕하기를 삶의 곳곳을 비추는 세 사람의 시선Untitled.md",
+    "posts/202405281110.md",
     "books/도커 컨테이너 빌드업.md",
     "books/그래서, 인터널브랜딩.md",
     "books/팩트풀니스 우리가 세상을 오해하는 10가지 이유와 세상이 생각보다 괜찮은 이유.md",
     "assets/mailAttachment.jpeg",
     "assets/public_key_encryption_keys.png",
-    "posts/202405262011.md",
     "posts/202312301624.md",
     "posts/202402112036.md",
-    "posts/202405261906.md",
     "assets/nasa-earth.jpg",
     "posts/202405261733.md",
     "assets/Public_key_encryption_keys.png",
@@ -170,23 +181,12 @@
     "assets/cors-url.png",
     "posts/202405261318.md",
     "assets/growing-by-getting-out-of-your-comfort-zone-and-trying-new-ways.jpg",
-    "assets/an-attitude-that-can-earn-the-trust-of-colleagues.jpg",
-    "assets/ability-to-write-maintainable-code.jpg",
-    "assets/complete-the-product-within-the-promised-time-frame.jpg",
-    "assets/understanding-of-the-product.jpg",
     "posts/202405241205.md",
     "posts/202405121633.md",
-    "books/엔터프라이즈 플러터 핸드북.md",
     "books/stay alive - Google 검색.md",
     "posts/202405121626.md",
     "posts/202405071624.md",
     "books/일을 잘 맡긴다는 것.md",
-    "books/상자 밖에 있는 사람.md",
-    "books/90일 만에 당신의 회사를 고수익 기업으로 바꿔라.md",
-    "books/이것부터 해결하라.md",
-    "books/비상식적 성공 법칙.md",
-    "books/시장을 뒤흔드는 크로스오버 아이디어.md",
-    "books/피터 드러커의 최고의 질문.md",
     "templates",
     "template"
   ]
