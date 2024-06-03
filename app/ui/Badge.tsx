@@ -20,7 +20,7 @@ export default function Badge({
 
   return (
     <span
-      className={`rounded-full px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-600 ${
+      className={`whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-600 ${
         isLarge && 'text-sm'
       } ${
         name === param

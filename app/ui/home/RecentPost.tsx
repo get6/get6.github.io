@@ -44,7 +44,7 @@ export default function RecentPost({ post }: { post: Post }) {
           <Title>{title}</Title>
           <div className="truncate font-normal dark:text-white">{summary}</div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 overflow-x-hidden">
           <Suspense fallback={<TagsFallBack tags={tags} />}>
             {tags.map((tag, index) => (
               <Badge key={index} name={tag} onClick={handleTagClick(tag)} />

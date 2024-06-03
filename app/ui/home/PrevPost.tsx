@@ -44,7 +44,7 @@ export default function PrevPost({ post }: { post: Post }) {
         <div className="py-2 lg:py-0">
           <Line />
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 overflow-x-hidden">
           {tags.map((tag, index) => (
             <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
           ))}
