@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202406011520.md",
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202406011520.md",
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202406011520.md",
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202406011520.md"
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md"
               }
             }
           }
@@ -151,13 +151,14 @@
   },
   "active": "ac71757d2c13924a",
   "lastOpenFiles": [
+    "posts/202406011520.md",
+    "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
     "assets/riverpod-architecture-flow.png",
     "assets/hevyplan-riverpod-course.png",
     "assets/riverpod-clean-architecture.png",
     "assets/riverpod_logo.png",
     "posts/202405292207.md",
     "posts/202405272048.md",
-    "posts/202406011520.md",
     "posts/202406011835.md",
     "books/엔터프라이즈 플러터 핸드북.md",
     "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
@@ -180,7 +181,6 @@
     "books/~$1초의 탄생.md",
     "assets/cors-url.png",
     "posts/202405261318.md",
-    "assets/growing-by-getting-out-of-your-comfort-zone-and-trying-new-ways.jpg",
     "posts/202405241205.md",
     "posts/202405121633.md",
     "books/stay alive - Google 검색.md",
