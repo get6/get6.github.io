@@ -1,23 +1,42 @@
-import { allBooks } from '@/.contentlayer/generated'
+import { BookStatus } from '@/app/lib/definitions'
+import { sliceDesc } from '@/app/lib/utils'
+import Article from '@/app/ui/Article'
+import FormattedDate from '@/app/ui/FormattedDate'
+import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
-import PageScreen from '@/app/ui/layout/PageScreen'
-import { StarIcon } from '@heroicons/react/24/outline'
+import Toc from '@/app/ui/Toc'
+import AsideHelper from '@/app/ui/layout/AsideHelper'
+import DetailScreen from '@/app/ui/layout/DetailScreen'
+import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
-import { format, intervalToDuration } from 'date-fns'
+import { allBooks } from 'contentlayer/generated'
+import { differenceInCalendarDays } from 'date-fns'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export const generateStaticParams = async () =>
   allBooks.map((book) => ({ slug: book.slug }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = ({
+  params,
+}: {
+  params: { slug: string }
+}): Metadata => {
   const slug = decodeURIComponent(params.slug)
   const book = allBooks.find((book) => book.slug === slug)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
-  return { title: book.title }
+
+  return {
+    title: book.title,
+    description: sliceDesc(book.summary, 160),
+    openGraph: {
+      images: [book.cover_url],
+    },
+  }
 }
 
 export default function Book({ params }: { params: { slug: string } }) {
@@ -37,6 +56,9 @@ export default function Book({ params }: { params: { slug: string } }) {
     tag,
     my_rate,
     cover_url,
+    status,
+    book_url,
+    toc,
   } = book
 
   const stars = [
@@ -48,76 +70,83 @@ export default function Book({ params }: { params: { slug: string } }) {
     )),
   ]
 
-  return (
-    <PageScreen>
-      <div className="flex flex-col gap-8 border border-black px-6 py-16">
-        <div className="flex gap-10">
-          <div className="relative h-96 w-64 border border-black">
-            <Image
-              className="aspect-auto object-cover object-top"
-              src={cover_url}
-              alt={title}
-              priority
-              fill
-              sizes="(min-width: 1024px) 256px, (max-width: 1024px) 100vw"
-            />
-          </div>
-          <div className="flex flex-col justify-between">
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between">
-                <Title>{title}</Title>
-                <ToastPostal />
-              </div>
+  const daysOfReading = differenceInCalendarDays(
+    new Date(finish_read_date),
+    new Date(start_read_date),
+  )
 
-              <p className="text-sm">저자: {author}</p>
-              <p className="flex items-center gap-1 text-sm">
-                추천:
-                <span className="flex">{stars.map((star) => star)}</span>
-              </p>
-              <p className="text-sm">쪽수: {total_page}</p>
-              <p className="text-sm">
-                발행일: {format(new Date(publish_date), 'yyyy-MM-dd')}
-              </p>
-              <p className="text-sm">
-                {`독서 기간: ${format(
-                  new Date(start_read_date),
-                  'yyyy-MM-dd',
-                )} ~ `}
-                {start_read_date < finish_read_date ? (
-                  `${format(new Date(finish_read_date), 'yyyy-MM-dd')}`
-                ) : (
-                  <span className="font-semibold">ing</span>
-                )}
-                {start_read_date < finish_read_date && (
-                  <span className="font-semibold text-red-500">
-                    {` +${intervalToDuration({
-                      start: new Date(start_read_date),
-                      end: new Date(finish_read_date),
-                    }).days!.toString()}일`}
-                  </span>
-                )}
-              </p>
-              <p className="text-sm">
-                카테고리:{' '}
-                {tag
-                  .split(' ')
-                  .slice(1)
-                  .map((tag) => tag)
-                  .join(', ')}
-              </p>
+  return (
+    <>
+      <div
+        className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
+      >
+        {toc && <AsideHelper headers={toc} />}
+        <DetailScreen>
+          <div className="flex w-full justify-center gap-4 lg:gap-8">
+            <div className="relative w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
+              <Image
+                className="object-cover object-left-top"
+                src={cover_url}
+                alt={title}
+                priority
+                fill
+                sizes="(min-width: 1024px) 256px, (max-width: 1024px) 100vw"
+              />
             </div>
-            <Link href={book.url} className="text-xs text-blue-500">
-              yes24로 책 보러가기
-            </Link>
+            <div className="flex flex-col justify-between lg:max-w-md">
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between gap-2">
+                  <Title>{title}</Title>
+                  <ToastPostal />
+                </div>
+
+                <p className="text-xs lg:text-sm">저자: {author}</p>
+                {status === BookStatus.Finished && (
+                  <p className="flex items-center gap-1 text-xs lg:text-sm">
+                    추천:
+                    <span className="flex">{stars.map((star) => star)}</span>
+                  </p>
+                )}
+                <p className="text-xs lg:text-sm">쪽수: {total_page}</p>
+                <p className="text-xs lg:text-sm">
+                  발행일: <FormattedDate date={publish_date} />
+                </p>
+                <p className="text-xs lg:text-sm">
+                  독서 기간: <FormattedDate date={start_read_date} /> ~{' '}
+                  {start_read_date < finish_read_date ? (
+                    <FormattedDate date={finish_read_date} />
+                  ) : (
+                    <span className="font-semibold">ing</span>
+                  )}
+                  {start_read_date < finish_read_date && (
+                    <span className="text-red-500">{` (${daysOfReading}일)`}</span>
+                  )}
+                </p>
+                <p className="text-xs lg:text-sm">
+                  카테고리:{' '}
+                  {tag
+                    .split(' ')
+                    .slice(1)
+                    .map((tag) => tag)
+                    .join(', ')}
+                </p>
+              </div>
+              <Link
+                href={book_url}
+                className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500"
+              >
+                yes24로 책 보러가기
+                <ArrowUpRightIcon className="h-3 w-3" />
+              </Link>
+            </div>
           </div>
-        </div>
-        <Line />
-        <div
-          className="[&>*:last-child]:mb-0 [&>*]:mb-3"
-          dangerouslySetInnerHTML={{ __html: body.html }}
-        />
-        <Line />
+          <Line className="prose" />
+          <Article html={body.html} />
+          <Line className="prose" />
+          <GithubComment />
+        </DetailScreen>
+        {toc && <Toc headers={toc} />}
       </div>
-    </PageScreen>
+    </>
   )
 }

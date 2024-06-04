@@ -1,18 +1,19 @@
 const { withContentlayer } = require('next-contentlayer')
+const withOptimizedImages = require('next-optimized-images')
+const withPlugins = require('next-compose-plugins')
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false
-const isProduction = process.env.NODE_ENV === 'production'
-
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   swcMinify: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'image.yes24.com',
-        pathname: '/goods/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',
@@ -20,12 +21,9 @@ const nextConfig = {
       },
     ],
   },
-  ...((isGithubActions || isProduction) && {
-    output: 'export',
-    images: {
-      unoptimized: true,
-    },
-  }),
 }
 
-module.exports = withContentlayer(nextConfig)
+module.exports = withPlugins(
+  [withOptimizedImages, { optimizeImagesInDev: true }, withContentlayer],
+  nextConfig,
+)

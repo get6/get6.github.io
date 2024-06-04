@@ -137,3 +137,4 @@ dist
 .pnpm-store
 .contentlayer
 .DS_Store
+public/blog/assets

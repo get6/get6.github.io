@@ -1,9 +1,9 @@
-import { allPosts } from '@/.contentlayer/generated'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
+import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { Suspense } from 'react'
 
@@ -13,7 +13,7 @@ function PostListFallback() {
       {Array.from({ length: 4 }, (_, index) => (
         <div
           key={index}
-          className="h-[205px] w-[520px] animate-pulse rounded-md bg-gray-200"
+          className="h-[205px] w-[520px] animate-pulse rounded-md bg-gray-200 dark:bg-gray-600"
         />
       ))}
     </div>
@@ -21,7 +21,9 @@ function PostListFallback() {
 }
 
 function SearchBarFallback() {
-  return <div className="h-12 w-80 animate-pulse rounded-md bg-gray-200" />
+  return (
+    <div className="h-12 w-80 animate-pulse rounded-md bg-gray-200 dark:bg-gray-600" />
+  )
 }
 
 export default function Home() {
@@ -34,21 +36,19 @@ export default function Home() {
 
   return (
     <PageScreen>
-      <div className="flex w-full flex-col gap-8">
-        <div className="flex flex-col gap-4">
+      <div className="flex w-full flex-col items-center gap-8">
+        <div className="flex w-full flex-col gap-4">
           <PageTitle>Recent Posts</PageTitle>
           <div
-            className={`flex ${
-              recentPosts.length == 3 ? 'justify-between' : 'gap-10'
-            }`}
+            className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
           >
             {recentPosts.map((post, index) => (
               <RecentPost key={index} post={post} />
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="flex justify-between">
+        <div className="flex w-full flex-col gap-4">
+          <div className="flex min-w-[344px] justify-between">
             <PageTitle>All Posts</PageTitle>
             <Suspense fallback={<SearchBarFallback />}>
               <SearchBar />

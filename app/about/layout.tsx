@@ -1,3 +1,5 @@
+import BackgroundImage from '@/app/ui/about/BackgroundImage'
+
 export default function AboutLayout({
   children,
 }: {
@@ -5,7 +7,7 @@ export default function AboutLayout({
 }) {
   return (
     <>
-      <div className="fixed left-0 top-0 -z-10 h-full w-full bg-[url('/images/bg.jpg')] bg-cover bg-bottom bg-no-repeat" />
+      <BackgroundImage />
       {children}
     </>
   )

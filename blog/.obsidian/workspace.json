@@ -4,17 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "02160b55a35b2fa7",
+        "id": "1757c372d2511a15",
         "type": "tabs",
         "children": [
           {
-            "id": "eee605a79becdcad",
+            "id": "ac71757d2c13924a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202312272348.md",
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
                 "mode": "source",
+                "backlinks": false,
                 "source": false
               }
             }
@@ -48,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "블로그",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202312272348.md",
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202312272348.md",
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202312272348.md"
+                "file": "books/그래서 컴퓨터는 어떻게 동작하나요?.md"
               }
             }
           }
@@ -142,44 +143,51 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "zk-prefixer:Create new unique note": false,
-      "kr-book-info-plugin:Add Book Info": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "eee605a79becdcad",
+  "active": "ac71757d2c13924a",
   "lastOpenFiles": [
-    "posts/post-01.md",
-    "templates/Post template.md",
-    "posts/202312272348.md",
-    "posts/202312271647.md",
-    "posts/202312271914.md",
-    "posts/202312271313.md",
-    "posts/202312271514.md",
-    "posts/202312271551.md",
-    "posts/202312271545.md",
-    "posts/post-012.md",
-    "posts/202312271520.md",
-    "posts/202312271524.md",
-    "posts/202312271513.md",
-    "assets/Pasted image 20231220144643.png",
-    "assets/MailAttachment.jpeg",
+    "posts/202406011520.md",
+    "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
+    "assets/riverpod-architecture-flow.png",
+    "assets/hevyplan-riverpod-course.png",
+    "assets/riverpod-clean-architecture.png",
+    "assets/riverpod_logo.png",
+    "posts/202405292207.md",
+    "posts/202405272048.md",
+    "posts/202406011835.md",
+    "books/엔터프라이즈 플러터 핸드북.md",
+    "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
+    "posts/202405261906.md",
+    "posts/202405262011.md",
+    "posts/202405262014.md",
+    "assets/browsers.webp",
+    "books/어떤 곳에서도 안녕하기를 삶의 곳곳을 비추는 세 사람의 시선Untitled.md",
+    "posts/202405281110.md",
+    "books/도커 컨테이너 빌드업.md",
+    "books/그래서, 인터널브랜딩.md",
+    "books/팩트풀니스 우리가 세상을 오해하는 10가지 이유와 세상이 생각보다 괜찮은 이유.md",
+    "assets/mailAttachment.jpeg",
+    "assets/public_key_encryption_keys.png",
+    "posts/202312301624.md",
+    "posts/202402112036.md",
+    "assets/nasa-earth.jpg",
+    "posts/202405261733.md",
+    "assets/Public_key_encryption_keys.png",
+    "books/~$1초의 탄생.md",
+    "assets/cors-url.png",
+    "posts/202405261318.md",
+    "posts/202405241205.md",
+    "posts/202405121633.md",
+    "books/stay alive - Google 검색.md",
+    "posts/202405121626.md",
+    "posts/202405071624.md",
+    "books/일을 잘 맡긴다는 것.md",
     "templates",
-    "template/Post template.md",
-    "posts/202312271402.md",
-    "posts/202312271403.md",
-    "posts/Untitled.md",
-    "posts/202312271400.md",
-    "posts/post-013.md",
-    "template",
-    "Untitled.md",
-    "posts/post-014.md",
-    "books/마흔에 읽는 쇼펜하우어 마음의 위기를 다스리는 철학 수업.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전 copy.md",
-    "books/슈독 나이키 창업자 필 나이트 자서전 copy 2.md",
-    "202312182025.md"
+    "template"
   ]
 }

@@ -10,7 +10,7 @@ export default function ToastPostal() {
   return (
     <>
       <ShareIcon
-        className="h-6 w-6 hover:cursor-pointer"
+        className="h-6 w-6 hover:cursor-pointer dark:text-white"
         onClick={async () => {
           await navigator.clipboard.writeText(window.location.href)
           setShowToast(true)

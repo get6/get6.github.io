@@ -26,7 +26,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated",
-    "decs.d.ts"
   ],
   "exclude": ["node_modules", "blog/.obsidian"]
 }

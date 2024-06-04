@@ -1,117 +1,160 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeExternalLinks from 'rehype-external-links'
 import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
-import remarkEmbedImages from 'remark-embed-images'
+import rehypeSlug from 'rehype-slug'
+import remarkBreaks from 'remark-breaks'
+import remarkCallout from 'remark-callout'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
-import remarkObsidian from 'remark-obsidian'
+import remarkToc from 'remark-toc'
+import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
-import rehypeSlug from 'rehype-slug'
 
-/**
- * @type {import('unified').Plugin<[], Root>}
- * Analyzes local markdown/MDX images & videos and rewrites their `src`.
- * Supports both markdown-style images, MDX <Image /> components, and `source`
- * elements. Can be easily adapted to support other sources too.
- * @param {string} options.root - The root path when reading the image file.
- */
-const remarkSourceRedirect = (options: any) => (tree: any, file: any) => {
-  // This matches all images that use the markdown standard format ![label](path).
-  visit(tree, 'paragraph', (node) => {
-    const image = node.children.find((child: any) => child.type === 'image')
-    if (image) {
-      if (image.url.startsWith('http')) return
-      if (image.url.startsWith('../')) image.url = image.url.replace('../', '')
-      image.url = `blog/${image.url}`
-    }
-  })
-  // This matches all MDX' <Image /> components & source elements that I'm
-  // using within a custom <Video /> component.
-  // Feel free to update it if you're using a different component name.
-  visit(tree, 'mdxJsxFlowElement', (node) => {
-    // I didn't test this
-    if (node.name === 'Image' || node.name === 'source') {
-      const srcAttr = node.attributes.find(
-        (attribute: any) => attribute.name === 'src',
-      )
-      srcAttr.value = `blog/assets/${srcAttr.value}`
-    }
-  })
+// 외부 이미지를 가져와서 블러 처리
+const toBlurDataURL = async (url: string) => {
+  const params = new URL(url).searchParams
+  const w = Number(params.get('w')) || 16
+  const h = Number(params.get('h')) || 16
+
+  // 이미지 요청
+  const res = await fetch(url)
+  // 응답 확인
+  if (!res.ok) return ''
+
+  const imageData = await res.arrayBuffer()
+  const image = sharp(imageData)
+  const imgAspectRatio = w / h
+
+  // Base64 문자열로 변환
+  const blurDataURL = await image
+    .resize(8, Math.round(8 / imgAspectRatio))
+    .webp({
+      quality: 75,
+    })
+    .toBuffer()
+    .then((buffer) => `data:image/webp;base64,${buffer.toString('base64')}`)
+  return blurDataURL
+}
+
+const toDataURI = async (url: string) => {
+  // 이미지 요청
+  const res = await fetch(url)
+
+  // 응답 확인
+  if (!res.ok) return url
+
+  // 이미지 데이터 가져오기
+  const imageData = await res.arrayBuffer()
+  const image = sharp(imageData)
+
+  // Base64 문자열로 변환
+  const dataURL = await image
+    .webp({
+      quality: 75,
+    })
+    .toBuffer()
+    .then((buffer) => `data:image/webp;base64,${buffer.toString('base64')}`)
+  return dataURL
 }
 
 /**
  * @type {import('unified').Plugin<[], Root>}
+ * @param {string} options.root -
  */
-const remarkCustomObsidian = (options: any) => async (tree: any, file: any) => {
-  // file = await remark().use(remarkObsidian).process(file)
-  // const paragraphs: any[] = []
-  // visit(tree, 'paragraph', (node) => {
-  //   const text = node.children.find((child: any) => child.type === 'text')
-  //   // console.log(text)
-  //   if (text) {
-  //     paragraphs.push(node)
-  //   }
-  // })
-  // /** @type {Array<Promise<void>>} */
-  // const promises = paragraphs.map(async (node: any) => {
-  //   const text = node.children.find((child: any) => child.type === 'text')
-  //   if (text) {
-  //     text.value = await remark().use(remarkObsidian).process(text.value)
-  //   }
-  // })
-  // await Promise.all(promises)
-}
-
-const tocPlugin = (headings: PostHeading[]) => () => {
-  return (node: any) => {
-    console.log(node)
-    node.children
-      .filter((_: any) => _.type === 'heading')
-      .forEach((heading: any) => {
-        // visit(heading, 'paragraph', (node) => {
-        //   node.
-        // })
-        console.log(heading)
-        const title = heading.children[0].value
-        // const title = toMarkdown({ type: 'paragraph', children: heading.children }, { extensions: [mdxToMarkdown()] })
-        // .trim()
-        // // removes MDX in headlines
-        // .replace(/<.*$/g, '')
-        // // remove backslashes (e.g. from list items)
-        // .replace(/\\/g, '')
-        // .trim()
-
-        return headings.push({ level: heading.depth, title })
-      })
+const remarkSourceRedirect =
+  (options?: void | undefined) => async (tree: any, file: any) => {
+    const images: any[] = []
+    visit(tree, 'paragraph', (node) => {
+      const image = node.children.find((child: any) => child.type === 'image')
+      if (image) {
+        if (image.url.includes('://')) images.push(node)
+        else {
+          image.url = `/blog/${image.url}`
+        }
+      }
+    })
+    // base64는 외부 이미지를 blur 처리하는 용도로 가져와도 좋을 것 같다. 0.1 퀄리티로 아주 작은 이미지를 가져와서 블러 처리
+    const promises: Promise<any>[] = []
+    for (const node of images) {
+      const image = node.children.find((child: any) => child.type === 'image')
+      if (image.url.includes('images.unsplash.com')) {
+        promises.push(
+          new Promise(async (resolve) => {
+            image.url = await toDataURI(image.url)
+            resolve(image.url)
+          }),
+        )
+      }
+    }
+    await Promise.all(promises)
   }
-}
-/**
- * @type {import('unified').Plugin<[], Root>}
- */
-const rehypeCustomObsidian = (options: any) => async (tree: any, file: any) => {
-  const paragraphs: any[] = []
 
-  visit(tree, 'element', (node) => {
-    const text = node.children.find((child: any) => child.type === 'text')
-    if (text) {
-      paragraphs.push(node)
-    }
-  })
+const nameIsImg = (name: string) => name === 'img'
 
-  /** @type {Array<Promise<void>>} */
-  const promises = paragraphs.map(async (node: any) => {
-    const text = node.children.find((child: any) => child.type === 'text')
-    if (text) {
-      console.log(text)
-      if (text.value) text.value = text.value.replace(/<br>/g, '\n')
-    }
-  })
-  console.log(promises)
-  await Promise.all(promises)
+const hasImage = (props: any) => {
+  return (
+    props.children instanceof Array &&
+    (props.children as any[]).some((child) => nameIsImg(child.tagName))
+  )
 }
 
-type PostHeading = { level: 1 | 2 | 3; title: string }
+const rehypeImageSize = () => (tree: any) => {
+  // 이미지를 포함한 p 태그에 클래스 추가
+  visit(tree, 'element', (node: any) => {
+    if (node.tagName === 'p' && hasImage(node)) {
+      if (
+        1 <
+        node.children.filter((child: any) => nameIsImg(child.tagName)).length
+      )
+        node.properties.className = ' flex flex-wrap justify-center gap-4'
+    } else if (nameIsImg(node.tagName)) {
+      const src = node.properties.src
+      const alt = node.properties.alt
+
+      if (src && alt) {
+        if (alt.toString().includes('|')) {
+          const width = alt.split('|').map((s: string) => s.trim())[1]
+          node.properties.width = width
+        }
+      } else if (src && !alt) {
+        node.properties.alt = 'image'
+      }
+    }
+  })
+}
+
+// 목차 추출
+const getToC = (html: string): ToC[] | null => {
+  const headers = html.match(/<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g)
+  if (headers) {
+    const headerList: ToC[] = headers.map((header) => {
+      const matches = header.match(
+        /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
+      )
+      if (matches) {
+        const title = matches[3]
+        return {
+          level: parseInt(matches[1]),
+          id: matches[2],
+          title: title.slice(0, title.indexOf('<')),
+        }
+      } else return { level: 0, id: '', title: '' }
+    })
+    const filteredList = headerList.filter((header) => header.level !== 0)
+    if (1 < filteredList.length) return filteredList
+  }
+  return null
+}
+
+const getSummary = (html: string) => {
+  // 정규 표현식을 사용하여 HTML 태그 제거
+  const regex = /<[^>]+>/g
+  const text = html.replace(regex, '').replace(/#/g, '')
+  // 공백 제거
+  return text.replace(/\s+/g, ' ').trim()
+}
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -136,32 +179,35 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (post) => `/${post._raw.flattenedPath}`,
     },
-    cover_image: {
-      type: 'string',
-      resolve: (post) => {
-        const image = post.body.html.match(/<img.*?src=["'](.*?)["'].*?>/)?.[1]
-        const cover_image = image ? image : '/images/alt_image.jpg'
-        return cover_image
-      },
-    },
     slug: {
       type: 'string',
       resolve: (post) => post._raw.flattenedPath.replace(/^posts\//, ''),
     },
-    toc: {
-      type: 'json',
+    cover_image: {
+      type: 'string',
       resolve: async (post) => {
-        const contents: PostHeading[] = []
+        const regex = /!\[[^\]]*\]\((.*?)\)/g
+        const match = regex.exec(post.body.raw)
 
-        const regex = /<h([1-3])[^>]*>(.*?)<\/h\1>/g
-        const headerMatches = Array.from(post.body.html.matchAll(regex))
-        return [{ level: 1, title: post.title }, ...contents]
+        if (match) {
+          return await toDataURI(match[1])
+        }
+        return '/images/alt_image.jpg'
       },
+    },
+    summary: {
+      type: 'string',
+      resolve: (post) => getSummary(post.body.html),
+    },
+    toc: {
+      type: 'list',
+      resolve: (post) => getToC(post.body.html),
     },
   },
 }))
 
 export const Book = defineDocumentType(() => ({
+  extensions: {},
   name: 'Book',
   filePathPattern: `books/**/*.md`,
   fields: {
@@ -173,6 +219,7 @@ export const Book = defineDocumentType(() => ({
     // },
     tag: { type: 'string', required: true },
     title: { type: 'string', required: true },
+    subtitle: { type: 'string' },
     author: { type: 'string', required: true },
     category: { type: 'string', required: true },
     total_page: { type: 'number', required: true },
@@ -183,7 +230,7 @@ export const Book = defineDocumentType(() => ({
     finish_read_date: { type: 'date', required: true },
     my_rate: { type: 'number', required: true },
     book_note: { type: 'string' },
-    book_url: { type: 'string' },
+    book_url: { type: 'string', required: true },
   },
   computedFields: {
     url: {
@@ -194,60 +241,67 @@ export const Book = defineDocumentType(() => ({
       type: 'string',
       resolve: (book) => book._raw.flattenedPath.replace(/^books\//, ''),
     },
+    summary: {
+      type: 'string',
+      resolve: (book) => getSummary(book.body.html),
+    },
+    toc: {
+      type: 'list',
+      resolve: (book) => getToC(book.body.html),
+    },
   },
 }))
+
+const remarkPlugins = [
+  remarkGfm,
+  remarkBreaks,
+  remarkCallout,
+  remarkToc,
+  remarkSourceRedirect,
+  remarkLint as any,
+]
+
+const rehypePlugins = [
+  rehypeImageSize,
+  rehypeSlug,
+  [
+    rehypeAutolinkHeadings,
+    {
+      behavior: 'append',
+      properties: {
+        className: ['no-underline'],
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: {
+          className: 'no-underline',
+        },
+        children: [
+          {
+            type: 'text',
+            value: '#',
+          },
+        ],
+      },
+    },
+  ],
+  [
+    rehypeExternalLinks,
+    {
+      rel: ['noopener', 'noreferrer'],
+      target: '_blank',
+      properties: { className: "after:content-['_↗']" },
+    },
+  ],
+  rehypeHighlight,
+  rehypePrettyCode as any,
+]
 
 export default makeSource({
   contentDirPath: 'blog',
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
-  markdown: {
-    remarkPlugins: [
-      remarkGfm,
-      // remarkCustomObsidian,
-      // [
-      //   remarkObsidian,
-      //   {
-      //     markdownFolder: 'blog',
-      //     paywall: '',
-      //   },
-      // ],
-      remarkSourceRedirect,
-      remarkEmbedImages as any,
-      remarkLint,
-    ],
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          properties: {
-            className: ['no-underline'],
-          },
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: {
-              className: 'no-underline',
-            },
-            children: [
-              {
-                type: 'text',
-                value: '#',
-              },
-            ],
-          },
-        },
-      ],
-      rehypeHighlight,
-      rehypePrettyCode as any,
-    ],
-  },
-  date: {
-    timezone: 'Asia/Seoul',
-  },
+  markdown: { remarkPlugins, rehypePlugins },
+  date: { timezone: 'Asia/Seoul' },
 })
-
-// rehypeCodeTitles,
-// rehypePrism,
