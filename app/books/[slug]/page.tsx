@@ -7,6 +7,7 @@ import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
+import DaysOfReading from '@/app/ui/books/DaysOfReading'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
@@ -75,8 +76,8 @@ export default function Book({ params }: { params: { slug: string } }) {
   ]
 
   const daysOfReading = differenceInCalendarDays(
-    new Date(finish_read_date),
-    new Date(start_read_date),
+    finish_read_date,
+    start_read_date,
   )
 
   return (
@@ -154,11 +155,9 @@ export default function Book({ params }: { params: { slug: string } }) {
           <Line className="prose" />
           {status === BookStatus.Reading && (
             <>
-              <div className="text-center text-xs lg:text-sm">
-                <p>👀 아직 읽고 있어요!</p>
-                <p>
-                  읽기 시작한 날짜: <FormattedDate date={start_read_date} /> +
-                </p>
+              <div className="flex gap-1 text-center text-xs lg:text-sm">
+                <p>👀 아직 읽고 있어요</p>
+                <DaysOfReading startReadDate={start_read_date} />
               </div>
               <Line className="prose" />
             </>

@@ -1,6 +1,6 @@
+import FormattedDate from '@/app/ui/FormattedDate'
 import DaysOfReading from '@/app/ui/books/DaysOfReading'
 import { Book } from 'contentlayer/generated'
-import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -10,8 +10,6 @@ interface Props {
 
 export default function ReadingBookCard({ book }: Props) {
   const { title, author, start_read_date, cover_url } = book
-
-  const startReadDate = new Date(start_read_date)
 
   return (
     <Link
@@ -32,8 +30,10 @@ export default function ReadingBookCard({ book }: Props) {
         <h1 className="text-xl font-bold dark:text-white">{title}</h1>
         <span className="text-sm dark:text-white">{author}</span>
         <div className="flex gap-1 text-sm dark:text-white">
-          <span>📖 {format(startReadDate, 'yyyy-MM-dd')}</span>
-          <DaysOfReading startReadDate={startReadDate} />
+          <span>
+            📖 <FormattedDate date={start_read_date} />
+          </span>
+          <DaysOfReading startReadDate={start_read_date} />
         </div>
       </div>
     </Link>
