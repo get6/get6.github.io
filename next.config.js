@@ -2,9 +2,11 @@ const { withContentlayer } = require('next-contentlayer')
 const withOptimizedImages = require('next-optimized-images')
 const withPlugins = require('next-compose-plugins')
 
+const isDev = process.env.NODE_ENV === 'development'
+
 // /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: isDev ? 'standalone' : 'export',
   reactStrictMode: true,
   swcMinify: true,
   images: {
