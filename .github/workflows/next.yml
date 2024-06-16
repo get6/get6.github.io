@@ -81,9 +81,9 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
-      # - name: Copy blog images to public folder
-      #   run: mkdir -p ${{ github.workspace }}/public/blog/assets && cp -r ${{ github.workspace }}/blog/assets/* ${{ github.workspace }}/public/blog/assets/
-      # run: ${{ steps.detect-package-manager.outputs.runner }} copy-dir
+      - name: Copy blog images to public folder
+        # run: mkdir -p ${{ github.workspace }}/public/blog/assets && cp -r ${{ github.workspace }}/blog/assets/* ${{ github.workspace }}/public/blog/assets/
+        run: ${{ steps.detect-package-manager.outputs.runner }} copy-dir
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
