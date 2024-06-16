@@ -27,5 +27,10 @@
     ".next/types/**/*.ts",
     ".contentlayer/generated",
   ],
-  "exclude": ["node_modules", "blog/.obsidian"]
+  "exclude": ["node_modules", "blog/.obsidian"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+    }
+  }
 }

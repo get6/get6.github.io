@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "copy-dir": "mkdir -p public/blog/assets && cp -r blog/assets/* public/blog/assets/",
+    "copy-dir": "ts-node scripts/copy-image.ts",
     "predev": "pnpm copy-dir",
     "prebuild": "pnpm copy-dir",
     "prepare": "husky"
@@ -65,6 +65,7 @@
     "remark-stringify": "^11.0.0",
     "remark-toc": "^9.0.0",
     "tailwindcss": "^3",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   },
   "lint-staged": {

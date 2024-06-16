@@ -71,7 +71,7 @@ const remarkSourceRedirect =
       if (image) {
         if (image.url.includes('://')) images.push(node)
         else {
-          image.url = `/blog/${image.url}`
+          image.url = `/blog/${image.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
         }
       }
     })
