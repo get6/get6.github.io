@@ -1,11 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
-import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
+import remarkCodeTitles from 'remark-flexible-code-titles'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
@@ -61,7 +61,7 @@ const toDataURI = async (url: string) => {
 
 /**
  * @type {import('unified').Plugin<[], Root>}
- * @param {string} options.root -
+ * @param {string} options.root
  */
 const remarkSourceRedirect =
   (options?: void | undefined) => async (tree: any, file: any) => {
@@ -258,10 +258,18 @@ const remarkPlugins = [
   remarkCallout,
   remarkToc,
   remarkSourceRedirect,
-  remarkLint as any,
+  remarkCodeTitles,
+  {
+    titleProperties: (language: string, title: string) => ({
+      ['data-language']: language,
+      title,
+    }),
+  },
+  remarkLint,
 ]
 
 const rehypePlugins = [
+  rehypePrettyCode,
   rehypeImageSize,
   rehypeSlug,
   [
@@ -294,14 +302,13 @@ const rehypePlugins = [
       properties: { className: "after:content-['_↗']" },
     },
   ],
-  rehypeHighlight,
-  rehypePrettyCode as any,
 ]
 
 export default makeSource({
   contentDirPath: 'blog',
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
+  // @ts-ignore
   markdown: { remarkPlugins, rehypePlugins },
   date: { timezone: 'Asia/Seoul' },
 })
