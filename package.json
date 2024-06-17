@@ -1,5 +1,5 @@
 {
-  "name": "blog-website-template",
+  "name": "get6.github.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -75,5 +75,6 @@
       "eslint --fix"
     ],
     "*.md": "prettier --list-different"
-  }
+  },
+  "packageManager": "yarn@4.3.0"
 }
