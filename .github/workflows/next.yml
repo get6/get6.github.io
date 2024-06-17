@@ -39,6 +39,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+      - name: Set yarn version
+        run: |
+          yarn set version stable
+          echo "YARN_VERSION=$(yarn --version)" >> $GITHUB_ENV
       - name: Get Yarn cache directory
         run: |
           echo "CACHE_DIR=$(yarn config get cacheFolder)" >> $GITHUB_ENV
