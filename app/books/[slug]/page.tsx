@@ -145,7 +145,7 @@ export default function Book({ params }: { params: { slug: string } }) {
               </div>
               <Link
                 href={book_url}
-                className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500"
+                className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500 dark:text-blue-400"
               >
                 yes24로 책 보러가기
                 <ArrowUpRightIcon className="h-3 w-3" />
@@ -162,6 +162,15 @@ export default function Book({ params }: { params: { slug: string } }) {
               <Line className="prose" />
             </>
           )}
+          {status === BookStatus.ToRead && (
+            <>
+              <div className="flex flex-col text-center text-xs lg:text-sm">
+                <p>📚 아직 읽고 있지 않아요</p>
+                <p>읽고 싶어서 읽고 싶은 목록에 추가한 책이에요.</p>
+                <p>기본적으로 해당 페이지로 들어오는 것이 막혀있지만 들어와주셔서 감사해요 😃</p>
+              </div>
+              </>
+            )}
           <Article html={body.html} />
           <Line className="prose" />
           <GithubComment />
