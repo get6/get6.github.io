@@ -299,7 +299,6 @@ const rehypePlugins = [
     {
       rel: ['noopener', 'noreferrer'],
       target: '_blank',
-      properties: { className: "after:content-['_↗']" },
     },
   ],
 ]
