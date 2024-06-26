@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "24cdce90a68b76c3",
+        "id": "c2e3edfb9adc41e9",
         "type": "tabs",
         "children": [
           {
-            "id": "3ab8b5f1576d6567",
+            "id": "4cca1900b55ac85a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202406161115.md",
+                "file": "posts/202406252359.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202406161115.md",
+                "file": "posts/202406252359.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202406161115.md",
+                "file": "posts/202406252359.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202406161115.md"
+                "file": "posts/202406252359.md"
               }
             }
           }
@@ -149,22 +149,25 @@
       "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "3ab8b5f1576d6567",
+  "active": "4cca1900b55ac85a",
   "lastOpenFiles": [
-    "assets/ebs-great-minds-4-5-1.png",
-    "assets/ebs-great-minds-4-4-1.png",
-    "posts/202406091349.md",
-    "posts/202406161536.md",
+    "posts/202406252359.md",
+    "books/THE MONEY BOOK 더 머니북.md",
+    "posts/202406231443.md",
+    "assets/ebs-great-minds-5-5-1.png",
+    "assets/ebs-great-minds-5-4-1.png",
+    "assets/ebs-great-minds-5-3-1.png",
+    "assets/ebs-great-minds-5-3-2.png",
+    "assets/ebs-great-minds-5-3-2.png",
+    "assets/ebs-great-minds-5-2-1.png",
     "posts/202406161115.md",
-    "assets/github-action-artifacts-size.png",
-    "assets/Pasted image 20240616154635.png",
-    "assets/ebs-great-minds-4-1-1.png",
-    "assets/ebs-great-minds-3-4-1.png",
-    "assets/ebs-great-minds-3-2-1.png",
-    "assets/ebs-great-minds-2-5-2.png",
-    "assets/ebs-great-minds-2-4-2.png",
-    "assets/ebs-great-minds-2-4-1.png",
-    "assets/ebs-great-minds-2-2-1.png",
+    "assets/ebs-great-minds-5-1-2.png",
+    "assets/ebs-great-minds-5-1-1.png.sb-aa043586-FibmFc",
+    "assets/ebs-great-minds-4-5-1.png",
+    "assets/ebs-great-minds-5-1-1.png",
+    "assets/ebs-great-minds-4-4-1.png",
+    "posts/202406161536.md",
+    "posts/202406091349.md",
     "posts/202405241205.md",
     "posts/세계 경제 예측.md",
     "posts/202405261733.md",
@@ -185,8 +188,6 @@
     "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
     "books/어떤 곳에서도 안녕하기를 삶의 곳곳을 비추는 세 사람의 시선Untitled.md",
     "posts/202405281110.md",
-    "books/도커 컨테이너 빌드업.md",
-    "books/그래서, 인터널브랜딩.md",
     "templates",
     "template"
   ]
