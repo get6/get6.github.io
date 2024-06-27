@@ -11,7 +11,7 @@ export default function BackgroundImage() {
     <>
       <Image
         {...attributes}
-        src="/images/about/dark-bg.jpg"
+        src="/images/about/dark-bg.webp"
         alt="Dark mountain background image"
         className="fixed left-0 top-0 z-[-1] hidden h-full w-full select-none object-cover dark:block"
         width={2048}
@@ -19,7 +19,7 @@ export default function BackgroundImage() {
       />
       <Image
         {...attributes}
-        src="/images/about/bg.jpg"
+        src="/images/about/bg.webp"
         alt="Mountain background image"
         className="fixed left-0 top-0 z-[-1] block h-full w-full select-none object-cover dark:hidden"
         width={2048}

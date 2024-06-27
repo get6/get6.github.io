@@ -192,7 +192,7 @@ export const Post = defineDocumentType(() => ({
         if (match) {
           return await toDataURI(match[1])
         }
-        return '/images/alt_image.jpg'
+        return '/images/alt_image.webp'
       },
     },
     summary: {
