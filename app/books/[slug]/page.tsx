@@ -55,7 +55,7 @@ export default function Book({ params }: { params: { slug: string } }) {
     body,
     tag,
     my_rate,
-    cover_url,
+    cover_image,
     status,
     book_url,
     toc,
@@ -91,7 +91,7 @@ export default function Book({ params }: { params: { slug: string } }) {
             <div className="relative aspect-[2/3] w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
               <Image
                 className="object-cover"
-                src={cover_url}
+                src={cover_image}
                 alt={title}
                 priority
                 fill

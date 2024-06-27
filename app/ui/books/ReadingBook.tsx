@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function ReadingBook({ book }: Props) {
-  const { title, subtitle, author, start_read_date, cover_url } = book
+  const { title, subtitle, author, start_read_date, cover_image } = book
 
   const lgBookCard = (
     <Link
@@ -25,7 +25,7 @@ export default function ReadingBook({ book }: Props) {
             <div className="relative flex h-[416px] min-w-[280px] border border-black dark:border-white">
               <Image
                 className="object-cover object-top"
-                src={cover_url}
+                src={cover_image}
                 alt={title}
                 priority
                 fill

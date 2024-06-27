@@ -42,7 +42,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
               <div className="relative h-6 w-4">
                 <Image
                   className="object-cover object-top"
-                  src={book.cover_url}
+                  src={book.cover_image}
                   alt={book.title}
                   priority
                   fill

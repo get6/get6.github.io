@@ -249,6 +249,10 @@ export const Book = defineDocumentType(() => ({
       type: 'list',
       resolve: (book) => getToC(book.body.html),
     },
+    cover_image: {
+      type: 'string',
+      resolve: async (book) => await toDataURI(book.cover_url),  
+    }
   },
 }))
 
