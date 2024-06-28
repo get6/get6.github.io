@@ -21,7 +21,7 @@ if (!fs.existsSync(destDir)) {
 fs.readdirSync(srcDir).forEach(async (file) => {
   const imagePath = path.resolve(srcDir, file)
   const stat = fs.statSync(imagePath)
-  if (stat.isFile() && /\.(PNG|JPG|JPEG|png|jpg|jpeg)$/.test(file)) {
+  if (stat.isFile() && /\.(PNG|JPG|JPEG|WEBP|png|jpg|jpeg|webp)$/.test(file)) {
     const copyPath = path
       .resolve(destDir, file)
       .replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')
