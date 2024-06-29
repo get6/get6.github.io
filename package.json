@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "yarn predev && next dev",
+    "build": "yarn prebuild && next build",
     "start": "next start",
     "lint": "next lint",
     "copy-dir": "ts-node scripts/copy-image.ts",
-    "predev": "pnpm copy-dir",
-    "prebuild": "pnpm copy-dir",
+    "predev": "yarn copy-dir",
+    "prebuild": "yarn copy-dir",
     "prepare": "husky"
   },
   "dependencies": {
