@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202406252359.md",
+                "file": "posts/202406281557.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202406252359.md",
+                "file": "posts/202406281557.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202406252359.md",
+                "file": "posts/202406281557.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202406252359.md"
+                "file": "posts/202406281557.md"
               }
             }
           }
@@ -151,34 +151,36 @@
   },
   "active": "4cca1900b55ac85a",
   "lastOpenFiles": [
+    "assets/lg-gram-hidpi-5.png",
+    "assets/lg-gram-hidpi-6.png",
+    "assets/lg-gram-hidpi-4.png",
+    "assets/lg-gram-hidpi-3.png",
+    "assets/lg-gram-hidpi-2.png",
+    "assets/lg-gram-hidpi-1.png",
+    "posts/202406272048.md",
+    "posts/202406281557.md",
+    "assets/java-vs-javascript.webp",
+    "posts/202405262014.md",
+    "posts/202405262011.md",
+    "posts/202405292207.md",
+    "assets/browser-with-new-tab.png",
+    "assets/browser-with-google.png",
+    "assets/browser-architecture.png",
+    "assets/browser-architecture.avif",
+    "posts/202406011520.md",
+    "posts/202406011835.md",
+    "posts/202406091349.md",
+    "posts/202406161115.md",
+    "posts/202406161536.md",
+    "posts/202406231443.md",
     "posts/202406252359.md",
     "books/THE MONEY BOOK 더 머니북.md",
-    "posts/202406231443.md",
-    "assets/ebs-great-minds-5-5-1.png",
-    "assets/ebs-great-minds-5-4-1.png",
-    "assets/ebs-great-minds-5-3-1.png",
-    "assets/ebs-great-minds-5-3-2.png",
-    "assets/ebs-great-minds-5-3-2.png",
-    "assets/ebs-great-minds-5-2-1.png",
-    "posts/202406161115.md",
-    "assets/ebs-great-minds-5-1-2.png",
     "assets/ebs-great-minds-5-1-1.png.sb-aa043586-FibmFc",
-    "assets/ebs-great-minds-4-5-1.png",
-    "assets/ebs-great-minds-5-1-1.png",
-    "assets/ebs-great-minds-4-4-1.png",
-    "posts/202406161536.md",
-    "posts/202406091349.md",
     "posts/202405241205.md",
     "posts/세계 경제 예측.md",
     "posts/202405261733.md",
     "posts/202405261906.md",
-    "posts/202405262011.md",
-    "posts/202405262014.md",
-    "posts/202405272048.md",
-    "posts/202405292207.md",
     "posts/202405261318.md",
-    "posts/202406011835.md",
-    "posts/202406011520.md",
     "books/개발자 기술 면접 노트.md",
     "books/디자인에 집중하라.md",
     "books/단위 테스트.md",
@@ -186,8 +188,6 @@
     "books/그래서 컴퓨터는 어떻게 동작하나요?.md",
     "books/엔터프라이즈 플러터 핸드북.md",
     "books/하버드 비즈니스 스쿨 사업계획서의 정석.md",
-    "books/어떤 곳에서도 안녕하기를 삶의 곳곳을 비추는 세 사람의 시선Untitled.md",
-    "posts/202405281110.md",
     "templates",
     "template"
   ]
