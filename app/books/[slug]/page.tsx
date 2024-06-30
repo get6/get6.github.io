@@ -4,6 +4,7 @@ import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
+import MobileToc from '@/app/ui/MobileToc'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
@@ -171,6 +172,7 @@ export default function Book({ params }: { params: { slug: string } }) {
               </div>
               </>
             )}
+          {toc && <MobileToc headers={toc} />}
           <Article html={body.html} />
           <Line className="prose" />
           <GithubComment />
