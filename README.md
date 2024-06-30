@@ -6,6 +6,30 @@ yarn build # 빌드 실행
 npx http-server out # out 폴더 참조해서 스태틱 사이트 실행
 ```
 
+## VS Code 설정
+패키지 매니저로 yarn berry 사용하고 있습니다.
+
+만약 import에서 모듈을 찾을 수 없다는 에러가 나는 경우 아래 방법을 시도합니다.
+
+```bash
+yarn dlx @yarnpkg/sdks vscode
+```
+
+1. Press `ctrl+shift+p` in a TypeScript file
+2. Choose "Select TypeScript Version"
+3. Pick "Use Workspace Version"
+
+## copy-image.ts 사용시 주의사항
+`yarn install`을 하게되면 install-state.gz에 ts-node가 들어있는 것 같습니다.
+
+copy-dir 명령어대로 사용하기 위해선 unplug 명령어를 통해 ts-node가 `.yarn/unplugged` 위치로 옮겨야 합니다.
+
+```bash
+yarn install
+yarn unplug ts-node
+yarn copy-dir # 이걸로 테스트했을 때 성공하면 "Images copied successfully! 🎉" 메시지를 볼 수 있습니다.
+```
+
 ## 블로그 개발 환경
 
 초기 세팅이 어떻게 설정되어 있는지 알려드립니다. 큰 틀에서 봤을 때 아래와 같이 구성되어 있습니다.

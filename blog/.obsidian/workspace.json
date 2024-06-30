@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "c2e3edfb9adc41e9",
+        "id": "d5b9197513967d99",
         "type": "tabs",
         "children": [
           {
-            "id": "4cca1900b55ac85a",
+            "id": "93fe371157b2a76a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/202406281557.md",
+                "file": "posts/202406301555.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/202406281557.md",
+                "file": "posts/202406301555.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/202406281557.md",
+                "file": "posts/202406301555.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/202406281557.md"
+                "file": "posts/202406301555.md"
               }
             }
           }
@@ -149,16 +149,19 @@
       "kr-book-info-plugin:Add Book Info": false
     }
   },
-  "active": "4cca1900b55ac85a",
+  "active": "93fe371157b2a76a",
   "lastOpenFiles": [
+    "posts/202406301555.md",
+    "posts/202406231443.md",
+    "posts/202406252359.md",
+    "posts/202406272048.md",
+    "posts/202406281557.md",
     "assets/lg-gram-hidpi-5.png",
     "assets/lg-gram-hidpi-6.png",
     "assets/lg-gram-hidpi-4.png",
     "assets/lg-gram-hidpi-3.png",
     "assets/lg-gram-hidpi-2.png",
     "assets/lg-gram-hidpi-1.png",
-    "posts/202406272048.md",
-    "posts/202406281557.md",
     "assets/java-vs-javascript.webp",
     "posts/202405262014.md",
     "posts/202405262011.md",
@@ -166,14 +169,11 @@
     "assets/browser-with-new-tab.png",
     "assets/browser-with-google.png",
     "assets/browser-architecture.png",
-    "assets/browser-architecture.avif",
     "posts/202406011520.md",
     "posts/202406011835.md",
     "posts/202406091349.md",
     "posts/202406161115.md",
     "posts/202406161536.md",
-    "posts/202406231443.md",
-    "posts/202406252359.md",
     "books/THE MONEY BOOK 더 머니북.md",
     "assets/ebs-great-minds-5-1-1.png.sb-aa043586-FibmFc",
     "posts/202405241205.md",

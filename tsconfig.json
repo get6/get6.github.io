@@ -8,7 +8,7 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
-    }
+    },
   },
   "include": [
     "next-env.d.ts",
@@ -29,8 +29,7 @@
   ],
   "exclude": ["node_modules", "blog/.obsidian"],
   "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS",
-    }
+    "transpileOnly": true,
+    "esm": true,
   }
 }

@@ -3,6 +3,7 @@
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
+import { fileURLToPath } from 'url'
 
 const copyImage = async (src: string, dest: string) => {
   const image = sharp(src)
@@ -10,6 +11,8 @@ const copyImage = async (src: string, dest: string) => {
   const resizedImage = image.webp()
   await resizedImage.toFile(dest)
 }
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 const srcDir = path.resolve(__dirname, '..', 'blog', 'assets')
 const destDir = path.resolve(__dirname, '..', 'public', 'blog', 'assets')
@@ -28,3 +31,5 @@ fs.readdirSync(srcDir).forEach(async (file) => {
     await copyImage(imagePath, copyPath)
   }
 })
+
+console.log('Images copied successfully! 🎉')
