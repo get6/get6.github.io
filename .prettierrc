@@ -1,6 +1,7 @@
 {
   "semi": false,
   "singleQuote": true,
-  // "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": [
+    ".yarn/unplugged/prettier-plugin-tailwindcss-virtual-6a7c69ed2e/node_modules/prettier-plugin-tailwindcss/dist/index.mjs"
+  ]
 }
-

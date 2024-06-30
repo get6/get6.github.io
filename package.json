@@ -10,7 +10,8 @@
     "copy-dir": "node --loader ./.pnp.loader.mjs scripts/copy-image.mjs",
     "predev": "yarn copy-dir",
     "prebuild": "yarn copy-dir",
-    "prepare": "husky"
+    "prepare": "husky",
+    "vscode": "yarn cache clean && rm -rf ./.yarn && yarn install && yarn dlx @yarnpkg/sdks vscode"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
@@ -72,5 +73,10 @@
     ],
     "*.md": "prettier --write --ignore-unknown"
   },
-  "packageManager": "yarn@4.3.0"
+  "packageManager": "yarn@4.3.0",
+  "dependenciesMeta": {
+    "prettier-plugin-tailwindcss@0.6.5": {
+      "unplugged": true
+    }
+  }
 }
