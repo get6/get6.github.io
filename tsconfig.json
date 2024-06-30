@@ -28,8 +28,4 @@
     ".contentlayer/generated",
   ],
   "exclude": ["node_modules", "blog/.obsidian"],
-  "ts-node": {
-    "transpileOnly": true,
-    "esm": true,
-  }
 }

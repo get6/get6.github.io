@@ -5,7 +5,7 @@ import path from 'path'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
-const copyImage = async (src: string, dest: string) => {
+const copyImage = async (src, dest) => {
   const image = sharp(src)
 
   const resizedImage = image.webp()

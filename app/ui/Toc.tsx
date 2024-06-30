@@ -50,7 +50,7 @@ export default function Toc({ headers }: Props) {
   return (
     headers && (
       <nav className="sticky top-14 hidden h-fit pr-6 pt-10 xl:block xl:max-w-64 2xl:max-w-xs">
-        <h2 className="mb-4 text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
+        <h2 className="mb-4 text-sm font-medium leading-6 text-gray-600 dark:text-gray-400">
           On this page
         </h2>
         <hr className=" h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
@@ -65,7 +65,7 @@ export default function Toc({ headers }: Props) {
               <li key={index} className="mb-1 snap-center truncate">
                 <a
                   href={`#${header.id}`}
-                  className={`mb-1 text-sm font-medium hover:text-blue-600 dark:hover:text-blue-500
+                  className={`mb-1 text-sm hover:text-blue-600 dark:hover:text-blue-500
                 ${activeId === header.id ? 'text-blue-600 dark:text-blue-500' : 'text-gray-600 dark:text-gray-400'}
               ${margin}
               `}
