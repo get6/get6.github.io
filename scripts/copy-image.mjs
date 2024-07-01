@@ -12,7 +12,7 @@ const copyImage = async (src, dest) => {
   await resizedImage.toFile(dest)
 }
 
-const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 const srcDir = path.resolve(__dirname, '..', 'blog', 'assets')
 const destDir = path.resolve(__dirname, '..', 'public', 'blog', 'assets')
