@@ -20,6 +20,21 @@ const config: Config = {
       animation: {
         'toast-progress': 'toast-progress 5s linear forwards',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: false,
+            },
+            'code::after': {
+              content: false,
+            },
+            'a[target="_blank"]::before': {
+              content: '"🔗 "',
+            },
+          }
+        }
+      }
     },
   },
   plugins: [require('@tailwindcss/typography')],

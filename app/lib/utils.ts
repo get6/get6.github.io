@@ -18,5 +18,5 @@ export const getOGImage = (markdown: string) => {
   const match = regex.exec(markdown)
 
   if (match) image = match[1]
-  return image ? image : `${BASE_URL}/images/alt_image.jpg`
+  return image ? image : `${BASE_URL}/images/alt_image.webp`
 }

@@ -5,11 +5,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 export default function MyCarousel() {
   const myImages = [
-    { src: '/images/about/me1.jpg', objectPosition: 'center' },
-    { src: '/images/about/me2.jpg', objectPosition: 'center' },
-    { src: '/images/about/me3.jpg', objectPosition: 'center 70%' },
-    { src: '/images/about/me4.jpg', objectPosition: 'center bottom' },
-    { src: '/images/about/me5.jpg', objectPosition: 'center bottom' },
+    { src: '/images/about/me1.webp', objectPosition: 'center' },
+    { src: '/images/about/me2.webp', objectPosition: 'center' },
+    { src: '/images/about/me3.webp', objectPosition: 'center 70%' },
+    { src: '/images/about/me4.webp', objectPosition: 'center bottom' },
+    { src: '/images/about/me5.webp', objectPosition: 'center bottom' },
   ]
 
   return (

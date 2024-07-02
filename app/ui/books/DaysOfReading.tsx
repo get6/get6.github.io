@@ -5,7 +5,7 @@ import { differenceInCalendarDays } from 'date-fns'
 import { useRecoilValue } from 'recoil'
 
 interface Props {
-  startReadDate: Date
+  startReadDate: string
 }
 
 export default function DaysOfReading({ startReadDate }: Props) {

@@ -2,6 +2,7 @@ import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
+import MobileToc from '@/app/ui/MobileToc'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
 import AnotherPost from '@/app/ui/home/AnotherPost'
@@ -62,7 +63,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
           <div className="flex w-full flex-col items-center">
             <Line className="prose" />
-            {/* TODO Mobile이면 toc가 여기에 나타나기 */}
+            {toc && <MobileToc headers={toc} />}
             <Article html={body.html} />
             <Line className="prose" />
           </div>

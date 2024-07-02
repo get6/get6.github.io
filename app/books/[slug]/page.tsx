@@ -4,9 +4,11 @@ import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
 import GithubComment from '@/app/ui/GithubComment'
 import Line from '@/app/ui/Line'
+import MobileToc from '@/app/ui/MobileToc'
 import Title from '@/app/ui/Title'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
+import DaysOfReading from '@/app/ui/books/DaysOfReading'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
@@ -46,7 +48,6 @@ export default function Book({ params }: { params: { slug: string } }) {
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
   const {
-    title,
     author,
     total_page,
     start_read_date,
@@ -55,11 +56,16 @@ export default function Book({ params }: { params: { slug: string } }) {
     body,
     tag,
     my_rate,
-    cover_url,
+    cover_image,
     status,
     book_url,
     toc,
   } = book
+
+  let title = book.title
+  // :이 아니고 유니코드임 이거 옵시디언 플러그인에서 수정되어야 함
+  const subTitle = 0 < title.indexOf('：') ? title.split('：')[1].trim() : null
+  if (subTitle) title = title.split('：')[0].trim()
 
   const stars = [
     Array.from({ length: my_rate }, (_, i) => (
@@ -71,8 +77,8 @@ export default function Book({ params }: { params: { slug: string } }) {
   ]
 
   const daysOfReading = differenceInCalendarDays(
-    new Date(finish_read_date),
-    new Date(start_read_date),
+    finish_read_date,
+    start_read_date,
   )
 
   return (
@@ -82,22 +88,29 @@ export default function Book({ params }: { params: { slug: string } }) {
       >
         {toc && <AsideHelper headers={toc} />}
         <DetailScreen>
-          <div className="flex w-full justify-center gap-4 lg:gap-8">
-            <div className="relative w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
+          <div className="flex w-full max-w-prose justify-center gap-4 lg:gap-8">
+            <div className="relative aspect-[2/3] w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
               <Image
-                className="object-cover object-left-top"
-                src={cover_url}
+                className="object-cover"
+                src={cover_image}
                 alt={title}
                 priority
                 fill
                 sizes="(min-width: 1024px) 256px, (max-width: 1024px) 100vw"
               />
             </div>
-            <div className="flex flex-col justify-between lg:max-w-md">
+            <div className="flex flex-grow flex-col justify-between lg:max-w-md">
               <div className="flex flex-col gap-2">
-                <div className="flex items-center justify-between gap-2">
-                  <Title>{title}</Title>
-                  <ToastPostal />
+                <div className="flex flex-col">
+                  <div className="flex items-center justify-between gap-2">
+                    <Title>{title}</Title>
+                    <ToastPostal />
+                  </div>
+                  {subTitle && (
+                    <div className="line-clamp-1 text-ellipsis text-gray-500 dark:text-gray-400">
+                      {subTitle}
+                    </div>
+                  )}
                 </div>
 
                 <p className="text-xs lg:text-sm">저자: {author}</p>
@@ -133,7 +146,7 @@ export default function Book({ params }: { params: { slug: string } }) {
               </div>
               <Link
                 href={book_url}
-                className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500"
+                className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500 dark:text-blue-400"
               >
                 yes24로 책 보러가기
                 <ArrowUpRightIcon className="h-3 w-3" />
@@ -141,6 +154,25 @@ export default function Book({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <Line className="prose" />
+          {status === BookStatus.Reading && (
+            <>
+              <div className="flex gap-1 text-center text-xs lg:text-sm">
+                <p>👀 아직 읽고 있어요</p>
+                <DaysOfReading startReadDate={start_read_date} />
+              </div>
+              <Line className="prose" />
+            </>
+          )}
+          {status === BookStatus.ToRead && (
+            <>
+              <div className="flex flex-col text-center text-xs lg:text-sm">
+                <p>📚 아직 읽고 있지 않아요</p>
+                <p>읽고 싶어서 읽고 싶은 목록에 추가한 책이에요.</p>
+                <p>기본적으로 해당 페이지로 들어오는 것이 막혀있지만 들어와주셔서 감사해요 😃</p>
+              </div>
+              </>
+            )}
+          {toc && <MobileToc headers={toc} />}
           <Article html={body.html} />
           <Line className="prose" />
           <GithubComment />

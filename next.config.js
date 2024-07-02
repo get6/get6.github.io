@@ -1,10 +1,14 @@
 const { withContentlayer } = require('next-contentlayer')
-const withOptimizedImages = require('next-optimized-images')
 const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+const isDev = process.env.NODE_ENV === 'development'
 
 // /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: isDev ? 'standalone' : 'export',
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -24,6 +28,6 @@ const nextConfig = {
 }
 
 module.exports = withPlugins(
-  [withOptimizedImages, { optimizeImagesInDev: true }, withContentlayer],
+  [withBundleAnalyzer, withContentlayer],
   nextConfig,
 )

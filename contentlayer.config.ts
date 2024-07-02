@@ -1,11 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
-import rehypeHighlight from 'rehype-highlight'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
+import remarkCodeTitles from 'remark-flexible-code-titles'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
@@ -61,7 +61,7 @@ const toDataURI = async (url: string) => {
 
 /**
  * @type {import('unified').Plugin<[], Root>}
- * @param {string} options.root -
+ * @param {string} options.root
  */
 const remarkSourceRedirect =
   (options?: void | undefined) => async (tree: any, file: any) => {
@@ -71,7 +71,7 @@ const remarkSourceRedirect =
       if (image) {
         if (image.url.includes('://')) images.push(node)
         else {
-          image.url = `/blog/${image.url}`
+          image.url = `/blog/${image.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
         }
       }
     })
@@ -192,7 +192,7 @@ export const Post = defineDocumentType(() => ({
         if (match) {
           return await toDataURI(match[1])
         }
-        return '/images/alt_image.jpg'
+        return '/images/alt_image.webp'
       },
     },
     summary: {
@@ -249,6 +249,10 @@ export const Book = defineDocumentType(() => ({
       type: 'list',
       resolve: (book) => getToC(book.body.html),
     },
+    cover_image: {
+      type: 'string',
+      resolve: async (book) => await toDataURI(book.cover_url),  
+    }
   },
 }))
 
@@ -258,10 +262,18 @@ const remarkPlugins = [
   remarkCallout,
   remarkToc,
   remarkSourceRedirect,
-  remarkLint as any,
+  remarkCodeTitles,
+  {
+    titleProperties: (language: string, title: string) => ({
+      ['data-language']: language,
+      title,
+    }),
+  },
+  remarkLint,
 ]
 
 const rehypePlugins = [
+  rehypePrettyCode,
   rehypeImageSize,
   rehypeSlug,
   [
@@ -291,17 +303,15 @@ const rehypePlugins = [
     {
       rel: ['noopener', 'noreferrer'],
       target: '_blank',
-      properties: { className: "after:content-['_↗']" },
     },
   ],
-  rehypeHighlight,
-  rehypePrettyCode as any,
 ]
 
 export default makeSource({
   contentDirPath: 'blog',
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
+  // @ts-ignore
   markdown: { remarkPlugins, rehypePlugins },
   date: { timezone: 'Asia/Seoul' },
 })
