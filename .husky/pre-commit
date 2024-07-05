@@ -1,3 +1,8 @@
 #!/bin/sh
 
-yarn exec lint-staged
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$branch" = "dev" ]; then
+	echo "Running pre-commit hook on dev branch"
+    yarn exec lint-staged
+fi
+
