@@ -1,6 +1,6 @@
 'use client'
 
-import { blog_title, menus } from '@/app/lib/definitions'
+import { blog_name, menus } from '@/app/lib/definitions'
 import Logo from '@/app/ui/Logo'
 import ThemeToggle from '@/app/ui/home/ThemeToggle'
 import { HashtagIcon } from '@heroicons/react/20/solid'
@@ -28,7 +28,7 @@ export default function Navbar() {
           className="flex items-center text-sm font-light hover:cursor-pointer"
         >
           <Logo />
-          {blog_title}
+          {blog_name}
         </Link>
       </div>
       <div className="flex grow items-center justify-center divide-x divide-black self-stretch dark:divide-white">
@@ -74,19 +74,17 @@ export default function Navbar() {
           isMenuOpen ? 'flex' : 'hidden'
         } absolute left-2 top-10 z-10 md:block`}
       >
-        <div className=" w-full items-center justify-between md:order-1 md:flex md:w-auto">
+        <div className="w-full items-center justify-between md:order-1 md:flex md:w-auto">
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900 rtl:space-x-reverse">
             {menus.map((menu, index) => (
               <li key={index}>
                 <button onClick={toggleMenu}>
                   <Link
                     href={menu.href}
-                    className={`
-                    ${
+                    className={` ${
                       pathname === menu.href &&
                       'block rounded bg-blue-700 px-3 py-2 text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500'
-                    }
-                    ${
+                    } ${
                       pathname !== menu.href &&
                       'block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500'
                     }`}
@@ -105,7 +103,7 @@ export default function Navbar() {
           className="flex h-full items-center justify-center gap-2 text-xl font-light hover:cursor-pointer dark:text-white"
         >
           <Logo />
-          {blog_title}
+          {blog_name}
         </Link>
       </button>
       <div className="flex h-full items-center px-4">
