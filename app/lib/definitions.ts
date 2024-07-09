@@ -3,8 +3,10 @@ export type Tag = {
   count: number
 }
 
-export const blog_title = '이때의 나'
-export const blog_description = '이때를 살아가는 황성준(황이태)의 블로그'
+export const blog_name = '이때의 나'
+export const blog_title = `오늘도 좋은 하루 보내세요 🫶 - ${blog_name}`
+export const blog_description =
+  '이때를 살아가며 많은 것을 보고 느끼는 것들을 정리한 나의 블로그'
 
 export enum BookStatus {
   ToRead = 'to_read', // 읽고 싶어
@@ -31,5 +33,3 @@ export const menus = [
   { name: 'Tags', href: '/tags' },
   { name: 'About me', href: '/about' },
 ]
-
-

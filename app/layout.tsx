@@ -1,5 +1,10 @@
 import AdSense from '@/app/AdSense'
-import { BASE_URL, blog_description, blog_title } from '@/app/lib/definitions'
+import {
+  BASE_URL,
+  blog_description,
+  blog_name,
+  blog_title,
+} from '@/app/lib/definitions'
 import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
 import { Metadata } from 'next'
@@ -13,6 +18,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: blog_title,
   description: blog_description,
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    siteName: blog_name,
+    url: BASE_URL,
+    title: blog_title,
+    description: blog_description,
+    images: [
+      {
+        url: '/images/alt_image.webp',
+        width: 1200,
+        height: 630,
+        alt: blog_title,
+      },
+    ],
+  },
   icons: [
     {
       rel: 'icon',
