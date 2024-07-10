@@ -1,3 +1,4 @@
+import { AdContainer } from '@/app/ads/AdContainer'
 import { BookStatus } from '@/app/lib/definitions'
 import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
@@ -168,16 +169,20 @@ export default function Book({ params }: { params: { slug: string } }) {
               <div className="flex flex-col text-center text-xs lg:text-sm">
                 <p>📚 아직 읽고 있지 않아요</p>
                 <p>읽고 싶어서 읽고 싶은 목록에 추가한 책이에요.</p>
-                <p>기본적으로 해당 페이지로 들어오는 것이 막혀있지만 들어와주셔서 감사해요 😃</p>
+                <p>
+                  기본적으로 해당 페이지로 들어오는 것이 막혀있지만 들어와주셔서
+                  감사해요 😃
+                </p>
               </div>
-              </>
-            )}
+            </>
+          )}
           {toc && <MobileToc headers={toc} />}
           <Article html={body.html} />
           <Line className="prose" />
           <GithubComment />
         </DetailScreen>
         {toc && <Toc headers={toc} />}
+        <AdContainer id='ads-book' />
       </div>
     </>
   )

@@ -1,3 +1,4 @@
+import { AdContainer } from '@/app/ads/AdContainer'
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
@@ -12,6 +13,7 @@ import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
+
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post.slug }))
@@ -86,6 +88,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
         </div>
       )}
+      <AdContainer id='ads-post' />
     </>
   )
 }

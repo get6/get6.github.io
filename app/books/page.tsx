@@ -1,3 +1,4 @@
+import { AdContainer } from '@/app/ads/AdContainer'
 import { BookStatus } from '@/app/lib/definitions'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
@@ -62,6 +63,8 @@ export default function Books() {
           </div>
         )}
       </div>
+      <AdContainer id='ads-books' />
     </PageScreen>
+    
   )
 }
