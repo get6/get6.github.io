@@ -27,7 +27,7 @@ export default function Books() {
     )
 
   return (
-    <PageScreen id="books">
+    <PageScreen>
       <div className="flex w-full max-w-[888px] flex-col justify-center gap-8">
         {readingBooks.length > 0 && (
           <div className="flex flex-col gap-2">

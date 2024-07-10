@@ -53,7 +53,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
-        <DetailScreen id="post">
+        <DetailScreen>
           <h1 className="flex w-full justify-center text-2xl lg:w-[650px] lg:text-4xl">
             {title}
           </h1>

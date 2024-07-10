@@ -1,4 +1,13 @@
+'use client'
+import { useEffect } from 'react'
+
 export const AdsInBooks = () => {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    }
+  }, [])
+
   return (
     <ins
       className="adsbygoogle"

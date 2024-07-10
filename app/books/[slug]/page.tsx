@@ -87,7 +87,7 @@ export default function Book({ params }: { params: { slug: string } }) {
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
-        <DetailScreen id="book">
+        <DetailScreen>
           <div className="flex w-full max-w-prose justify-center gap-4 lg:gap-8">
             <div className="relative aspect-[2/3] w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
               <Image
