@@ -1,4 +1,5 @@
-import AdSense from '@/app/AdSense'
+
+import AdSense from '@/app/ads/AdSense'
 import {
   BASE_URL,
   blog_description,
