@@ -1,6 +1,7 @@
 'use client'
 
 import { AdsInBooks } from '@/app/ads/AdsInBooks'
+import { Ad, ad_per_content } from '@/app/lib/definitions'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
@@ -8,9 +9,6 @@ import { Book } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-interface Ad {
-  type: 'Ad'
-}
 interface Props {
   books: Book[]
   isFinished?: boolean
@@ -35,7 +33,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
     return result
   }
 
-  const booksWithAds = insertAdsIntoBooks(books, 15)
+  const booksWithAds = insertAdsIntoBooks(books, ad_per_content)
 
   return (
     <Table>

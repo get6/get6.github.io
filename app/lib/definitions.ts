@@ -31,5 +31,12 @@ export const menus = [
   // { name: 'Life', href: '/life' },
   // { name: 'Series', href: '/series' },
   { name: 'Tags', href: '/tags' },
+
   { name: 'About me', href: '/about' },
 ]
+
+export interface Ad {
+  type: 'Ad'
+}
+
+export const ad_per_content = 15
