@@ -74,11 +74,11 @@ export default function Post({ params }: { params: { slug: string } }) {
       </div>
       {0 < otherPosts.length && (
         <div className="flex items-center justify-center pb-8 lg:pb-16">
-          <div className="flex w-full flex-col justify-center gap-4 px-4 lg:w-fit lg:px-0">
+          <div className="flex w-full flex-col justify-center gap-4 px-4 md:w-[732px] lg:w-[840px] lg:px-0">
             <span className="text-sm font-extralight lg:text-base">
               Other posts
             </span>
-            <div className="flex gap-4 overflow-x-auto">
+            <div className="flex gap-4 overflow-x-auto lg:justify-between lg:gap-0">
               {otherPosts.map((post, index) => (
                 <AnotherPost key={index} post={post} />
               ))}

@@ -11,7 +11,7 @@ export default function AnotherPost({ post }: { post: Post }) {
 
   return (
     <div
-      className="flex h-[234px] max-h-full w-[282px] min-w-[282px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
+      className="flex h-[234px] max-h-full w-[270px] min-w-[270px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
       onClick={() => push(post.url)}
     >
       <div className="relative flex min-h-[162px] w-full border-b border-black dark:border-white">
@@ -20,7 +20,7 @@ export default function AnotherPost({ post }: { post: Post }) {
           src={cover_image}
           alt="cover_image"
           fill
-          sizes="(min-width: 1024px) 282px, (max-width: 1024px) 100vw"
+          sizes="(min-width: 1024px) 270px, (max-width: 1024px) 100vw"
         />
       </div>
       <div className="flex h-full w-full flex-col justify-center px-6">
