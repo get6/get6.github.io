@@ -10,7 +10,7 @@ export const AdsInPost = () => {
 
   return (
     <ins
-      className="adsbygoogle"
+      className="adsbygoogle max-w-prose"
       style={{
         display: 'block',
         textAlign: 'center',
