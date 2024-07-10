@@ -1,4 +1,3 @@
-import { AdContainer } from '@/app/ads/AdContainer'
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import GithubComment from '@/app/ui/GithubComment'
@@ -13,7 +12,6 @@ import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
-
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post.slug }))
@@ -55,7 +53,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
-        <DetailScreen>
+        <DetailScreen id="post">
           <h1 className="flex w-full justify-center text-2xl lg:w-[650px] lg:text-4xl">
             {title}
           </h1>
@@ -88,7 +86,6 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
         </div>
       )}
-      <AdContainer id='ads-post' />
     </>
   )
 }

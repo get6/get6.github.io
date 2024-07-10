@@ -1,4 +1,3 @@
-import { AdContainer } from '@/app/ads/AdContainer'
 import { BookStatus } from '@/app/lib/definitions'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
@@ -28,7 +27,7 @@ export default function Books() {
     )
 
   return (
-    <PageScreen>
+    <PageScreen id="books">
       <div className="flex w-full max-w-[888px] flex-col justify-center gap-8">
         {readingBooks.length > 0 && (
           <div className="flex flex-col gap-2">
@@ -63,8 +62,6 @@ export default function Books() {
           </div>
         )}
       </div>
-      <AdContainer id='ads-books' />
     </PageScreen>
-    
   )
 }

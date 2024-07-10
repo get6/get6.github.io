@@ -21,7 +21,7 @@ export default function Series() {
     })
 
   return (
-    <PageScreen>
+    <PageScreen id="series">
       <div className="flex w-full flex-col gap-4 lg:max-w-[888px]">
         <PageTitle>Series</PageTitle>
         <div className="flex w-full flex-col justify-center gap-6">

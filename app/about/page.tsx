@@ -32,7 +32,7 @@ export default function About() {
   ]
 
   return (
-    <PageScreen>
+    <PageScreen id="about">
       <div className="flex flex-col gap-4 lg:w-full">
         <PageTitle className="lg:hidden">About me</PageTitle>
         <div className="flex justify-center">

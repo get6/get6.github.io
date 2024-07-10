@@ -35,7 +35,7 @@ export default function Home() {
   const posts = postsOrderByDesc.slice(3)
 
   return (
-    <PageScreen>
+    <PageScreen id="main">
       <div className="flex w-full flex-col items-center gap-8">
         <div className="flex w-full flex-col gap-4">
           <PageTitle>Recent Posts</PageTitle>

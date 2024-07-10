@@ -1,4 +1,3 @@
-import { AdContainer } from '@/app/ads/AdContainer'
 import { BookStatus } from '@/app/lib/definitions'
 import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
@@ -88,7 +87,7 @@ export default function Book({ params }: { params: { slug: string } }) {
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
-        <DetailScreen>
+        <DetailScreen id="book">
           <div className="flex w-full max-w-prose justify-center gap-4 lg:gap-8">
             <div className="relative aspect-[2/3] w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
               <Image
@@ -182,7 +181,6 @@ export default function Book({ params }: { params: { slug: string } }) {
           <GithubComment />
         </DetailScreen>
         {toc && <Toc headers={toc} />}
-        <AdContainer id='ads-book' />
       </div>
     </>
   )
