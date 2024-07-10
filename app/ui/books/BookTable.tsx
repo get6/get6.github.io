@@ -62,7 +62,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
               <FormattedDate date={book.publish_date} />
             </td>
             {/* TODO: subtitle 추가되면 여기 영역도 조금 여유가 생길 듯 */}
-            <td className="max-w-[122px] truncate px-6 py-4">
+            <td className="max-w-[120px] truncate px-6 py-4">
               {book.tag.split(' ')[2]}
             </td>
             <td className="px-6 py-4">
