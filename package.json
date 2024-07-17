@@ -11,7 +11,7 @@
     "predev": "yarn copy-dir",
     "prebuild": "yarn copy-dir",
     "prepare": "husky",
-    "vscode": "yarn cache clean && rm -rf ./.yarn && yarn install && yarn dlx @yarnpkg/sdks vscode"
+    "vscode": "yarn dlx @yarnpkg/sdks vscode"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",

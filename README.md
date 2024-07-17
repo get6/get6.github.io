@@ -19,6 +19,15 @@ yarn dlx @yarnpkg/sdks vscode
 2. Choose "Select TypeScript Version"
 3. Pick "Use Workspace Version"
 
+## VS Code 설정해도 오류나는 경우
+Typescript 버전업이 될 때 기존에 잘 되던 SDK가 안되는 경우가 생깁니다.
+그럴때는 이걸 먼저 시도 해보시고 VS Code 설정을 다시 해보세요.
+```bash
+yarn set version stable
+yarn install
+yarn cache clean
+```
+
 ## copy-image.ts 사용시 주의사항
 `yarn install`을 하게되면 install-state.gz에 ts-node가 들어있는 것 같습니다.
 
