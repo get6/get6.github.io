@@ -59,49 +59,71 @@ const toDataURI = async (url: string) => {
   return dataURL
 }
 
+const adjustUl = (node: any, index: number | undefined, parent: any) => {
+  if (index === undefined) return
+  // 현재 노드가 텍스트만을 갖는지 확인
+  const isTextOnly =
+    node.children.length === 1 && node.children[0].type === 'text'
+
+  // 다음 노드가 ul 태그인지 확인
+  const nextNode = parent.children[index + 1]
+  const isNextNodeUL = nextNode && nextNode.type === 'list'
+  const className = 'prose-list'
+
+  if (isTextOnly && isNextNodeUL) {
+    // p 태그에 클래스 추가
+    if (!node.data) node.data = {}
+    if (!node.data.hProperties) node.data.hProperties = {}
+    node.data.hProperties.className = (
+      node.data.hProperties.className || []
+    ).concat(className)
+  }
+}
+
 /**
  * @type {import('unified').Plugin<[], Root>}
  * @param {string} options.root
  */
-const remarkSourceRedirect =
-  (options?: void | undefined) => async (tree: any, file: any) => {
-    const images: any[] = []
-    visit(tree, 'paragraph', (node: any) => {
-      const image = node.children.find((child: any) => child.type === 'image')
-      if (image) {
-        if (image.url.includes('://')) images.push(node)
-        else {
-          image.url = `/blog/${image.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
-        }
-      }
-    })
-
-    visit(tree, 'link', (node: any) => {
-      const url: string = node.url
-      if (url.startsWith('books/') || url.startsWith('posts/')) {
-        let replacedUrl = url.replace(/\.(md)$/, '')
-        let hostname =
-          process.env.NODE_ENV === 'production'
-            ? 'https://get6.github.io'
-            : 'http://localhost:3000'
-        node.url = `${hostname}/${replacedUrl}`
-      }
-    })
-    // base64는 외부 이미지를 blur 처리하는 용도로 가져와도 좋을 것 같다. 0.1 퀄리티로 아주 작은 이미지를 가져와서 블러 처리
-    const promises: Promise<any>[] = []
-    for (const node of images) {
-      const image = node.children.find((child: any) => child.type === 'image')
-      if (image.url.includes('images.unsplash.com')) {
-        promises.push(
-          new Promise(async (resolve) => {
-            image.url = await toDataURI(image.url)
-            resolve(image.url)
-          }),
-        )
+const remarkSourceRedirect = () => async (tree: any) => {
+  const images: any[] = []
+  visit(tree, 'paragraph', (node, index, parent) => {
+    const image = node.children.find((child: any) => child.type === 'image')
+    if (image) {
+      if (image.url.includes('://')) images.push(node)
+      else {
+        image.url = `/blog/${image.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
       }
     }
-    await Promise.all(promises)
+
+    adjustUl(node, index, parent)
+  })
+
+  visit(tree, 'link', (node: any) => {
+    const url: string = node.url
+    if (url.startsWith('books/') || url.startsWith('posts/')) {
+      let replacedUrl = url.replace(/\.(md)$/, '')
+      let hostname =
+        process.env.NODE_ENV === 'production'
+          ? 'https://get6.github.io'
+          : 'http://localhost:3000'
+      node.url = `${hostname}/${replacedUrl}`
+    }
+  })
+  // base64는 외부 이미지를 blur 처리하는 용도로 가져와도 좋을 것 같다. 0.1 퀄리티로 아주 작은 이미지를 가져와서 블러 처리
+  const promises: Promise<any>[] = []
+  for (const node of images) {
+    const image = node.children.find((child: any) => child.type === 'image')
+    if (image.url.includes('images.unsplash.com')) {
+      promises.push(
+        new Promise(async (resolve) => {
+          image.url = await toDataURI(image.url)
+          resolve(image.url)
+        }),
+      )
+    }
   }
+  await Promise.all(promises)
+}
 
 const nameIsImg = (name: string) => name === 'img'
 
