@@ -28,4 +28,9 @@
     ".contentlayer/generated",
   ],
   "exclude": ["node_modules", "blog/.obsidian"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }

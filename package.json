@@ -3,15 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn predev && next dev",
-    "build": "yarn prebuild && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "copy-dir": "node --loader ./.pnp.loader.mjs scripts/copy-image.mjs",
-    "predev": "yarn copy-dir",
-    "prebuild": "yarn copy-dir",
-    "prepare": "husky",
-    "vscode": "yarn dlx @yarnpkg/sdks vscode"
+    "copy-dir": "ts-node scripts/copy-image.ts",
+    "predev": "pnpm copy-dir",
+    "prebuild": "pnpm copy-dir",
+    "prepare": "husky"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
@@ -64,6 +63,7 @@
     "remark-toc": "^9.0.0",
     "shiki": "^1.10.0",
     "tailwindcss": "^3",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   },
   "lint-staged": {
@@ -73,10 +73,5 @@
     ],
     "blog/**/*.md": "prettier --write --ignore-unknown"
   },
-  "packageManager": "yarn@4.3.1",
-  "dependenciesMeta": {
-    "prettier-plugin-tailwindcss@0.6.5": {
-      "unplugged": true
-    }
-  }
+  "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
 }
