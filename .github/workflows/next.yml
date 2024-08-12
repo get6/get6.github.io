@@ -38,22 +38,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Set yarn version
+      - name: Set pnpm
         run: |
           corepack enable
-          yarn set version stable
-          yarn -v
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-      - name: Setup yarn cache
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-path
+        run: echo "::set-output name=store-path::$(pnpm store path)"
+      - name: Setup pnpm cache
         uses: actions/cache@v4
-        id: yarn-cache
+        id: pnpm-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            ${{ steps.pnpm-cache-path.outputs.store-path }}
             ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-
       - name: Detect package manager
