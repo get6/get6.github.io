@@ -1,11 +1,10 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
-import remarkCodeTitles from 'remark-flexible-code-titles'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
@@ -190,7 +189,7 @@ const getSummary = (html: string) => {
   return text.replace(/\s+/g, ' ').trim()
 }
 
-export const Post = defineDocumentType(() => ({
+const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.md`,
   fields: {
@@ -240,8 +239,7 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
-export const Book = defineDocumentType(() => ({
-  extensions: {},
+const Book = defineDocumentType(() => ({
   name: 'Book',
   filePathPattern: `books/**/*.md`,
   fields: {
@@ -296,13 +294,13 @@ const remarkPlugins = [
   remarkCallout,
   remarkToc,
   remarkSourceRedirect,
-  remarkCodeTitles,
-  {
-    titleProperties: (language: string, title: string) => ({
-      ['data-language']: language,
-      title,
-    }),
-  },
+  // remarkCodeTitles,
+  // {
+  //   titleProperties: (language: string, title: string) => ({
+  //     ['data-language']: language,
+  //     title,
+  //   }),
+  // },
   remarkLint,
 ]
 
