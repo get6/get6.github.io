@@ -1,5 +1,5 @@
 import FormattedDate from '@/app/ui/FormattedDate'
-import { IsoDateTimeString } from 'contentlayer/core'
+import { IsoDateTimeString } from 'contentlayer2/core'
 
 interface Props {
   date: IsoDateTimeString
