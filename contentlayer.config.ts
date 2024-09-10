@@ -124,12 +124,12 @@ const remarkSourceRedirect = () => async (tree: any) => {
   await Promise.all(promises)
 }
 
-const nameIsImg = (name: string) => name === 'img'
+const isNameImg = (name: string) => name === 'img'
 
 const hasImage = (props: any) => {
   return (
     props.children instanceof Array &&
-    (props.children as any[]).some((child) => nameIsImg(child.tagName))
+    (props.children as any[]).some((child) => isNameImg(child.tagName))
   )
 }
 
@@ -137,12 +137,15 @@ const rehypeImageSize = () => (tree: any) => {
   // 이미지를 포함한 p 태그에 클래스 추가
   visit(tree, 'element', (node: any) => {
     if (node.tagName === 'p' && hasImage(node)) {
-      if (
-        1 <
-        node.children.filter((child: any) => nameIsImg(child.tagName)).length
+      const images = node.children.filter((child: any) =>
+        isNameImg(child.tagName),
       )
-        node.properties.className = ' flex flex-wrap justify-center gap-4'
-    } else if (nameIsImg(node.tagName)) {
+      if (1 < images.length) {
+        if (node.properties.className)
+          node.properties.className += ' flex flex-wrap justify-center gap-4'
+        else node.properties.className = 'flex flex-wrap justify-center gap-4'
+      }
+    } else if (isNameImg(node.tagName)) {
       const src = node.properties.src
       const alt = node.properties.alt
 
