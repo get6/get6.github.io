@@ -86,14 +86,13 @@ const adjustUl = (node: any, index: number | undefined, parent: any) => {
 const remarkSourceRedirect = () => async (tree: any) => {
   const images: any[] = []
   visit(tree, 'paragraph', (node, index, parent) => {
-    const image = node.children.find((child: any) => child.type === 'image')
-    if (image) {
-      if (image.url.includes('://')) images.push(node)
+    const imgs = node.children.filter((child: any) => child.type === 'image')
+    for (const img of imgs) {
+      if (img.url.includes('://')) images.push(node)
       else {
-        image.url = `/blog/${image.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
+        img.url = `/blog/${img.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
       }
     }
-
     adjustUl(node, index, parent)
   })
 
@@ -111,14 +110,15 @@ const remarkSourceRedirect = () => async (tree: any) => {
   // base64는 외부 이미지를 blur 처리하는 용도로 가져와도 좋을 것 같다. 0.1 퀄리티로 아주 작은 이미지를 가져와서 블러 처리
   const promises: Promise<any>[] = []
   for (const node of images) {
-    const image = node.children.find((child: any) => child.type === 'image')
-    if (image.url.includes('images.unsplash.com')) {
-      promises.push(
-        new Promise(async (resolve) => {
-          image.url = await toDataURI(image.url)
-          resolve(image.url)
-        }),
-      )
+    const imgs = node.children.filter((child: any) => child.type === 'image')
+    for (const img of imgs) {
+      if (img.url.includes('images.unsplash.com'))
+        promises.push(
+          new Promise(async (resolve) => {
+            img.url = await toDataURI(img.url)
+            resolve(img.url)
+          }),
+        )
     }
   }
   await Promise.all(promises)
