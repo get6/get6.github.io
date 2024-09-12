@@ -33,5 +33,13 @@
       ],
       "key": "M"
     }
+  ],
+  "editor:clear-formatting": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "\\"
+    }
   ]
 }
