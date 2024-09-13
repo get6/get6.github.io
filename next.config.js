@@ -4,11 +4,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-const isDev = process.env.NODE_ENV === 'development'
-
 // /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: isDev ? 'standalone' : 'export',
+  output: 'export',
   reactStrictMode: true,
   swcMinify: true,
   images: {
