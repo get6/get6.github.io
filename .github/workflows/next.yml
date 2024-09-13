@@ -82,8 +82,6 @@ jobs:
           static_site_generator: next
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Copy blog images to public folder
-        run: ${{ steps.detect-package-manager.outputs.runner }} copy-dir
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} build
       - name: Upload artifact

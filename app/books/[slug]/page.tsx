@@ -2,7 +2,7 @@ import { BookStatus } from '@/app/lib/definitions'
 import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
-import GithubComment from '@/app/ui/GithubComment'
+import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
 import MobileToc from '@/app/ui/MobileToc'
 import Title from '@/app/ui/Title'
@@ -178,7 +178,8 @@ export default function Book({ params }: { params: { slug: string } }) {
           {toc && <MobileToc headers={toc} />}
           <Article html={body.html} />
           <Line className="prose" />
-          <GithubComment />
+          {/* <GithubComment /> */}
+          <GitHubGiscus />
         </DetailScreen>
         {toc && <Toc headers={toc} />}
       </div>

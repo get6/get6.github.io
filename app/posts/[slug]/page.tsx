@@ -1,6 +1,6 @@
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
-import GithubComment from '@/app/ui/GithubComment'
+import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
 import MobileToc from '@/app/ui/MobileToc'
 import ToastPostal from '@/app/ui/ToastPostal'
@@ -68,7 +68,8 @@ export default function Post({ params }: { params: { slug: string } }) {
             <Line className="prose" />
           </div>
           <PostTags tags={tags} />
-          <GithubComment />
+          {/* <GithubComment /> */}
+          <GitHubGiscus />
         </DetailScreen>
         {toc && <Toc headers={toc} />}
       </div>
