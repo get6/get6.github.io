@@ -1,4 +1,4 @@
-status: to_read reading finished
+status: to_read | reading | finished
 ## 읽게 된 배경
 
 

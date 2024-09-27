@@ -1,4 +1,7 @@
 {
   "accentColor": "#ff7300",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "interfaceFontFamily": "Pretendard",
+  "textFontFamily": "Pretendard",
+  "monospaceFontFamily": "Pretendard"
 }
