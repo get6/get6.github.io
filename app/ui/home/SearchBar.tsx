@@ -11,14 +11,13 @@ export default function SearchBar() {
 
   const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParams)
-
     if (term) {
       params.set('query', term)
     } else {
       params.delete('query')
     }
-    replace(`${pathname}?${params.toString()}`, { scroll: false })
-  }, 300)
+    replace(`${pathname}?${params.toString().toLocaleLowerCase()}`, { scroll: false })
+  }, 200)
 
   return (
     <div className="relative flex h-10 w-48 items-center overflow-hidden rounded-md border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-12 lg:w-80">
@@ -32,7 +31,7 @@ export default function SearchBar() {
         placeholder="Search"
         autoComplete="off"
         onChange={(e) => handleSearch(e.target.value)}
-        defaultValue={searchParams.get('query')?.toString()}
+        defaultValue={searchParams.get('query')?.toString().toLocaleLowerCase()}
       />
     </div>
   )

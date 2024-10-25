@@ -15,7 +15,7 @@ export default function PostList({ posts }: Props) {
 
   const allPosts = searchParams.has(param)
     ? posts.filter((post) =>
-        post.title.includes(searchParams.get(param)!.toString()),
+        post.title.toLocaleLowerCase().includes(searchParams.get(param)!.toString().toLocaleLowerCase()),
       )
     : posts
 
