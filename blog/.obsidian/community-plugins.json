@@ -1,7 +1,7 @@
 [
   "kr-book-info-plugin",
   "templater-obsidian",
-  "obsidian-git",
   "obsidian-linter",
-  "image-converter"
+  "image-converter",
+  "obsidian-git"
 ]
