@@ -6,5 +6,7 @@
   "newFileFolderPath": "posts",
   "newLinkFormat": "absolute",
   "useMarkdownLinks": true,
-  "promptDelete": false
+  "promptDelete": false,
+  "strictLineBreaks": true,
+  "autoPairMarkdown": false
 }
