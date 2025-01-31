@@ -1,7 +1,7 @@
 {
   "autoRename": true,
   "showRenameNotice": true,
-  "useCustomRenaming": false,
+  "useCustomRenaming": true,
   "customRenameTemplate": "{noteName}-{date:YYYYMMDDHHmmssSSS}",
   "customRenameDefaultTemplate": "{noteName}-{date:YYYYMMDDHHmmssSSS}",
   "convertToWEBP": true,
@@ -9,6 +9,7 @@
   "convertToPNG": false,
   "convertTo": "webp",
   "quality": 0.75,
+  "skipPatterns": "*.gif,*.avif",
   "allowLargerFiles": true,
   "baseTimeout": 20000,
   "timeoutPerMB": 1000,
@@ -54,5 +55,68 @@
   "rememberScrollPosition": true,
   "cursorPosition": "back",
   "useMdLinks": false,
-  "useRelativePath": false
+  "useRelativePath": false,
+  "imageAlignment_cacheCleanupInterval": 3600000,
+  "annotationPresets": {
+    "drawing": [
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 2
+      },
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 2
+      },
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 2
+      }
+    ],
+    "arrow": [
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 8
+      },
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 8
+      },
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 8
+      }
+    ],
+    "text": [
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 24
+      },
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 24
+      },
+      {
+        "color": "#000000",
+        "opacity": 1,
+        "blendMode": "source-over",
+        "size": 24
+      }
+    ]
+  }
 }
