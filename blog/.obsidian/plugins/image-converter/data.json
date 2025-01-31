@@ -54,7 +54,7 @@
   "rightClickContextMenu": true,
   "rememberScrollPosition": true,
   "cursorPosition": "back",
-  "useMdLinks": false,
+  "useMdLinks": true,
   "useRelativePath": false,
   "imageAlignment_cacheCleanupInterval": 3600000,
   "annotationPresets": {

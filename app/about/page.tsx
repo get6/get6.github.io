@@ -69,8 +69,7 @@ export default function About() {
                     >
                       42서울
                     </Link>
-                    에서 공통과정을 끝내고 창업을 준비하고 있어요. 24년도
-                    예비창업패키지 발표 심사에서 떨어지고, 지금은&nbsp;&quot;
+                    에서 공통과정을 끝내고 창업을 준비하고 있어요. 지금은&nbsp;&quot;
                     <Link
                       href="https://ittae.com/"
                       target="_blank"
@@ -78,7 +77,7 @@ export default function About() {
                     >
                       이때
                     </Link>
-                    &quot;&nbsp;라는 공유 캘린더 서비스를 만들고 있어요.
+                    &quot;&nbsp;라는 캘린더 앱을 틈틈히 만들고 있어요.
                   </p>
                   <p>
                     어릴 때부터 저는 새로운 것에 대한 호기심이 많았어요. 특히,
@@ -107,13 +106,14 @@ export default function About() {
                   <p>
                     저와 함께 이야기를 나누고 싶으시거나, 비슷한 관심사를 가지고
                     계신 분들은&nbsp;
-                    <a
-                      href="mailto:ittae.com@gmail.com"
-                      className="text-blue-500 underline"
+                    <Link
+                      href="https://linktr.ee/hwangitae/"
+                      target="_blank"
+                      className="font-semibold text-blue-500 underline"
                     >
-                      ittae.com@gmail.com
-                    </a>
-                    으로 이메일을 보내주시거나 소셜 미디어를 통해 연락해 주세요!
+                      링크트리
+                    </Link>
+                    에 연결된 소셜 미디어를 통해 연락해 주세요!
                     역삼동이나 개포동 근처에서 만나서 이야기를 나눠봐요.
                   </p>
                   <p>감사합니다. 오늘도 좋은 하루 보내세요! 🙏🏻</p>
