@@ -130,9 +130,14 @@
         "pathFormat": "relative",
         "prependCurrentDir": true,
         "hideFolders": false
+      },
+      {
+        "name": "Markdown, Absolute",
+        "linkFormat": "markdown",
+        "pathFormat": "absolute"
       }
     ],
-    "selectedLinkFormatPreset": "Markdown, Relative"
+    "selectedLinkFormatPreset": "Markdown, Absolute"
   },
   "nonDestructiveResizeSettings": {
     "resizePresets": [
@@ -297,6 +302,7 @@
   "imageAlignment_cacheLocation": "plugin",
   "isDragResizeEnabled": true,
   "isScrollResizeEnabled": true,
+  "isDragAspectRatioLocked": false,
   "isResizeInReadingModeEnabled": false,
   "resizeSensitivity": 0.1,
   "scrollwheelModifier": "Shift",
