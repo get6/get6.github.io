@@ -1,8 +1,16 @@
 #!/bin/sh
 
-# branch="$(git rev-parse --abbrev-ref HEAD)"
-# if [ "$branch" = "dev" ]; then
-	# echo "Running pre-commit hook on dev branch"
-    # pnpm exec lint-staged
-# fi
+# Pre-commit hook for code quality checks
+echo "🔍 Running pre-commit checks..."
+
+# Run lint-staged to check and fix staged files
+pnpm exec lint-staged
+
+# Check if there are any linting errors
+if [ $? -ne 0 ]; then
+  echo "❌ Pre-commit checks failed. Please fix the issues and try again."
+  exit 1
+fi
+
+echo "✅ Pre-commit checks passed!"
 
