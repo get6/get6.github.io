@@ -8,6 +8,7 @@ import {
 } from '@/app/lib/definitions'
 import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
+import { WebVitals } from '@/app/ui/WebVitals'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
@@ -55,6 +56,12 @@ export const metadata: Metadata = {
       'naver-site-verification': '6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a',
     },
   },
+  // 보안을 위한 메타 태그들
+  other: {
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+  },
 }
 
 export default function RootLayout({
@@ -69,6 +76,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} dark:bg-gray-900`}>
         <Providers>
+          <WebVitals />
           <header>
             <Navbar />
           </header>

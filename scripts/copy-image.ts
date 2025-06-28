@@ -6,9 +6,17 @@ import sharp from 'sharp'
 
 const copyImage = async (src: string, dest: string) => {
   const image = sharp(src)
-
-  const resizedImage = image.webp()
+  const resizedImage = image.webp({ quality: 85 })
   await resizedImage.toFile(dest)
+}
+
+const shouldUpdateImage = (srcPath: string, destPath: string): boolean => {
+  if (!fs.existsSync(destPath)) return true
+  
+  const srcStat = fs.statSync(srcPath)
+  const destStat = fs.statSync(destPath)
+  
+  return srcStat.mtime > destStat.mtime
 }
 
 const srcDir = path.resolve(__dirname, '..', 'blog', 'assets')
@@ -18,15 +26,27 @@ if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir, { recursive: true })
 }
 
+const processedFiles: string[] = []
+const skippedFiles: string[] = []
+
 fs.readdirSync(srcDir).forEach(async (file) => {
   const imagePath = path.resolve(srcDir, file)
   const stat = fs.statSync(imagePath)
+  
   if (stat.isFile() && /\.(PNG|JPG|JPEG|WEBP|png|jpg|jpeg|webp)$/.test(file)) {
     const copyPath = path
       .resolve(destDir, file)
       .replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')
-    await copyImage(imagePath, copyPath)
+    
+    if (shouldUpdateImage(imagePath, copyPath)) {
+      await copyImage(imagePath, copyPath)
+      processedFiles.push(file)
+    } else {
+      skippedFiles.push(file)
+    }
   }
 })
 
-console.log('Images copied successfully! 🎉')
+console.log(`✅ Images processed: ${processedFiles.length}`)
+console.log(`⏩ Images skipped (up-to-date): ${skippedFiles.length}`)
+console.log('🎉 Image processing completed!')

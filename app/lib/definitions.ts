@@ -31,12 +31,35 @@ export const menus = [
   // { name: 'Life', href: '/life' },
   // { name: 'Series', href: '/series' },
   { name: 'Tags', href: '/tags' },
-
   { name: 'About me', href: '/about' },
-]
+] as const
 
 export interface Ad {
   type: 'Ad'
 }
 
 export const ad_per_content = 15
+
+// 공통 타입들 추가
+export interface SearchParams {
+  [key: string]: string | string[] | undefined
+}
+
+export interface PageParams {
+  slug: string
+}
+
+// 에러 처리를 위한 타입
+export interface ErrorState {
+  hasError: boolean
+  error?: Error
+  errorMessage?: string
+}
+
+// API 응답 타입
+export interface ApiResponse<T = any> {
+  success: boolean
+  data?: T
+  error?: string
+  message?: string
+}

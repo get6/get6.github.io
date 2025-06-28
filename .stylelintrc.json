@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-tailwindcss"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+  },
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/**/*",
+    ".next/**/*",
+    "out/**/*",
+    "blog/**/*"
+  ]
+}

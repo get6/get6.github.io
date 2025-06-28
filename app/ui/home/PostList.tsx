@@ -14,9 +14,15 @@ export default function PostList({ posts }: Props) {
   const searchParams = useSearchParams()
 
   const allPosts = searchParams.has(param)
-    ? posts.filter((post) =>
-        post.title.toLocaleLowerCase().includes(searchParams.get(param)!.toString().toLocaleLowerCase()),
-      )
+    ? posts.filter((post) => {
+        const query = searchParams.get(param)!.toString().toLowerCase()
+        return (
+          post.title.toLowerCase().includes(query) ||
+          post.summary.toLowerCase().includes(query) ||
+          post.tags.some(tag => tag.toLowerCase().includes(query)) ||
+          post.body.raw.toLowerCase().includes(query)
+        )
+      })
     : posts
 
   return (

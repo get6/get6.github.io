@@ -3,27 +3,33 @@ import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
+import { PostSkeleton, RecentPostSkeleton, Skeleton } from '@/app/ui/Skeleton'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { Suspense } from 'react'
 
 function PostListFallback() {
   return (
-    <div className="flex flex-wrap justify-between gap-8">
+    <div className="flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between">
       {Array.from({ length: 4 }, (_, index) => (
-        <div
-          key={index}
-          className="h-[205px] w-[520px] animate-pulse rounded-md bg-gray-200 dark:bg-gray-600"
-        />
+        <PostSkeleton key={index} />
+      ))}
+    </div>
+  )
+}
+
+function RecentPostsFallback() {
+  return (
+    <div className="flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between">
+      {Array.from({ length: 3 }, (_, index) => (
+        <RecentPostSkeleton key={index} />
       ))}
     </div>
   )
 }
 
 function SearchBarFallback() {
-  return (
-    <div className="h-12 w-80 animate-pulse rounded-md bg-gray-200 dark:bg-gray-600" />
-  )
+  return <Skeleton height="48px" width="320px" className="rounded-md" />
 }
 
 export default function Home() {
@@ -39,13 +45,15 @@ export default function Home() {
       <div className="flex w-full flex-col items-center gap-8">
         <div className="flex w-full flex-col gap-4">
           <PageTitle>Recent Posts</PageTitle>
-          <div
-            className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
-          >
-            {recentPosts.map((post, index) => (
-              <RecentPost key={index} post={post} />
-            ))}
-          </div>
+          <Suspense fallback={<RecentPostsFallback />}>
+            <div
+              className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
+            >
+              {recentPosts.map((post, index) => (
+                <RecentPost key={index} post={post} />
+              ))}
+            </div>
+          </Suspense>
         </div>
         <div className="flex w-full flex-col gap-4">
           <div className="flex min-w-[344px] justify-between">

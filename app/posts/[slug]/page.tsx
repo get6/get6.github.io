@@ -1,4 +1,5 @@
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import Article from '@/app/ui/Article'
 import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
@@ -24,15 +25,20 @@ export const generateMetadata = ({
   const slug = decodeURIComponent(params.slug)
   const post = allPosts.find((post) => post.slug === slug)
 
-  if (!post) throw new Error(`Post not found for slug: ${slug}`)
+  if (!post) {
+    return createMetadata({ title: '포스트를 찾을 수 없습니다' })
+  }
 
-  return {
+  return createMetadata({
     title: post.title,
     description: sliceDesc(post.summary, 160),
-    openGraph: {
-      images: [getOGImage(post.body.raw)],
-    },
-  }
+    image: getOGImage(post.body.raw),
+    url: `/posts/${post.slug}`,
+    type: 'article',
+    publishedTime: post.date,
+    modifiedTime: post.date,
+    tags: post.tags,
+  })
 }
 
 export default function Post({ params }: { params: { slug: string } }) {

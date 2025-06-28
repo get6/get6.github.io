@@ -9,7 +9,12 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   swcMinify: true,
+  // Compress and minify JavaScript
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   images: {
+    // Required for static export
     unoptimized: true,
     remotePatterns: [
       {
@@ -22,6 +27,10 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+  },
+  // Enable experimental features for better performance
+  experimental: {
+    optimizeCss: true,
   },
 }
 

@@ -16,12 +16,19 @@ interface Props {
 
 export default function SeriesCard({ series }: Props) {
   const { push } = useRouter()
+  
+  // 빈 시리즈 처리
+  if (!series || series.length === 0) {
+    return null
+  }
+  
   const { date, title, body, tags, url, cover_image } = series[0]
 
-  if (!series[0].series_title)
-    throw new Error(
-      `Series not found for series_title: ${series[0].series_title}`,
-    )
+  // 시리즈 제목이 없는 경우 처리
+  if (!series[0].series_title) {
+    console.error(`Series not found for series_title: ${series[0].series_title}`)
+    return null
+  }
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()

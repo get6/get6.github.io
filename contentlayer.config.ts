@@ -346,7 +346,9 @@ export default makeSource({
   contentDirPath: 'blog',
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
-  // @ts-ignore
-  markdown: { remarkPlugins, rehypePlugins },
+  markdown: { 
+    remarkPlugins: remarkPlugins as any, 
+    rehypePlugins: rehypePlugins as any 
+  },
   date: { timezone: 'Asia/Seoul' },
 })
