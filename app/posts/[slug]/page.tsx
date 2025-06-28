@@ -54,7 +54,7 @@ export default function Post({ params }: { params: { slug: string } }) {
   const { date, title, body, tags, toc } = post
 
   return (
-    <>
+    <div className="min-w-0 overflow-hidden">
       <div
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
@@ -93,6 +93,6 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }

@@ -8,5 +8,20 @@
     "**/Thumbs.db": true,
     "public/blog/": true // Exclude the blog image folder
   },
-  "debug.internalConsoleOptions": "openOnFirstSessionStart"
+  "debug.internalConsoleOptions": "openOnFirstSessionStart",
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "emmet.includeLanguages": {
+    "tailwindcss": "css"
+  },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
