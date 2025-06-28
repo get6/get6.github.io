@@ -16,12 +16,19 @@ export default function PostList({ posts }: Props) {
   const allPosts = searchParams.has(param)
     ? posts.filter((post) => {
         const query = searchParams.get(param)!.toString().toLowerCase()
-        return (
-          post.title.toLowerCase().includes(query) ||
-          post.summary.toLowerCase().includes(query) ||
-          post.tags.some(tag => tag.toLowerCase().includes(query)) ||
-          post.body.raw.toLowerCase().includes(query)
-        )
+        
+        // Safe string checking with fallbacks
+        const titleMatch = post.title?.toLowerCase().includes(query) ?? false
+        const summaryMatch = post.summary?.toLowerCase().includes(query) ?? false
+        const bodyMatch = post.body?.raw?.toLowerCase().includes(query) ?? false
+        
+        // Safe tags checking with type validation
+        const tagsMatch = Array.isArray(post.tags) && 
+          post.tags.some(tag => 
+            typeof tag === 'string' && tag.toLowerCase().includes(query)
+          )
+        
+        return titleMatch || summaryMatch || tagsMatch || bodyMatch
       })
     : posts
 
