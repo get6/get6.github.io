@@ -21,8 +21,6 @@ npx http-server out   # Serve built static files from out/ directory
 
 # Code Quality
 pnpm lint             # Run Next.js ESLint
-pnpm lint:css         # Run Stylelint on CSS files
-pnpm lint:css:fix     # Fix CSS linting issues
 
 # Utilities
 pnpm copy-dir         # Copy images from blog/assets to public/blog/assets

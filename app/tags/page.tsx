@@ -29,19 +29,16 @@ function PostTableFallback() {
 }
 
 export default function Tags() {
-  const allTags = allPosts.flatMap((post) => post.tags)
+  // 태그 집계를 더 효율적으로 처리
+  const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
+    post.tags.forEach((tag) => {
+      acc[tag] = (acc[tag] || 0) + 1
+    })
+    return acc
+  }, {})
 
-  const counts: { [key: string]: number } = {}
-
-  allTags.forEach((tag) => {
-    counts[tag] = (counts[tag] || 0) + 1
-  })
-
-  const tags: Tag[] = Object.keys(counts)
-    .map((tag) => ({
-      name: tag,
-      count: counts[tag],
-    }))
+  const tags: Tag[] = Object.entries(tagCounts)
+    .map(([name, count]) => ({ name, count }))
     .sort((a, b) => b.count - a.count)
 
   return (

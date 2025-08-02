@@ -1,9 +1,11 @@
+import { BASE_URL, blog_description, blog_title } from '@/app/lib/definitions'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { PostSkeleton, RecentPostSkeleton, Skeleton } from '@/app/ui/Skeleton'
+import { WebsiteStructuredData } from '@/app/ui/StructuredData'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { Suspense } from 'react'
@@ -42,6 +44,11 @@ export default function Home() {
 
   return (
     <PageScreen>
+      <WebsiteStructuredData
+        name={blog_title}
+        description={blog_description}
+        url={BASE_URL}
+      />
       <div className="flex w-full flex-col items-center gap-8">
         <div className="flex w-full flex-col gap-4">
           <PageTitle>Recent Posts</PageTitle>

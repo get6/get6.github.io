@@ -32,6 +32,12 @@ const nextConfig = {
   experimental: {
     // optimizeCss: true, // Disabled due to critters module issues
   },
+  // Performance optimizations
+  poweredByHeader: false,
+  generateEtags: false,
+  compress: true,
+  // Font optimization
+  optimizeFonts: true,
 }
 
 module.exports = withPlugins([withBundleAnalyzer, withContentlayer], nextConfig)

@@ -11,8 +11,8 @@ module.exports = {
   'app/**/*.{js,jsx,ts,tsx}': [buildEslintCommand, 'prettier --write'],
 
   // CSS/Style files
-  '*.{css,scss,styl}': ['stylelint --fix', 'prettier --write'],
-  'app/**/*.{css,scss,styl}': ['stylelint --fix', 'prettier --write'],
+  '*.{css,scss,styl}': ['prettier --write'],
+  'app/**/*.{css,scss,styl}': ['prettier --write'],
 
   // Markdown files
   '*.md': ['prettier --write'],

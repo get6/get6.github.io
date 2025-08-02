@@ -4,6 +4,8 @@ import Article from '@/app/ui/Article'
 import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
 import MobileToc from '@/app/ui/MobileToc'
+import ScrollProgress from '@/app/ui/ScrollProgress'
+import { BlogPostStructuredData } from '@/app/ui/StructuredData'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
 import AnotherPost from '@/app/ui/home/AnotherPost'
@@ -55,6 +57,16 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-w-0 overflow-hidden">
+      <BlogPostStructuredData
+        title={title}
+        description={post.summary}
+        datePublished={date}
+        author="이때의 나"
+        url={`/posts/${post.slug}`}
+        image={getOGImage(body.raw)}
+        tags={tags}
+      />
+      <ScrollProgress />
       <div
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >
