@@ -10,7 +10,7 @@ export const blog_description =
 
 export enum BookStatus {
   ToRead = 'to_read', // 읽고 싶어
-  Reading = 'reading', // 읽고 있어
+  Reading = 'reading', // 읽고 있어 (30일 지나면 자동으로 paused로 간주)
   Finished = 'finished', // 읽었어
 }
 

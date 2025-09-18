@@ -1,4 +1,5 @@
 import { BookStatus } from '@/app/lib/definitions'
+import { isActivelyReading, isPausedBook } from '@/app/lib/utils'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
 import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
@@ -12,16 +13,18 @@ export default function Books() {
     compareDesc(new Date(a.start_read_date), new Date(b.start_read_date)),
   )
 
-  const readingBooks = books.filter(
-    (book) => book.status === BookStatus.Reading,
-  )
+  // 실제로 활발하게 읽고 있는 책만 필터링 (30일 이내)
+  const readingBooks = books.filter((book) => isActivelyReading(book))
+
   const finishedBooks = books
     .filter((book) => book.status === BookStatus.Finished)
     .sort((a, b) =>
       compareDesc(new Date(a.finish_read_date), new Date(b.finish_read_date)),
     )
+
+  // to read list에 원래 to_read 상태와 논리적으로 paused인 책들을 모두 포함
   const toReadBooks = books
-    .filter((book) => book.status === BookStatus.ToRead)
+    .filter((book) => book.status === BookStatus.ToRead || isPausedBook(book))
     .sort((a, b) =>
       compareDesc(new Date(a.publish_date), new Date(b.publish_date)),
     )
