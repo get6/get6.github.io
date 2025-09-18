@@ -22,12 +22,13 @@ import Link from 'next/link'
 export const generateStaticParams = async () =>
   allBooks.map((book) => ({ slug: book.slug }))
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
-  params: { slug: string }
-}): Metadata => {
-  const slug = decodeURIComponent(params.slug)
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> => {
+  const { slug: rawSlug } = await params
+  const slug = decodeURIComponent(rawSlug)
   const book = allBooks.find((book) => book.slug === slug)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
@@ -41,8 +42,13 @@ export const generateMetadata = ({
   }
 }
 
-export default function Book({ params }: { params: { slug: string } }) {
-  const slug = decodeURIComponent(params.slug)
+export default async function Book({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug: rawSlug } = await params
+  const slug = decodeURIComponent(rawSlug)
   const book = allBooks.find((book) => book.slug === slug)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)

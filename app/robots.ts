@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { BASE_URL } from '@/app/lib/definitions'
 
+export const dynamic = 'force-static'
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -8,11 +10,11 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/api/',          // API 경로 차단
-          '/_next/',        // Next.js 내부 파일들
-          '/admin/',        // 관리자 페이지 (있는 경우)
-          '/*.json$',       // JSON 파일들
-          '/scripts/',      // 스크립트 폴더
+          '/api/', // API 경로 차단
+          '/_next/', // Next.js 내부 파일들
+          '/admin/', // 관리자 페이지 (있는 경우)
+          '/*.json$', // JSON 파일들
+          '/scripts/', // 스크립트 폴더
         ],
       },
       {

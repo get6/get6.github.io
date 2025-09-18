@@ -19,12 +19,13 @@ import { Metadata } from 'next'
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post.slug }))
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
-  params: { slug: string }
-}): Metadata => {
-  const slug = decodeURIComponent(params.slug)
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> => {
+  const { slug: rawSlug } = await params
+  const slug = decodeURIComponent(rawSlug)
   const post = allPosts.find((post) => post.slug === slug)
 
   if (!post) {
@@ -43,8 +44,13 @@ export const generateMetadata = ({
   })
 }
 
-export default function Post({ params }: { params: { slug: string } }) {
-  const slug = decodeURIComponent(params.slug)
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug: rawSlug } = await params
+  const slug = decodeURIComponent(rawSlug)
   const post = allPosts.find((post) => post.slug === slug)
 
   if (!post) throw new Error(`Post not found for slug: ${slug}`)

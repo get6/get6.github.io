@@ -2,6 +2,8 @@ import { BASE_URL } from '@/app/lib/definitions'
 import { allBooks, allPosts } from 'contentlayer/generated'
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {

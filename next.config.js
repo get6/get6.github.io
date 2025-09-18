@@ -8,7 +8,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  swcMinify: true,
   // Compress and minify JavaScript
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
@@ -36,8 +35,6 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: false,
   compress: true,
-  // Font optimization
-  optimizeFonts: true,
 }
 
 module.exports = withPlugins([withBundleAnalyzer, withContentlayer], nextConfig)

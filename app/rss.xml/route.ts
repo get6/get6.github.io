@@ -1,6 +1,8 @@
 import { BASE_URL, blog_description, blog_name } from '@/app/lib/definitions'
 import { allPosts } from 'contentlayer/generated'
 
+export const dynamic = 'force-static'
+
 export async function GET() {
   const posts = allPosts
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -25,8 +27,8 @@ export async function GET() {
       <link>${BASE_URL}/posts/${post.slug}</link>
       <guid isPermaLink="true">${BASE_URL}/posts/${post.slug}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      ${post.tags?.map(tag => `<category>${tag}</category>`).join('') || ''}
-    </item>`
+      ${post.tags?.map((tag) => `<category>${tag}</category>`).join('') || ''}
+    </item>`,
       )
       .join('')}
   </channel>
