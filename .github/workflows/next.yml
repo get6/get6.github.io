@@ -34,14 +34,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v5
-        with:
-          node-version: ${{ matrix.node-version }}
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
       - name: Get pnpm cache directory path
         id: pnpm-cache-path
         run: echo "store-path=$(pnpm store path)" >> $GITHUB_OUTPUT
