@@ -10,12 +10,33 @@ import remarkLint from 'remark-lint'
 import remarkToc from 'remark-toc'
 import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
+import { createHash } from 'crypto'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
+import { join } from 'path'
+
+// 캐시 디렉토리 설정
+const CACHE_DIR = '.cache/images'
+if (!existsSync(CACHE_DIR)) {
+  mkdirSync(CACHE_DIR, { recursive: true })
+}
 
 // 외부 이미지를 가져와서 블러 처리
 const toBlurDataURL = async (url: string) => {
   const params = new URL(url).searchParams
   const w = Number(params.get('w')) || 16
   const h = Number(params.get('h')) || 16
+
+  // URL 해시 생성 (캐시 키)
+  const hash = createHash('md5')
+    .update(url + '-blur')
+    .digest('hex')
+  const cachePath = join(CACHE_DIR, `${hash}.webp`)
+
+  // 캐시 확인
+  if (existsSync(cachePath)) {
+    const buffer = readFileSync(cachePath)
+    return `data:image/webp;base64,${buffer.toString('base64')}`
+  }
 
   // 이미지 요청
   const res = await fetch(url)
@@ -27,17 +48,30 @@ const toBlurDataURL = async (url: string) => {
   const imgAspectRatio = w / h
 
   // Base64 문자열로 변환
-  const blurDataURL = await image
+  const buffer = await image
     .resize(8, Math.round(8 / imgAspectRatio))
     .webp({
       quality: 75,
     })
     .toBuffer()
-    .then((buffer) => `data:image/webp;base64,${buffer.toString('base64')}`)
-  return blurDataURL
+
+  // 캐시 저장
+  writeFileSync(cachePath, buffer)
+
+  return `data:image/webp;base64,${buffer.toString('base64')}`
 }
 
 const toDataURI = async (url: string) => {
+  // URL 해시 생성 (캐시 키)
+  const hash = createHash('md5').update(url).digest('hex')
+  const cachePath = join(CACHE_DIR, `${hash}.webp`)
+
+  // 캐시 확인
+  if (existsSync(cachePath)) {
+    const buffer = readFileSync(cachePath)
+    return `data:image/webp;base64,${buffer.toString('base64')}`
+  }
+
   // 이미지 요청
   const res = await fetch(url)
 
@@ -49,13 +83,16 @@ const toDataURI = async (url: string) => {
   const image = sharp(imageData)
 
   // Base64 문자열로 변환
-  const dataURL = await image
+  const buffer = await image
     .webp({
       quality: 75,
     })
     .toBuffer()
-    .then((buffer) => `data:image/webp;base64,${buffer.toString('base64')}`)
-  return dataURL
+
+  // 캐시 저장
+  writeFileSync(cachePath, buffer)
+
+  return `data:image/webp;base64,${buffer.toString('base64')}`
 }
 
 const adjustUl = (node: any, index: number | undefined, parent: any) => {
@@ -346,9 +383,9 @@ export default makeSource({
   contentDirPath: 'blog',
   contentDirExclude: ['.obsidian', 'assets', 'templates'],
   documentTypes: [Post, Book],
-  markdown: { 
-    remarkPlugins: remarkPlugins as any, 
-    rehypePlugins: rehypePlugins as any 
+  markdown: {
+    remarkPlugins: remarkPlugins as any,
+    rehypePlugins: rehypePlugins as any,
   },
   date: { timezone: 'Asia/Seoul' },
 })
