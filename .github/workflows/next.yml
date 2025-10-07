@@ -38,9 +38,10 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Set pnpm
-        run: |
-          corepack enable
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Set up pnpm
+        run: corepack prepare pnpm@latest --activate
       - name: Get pnpm cache directory path
         id: pnpm-cache-path
         run: echo "store-path=$(pnpm store path)" >> $GITHUB_OUTPUT
