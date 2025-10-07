@@ -43,7 +43,7 @@ jobs:
           corepack enable
       - name: Get pnpm cache directory path
         id: pnpm-cache-path
-        run: echo "::set-output name=store-path::$(pnpm store path)"
+        run: echo "store-path=$(pnpm store path)" >> $GITHUB_OUTPUT
       - name: Setup pnpm cache
         uses: actions/cache@v4
         id: pnpm-cache
