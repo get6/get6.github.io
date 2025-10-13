@@ -224,7 +224,7 @@ var Rp = M((Ls) => {
   'use strict'
   m()
   var xp = Ey(),
-    Fs = Ay(),
+    $s = Ay(),
     ky =
       typeof Symbol == 'function' && typeof Symbol.for == 'function'
         ? Symbol.for('nodejs.util.inspect.custom')
@@ -232,8 +232,8 @@ var Rp = M((Ls) => {
   Ls.Buffer = O
   Ls.SlowBuffer = gI
   Ls.INSPECT_MAX_BYTES = 50
-  var $u = 2147483647
-  Ls.kMaxLength = $u
+  var Fu = 2147483647
+  Ls.kMaxLength = Fu
   O.TYPED_ARRAY_SUPPORT = fI()
   !O.TYPED_ARRAY_SUPPORT &&
     typeof console != 'undefined' &&
@@ -271,7 +271,7 @@ var Rp = M((Ls) => {
     },
   })
   function hi(t) {
-    if (t > $u)
+    if (t > Fu)
       throw new RangeError('The value "' + t + '" is invalid for option "size"')
     let e = new Uint8Array(t)
     return (Object.setPrototypeOf(e, O.prototype), e)
@@ -404,10 +404,10 @@ var Rp = M((Ls) => {
     if (t.type === 'Buffer' && Array.isArray(t.data)) return Sp(t.data)
   }
   function Tp(t) {
-    if (t >= $u)
+    if (t >= Fu)
       throw new RangeError(
         'Attempt to allocate Buffer larger than maximum size: 0x' +
-          $u.toString(16) +
+          Fu.toString(16) +
           ' bytes',
       )
     return t | 0
@@ -526,7 +526,7 @@ var Rp = M((Ls) => {
           return TI(this, e, r)
         case 'utf8':
         case 'utf-8':
-          return $y(this, e, r)
+          return Fy(this, e, r)
         case 'ascii':
           return AI(this, e, r)
         case 'latin1':
@@ -579,7 +579,7 @@ var Rp = M((Ls) => {
     return e === 0
       ? ''
       : arguments.length === 0
-        ? $y(this, 0, e)
+        ? Fy(this, 0, e)
         : vI.apply(this, arguments)
   }
   O.prototype.toLocaleString = O.prototype.toString
@@ -721,16 +721,16 @@ var Rp = M((Ls) => {
     return s
   }
   function wI(t, e, r, n) {
-    return Fu(Ap(e, t.length - r), t, r, n)
+    return $u(Ap(e, t.length - r), t, r, n)
   }
   function bI(t, e, r, n) {
-    return Fu(OI(e), t, r, n)
+    return $u(OI(e), t, r, n)
   }
   function _I(t, e, r, n) {
-    return Fu(Hy(e), t, r, n)
+    return $u(Hy(e), t, r, n)
   }
   function xI(t, e, r, n) {
-    return Fu(II(e, t.length - r), t, r, n)
+    return $u(II(e, t.length - r), t, r, n)
   }
   O.prototype.write = function (e, r, n, i) {
     if (r === void 0) ((i = 'utf8'), (n = this.length), (r = 0))
@@ -787,7 +787,7 @@ var Rp = M((Ls) => {
       ? xp.fromByteArray(t)
       : xp.fromByteArray(t.slice(e, r))
   }
-  function $y(t, e, r) {
+  function Fy(t, e, r) {
     r = Math.min(t.length, r)
     let n = [],
       i = e
@@ -866,7 +866,7 @@ var Rp = M((Ls) => {
     let n = t.length
     ;((!e || e < 0) && (e = 0), (!r || r < 0 || r > n) && (r = n))
     let i = ''
-    for (let a = e; a < r; ++a) i += $I[t[a]]
+    for (let a = e; a < r; ++a) i += FI[t[a]]
     return i
   }
   function CI(t, e, r) {
@@ -1030,28 +1030,28 @@ var Rp = M((Ls) => {
     return (
       (e = e >>> 0),
       r || bt(e, 4, this.length),
-      Fs.read(this, e, !0, 23, 4)
+      $s.read(this, e, !0, 23, 4)
     )
   }
   O.prototype.readFloatBE = function (e, r) {
     return (
       (e = e >>> 0),
       r || bt(e, 4, this.length),
-      Fs.read(this, e, !1, 23, 4)
+      $s.read(this, e, !1, 23, 4)
     )
   }
   O.prototype.readDoubleLE = function (e, r) {
     return (
       (e = e >>> 0),
       r || bt(e, 8, this.length),
-      Fs.read(this, e, !0, 52, 8)
+      $s.read(this, e, !0, 52, 8)
     )
   }
   O.prototype.readDoubleBE = function (e, r) {
     return (
       (e = e >>> 0),
       r || bt(e, 8, this.length),
-      Fs.read(this, e, !1, 52, 8)
+      $s.read(this, e, !1, 52, 8)
     )
   }
   function cr(t, e, r, n, i, a) {
@@ -1135,7 +1135,7 @@ var Rp = M((Ls) => {
       r + 4
     )
   }
-  function Fy(t, e, r, n, i) {
+  function $y(t, e, r, n, i) {
     By(e, n, i, t, r, 7)
     let a = Number(e & BigInt(4294967295))
     ;((t[r++] = a),
@@ -1180,7 +1180,7 @@ var Rp = M((Ls) => {
     )
   }
   O.prototype.writeBigUInt64LE = Ui(function (e, r = 0) {
-    return Fy(this, e, r, BigInt(0), BigInt('0xffffffffffffffff'))
+    return $y(this, e, r, BigInt(0), BigInt('0xffffffffffffffff'))
   })
   O.prototype.writeBigUInt64BE = Ui(function (e, r = 0) {
     return Dy(this, e, r, BigInt(0), BigInt('0xffffffffffffffff'))
@@ -1267,7 +1267,7 @@ var Rp = M((Ls) => {
     )
   }
   O.prototype.writeBigInt64LE = Ui(function (e, r = 0) {
-    return Fy(
+    return $y(
       this,
       e,
       r,
@@ -1293,7 +1293,7 @@ var Rp = M((Ls) => {
       (e = +e),
       (r = r >>> 0),
       i || Ly(t, e, r, 4, 34028234663852886e22, -34028234663852886e22),
-      Fs.write(t, e, r, n, 23, 4),
+      $s.write(t, e, r, n, 23, 4),
       r + 4
     )
   }
@@ -1308,7 +1308,7 @@ var Rp = M((Ls) => {
       (e = +e),
       (r = r >>> 0),
       i || Ly(t, e, r, 8, 17976931348623157e292, -17976931348623157e292),
-      Fs.write(t, e, r, n, 52, 8),
+      $s.write(t, e, r, n, 52, 8),
       r + 8
     )
   }
@@ -1378,9 +1378,9 @@ var Rp = M((Ls) => {
     }
     return this
   }
-  var $s = {}
+  var Fs = {}
   function Cp(t, e, r) {
-    $s[t] = class extends r {
+    Fs[t] = class extends r {
       constructor() {
         ;(super(),
           Object.defineProperty(this, 'message', {
@@ -1464,20 +1464,20 @@ var Rp = M((Ls) => {
             ? (o = `>= 0${s} and < 2${s} ** ${(a + 1) * 8}${s}`)
             : (o = `>= -(2${s} ** ${(a + 1) * 8 - 1}${s}) and < 2 ** ${(a + 1) * 8 - 1}${s}`)
           : (o = `>= ${e}${s} and <= ${r}${s}`),
-        new $s.ERR_OUT_OF_RANGE('value', o, t)
+        new Fs.ERR_OUT_OF_RANGE('value', o, t)
       )
     }
     PI(n, i, a)
   }
   function Ds(t, e) {
-    if (typeof t != 'number') throw new $s.ERR_INVALID_ARG_TYPE(e, 'number', t)
+    if (typeof t != 'number') throw new Fs.ERR_INVALID_ARG_TYPE(e, 'number', t)
   }
   function bl(t, e, r) {
     throw Math.floor(t) !== t
-      ? (Ds(t, r), new $s.ERR_OUT_OF_RANGE(r || 'offset', 'an integer', t))
+      ? (Ds(t, r), new Fs.ERR_OUT_OF_RANGE(r || 'offset', 'an integer', t))
       : e < 0
-        ? new $s.ERR_BUFFER_OUT_OF_BOUNDS()
-        : new $s.ERR_OUT_OF_RANGE(
+        ? new Fs.ERR_BUFFER_OUT_OF_BOUNDS()
+        : new Fs.ERR_OUT_OF_RANGE(
             r || 'offset',
             `>= ${r ? 1 : 0} and <= ${e}`,
             t,
@@ -1553,7 +1553,7 @@ var Rp = M((Ls) => {
   function Hy(t) {
     return xp.toByteArray(MI(t))
   }
-  function Fu(t, e, r, n) {
+  function $u(t, e, r, n) {
     let i
     for (i = 0; i < n && !(i + r >= e.length || i >= t.length); ++i)
       e[i + r] = t[i]
@@ -1571,7 +1571,7 @@ var Rp = M((Ls) => {
   function Pp(t) {
     return t !== t
   }
-  var $I = (function () {
+  var FI = (function () {
     let t = '0123456789abcdef',
       e = new Array(256)
     for (let r = 0; r < 16; ++r) {
@@ -1581,9 +1581,9 @@ var Rp = M((Ls) => {
     return e
   })()
   function Ui(t) {
-    return typeof BigInt == 'undefined' ? FI : t
+    return typeof BigInt == 'undefined' ? $I : t
   }
-  function FI() {
+  function $I() {
     throw new Error('BigInt not supported')
   }
 })
@@ -1598,7 +1598,7 @@ var Uy,
 var zy = M((GV, Gy) => {
   'use strict'
   m()
-  var Tr = function (t) {
+  var Cr = function (t) {
     if (
       ((t = t || {}),
       (this.Promise = t.Promise || Promise),
@@ -1612,21 +1612,21 @@ var zy = M((GV, Gy) => {
         )
       this.domains = Object.create(null)
     }
-    ;((this.timeout = t.timeout || Tr.DEFAULT_TIMEOUT),
+    ;((this.timeout = t.timeout || Cr.DEFAULT_TIMEOUT),
       (this.maxOccupationTime =
-        t.maxOccupationTime || Tr.DEFAULT_MAX_OCCUPATION_TIME),
+        t.maxOccupationTime || Cr.DEFAULT_MAX_OCCUPATION_TIME),
       (this.maxExecutionTime =
-        t.maxExecutionTime || Tr.DEFAULT_MAX_EXECUTION_TIME),
+        t.maxExecutionTime || Cr.DEFAULT_MAX_EXECUTION_TIME),
       t.maxPending === 1 / 0 ||
       (Number.isInteger(t.maxPending) && t.maxPending >= 0)
         ? (this.maxPending = t.maxPending)
-        : (this.maxPending = Tr.DEFAULT_MAX_PENDING))
+        : (this.maxPending = Cr.DEFAULT_MAX_PENDING))
   }
-  Tr.DEFAULT_TIMEOUT = 0
-  Tr.DEFAULT_MAX_OCCUPATION_TIME = 0
-  Tr.DEFAULT_MAX_EXECUTION_TIME = 0
-  Tr.DEFAULT_MAX_PENDING = 1e3
-  Tr.prototype.acquire = function (t, e, r, n) {
+  Cr.DEFAULT_TIMEOUT = 0
+  Cr.DEFAULT_MAX_OCCUPATION_TIME = 0
+  Cr.DEFAULT_MAX_EXECUTION_TIME = 0
+  Cr.DEFAULT_MAX_PENDING = 1e3
+  Cr.prototype.acquire = function (t, e, r, n) {
     if (Array.isArray(t)) return this._acquireBatch(t, e, r, n)
     if (typeof e != 'function')
       throw new Error('You must pass a function to execute')
@@ -1725,7 +1725,7 @@ var zy = M((GV, Gy) => {
     )
       return s
   }
-  Tr.prototype._acquireBatch = function (t, e, r, n) {
+  Cr.prototype._acquireBatch = function (t, e, r, n) {
     typeof r != 'function' && ((n = r), (r = null))
     var i = this,
       a = function (o, l) {
@@ -1746,17 +1746,17 @@ var zy = M((GV, Gy) => {
           : o(s())
       })
   }
-  Tr.prototype.isBusy = function (t) {
+  Cr.prototype.isBusy = function (t) {
     return t ? !!this.queues[t] : Object.keys(this.queues).length > 0
   }
-  Tr.prototype._promiseTry = function (t) {
+  Cr.prototype._promiseTry = function (t) {
     try {
       return this.Promise.resolve(t())
     } catch (e) {
       return this.Promise.reject(e)
     }
   }
-  Gy.exports = Tr
+  Gy.exports = Cr
 })
 var Wy = M((VV, Vy) => {
   'use strict'
@@ -1848,7 +1848,7 @@ var Nu = M((eW, Jy) => {
   m()
   Jy.exports = Object
 })
-var $p = M((rW, Qy) => {
+var Fp = M((rW, Qy) => {
   'use strict'
   m()
   Qy.exports = Error
@@ -1942,7 +1942,7 @@ var Gi = M((OW, Tw) => {
     }
   Tw.exports = Hu
 })
-var _l = M(($W, Cw) => {
+var _l = M((FW, Cw) => {
   'use strict'
   m()
   var Uu = Object.defineProperty || !1
@@ -2010,7 +2010,7 @@ var Gu = M((jW, Mw) => {
       : jI()
   }
 })
-var Fp = M((BW, Ow) => {
+var $p = M((BW, Ow) => {
   'use strict'
   m()
   Ow.exports = (typeof Reflect != 'undefined' && Reflect.getPrototypeOf) || null
@@ -2021,14 +2021,14 @@ var Dp = M((UW, Iw) => {
   var NI = Nu()
   Iw.exports = NI.getPrototypeOf || null
 })
-var Dw = M((zW, Fw) => {
+var Dw = M((zW, $w) => {
   'use strict'
   m()
   var BI = 'Function.prototype.bind called on incompatible ',
     HI = Object.prototype.toString,
     UI = Math.max,
     GI = '[object Function]',
-    $w = function (e, r) {
+    Fw = function (e, r) {
       for (var n = [], i = 0; i < e.length; i += 1) n[i] = e[i]
       for (var a = 0; a < r.length; a += 1) n[a + e.length] = r[a]
       return n
@@ -2043,7 +2043,7 @@ var Dw = M((zW, Fw) => {
         ((r += t[n]), n + 1 < t.length && (r += e))
       return r
     }
-  Fw.exports = function (e) {
+  $w.exports = function (e) {
     var r = this
     if (typeof r != 'function' || HI.apply(r) !== GI)
       throw new TypeError(BI + r)
@@ -2052,10 +2052,10 @@ var Dw = M((zW, Fw) => {
         i,
         a = function () {
           if (this instanceof i) {
-            var u = r.apply(this, $w(n, arguments))
+            var u = r.apply(this, Fw(n, arguments))
             return Object(u) === u ? u : this
           }
-          return r.apply(e, $w(n, arguments))
+          return r.apply(e, Fw(n, arguments))
         },
         s = UI(0, r.length - n.length),
         o = [],
@@ -2156,7 +2156,7 @@ var Xw = M((iq, Yw) => {
 var qu = M((sq, Qw) => {
   'use strict'
   m()
-  var Kw = Fp(),
+  var Kw = $p(),
     Zw = Dp(),
     Jw = Xw()
   Qw.exports = Kw
@@ -2183,12 +2183,12 @@ var Yu = M((lq, eb) => {
     i6 = js()
   eb.exports = i6.call(r6, n6)
 })
-var $n = M((uq, sb) => {
+var Fn = M((uq, sb) => {
   'use strict'
   m()
   var we,
     a6 = Nu(),
-    s6 = $p(),
+    s6 = Fp(),
     o6 = tw(),
     l6 = nw(),
     c6 = aw(),
@@ -2229,7 +2229,7 @@ var $n = M((uq, sb) => {
     Ns = Gu()(),
     _t = qu(),
     b6 = Dp(),
-    _6 = Fp(),
+    _6 = $p(),
     ab = Vu(),
     El = zu(),
     Bs = {},
@@ -2512,7 +2512,7 @@ var $n = M((uq, sb) => {
 var xt = M((dq, cb) => {
   'use strict'
   m()
-  var ob = $n(),
+  var ob = Fn(),
     lb = Wu(),
     M6 = lb([ob('%String.prototype.indexOf%')])
   cb.exports = function (e, r) {
@@ -2564,8 +2564,8 @@ var hb = M((pq, db) => {
     },
     Ju = Object.prototype.toString,
     I6 = '[object Object]',
-    $6 = '[object Function]',
-    F6 = '[object GeneratorFunction]',
+    F6 = '[object Function]',
+    $6 = '[object GeneratorFunction]',
     D6 = '[object HTMLAllCollection]',
     L6 = '[object HTML document.all class]',
     j6 = '[object HTMLCollection]',
@@ -2605,7 +2605,7 @@ var hb = M((pq, db) => {
         if (N6) return Hp(e)
         if (Gp(e)) return !1
         var r = Ju.call(e)
-        return r !== $6 && r !== F6 && !/^\[object HTML/.test(r) ? !1 : Hp(e)
+        return r !== F6 && r !== $6 && !/^\[object HTML/.test(r) ? !1 : Hp(e)
       }
 })
 var gb = M((gq, mb) => {
@@ -2736,7 +2736,7 @@ var ef = M((Eq, Ab) => {
 var Rb = M((kq, Pb) => {
   'use strict'
   m()
-  var X6 = $n(),
+  var X6 = Fn(),
     kb = Qu(),
     K6 = ef()(),
     Tb = Gi(),
@@ -2764,48 +2764,48 @@ var Ob = M((Cq, Mb) => {
   m()
   var J6 = js(),
     Q6 = Vu(),
-    e$ = Lp()
+    eF = Lp()
   Mb.exports = function () {
-    return e$(J6, Q6, arguments)
+    return eF(J6, Q6, arguments)
   }
 })
-var $a = M((Rq, tf) => {
+var Fa = M((Rq, tf) => {
   'use strict'
   m()
-  var t$ = Rb(),
+  var tF = Rb(),
     Ib = _l(),
-    r$ = Wu(),
-    $b = Ob()
+    rF = Wu(),
+    Fb = Ob()
   tf.exports = function (e) {
-    var r = r$(arguments),
+    var r = rF(arguments),
       n = e.length - (arguments.length - 1)
-    return t$(r, 1 + (n > 0 ? n : 0), !0)
+    return tF(r, 1 + (n > 0 ? n : 0), !0)
   }
-  Ib ? Ib(tf.exports, 'apply', { value: $b }) : (tf.exports.apply = $b)
+  Ib ? Ib(tf.exports, 'apply', { value: Fb }) : (tf.exports.apply = Fb)
 })
-var zi = M((Oq, Fb) => {
+var zi = M((Oq, $b) => {
   'use strict'
   m()
-  var n$ = xl()
-  Fb.exports = function () {
-    return n$() && !!Symbol.toStringTag
+  var nF = xl()
+  $b.exports = function () {
+    return nF() && !!Symbol.toStringTag
   }
 })
-var Kp = M(($q, Nb) => {
+var Kp = M((Fq, Nb) => {
   'use strict'
   m()
   var af = gb(),
-    i$ = bb(),
-    Db = $a(),
+    iF = bb(),
+    Db = Fa(),
     Yp = xt(),
     nf = Gi(),
     rf = qu(),
-    a$ = Yp('Object.prototype.toString'),
+    aF = Yp('Object.prototype.toString'),
     jb = zi()(),
     Lb = typeof globalThis == 'undefined' ? global : globalThis,
-    qp = i$(),
+    qp = iF(),
     Xp = Yp('String.prototype.slice'),
-    s$ =
+    sF =
       Yp('Array.prototype.indexOf', !0) ||
       function (e, r) {
         for (var n = 0; n < e.length; n += 1) if (e[n] === r) return n
@@ -2830,7 +2830,7 @@ var Kp = M(($q, Nb) => {
           r = e.slice || e.set
         r && (sf['$' + t] = Db(r))
       })
-  var o$ = function (e) {
+  var oF = function (e) {
       var r = !1
       return (
         af(sf, function (n, i) {
@@ -2842,7 +2842,7 @@ var Kp = M(($q, Nb) => {
         r
       )
     },
-    l$ = function (e) {
+    lF = function (e) {
       var r = !1
       return (
         af(sf, function (n, i) {
@@ -2857,70 +2857,70 @@ var Kp = M(($q, Nb) => {
   Nb.exports = function (e) {
     if (!e || typeof e != 'object') return !1
     if (!jb) {
-      var r = Xp(a$(e), 8, -1)
-      return s$(qp, r) > -1 ? r : r !== 'Object' ? !1 : l$(e)
+      var r = Xp(aF(e), 8, -1)
+      return sF(qp, r) > -1 ? r : r !== 'Object' ? !1 : lF(e)
     }
-    return nf ? o$(e) : null
+    return nf ? oF(e) : null
   }
 })
 var Hb = M((Dq, Bb) => {
   'use strict'
   m()
-  var c$ = Kp()
+  var cF = Kp()
   Bb.exports = function (e) {
-    return !!c$(e)
+    return !!cF(e)
   }
 })
 var Gb = M((jq, Ub) => {
   'use strict'
   m()
-  var u$ = ur(),
-    f$ = xt(),
-    d$ = f$('TypedArray.prototype.buffer', !0),
-    h$ = Hb()
+  var uF = ur(),
+    fF = xt(),
+    dF = fF('TypedArray.prototype.buffer', !0),
+    hF = Hb()
   Ub.exports =
-    d$ ||
+    dF ||
     function (e) {
-      if (!h$(e)) throw new u$('Not a Typed Array')
+      if (!hF(e)) throw new uF('Not a Typed Array')
       return e.buffer
     }
 })
 var Wb = M((Bq, Vb) => {
   'use strict'
   m()
-  var Fn = Lu().Buffer,
-    p$ = ju(),
-    m$ = Gb(),
-    g$ =
+  var $n = Lu().Buffer,
+    pF = ju(),
+    mF = Gb(),
+    gF =
       ArrayBuffer.isView ||
       function (e) {
         try {
-          return (m$(e), !0)
+          return (mF(e), !0)
         } catch (r) {
           return !1
         }
       },
-    v$ = typeof Uint8Array != 'undefined',
+    vF = typeof Uint8Array != 'undefined',
     zb = typeof ArrayBuffer != 'undefined' && typeof Uint8Array != 'undefined',
-    y$ = zb && (Fn.prototype instanceof Uint8Array || Fn.TYPED_ARRAY_SUPPORT)
+    yF = zb && ($n.prototype instanceof Uint8Array || $n.TYPED_ARRAY_SUPPORT)
   Vb.exports = function (e, r) {
-    if (e instanceof Fn) return e
-    if (typeof e == 'string') return Fn.from(e, r)
-    if (zb && g$(e)) {
-      if (e.byteLength === 0) return Fn.alloc(0)
-      if (y$) {
-        var n = Fn.from(e.buffer, e.byteOffset, e.byteLength)
+    if (e instanceof $n) return e
+    if (typeof e == 'string') return $n.from(e, r)
+    if (zb && gF(e)) {
+      if (e.byteLength === 0) return $n.alloc(0)
+      if (yF) {
+        var n = $n.from(e.buffer, e.byteOffset, e.byteLength)
         if (n.byteLength === e.byteLength) return n
       }
       var i =
           e instanceof Uint8Array
             ? e
             : new Uint8Array(e.buffer, e.byteOffset, e.byteLength),
-        a = Fn.from(i)
+        a = $n.from(i)
       if (a.length === e.byteLength) return a
     }
-    if (v$ && e instanceof Uint8Array) return Fn.from(e)
-    var s = p$(e)
+    if (vF && e instanceof Uint8Array) return $n.from(e)
+    var s = pF(e)
     if (s)
       for (var o = 0; o < e.length; o += 1) {
         var l = e[o]
@@ -2931,12 +2931,12 @@ var Wb = M((Bq, Vb) => {
       }
     if (
       s ||
-      (Fn.isBuffer(e) &&
+      ($n.isBuffer(e) &&
         e.constructor &&
         typeof e.constructor.isBuffer == 'function' &&
         e.constructor.isBuffer(e))
     )
-      return Fn.from(e)
+      return $n.from(e)
     throw new TypeError(
       'The "data" argument must be a string, an Array, a Buffer, a Uint8Array, or a DataView.',
     )
@@ -2945,16 +2945,16 @@ var Wb = M((Bq, Vb) => {
 var Yb = M((Uq, qb) => {
   'use strict'
   m()
-  var w$ = Lu().Buffer,
-    b$ = Wb()
+  var wF = Lu().Buffer,
+    bF = Wb()
   function of(t, e) {
-    ;((this._block = w$.alloc(t)),
+    ;((this._block = wF.alloc(t)),
       (this._finalSize = e),
       (this._blockSize = t),
       (this._len = 0))
   }
   of.prototype.update = function (t, e) {
-    t = b$(t, e || 'utf8')
+    t = bF(t, e || 'utf8')
     for (
       var r = this._block,
         n = this._blockSize,
@@ -2995,15 +2995,15 @@ var Yb = M((Uq, qb) => {
 var Zb = M((zq, Kb) => {
   'use strict'
   m()
-  var _$ = qy(),
+  var _F = qy(),
     Xb = Yb(),
-    x$ = Lu().Buffer,
-    S$ = [1518500249, 1859775393, -1894007588, -899497514],
-    E$ = new Array(80)
+    xF = Lu().Buffer,
+    SF = [1518500249, 1859775393, -1894007588, -899497514],
+    EF = new Array(80)
   function kl() {
-    ;(this.init(), (this._w = E$), Xb.call(this, 64, 56))
+    ;(this.init(), (this._w = EF), Xb.call(this, 64, 56))
   }
-  _$(kl, Xb)
+  _F(kl, Xb)
   kl.prototype.init = function () {
     return (
       (this._a = 1732584193),
@@ -3014,16 +3014,16 @@ var Zb = M((zq, Kb) => {
       this
     )
   }
-  function A$(t) {
+  function AF(t) {
     return (t << 1) | (t >>> 31)
   }
-  function k$(t) {
+  function kF(t) {
     return (t << 5) | (t >>> 27)
   }
-  function T$(t) {
+  function TF(t) {
     return (t << 30) | (t >>> 2)
   }
-  function C$(t, e, r, n) {
+  function CF(t, e, r, n) {
     return t === 0
       ? (e & r) | (~e & n)
       : t === 2
@@ -3043,11 +3043,11 @@ var Zb = M((zq, Kb) => {
       ++o
     )
       e[o] = t.readInt32BE(o * 4)
-    for (; o < 80; ++o) e[o] = A$(e[o - 3] ^ e[o - 8] ^ e[o - 14] ^ e[o - 16])
+    for (; o < 80; ++o) e[o] = AF(e[o - 3] ^ e[o - 8] ^ e[o - 14] ^ e[o - 16])
     for (var l = 0; l < 80; ++l) {
       var c = ~~(l / 20),
-        u = (k$(r) + C$(c, n, i, a) + s + e[l] + S$[c]) | 0
-      ;((s = a), (a = i), (i = T$(n)), (n = r), (r = u))
+        u = (kF(r) + CF(c, n, i, a) + s + e[l] + SF[c]) | 0
+      ;((s = a), (a = i), (i = TF(n)), (n = r), (r = u))
     }
     ;((this._a = (r + this._a) | 0),
       (this._b = (n + this._b) | 0),
@@ -3056,7 +3056,7 @@ var Zb = M((zq, Kb) => {
       (this._e = (s + this._e) | 0))
   }
   kl.prototype._hash = function () {
-    var t = x$.allocUnsafe(20)
+    var t = xF.allocUnsafe(20)
     return (
       t.writeInt32BE(this._a | 0, 0),
       t.writeInt32BE(this._b | 0, 4),
@@ -3120,7 +3120,7 @@ var e2 = M((Wq, Qb) => {
     }
     return r
   }
-  function P$(t, e) {
+  function PF(t, e) {
     var r = e.dir || e.root,
       n = e.base || (e.name || '') + (e.ext || '')
     return r ? (r === e.root ? r + n : r + t + n) : n
@@ -3296,7 +3296,7 @@ var e2 = M((Wq, Qb) => {
           'The "pathObject" argument must be of type Object. Received type ' +
             typeof e,
         )
-      return P$('/', e)
+      return PF('/', e)
     },
     parse: function (e) {
       Dn(e)
@@ -3472,11 +3472,11 @@ var r2 = M((Zp) => {
 var pi = M((Qt) => {
   'use strict'
   m()
-  var R$ =
+  var RF =
     typeof Uint8Array != 'undefined' &&
     typeof Uint16Array != 'undefined' &&
     typeof Int32Array != 'undefined'
-  function M$(t, e) {
+  function MF(t, e) {
     return Object.prototype.hasOwnProperty.call(t, e)
   }
   Qt.assign = function (t) {
@@ -3484,7 +3484,7 @@ var pi = M((Qt) => {
       var r = e.shift()
       if (r) {
         if (typeof r != 'object') throw new TypeError(r + 'must be non-object')
-        for (var n in r) M$(r, n) && (t[n] = r[n])
+        for (var n in r) MF(r, n) && (t[n] = r[n])
       }
     }
     return t
@@ -3496,7 +3496,7 @@ var pi = M((Qt) => {
         ? t.subarray(0, e)
         : ((t.length = e), t)
   }
-  var O$ = {
+  var OF = {
       arraySet: function (t, e, r, n, i) {
         if (e.subarray && t.subarray) {
           t.set(e.subarray(r, r + n), i)
@@ -3512,7 +3512,7 @@ var pi = M((Qt) => {
         return s
       },
     },
-    I$ = {
+    IF = {
       arraySet: function (t, e, r, n, i) {
         for (var a = 0; a < n; a++) t[i + a] = e[r + a]
       },
@@ -3525,39 +3525,39 @@ var pi = M((Qt) => {
       ? ((Qt.Buf8 = Uint8Array),
         (Qt.Buf16 = Uint16Array),
         (Qt.Buf32 = Int32Array),
-        Qt.assign(Qt, O$))
+        Qt.assign(Qt, OF))
       : ((Qt.Buf8 = Array),
         (Qt.Buf16 = Array),
         (Qt.Buf32 = Array),
-        Qt.assign(Qt, I$))
+        Qt.assign(Qt, IF))
   }
-  Qt.setTyped(R$)
+  Qt.setTyped(RF)
 })
 var A2 = M((Ys) => {
   'use strict'
   m()
-  var $$ = pi(),
-    F$ = 4,
+  var FF = pi(),
+    $F = 4,
     n2 = 0,
     i2 = 1,
-    D$ = 2
+    DF = 2
   function qs(t) {
     for (var e = t.length; --e >= 0; ) t[e] = 0
   }
-  var L$ = 0,
+  var LF = 0,
     u2 = 1,
-    j$ = 2,
-    N$ = 3,
-    B$ = 258,
+    jF = 2,
+    NF = 3,
+    BF = 258,
     im = 29,
     Ol = 256,
     Cl = Ol + 1 + im,
     Ws = 30,
     am = 19,
     f2 = 2 * Cl + 1,
-    Fa = 15,
+    $a = 15,
     Jp = 16,
-    H$ = 7,
+    HF = 7,
     sm = 256,
     d2 = 16,
     h2 = 17,
@@ -3570,16 +3570,16 @@ var A2 = M((Ys) => {
       0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10,
       11, 11, 12, 12, 13, 13,
     ],
-    U$ = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7],
+    UF = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7],
     m2 = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15],
-    G$ = 512,
+    GF = 512,
     mi = new Array((Cl + 2) * 2)
   qs(mi)
   var Tl = new Array(Ws * 2)
   qs(Tl)
-  var Pl = new Array(G$)
+  var Pl = new Array(GF)
   qs(Pl)
-  var Rl = new Array(B$ - N$ + 1)
+  var Rl = new Array(BF - NF + 1)
   qs(Rl)
   var om = new Array(im)
   qs(om)
@@ -3621,7 +3621,7 @@ var A2 = M((Ys) => {
     while (--e > 0)
     return r >>> 1
   }
-  function z$(t) {
+  function zF(t) {
     t.bi_valid === 16
       ? (Ml(t, t.bi_buf), (t.bi_buf = 0), (t.bi_valid = 0))
       : t.bi_valid >= 8 &&
@@ -3629,7 +3629,7 @@ var A2 = M((Ys) => {
         (t.bi_buf >>= 8),
         (t.bi_valid -= 8))
   }
-  function V$(t, e) {
+  function VF(t, e) {
     var r = e.dyn_tree,
       n = e.max_code,
       i = e.stat_desc.static_tree,
@@ -3644,7 +3644,7 @@ var A2 = M((Ys) => {
       h,
       p,
       g = 0
-    for (d = 0; d <= Fa; d++) t.bl_count[d] = 0
+    for (d = 0; d <= $a; d++) t.bl_count[d] = 0
     for (r[t.heap[t.heap_max] * 2 + 1] = 0, c = t.heap_max + 1; c < f2; c++)
       ((u = t.heap[c]),
         (d = r[r[u * 2 + 1] * 2 + 1] + 1),
@@ -3673,39 +3673,39 @@ var A2 = M((Ys) => {
     }
   }
   function _2(t, e, r) {
-    var n = new Array(Fa + 1),
+    var n = new Array($a + 1),
       i = 0,
       a,
       s
-    for (a = 1; a <= Fa; a++) n[a] = i = (i + r[a - 1]) << 1
+    for (a = 1; a <= $a; a++) n[a] = i = (i + r[a - 1]) << 1
     for (s = 0; s <= e; s++) {
       var o = t[s * 2 + 1]
       o !== 0 && (t[s * 2] = b2(n[o]++, o))
     }
   }
-  function W$() {
+  function WF() {
     var t,
       e,
       r,
       n,
       i,
-      a = new Array(Fa + 1)
+      a = new Array($a + 1)
     for (r = 0, n = 0; n < im - 1; n++)
       for (om[n] = r, t = 0; t < 1 << rm[n]; t++) Rl[r++] = n
     for (Rl[r - 1] = n, i = 0, n = 0; n < 16; n++)
       for (cf[n] = i, t = 0; t < 1 << lf[n]; t++) Pl[i++] = n
     for (i >>= 7; n < Ws; n++)
       for (cf[n] = i << 7, t = 0; t < 1 << (lf[n] - 7); t++) Pl[256 + i++] = n
-    for (e = 0; e <= Fa; e++) a[e] = 0
+    for (e = 0; e <= $a; e++) a[e] = 0
     for (t = 0; t <= 143; ) ((mi[t * 2 + 1] = 8), t++, a[8]++)
     for (; t <= 255; ) ((mi[t * 2 + 1] = 9), t++, a[9]++)
     for (; t <= 279; ) ((mi[t * 2 + 1] = 7), t++, a[7]++)
     for (; t <= 287; ) ((mi[t * 2 + 1] = 8), t++, a[8]++)
     for (_2(mi, Cl + 1, a), t = 0; t < Ws; t++)
       ((Tl[t * 2 + 1] = 5), (Tl[t * 2] = b2(t, 5)))
-    ;((g2 = new Qp(mi, rm, Ol + 1, Cl, Fa)),
-      (v2 = new Qp(Tl, lf, 0, Ws, Fa)),
-      (y2 = new Qp(new Array(0), U$, 0, am, H$)))
+    ;((g2 = new Qp(mi, rm, Ol + 1, Cl, $a)),
+      (v2 = new Qp(Tl, lf, 0, Ws, $a)),
+      (y2 = new Qp(new Array(0), UF, 0, am, HF)))
   }
   function x2(t) {
     var e
@@ -3723,10 +3723,10 @@ var A2 = M((Ys) => {
       (t.bi_buf = 0),
       (t.bi_valid = 0))
   }
-  function q$(t, e, r, n) {
+  function qF(t, e, r, n) {
     ;(S2(t),
       n && (Ml(t, r), Ml(t, ~r)),
-      $$.arraySet(t.pending_buf, t.window, e, r, t.pending),
+      FF.arraySet(t.pending_buf, t.window, e, r, t.pending),
       (t.pending += r))
   }
   function a2(t, e, r, n) {
@@ -3806,7 +3806,7 @@ var A2 = M((Ys) => {
         (t.heap[1] = c++),
         tm(t, r, 1))
     while (t.heap_len >= 2)
-    ;((t.heap[--t.heap_max] = t.heap[1]), V$(t, e), _2(r, l, t.bl_count))
+    ;((t.heap[--t.heap_max] = t.heap[1]), VF(t, e), _2(r, l, t.bl_count))
   }
   function o2(t, e, r) {
     var n,
@@ -3869,7 +3869,7 @@ var A2 = M((Ys) => {
               : ((l = 7), (c = 4)))
       }
   }
-  function Y$(t) {
+  function YF(t) {
     var e
     for (
       o2(t, t.dyn_ltree, t.l_desc.max_code),
@@ -3881,13 +3881,13 @@ var A2 = M((Ys) => {
     );
     return ((t.opt_len += 3 * (e + 1) + 5 + 5 + 4), e)
   }
-  function X$(t, e, r, n) {
+  function XF(t, e, r, n) {
     var i
     for (fr(t, e - 257, 5), fr(t, r - 1, 5), fr(t, n - 4, 4), i = 0; i < n; i++)
       fr(t, t.bl_tree[m2[i] * 2 + 1], 3)
     ;(l2(t, t.dyn_ltree, e - 1), l2(t, t.dyn_dtree, r - 1))
   }
-  function K$(t) {
+  function KF(t) {
     var e = 4093624447,
       r
     for (r = 0; r <= 31; r++, e >>>= 1)
@@ -3902,8 +3902,8 @@ var A2 = M((Ys) => {
     return n2
   }
   var c2 = !1
-  function Z$(t) {
-    ;(c2 || (W$(), (c2 = !0)),
+  function ZF(t) {
+    ;(c2 || (WF(), (c2 = !0)),
       (t.l_desc = new em(t.dyn_ltree, g2)),
       (t.d_desc = new em(t.dyn_dtree, v2)),
       (t.bl_desc = new em(t.bl_tree, y2)),
@@ -3912,35 +3912,35 @@ var A2 = M((Ys) => {
       x2(t))
   }
   function E2(t, e, r, n) {
-    ;(fr(t, (L$ << 1) + (n ? 1 : 0), 3), q$(t, e, r, !0))
+    ;(fr(t, (LF << 1) + (n ? 1 : 0), 3), qF(t, e, r, !0))
   }
-  function J$(t) {
-    ;(fr(t, u2 << 1, 3), Ln(t, sm, mi), z$(t))
+  function JF(t) {
+    ;(fr(t, u2 << 1, 3), Ln(t, sm, mi), zF(t))
   }
-  function Q$(t, e, r, n) {
+  function QF(t, e, r, n) {
     var i,
       a,
       s = 0
     ;(t.level > 0
-      ? (t.strm.data_type === D$ && (t.strm.data_type = K$(t)),
+      ? (t.strm.data_type === DF && (t.strm.data_type = KF(t)),
         nm(t, t.l_desc),
         nm(t, t.d_desc),
-        (s = Y$(t)),
+        (s = YF(t)),
         (i = (t.opt_len + 3 + 7) >>> 3),
         (a = (t.static_len + 3 + 7) >>> 3),
         a <= i && (i = a))
       : (i = a = r + 5),
       r + 4 <= i && e !== -1
         ? E2(t, e, r, n)
-        : t.strategy === F$ || a === i
+        : t.strategy === $F || a === i
           ? (fr(t, (u2 << 1) + (n ? 1 : 0), 3), s2(t, mi, Tl))
-          : (fr(t, (j$ << 1) + (n ? 1 : 0), 3),
-            X$(t, t.l_desc.max_code + 1, t.d_desc.max_code + 1, s + 1),
+          : (fr(t, (jF << 1) + (n ? 1 : 0), 3),
+            XF(t, t.l_desc.max_code + 1, t.d_desc.max_code + 1, s + 1),
             s2(t, t.dyn_ltree, t.dyn_dtree)),
       x2(t),
       n && S2(t))
   }
-  function eF(t, e, r) {
+  function e$(t, e, r) {
     return (
       (t.pending_buf[t.d_buf + t.last_lit * 2] = (e >>> 8) & 255),
       (t.pending_buf[t.d_buf + t.last_lit * 2 + 1] = e & 255),
@@ -3955,16 +3955,16 @@ var A2 = M((Ys) => {
       t.last_lit === t.lit_bufsize - 1
     )
   }
-  Ys._tr_init = Z$
+  Ys._tr_init = ZF
   Ys._tr_stored_block = E2
-  Ys._tr_flush_block = Q$
-  Ys._tr_tally = eF
-  Ys._tr_align = J$
+  Ys._tr_flush_block = QF
+  Ys._tr_tally = e$
+  Ys._tr_align = JF
 })
 var lm = M((eY, k2) => {
   'use strict'
   m()
-  function tF(t, e, r, n) {
+  function t$(t, e, r, n) {
     for (
       var i = (t & 65535) | 0, a = ((t >>> 16) & 65535) | 0, s = 0;
       r !== 0;
@@ -3977,12 +3977,12 @@ var lm = M((eY, k2) => {
     }
     return i | (a << 16) | 0
   }
-  k2.exports = tF
+  k2.exports = t$
 })
 var cm = M((rY, T2) => {
   'use strict'
   m()
-  function rF() {
+  function r$() {
     for (var t, e = [], r = 0; r < 256; r++) {
       t = r
       for (var n = 0; n < 8; n++) t = t & 1 ? 3988292384 ^ (t >>> 1) : t >>> 1
@@ -3990,15 +3990,15 @@ var cm = M((rY, T2) => {
     }
     return e
   }
-  var nF = rF()
-  function iF(t, e, r, n) {
-    var i = nF,
+  var n$ = r$()
+  function i$(t, e, r, n) {
+    var i = n$,
       a = n + r
     t ^= -1
     for (var s = n; s < a; s++) t = (t >>> 8) ^ i[(t ^ e[s]) & 255]
     return t ^ -1
   }
-  T2.exports = iF
+  T2.exports = i$
 })
 var uf = M((iY, C2) => {
   'use strict'
@@ -4022,53 +4022,53 @@ var L2 = M((Bn) => {
     qr = A2(),
     O2 = lm(),
     Vi = cm(),
-    aF = uf(),
+    a$ = uf(),
     Na = 0,
-    sF = 1,
-    oF = 3,
+    s$ = 1,
+    o$ = 3,
     Ki = 4,
     P2 = 5,
     Nn = 0,
     R2 = 1,
     Yr = -2,
-    lF = -3,
+    l$ = -3,
     um = -5,
-    cF = -1,
-    uF = 1,
+    c$ = -1,
+    u$ = 1,
     ff = 2,
-    fF = 3,
-    dF = 4,
-    hF = 0,
-    pF = 2,
+    f$ = 3,
+    d$ = 4,
+    h$ = 0,
+    p$ = 2,
     mf = 8,
-    mF = 9,
-    gF = 15,
-    vF = 8,
-    yF = 29,
-    wF = 256,
-    dm = wF + 1 + yF,
-    bF = 30,
-    _F = 19,
-    xF = 2 * dm + 1,
-    SF = 15,
+    m$ = 9,
+    g$ = 15,
+    v$ = 8,
+    y$ = 29,
+    w$ = 256,
+    dm = w$ + 1 + y$,
+    b$ = 30,
+    _$ = 19,
+    x$ = 2 * dm + 1,
+    S$ = 15,
     Ee = 3,
     Yi = 258,
     dn = Yi + Ee + 1,
-    EF = 32,
+    E$ = 32,
     gf = 42,
     hm = 69,
     df = 73,
     hf = 91,
     pf = 103,
     Da = 113,
-    $l = 666,
+    Fl = 666,
     wt = 1,
-    Fl = 2,
+    $l = 2,
     La = 3,
     Zs = 4,
-    AF = 3
+    A$ = 3
   function Xi(t, e) {
-    return ((t.msg = aF[e]), e)
+    return ((t.msg = a$[e]), e)
   }
   function M2(t) {
     return (t << 1) - (t > 4 ? 9 : 0)
@@ -4089,7 +4089,7 @@ var L2 = M((Bn) => {
         (e.pending -= r),
         e.pending === 0 && (e.pending_out = 0)))
   }
-  function $t(t, e) {
+  function Ft(t, e) {
     ;(qr._tr_flush_block(
       t,
       t.block_start >= 0 ? t.block_start : -1,
@@ -4106,7 +4106,7 @@ var L2 = M((Bn) => {
     ;((t.pending_buf[t.pending++] = (e >>> 8) & 255),
       (t.pending_buf[t.pending++] = e & 255))
   }
-  function kF(t, e, r, n) {
+  function k$(t, e, r, n) {
     var i = t.avail_in
     return (
       i > n && (i = n),
@@ -4196,7 +4196,7 @@ var L2 = M((Bn) => {
       }
       if (t.strm.avail_in === 0) break
       if (
-        ((n = kF(t.strm, t.window, t.strstart + t.lookahead, a)),
+        ((n = k$(t.strm, t.window, t.strstart + t.lookahead, a)),
         (t.lookahead += n),
         t.lookahead + t.insert >= Ee)
       )
@@ -4217,7 +4217,7 @@ var L2 = M((Bn) => {
         );
     } while (t.lookahead < dn && t.strm.avail_in !== 0)
   }
-  function TF(t, e) {
+  function T$(t, e) {
     var r = 65535
     for (r > t.pending_buf_size - 5 && (r = t.pending_buf_size - 5); ; ) {
       if (t.lookahead <= 1) {
@@ -4230,18 +4230,18 @@ var L2 = M((Bn) => {
         ((t.strstart === 0 || t.strstart >= n) &&
           ((t.lookahead = t.strstart - n),
           (t.strstart = n),
-          $t(t, !1),
+          Ft(t, !1),
           t.strm.avail_out === 0)) ||
         (t.strstart - t.block_start >= t.w_size - dn &&
-          ($t(t, !1), t.strm.avail_out === 0))
+          (Ft(t, !1), t.strm.avail_out === 0))
       )
         return wt
     }
     return (
       (t.insert = 0),
       e === Ki
-        ? ($t(t, !0), t.strm.avail_out === 0 ? La : Zs)
-        : (t.strstart > t.block_start && ($t(t, !1), t.strm.avail_out === 0),
+        ? (Ft(t, !0), t.strm.avail_out === 0 ? La : Zs)
+        : (t.strstart > t.block_start && (Ft(t, !1), t.strm.avail_out === 0),
           wt)
     )
   }
@@ -4294,15 +4294,15 @@ var L2 = M((Bn) => {
         ((n = qr._tr_tally(t, 0, t.window[t.strstart])),
           t.lookahead--,
           t.strstart++)
-      if (n && ($t(t, !1), t.strm.avail_out === 0)) return wt
+      if (n && (Ft(t, !1), t.strm.avail_out === 0)) return wt
     }
     return (
       (t.insert = t.strstart < Ee - 1 ? t.strstart : Ee - 1),
       e === Ki
-        ? ($t(t, !0), t.strm.avail_out === 0 ? La : Zs)
-        : t.last_lit && ($t(t, !1), t.strm.avail_out === 0)
+        ? (Ft(t, !0), t.strm.avail_out === 0 ? La : Zs)
+        : t.last_lit && (Ft(t, !1), t.strm.avail_out === 0)
           ? wt
-          : Fl
+          : $l
     )
   }
   function Xs(t, e) {
@@ -4327,7 +4327,7 @@ var L2 = M((Bn) => {
           t.strstart - r <= t.w_size - dn &&
           ((t.match_length = I2(t, r)),
           t.match_length <= 5 &&
-            (t.strategy === uF ||
+            (t.strategy === u$ ||
               (t.match_length === Ee && t.strstart - t.match_start > 4096)) &&
             (t.match_length = Ee - 1)),
         t.prev_length >= Ee && t.match_length <= t.prev_length)
@@ -4352,13 +4352,13 @@ var L2 = M((Bn) => {
           ((t.match_available = 0),
           (t.match_length = Ee - 1),
           t.strstart++,
-          n && ($t(t, !1), t.strm.avail_out === 0))
+          n && (Ft(t, !1), t.strm.avail_out === 0))
         )
           return wt
       } else if (t.match_available) {
         if (
           ((n = qr._tr_tally(t, 0, t.window[t.strstart - 1])),
-          n && $t(t, !1),
+          n && Ft(t, !1),
           t.strstart++,
           t.lookahead--,
           t.strm.avail_out === 0)
@@ -4372,13 +4372,13 @@ var L2 = M((Bn) => {
         (t.match_available = 0)),
       (t.insert = t.strstart < Ee - 1 ? t.strstart : Ee - 1),
       e === Ki
-        ? ($t(t, !0), t.strm.avail_out === 0 ? La : Zs)
-        : t.last_lit && ($t(t, !1), t.strm.avail_out === 0)
+        ? (Ft(t, !0), t.strm.avail_out === 0 ? La : Zs)
+        : t.last_lit && (Ft(t, !1), t.strm.avail_out === 0)
           ? wt
-          : Fl
+          : $l
     )
   }
-  function CF(t, e) {
+  function C$(t, e) {
     for (var r, n, i, a, s = t.window; ; ) {
       if (t.lookahead <= Yi) {
         if ((ja(t), t.lookahead <= Yi && e === Na)) return wt
@@ -4417,20 +4417,20 @@ var L2 = M((Bn) => {
           : ((r = qr._tr_tally(t, 0, t.window[t.strstart])),
             t.lookahead--,
             t.strstart++),
-        r && ($t(t, !1), t.strm.avail_out === 0))
+        r && (Ft(t, !1), t.strm.avail_out === 0))
       )
         return wt
     }
     return (
       (t.insert = 0),
       e === Ki
-        ? ($t(t, !0), t.strm.avail_out === 0 ? La : Zs)
-        : t.last_lit && ($t(t, !1), t.strm.avail_out === 0)
+        ? (Ft(t, !0), t.strm.avail_out === 0 ? La : Zs)
+        : t.last_lit && (Ft(t, !1), t.strm.avail_out === 0)
           ? wt
-          : Fl
+          : $l
     )
   }
-  function PF(t, e) {
+  function P$(t, e) {
     for (var r; ; ) {
       if (t.lookahead === 0 && (ja(t), t.lookahead === 0)) {
         if (e === Na) return wt
@@ -4441,17 +4441,17 @@ var L2 = M((Bn) => {
         (r = qr._tr_tally(t, 0, t.window[t.strstart])),
         t.lookahead--,
         t.strstart++,
-        r && ($t(t, !1), t.strm.avail_out === 0))
+        r && (Ft(t, !1), t.strm.avail_out === 0))
       )
         return wt
     }
     return (
       (t.insert = 0),
       e === Ki
-        ? ($t(t, !0), t.strm.avail_out === 0 ? La : Zs)
-        : t.last_lit && ($t(t, !1), t.strm.avail_out === 0)
+        ? (Ft(t, !0), t.strm.avail_out === 0 ? La : Zs)
+        : t.last_lit && (Ft(t, !1), t.strm.avail_out === 0)
           ? wt
-          : Fl
+          : $l
     )
   }
   function jn(t, e, r, n, i) {
@@ -4463,7 +4463,7 @@ var L2 = M((Bn) => {
   }
   var Ks
   Ks = [
-    new jn(0, 0, 0, 0, TF),
+    new jn(0, 0, 0, 0, T$),
     new jn(4, 4, 8, 4, fm),
     new jn(4, 5, 16, 8, fm),
     new jn(4, 6, 32, 32, fm),
@@ -4474,7 +4474,7 @@ var L2 = M((Bn) => {
     new jn(32, 128, 258, 1024, Xs),
     new jn(32, 258, 258, 4096, Xs),
   ]
-  function RF(t) {
+  function R$(t) {
     ;((t.window_size = 2 * t.w_size),
       qi(t.head),
       (t.max_lazy_match = Ks[t.level].max_lazy),
@@ -4489,7 +4489,7 @@ var L2 = M((Bn) => {
       (t.match_available = 0),
       (t.ins_h = 0))
   }
-  function MF() {
+  function M$() {
     ;((this.strm = null),
       (this.status = 0),
       (this.pending_buf = null),
@@ -4527,16 +4527,16 @@ var L2 = M((Bn) => {
       (this.strategy = 0),
       (this.good_match = 0),
       (this.nice_match = 0),
-      (this.dyn_ltree = new er.Buf16(xF * 2)),
-      (this.dyn_dtree = new er.Buf16((2 * bF + 1) * 2)),
-      (this.bl_tree = new er.Buf16((2 * _F + 1) * 2)),
+      (this.dyn_ltree = new er.Buf16(x$ * 2)),
+      (this.dyn_dtree = new er.Buf16((2 * b$ + 1) * 2)),
+      (this.bl_tree = new er.Buf16((2 * _$ + 1) * 2)),
       qi(this.dyn_ltree),
       qi(this.dyn_dtree),
       qi(this.bl_tree),
       (this.l_desc = null),
       (this.d_desc = null),
       (this.bl_desc = null),
-      (this.bl_count = new er.Buf16(SF + 1)),
+      (this.bl_count = new er.Buf16(S$ + 1)),
       (this.heap = new er.Buf16(2 * dm + 1)),
       qi(this.heap),
       (this.heap_len = 0),
@@ -4554,12 +4554,12 @@ var L2 = M((Bn) => {
       (this.bi_buf = 0),
       (this.bi_valid = 0))
   }
-  function $2(t) {
+  function F2(t) {
     var e
     return !t || !t.state
       ? Xi(t, Yr)
       : ((t.total_in = t.total_out = 0),
-        (t.data_type = pF),
+        (t.data_type = p$),
         (e = t.state),
         (e.pending = 0),
         (e.pending_out = 0),
@@ -4570,11 +4570,11 @@ var L2 = M((Bn) => {
         qr._tr_init(e),
         Nn)
   }
-  function F2(t) {
-    var e = $2(t)
-    return (e === Nn && RF(t.state), e)
+  function $2(t) {
+    var e = F2(t)
+    return (e === Nn && R$(t.state), e)
   }
-  function OF(t, e) {
+  function O$(t, e) {
     return !t || !t.state || t.state.wrap !== 2
       ? Yr
       : ((t.state.gzhead = e), Nn)
@@ -4583,21 +4583,21 @@ var L2 = M((Bn) => {
     if (!t) return Yr
     var s = 1
     if (
-      (e === cF && (e = 6),
+      (e === c$ && (e = 6),
       n < 0 ? ((s = 0), (n = -n)) : n > 15 && ((s = 2), (n -= 16)),
       i < 1 ||
-        i > mF ||
+        i > m$ ||
         r !== mf ||
         n < 8 ||
         n > 15 ||
         e < 0 ||
         e > 9 ||
         a < 0 ||
-        a > dF)
+        a > d$)
     )
       return Xi(t, Yr)
     n === 8 && (n = 9)
-    var o = new MF()
+    var o = new M$()
     return (
       (t.state = o),
       (o.strm = t),
@@ -4621,20 +4621,20 @@ var L2 = M((Bn) => {
       (o.level = e),
       (o.strategy = a),
       (o.method = r),
-      F2(t)
+      $2(t)
     )
   }
-  function IF(t, e) {
-    return D2(t, e, mf, gF, vF, hF)
+  function I$(t, e) {
+    return D2(t, e, mf, g$, v$, h$)
   }
-  function $F(t, e) {
+  function F$(t, e) {
     var r, n, i, a
     if (!t || !t.state || e > P2 || e < 0) return t ? Xi(t, Yr) : Yr
     if (
       ((n = t.state),
       !t.output ||
         (!t.input && t.avail_in !== 0) ||
-        (n.status === $l && e !== Ki))
+        (n.status === Fl && e !== Ki))
     )
       return Xi(t, t.avail_out === 0 ? um : Yr)
     if (((n.strm = t), (r = n.last_flush), (n.last_flush = e), n.status === gf))
@@ -4678,7 +4678,7 @@ var L2 = M((Bn) => {
                 n,
                 n.level === 9 ? 2 : n.strategy >= ff || n.level < 2 ? 4 : 0,
               ),
-              Re(n, AF),
+              Re(n, A$),
               (n.status = Da)))
       else {
         var s = (mf + ((n.w_bits - 8) << 4)) << 8,
@@ -4691,7 +4691,7 @@ var L2 = M((Bn) => {
               ? (o = 2)
               : (o = 3),
           (s |= o << 6),
-          n.strstart !== 0 && (s |= EF),
+          n.strstart !== 0 && (s |= E$),
           (s += 31 - (s % 31)),
           (n.status = Da),
           Il(n, s),
@@ -4787,27 +4787,27 @@ var L2 = M((Bn) => {
     ) {
       if ((Wi(t), t.avail_out === 0)) return ((n.last_flush = -1), Nn)
     } else if (t.avail_in === 0 && M2(e) <= M2(r) && e !== Ki) return Xi(t, um)
-    if (n.status === $l && t.avail_in !== 0) return Xi(t, um)
+    if (n.status === Fl && t.avail_in !== 0) return Xi(t, um)
     if (
       t.avail_in !== 0 ||
       n.lookahead !== 0 ||
-      (e !== Na && n.status !== $l)
+      (e !== Na && n.status !== Fl)
     ) {
       var l =
         n.strategy === ff
-          ? PF(n, e)
-          : n.strategy === fF
-            ? CF(n, e)
+          ? P$(n, e)
+          : n.strategy === f$
+            ? C$(n, e)
             : Ks[n.level].func(n, e)
-      if (((l === La || l === Zs) && (n.status = $l), l === wt || l === La))
+      if (((l === La || l === Zs) && (n.status = Fl), l === wt || l === La))
         return (t.avail_out === 0 && (n.last_flush = -1), Nn)
       if (
-        l === Fl &&
-        (e === sF
+        l === $l &&
+        (e === s$
           ? qr._tr_align(n)
           : e !== P2 &&
             (qr._tr_stored_block(n, 0, 0, !1),
-            e === oF &&
+            e === o$ &&
               (qi(n.head),
               n.lookahead === 0 &&
                 ((n.strstart = 0), (n.block_start = 0), (n.insert = 0)))),
@@ -4834,7 +4834,7 @@ var L2 = M((Bn) => {
           n.wrap > 0 && (n.wrap = -n.wrap),
           n.pending !== 0 ? Nn : R2)
   }
-  function FF(t) {
+  function $$(t) {
     var e
     return !t || !t.state
       ? Yr
@@ -4845,11 +4845,11 @@ var L2 = M((Bn) => {
         e !== hf &&
         e !== pf &&
         e !== Da &&
-        e !== $l
+        e !== Fl
           ? Xi(t, Yr)
-          : ((t.state = null), e === Da ? Xi(t, lF) : Nn))
+          : ((t.state = null), e === Da ? Xi(t, l$) : Nn))
   }
-  function DF(t, e) {
+  function D$(t, e) {
     var r = e.length,
       n,
       i,
@@ -4911,14 +4911,14 @@ var L2 = M((Bn) => {
       Nn
     )
   }
-  Bn.deflateInit = IF
+  Bn.deflateInit = I$
   Bn.deflateInit2 = D2
-  Bn.deflateReset = F2
-  Bn.deflateResetKeep = $2
-  Bn.deflateSetHeader = OF
-  Bn.deflate = $F
-  Bn.deflateEnd = FF
-  Bn.deflateSetDictionary = DF
+  Bn.deflateReset = $2
+  Bn.deflateResetKeep = F2
+  Bn.deflateSetHeader = O$
+  Bn.deflate = F$
+  Bn.deflateEnd = $$
+  Bn.deflateSetDictionary = D$
   Bn.deflateInfo = 'pako deflate (from Nodeca project)'
 })
 var pm = M((Js) => {
@@ -5048,7 +5048,7 @@ var pm = M((Js) => {
 var mm = M((uY, H2) => {
   'use strict'
   m()
-  function LF() {
+  function L$() {
     ;((this.input = null),
       (this.next_in = 0),
       (this.avail_in = 0),
@@ -5062,7 +5062,7 @@ var mm = M((uY, H2) => {
       (this.data_type = 2),
       (this.adler = 0))
   }
-  H2.exports = LF
+  H2.exports = L$
 })
 var V2 = M((Nl) => {
   'use strict'
@@ -5071,26 +5071,26 @@ var V2 = M((Nl) => {
     jl = pi(),
     vm = pm(),
     ym = uf(),
-    jF = mm(),
+    j$ = mm(),
     z2 = Object.prototype.toString,
-    NF = 0,
+    N$ = 0,
     gm = 4,
     Qs = 0,
     U2 = 1,
     G2 = 2,
-    BF = -1,
-    HF = 0,
-    UF = 8
+    B$ = -1,
+    H$ = 0,
+    U$ = 8
   function Ba(t) {
     if (!(this instanceof Ba)) return new Ba(t)
     this.options = jl.assign(
       {
-        level: BF,
-        method: UF,
+        level: B$,
+        method: U$,
         chunkSize: 16384,
         windowBits: 15,
         memLevel: 8,
-        strategy: HF,
+        strategy: H$,
         to: '',
       },
       t || {},
@@ -5103,7 +5103,7 @@ var V2 = M((Nl) => {
       (this.msg = ''),
       (this.ended = !1),
       (this.chunks = []),
-      (this.strm = new jF()),
+      (this.strm = new j$()),
       (this.strm.avail_out = 0))
     var r = Ll.deflateInit2(
       this.strm,
@@ -5135,7 +5135,7 @@ var V2 = M((Nl) => {
       i,
       a
     if (this.ended) return !1
-    ;((a = e === ~~e ? e : e === !0 ? gm : NF),
+    ;((a = e === ~~e ? e : e === !0 ? gm : N$),
       typeof t == 'string'
         ? (r.input = vm.string2buf(t))
         : z2.call(t) === '[object ArrayBuffer]'
@@ -5180,22 +5180,22 @@ var V2 = M((Nl) => {
     if ((r.push(t, !0), r.err)) throw r.msg || ym[r.err]
     return r.result
   }
-  function GF(t, e) {
+  function G$(t, e) {
     return ((e = e || {}), (e.raw = !0), wm(t, e))
   }
-  function zF(t, e) {
+  function z$(t, e) {
     return ((e = e || {}), (e.gzip = !0), wm(t, e))
   }
   Nl.Deflate = Ba
   Nl.deflate = wm
-  Nl.deflateRaw = GF
-  Nl.gzip = zF
+  Nl.deflateRaw = G$
+  Nl.gzip = z$
 })
 var q2 = M((pY, W2) => {
   'use strict'
   m()
   var yf = 30,
-    VF = 12
+    V$ = 12
   W2.exports = function (e, r) {
     var n,
       i,
@@ -5342,7 +5342,7 @@ var q2 = M((pY, W2) => {
           }
         } else if (A & 64)
           if (A & 32) {
-            n.mode = VF
+            n.mode = V$
             break e
           } else {
             ;((e.msg = 'invalid literal/length code'), (n.mode = yf))
@@ -5377,19 +5377,19 @@ var e_ = M((gY, Q2) => {
     Z2 = 0,
     bm = 1,
     J2 = 2,
-    WF = [
+    W$ = [
       3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59,
       67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0,
     ],
-    qF = [
+    q$ = [
       16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19,
       19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78,
     ],
-    YF = [
+    Y$ = [
       1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513,
       769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577, 0, 0,
     ],
-    XF = [
+    X$ = [
       16, 16, 16, 16, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 22, 23, 23,
       24, 24, 25, 25, 26, 26, 27, 27, 28, 28, 29, 29, 64, 64,
     ]
@@ -5415,7 +5415,7 @@ var e_ = M((gY, Q2) => {
       C,
       I = new Y2.Buf16(eo + 1),
       L = new Y2.Buf16(eo + 1),
-      F = null,
+      $ = null,
       J = 0,
       de,
       le,
@@ -5438,10 +5438,10 @@ var e_ = M((gY, Q2) => {
     for (f = 0; f < i; f++) r[n + f] !== 0 && (o[L[r[n + f]]++] = f)
     if (
       (e === Z2
-        ? ((_ = F = o), (C = 19))
+        ? ((_ = $ = o), (C = 19))
         : e === bm
-          ? ((_ = WF), (T -= 257), (F = qF), (J -= 257), (C = 256))
-          : ((_ = YF), (F = XF), (C = -1)),
+          ? ((_ = W$), (T -= 257), ($ = q$), (J -= 257), (C = 256))
+          : ((_ = Y$), ($ = X$), (C = -1)),
       (E = 0),
       (f = 0),
       (u = d),
@@ -5459,7 +5459,7 @@ var e_ = M((gY, Q2) => {
         o[f] < C
           ? ((le = 0), (ce = o[f]))
           : o[f] > C
-            ? ((le = F[J + o[f]]), (ce = _[T + o[f]]))
+            ? ((le = $[J + o[f]]), (ce = _[T + o[f]]))
             : ((le = 96), (ce = 0)),
         (S = 1 << (u - v)),
         (A = 1 << g),
@@ -5490,22 +5490,22 @@ var e_ = M((gY, Q2) => {
     )
   }
 })
-var F_ = M((hn) => {
+var $_ = M((hn) => {
   'use strict'
   m()
-  var Cr = pi(),
+  var Pr = pi(),
     km = lm(),
     Hn = cm(),
-    KF = q2(),
+    K$ = q2(),
     Bl = e_(),
-    ZF = 0,
+    Z$ = 0,
     k_ = 1,
     T_ = 2,
     t_ = 4,
-    JF = 5,
+    J$ = 5,
     wf = 6,
     Ha = 0,
-    QF = 1,
+    Q$ = 1,
     e8 = 2,
     Xr = -2,
     C_ = -3,
@@ -5585,8 +5585,8 @@ var F_ = M((hn) => {
       (this.ndist = 0),
       (this.have = 0),
       (this.next = null),
-      (this.lens = new Cr.Buf16(320)),
-      (this.work = new Cr.Buf16(288)),
+      (this.lens = new Pr.Buf16(320)),
+      (this.work = new Pr.Buf16(288)),
       (this.lendyn = null),
       (this.distdyn = null),
       (this.sane = 0),
@@ -5608,8 +5608,8 @@ var F_ = M((hn) => {
         (e.head = null),
         (e.hold = 0),
         (e.bits = 0),
-        (e.lencode = e.lendyn = new Cr.Buf32(n8)),
-        (e.distcode = e.distdyn = new Cr.Buf32(i8)),
+        (e.lencode = e.lendyn = new Pr.Buf32(n8)),
+        (e.distcode = e.distdyn = new Pr.Buf32(i8)),
         (e.sane = 1),
         (e.back = -1),
         Ha)
@@ -5653,7 +5653,7 @@ var F_ = M((hn) => {
   function c8(t) {
     if (A_) {
       var e
-      for (Em = new Cr.Buf32(512), Am = new Cr.Buf32(32), e = 0; e < 144; )
+      for (Em = new Pr.Buf32(512), Am = new Pr.Buf32(32), e = 0; e < 144; )
         t.lens[e++] = 8
       for (; e < 256; ) t.lens[e++] = 9
       for (; e < 280; ) t.lens[e++] = 7
@@ -5664,7 +5664,7 @@ var F_ = M((hn) => {
     }
     ;((t.lencode = Em), (t.lenbits = 9), (t.distcode = Am), (t.distbits = 5))
   }
-  function $_(t, e, r, n) {
+  function F_(t, e, r, n) {
     var i,
       a = t.state
     return (
@@ -5672,17 +5672,17 @@ var F_ = M((hn) => {
         ((a.wsize = 1 << a.wbits),
         (a.wnext = 0),
         (a.whave = 0),
-        (a.window = new Cr.Buf8(a.wsize))),
+        (a.window = new Pr.Buf8(a.wsize))),
       n >= a.wsize
-        ? (Cr.arraySet(a.window, e, r - a.wsize, a.wsize, 0),
+        ? (Pr.arraySet(a.window, e, r - a.wsize, a.wsize, 0),
           (a.wnext = 0),
           (a.whave = a.wsize))
         : ((i = a.wsize - a.wnext),
           i > n && (i = n),
-          Cr.arraySet(a.window, e, r - n, i, a.wnext),
+          Pr.arraySet(a.window, e, r - n, i, a.wnext),
           (n -= i),
           n
-            ? (Cr.arraySet(a.window, e, r - n, n, 0),
+            ? (Pr.arraySet(a.window, e, r - n, n, 0),
               (a.wnext = n),
               (a.whave = a.wsize))
             : ((a.wnext += i),
@@ -5715,7 +5715,7 @@ var F_ = M((hn) => {
       k,
       w,
       x,
-      _ = new Cr.Buf8(4),
+      _ = new Pr.Buf8(4),
       T,
       C,
       I = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15]
@@ -5852,7 +5852,7 @@ var F_ = M((hn) => {
               (r.head &&
                 ((w = r.head.extra_len - r.length),
                 r.head.extra || (r.head.extra = new Array(r.head.extra_len)),
-                Cr.arraySet(r.head.extra, n, a, h, w)),
+                Pr.arraySet(r.head.extra, n, a, h, w)),
               r.flags & 512 && (r.check = Hn(r.check, n, h, a)),
               (o -= h),
               (a += h),
@@ -5936,7 +5936,7 @@ var F_ = M((hn) => {
             )
           ;((t.adler = r.check = 1), (r.mode = vi))
         case vi:
-          if (e === JF || e === wf) break e
+          if (e === J$ || e === wf) break e
         case _m:
           if (r.last) {
             ;((c >>>= u & 7), (u -= u & 7), (r.mode = Sm))
@@ -5982,7 +5982,7 @@ var F_ = M((hn) => {
         case h_:
           if (((h = r.length), h)) {
             if ((h > o && (h = o), h > l && (h = l), h === 0)) break e
-            ;(Cr.arraySet(i, n, a, h, s),
+            ;(Pr.arraySet(i, n, a, h, s),
               (o -= h),
               (a += h),
               (l -= h),
@@ -6026,7 +6026,7 @@ var F_ = M((hn) => {
             ((r.lencode = r.lendyn),
             (r.lenbits = 7),
             (T = { bits: r.lenbits }),
-            (x = Bl(ZF, r.lens, 0, 19, r.lencode, 0, r.work, T)),
+            (x = Bl(Z$, r.lens, 0, 19, r.lencode, 0, r.work, T)),
             (r.lenbits = T.bits),
             x)
           ) {
@@ -6130,7 +6130,7 @@ var F_ = M((hn) => {
               (t.avail_in = o),
               (r.hold = c),
               (r.bits = u),
-              KF(t, d),
+              K$(t, d),
               (s = t.next_out),
               (i = t.output),
               (l = t.avail_out),
@@ -6303,7 +6303,7 @@ var F_ = M((hn) => {
           }
           r.mode = S_
         case S_:
-          x = QF
+          x = Q$
           break e
         case Ye:
           x = C_
@@ -6323,7 +6323,7 @@ var F_ = M((hn) => {
       (r.bits = u),
       (r.wsize ||
         (d !== t.avail_out && r.mode < Ye && (r.mode < Sm || e !== t_))) &&
-      $_(t, t.output, t.next_out, d - t.avail_out)
+      F_(t, t.output, t.next_out, d - t.avail_out)
         ? ((r.mode = Cm), Tm)
         : ((f -= t.avail_in),
           (d -= t.avail_out),
@@ -6365,7 +6365,7 @@ var F_ = M((hn) => {
       ? Xr
       : n.mode === xf && ((i = 1), (i = km(i, e, r, 0)), i !== n.check)
         ? C_
-        : ((a = $_(t, e, r, r)),
+        : ((a = F_(t, e, r, r)),
           a ? ((n.mode = Cm), Tm) : ((n.havedict = 1), Ha))
   }
   hn.inflateReset = M_
@@ -6432,7 +6432,7 @@ var j_ = M((xY, L_) => {
 var B_ = M((Ul) => {
   'use strict'
   m()
-  var to = F_(),
+  var to = $_(),
     Hl = pi(),
     Sf = pm(),
     lt = Pm(),
@@ -6625,7 +6625,7 @@ var tx = M((RY, ex) => {
   function q_(t) {
     return Array.isArray(t) ? t : [t]
   }
-  var $m = '',
+  var Fm = '',
     Y_ = ' ',
     Om = '\\',
     x8 = /^\s+$/,
@@ -6642,16 +6642,16 @@ var tx = M((RY, ex) => {
     P8 = /([0-z])-([0-z])/g,
     J_ = () => !1,
     R8 = (t) =>
-      t.replace(P8, (e, r, n) => (r.charCodeAt(0) <= n.charCodeAt(0) ? e : $m)),
+      t.replace(P8, (e, r, n) => (r.charCodeAt(0) <= n.charCodeAt(0) ? e : Fm)),
     M8 = (t) => {
       let { length: e } = t
       return t.slice(0, e - (e % 2))
     },
     O8 = [
-      [/^\uFEFF/, () => $m],
+      [/^\uFEFF/, () => Fm],
       [
         /((?:\\\\)*?)(\\?\s+)$/,
-        (t, e, r) => e + (r.indexOf('\\') === 0 ? Y_ : $m),
+        (t, e, r) => e + (r.indexOf('\\') === 0 ? Y_ : Fm),
       ],
       [
         /(\\+?)\s/g,
@@ -6707,10 +6707,10 @@ var tx = M((RY, ex) => {
       )
     },
     Lm = (t) => typeof t == 'string',
-    $8 = (t) =>
+    F8 = (t) =>
       t && Lm(t) && !x8.test(t) && !S8.test(t) && t.indexOf('#') !== 0,
-    F8 = (t) => t.split(k8),
-    Fm = class {
+    $8 = (t) => t.split(k8),
+    $m = class {
       constructor(e, r, n, i) {
         ;((this.origin = e),
           (this.pattern = r),
@@ -6724,7 +6724,7 @@ var tx = M((RY, ex) => {
       ;(t.indexOf('!') === 0 && ((n = !0), (t = t.substr(1))),
         (t = t.replace(E8, '!').replace(A8, '#')))
       let i = I8(t, e)
-      return new Fm(r, t, n, i)
+      return new $m(r, t, n, i)
     },
     L8 = (t, e) => {
       throw new e(t)
@@ -6764,7 +6764,7 @@ var tx = M((RY, ex) => {
           ;((this._rules = this._rules.concat(e._rules)), (this._added = !0))
           return
         }
-        if ($8(e)) {
+        if (F8(e)) {
           let r = D8(e, this._ignoreCase)
           ;((this._added = !0), this._rules.push(r))
         }
@@ -6772,7 +6772,7 @@ var tx = M((RY, ex) => {
       add(e) {
         return (
           (this._added = !1),
-          q_(Lm(e) ? F8(e) : e).forEach(this._addPattern, this),
+          q_(Lm(e) ? $8(e) : e).forEach(this._addPattern, this),
           this._added && this._initCache(),
           this
         )
@@ -6871,7 +6871,7 @@ var nx = M((OY, rx) => {
   }
   rx.exports = B8
 })
-var ax = M(($Y, ix) => {
+var ax = M((FY, ix) => {
   m()
   ix.exports = function (t, e) {
     var r = t,
@@ -6958,15 +6958,15 @@ var ax = M(($Y, ix) => {
           return f
         },
         compose: function () {
-          var w, x, _, T, C, I, L, F
+          var w, x, _, T, C, I, L, $
           for (w = a - i, x = i + a + 3, _ = {}, L = 0; L < x; ++L)
             ((_[L] = -1), (c[L] = -1))
           T = -1
           do {
-            for (++T, F = -T; F <= w - 1; ++F)
-              _[F + l] = A(F, _[F - 1 + l] + 1, _[F + 1 + l])
-            for (F = w + T; F >= w + 1; --F)
-              _[F + l] = A(F, _[F - 1 + l] + 1, _[F + 1 + l])
+            for (++T, $ = -T; $ <= w - 1; ++$)
+              _[$ + l] = A($, _[$ - 1 + l] + 1, _[$ + 1 + l])
+            for ($ = w + T; $ >= w + 1; --$)
+              _[$ + l] = A($, _[$ - 1 + l] + 1, _[$ + 1 + l])
             _[w + l] = A(w, _[w - 1 + l] + 1, _[w + 1 + l])
           } while (_[w + l] !== a)
           for (o = w + 2 * T, C = c[w + l], I = []; C !== -1; )
@@ -7025,13 +7025,13 @@ var lx = M((DY, ox) => {
       i = sx(e, t),
       a = sx(e, r),
       s = []
-    function o(L, F) {
-      s.push([L.file1[0], F, L.file1[1], L.file2[0], L.file2[1]])
+    function o(L, $) {
+      s.push([L.file1[0], $, L.file1[1], L.file2[0], L.file2[1]])
     }
     for (n = 0; n < i.length; n++) o(i[n], 0)
     for (n = 0; n < a.length; n++) o(a[n], 2)
-    s.sort(function (L, F) {
-      return L[0] - F[0]
+    s.sort(function (L, $) {
+      return L[0] - $[0]
     })
     var l = [],
       c = 0
@@ -7123,7 +7123,7 @@ var gg = M((Y) => {
   }
   var zl = aa(Wy()),
     Mx = aa(Zb()),
-    $ = e2(),
+    F = e2(),
     V8 = aa(r2()),
     cg = aa(G_()),
     jm = aa(W_()),
@@ -7283,19 +7283,19 @@ var gg = M((Y) => {
   }
   var Nm = null
   async function bi(t) {
-    return (Nm === null && (Nm = await K8()), Nm ? $x(t) : X8(t))
+    return (Nm === null && (Nm = await K8()), Nm ? Fx(t) : X8(t))
   }
   function X8(t) {
     return new Mx().update(t).digest('hex')
   }
-  async function $x(t) {
+  async function Fx(t) {
     let e = await crypto.subtle.digest('SHA-1', t)
     return Y8(e)
   }
   async function K8() {
     try {
       if (
-        (await $x(new Uint8Array([]))) ===
+        (await Fx(new Uint8Array([]))) ===
         'da39a3ee5e6b4b0d3255bfef95601890afd80709'
       )
         return !0
@@ -7576,7 +7576,7 @@ var gg = M((Y) => {
     let e = Math.max(t.lastIndexOf('/'), t.lastIndexOf('\\'))
     return e === -1 ? '.' : e === 0 ? '/' : t.slice(0, e)
   }
-  function Fx(t) {
+  function $x(t) {
     let e = new Map(),
       r = function (i) {
         if (!e.has(i)) {
@@ -7631,7 +7631,7 @@ var gg = M((Y) => {
         this.treePromise = ct.acquire(
           { fs: e, gitdir: r, cache: n },
           async function (a) {
-            return Fx(a.entries)
+            return $x(a.entries)
           },
         )
         let i = this
@@ -8165,7 +8165,7 @@ var gg = M((Y) => {
       for (let [v, y] of d)
         await Zi(v, async () =>
           e.write(
-            $.join(r, v),
+            F.join(r, v),
             `${y.trim()}
 `,
             'utf8',
@@ -8177,7 +8177,7 @@ var gg = M((Y) => {
       if (!i.match(/[0-9a-f]{40}/)) throw new Qi(i)
       await Zi(n, async () =>
         e.write(
-          $.join(r, n),
+          F.join(r, n),
           `${i.trim()}
 `,
           'utf8',
@@ -8187,7 +8187,7 @@ var gg = M((Y) => {
     static async writeSymbolicRef({ fs: e, gitdir: r, ref: n, value: i }) {
       await Zi(n, async () =>
         e.write(
-          $.join(r, n),
+          F.join(r, n),
           `ref: ${i.trim()}
 `,
           'utf8',
@@ -8198,7 +8198,7 @@ var gg = M((Y) => {
       return t.deleteRefs({ fs: e, gitdir: r, refs: [n] })
     }
     static async deleteRefs({ fs: e, gitdir: r, refs: n }) {
-      await Promise.all(n.map((o) => e.rm($.join(r, o))))
+      await Promise.all(n.map((o) => e.rm(F.join(r, o))))
       let i = await Zi('packed-refs', async () =>
           e.read(`${r}/packed-refs`, { encoding: 'utf8' }),
         ),
@@ -8951,7 +8951,7 @@ var gg = M((Y) => {
     format: i = 'content',
     getExternalRefDelta: a,
   }) {
-    let s = await t.readdir($.join(r, 'objects/pack'))
+    let s = await t.readdir(F.join(r, 'objects/pack'))
     s = s.filter((o) => o.endsWith('.idx'))
     for (let o of s) {
       let l = `${r}/objects/pack/${o}`,
@@ -9327,16 +9327,16 @@ var gg = M((Y) => {
   }
   function Of(t) {
     let [, e, r, n, i] = t.match(/^(.*) <(.*)> (.*) (.*)$/)
-    return { name: e, email: r, timestamp: Number(n), timezoneOffset: $4(i) }
-  }
-  function $4(t) {
-    let [, e, r, n] = t.match(/(\+|-)(\d\d)(\d\d)/)
-    return ((n = (e === '+' ? 1 : -1) * (Number(r) * 60 + Number(n))), F4(n))
+    return { name: e, email: r, timestamp: Number(n), timezoneOffset: F4(i) }
   }
   function F4(t) {
+    let [, e, r, n] = t.match(/(\+|-)(\d\d)(\d\d)/)
+    return ((n = (e === '+' ? 1 : -1) * (Number(r) * 60 + Number(n))), $4(n))
+  }
+  function $4(t) {
     return t === 0 ? t : -t
   }
-  var Rr = class t {
+  var Mr = class t {
     constructor(e) {
       if (typeof e == 'string') this._tag = e
       else if (Buffer.isBuffer(e)) this._tag = e.toString('utf8')
@@ -9636,7 +9636,7 @@ gpgsig` +
     })
     if (i === 'tag')
       return (
-        (n = Rr.from(a).parse().object),
+        (n = Mr.from(a).parse().object),
         fo({ fs: t, cache: e, gitdir: r, oid: n })
       )
     if (i === 'commit')
@@ -9707,8 +9707,8 @@ gpgsig` +
       })
       if (c !== o.type) throw new tr(l, c, o.type)
       let f = hr.from(u)
-      for (let d of f) s.set($.join(r, d.path), d)
-      return f.entries().map((d) => $.join(r, d.path))
+      for (let d of f) s.set(F.join(r, d.path), d)
+      return f.entries().map((d) => F.join(r, d.path))
     }
     async type(e) {
       if (e._type === !1) {
@@ -9750,7 +9750,7 @@ gpgsig` +
       return e._oid
     }
   }
-  function Pr({ ref: t = 'HEAD' } = {}) {
+  function Rr({ ref: t = 'HEAD' } = {}) {
     let e = Object.create(null)
     return (
       Object.defineProperty(e, jf, {
@@ -9799,8 +9799,8 @@ gpgsig` +
     async readdir(e) {
       let r = e._fullpath,
         { fs: n, dir: i } = this,
-        a = await n.readdir($.join(i, r))
-      return a === null ? null : a.map((s) => $.join(r, s))
+        a = await n.readdir(F.join(i, r))
+      return a === null ? null : a.map((s) => F.join(r, s))
     }
     async type(e) {
       return (e._type === !1 && (await e.stat()), e._type)
@@ -9975,7 +9975,7 @@ gpgsig` +
       : r.length
         ? await Promise.all(
             r.map((n) => {
-              let i = $.join(e, n)
+              let i = F.join(e, n)
               return t.lstat(i).then((a) => {
                 if (a) return a.isDirectory() ? sg(t, i) : t.rm(i)
               })
@@ -10165,14 +10165,14 @@ gpgsig` +
   async function Ux({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     commit: n = 'HEAD',
     cache: i = {},
   }) {
     try {
       ;(P('fs', t), P('dir', e), P('gitdir', r))
       let a = new Q(t),
-        s = [Pr({ ref: n }), yo(), Ya()],
+        s = [Rr({ ref: n }), yo(), Ya()],
         o = []
       await ct.acquire({ fs: a, gitdir: r, cache: i }, async function (c) {
         o = c.unmergedPaths
@@ -10224,20 +10224,20 @@ gpgsig` +
     static async isIgnored({
       fs: e,
       dir: r,
-      gitdir: n = $.join(r, '.git'),
+      gitdir: n = F.join(r, '.git'),
       filepath: i,
     }) {
       if (Cf(i) === '.git') return !0
       if (i === '.') return !1
       let a = '',
-        s = $.join(n, 'info', 'exclude')
+        s = F.join(n, 'info', 'exclude')
       ;(await e.exists(s)) && (a = await e.read(s, 'utf8'))
-      let o = [{ gitignore: $.join(r, '.gitignore'), filepath: i }],
+      let o = [{ gitignore: F.join(r, '.gitignore'), filepath: i }],
         l = i.split('/').filter(Boolean)
       for (let u = 1; u < l.length; u++) {
         let f = l.slice(0, u).join('/'),
           d = l.slice(u).join('/')
-        o.push({ gitignore: $.join(r, f, '.gitignore'), filepath: d })
+        o.push({ gitignore: F.join(r, f, '.gitignore'), filepath: d })
       }
       let c = !1
       for (let u of o) {
@@ -10314,7 +10314,7 @@ gpgsig` +
   async function Vx({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
     cache: i = {},
     force: a = !1,
@@ -10357,17 +10357,17 @@ gpgsig` +
           (await na.isIgnored({ fs: r, dir: t, gitdir: e, filepath: d }))
         )
           return
-        let h = await r.lstat($.join(t, d))
+        let h = await r.lstat(F.join(t, d))
         if (!h) throw new je(d)
         if (h.isDirectory()) {
-          let p = await r.readdir($.join(t, d))
+          let p = await r.readdir(F.join(t, d))
           if (s) {
             let g = p.map((v) =>
               og({
                 dir: t,
                 gitdir: e,
                 fs: r,
-                filepath: [$.join(d, v)],
+                filepath: [F.join(d, v)],
                 index: i,
                 force: a,
                 parallel: s,
@@ -10381,7 +10381,7 @@ gpgsig` +
                 dir: t,
                 gitdir: e,
                 fs: r,
-                filepath: [$.join(d, g)],
+                filepath: [F.join(d, g)],
                 index: i,
                 force: a,
                 parallel: s,
@@ -10389,8 +10389,8 @@ gpgsig` +
               })
         } else {
           let p = h.isSymbolicLink()
-            ? await r.readlink($.join(t, d)).then(zx)
-            : await r.read($.join(t, d), { autocrlf: o })
+            ? await r.readlink(F.join(t, d)).then(zx)
+            : await r.read(F.join(t, d), { autocrlf: o })
           if (p === null) throw new je(d)
           let g = await mr({ fs: r, gitdir: e, type: 'blob', object: p })
           i.insert({ filepath: d, stats: h, oid: g })
@@ -10447,7 +10447,7 @@ gpgsig` +
     })
     if (i === 'tag')
       return (
-        (n = Rr.from(a).parse().object),
+        (n = Mr.from(a).parse().object),
         qx({ fs: t, cache: e, gitdir: r, oid: n })
       )
     if (i !== 'commit') throw new tr(n, i, 'commit')
@@ -10500,7 +10500,7 @@ gpgsig` +
     return ct.acquire(
       { fs: t, gitdir: n, cache: e, allowUnmerged: !1 },
       async function (E) {
-        let A = Fx(E.entries).get('.')
+        let A = $x(E.entries).get('.')
         if (
           (h || (h = await Yx({ fs: t, gitdir: n, inode: A, dryRun: c })),
           d
@@ -10697,7 +10697,7 @@ gpgsig` +
     fs: t,
     onSign: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     ref: i = 'refs/notes/commits',
     oid: a,
     note: s,
@@ -10751,7 +10751,7 @@ gpgsig` +
   async function Jx({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     remote: n,
     url: i,
     force: a = !1,
@@ -10788,7 +10788,7 @@ gpgsig` +
       throw new pn('tag', i)
     let f = await V.resolve({ fs: t, gitdir: n, ref: l || 'HEAD' }),
       { type: d } = await Ge({ fs: t, cache: e, gitdir: n, oid: f }),
-      h = Rr.from({
+      h = Mr.from({
         object: f,
         type: d,
         tag: i.replace('refs/tags/', ''),
@@ -10796,7 +10796,7 @@ gpgsig` +
         message: s,
         gpgsig: o,
       })
-    c && (h = await Rr.sign(h, r, c))
+    c && (h = await Mr.sign(h, r, c))
     let p = await mr({ fs: t, gitdir: n, type: 'tag', object: h.toObject() })
     await V.writeRef({ fs: t, gitdir: n, ref: i, value: p })
   }
@@ -10804,7 +10804,7 @@ gpgsig` +
     fs: t,
     onSign: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     ref: i,
     tagger: a,
     message: s = i,
@@ -10859,7 +10859,7 @@ gpgsig` +
   async function eS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n,
     object: i,
     checkout: a = !1,
@@ -11079,18 +11079,18 @@ gpgsig` +
                           `Invalid mode 0o${C.toString(8)} detected in blob ${T}`,
                         )
                     }
-                    let F = await t.lstat(L)
-                    ;(C === 33261 && (F.mode = 493),
-                      x === 'mkdir-index' && (F.mode = 57344),
-                      w.insert({ filepath: _, stats: F, oid: T }),
+                    let $ = await t.lstat(L)
+                    ;(C === 33261 && ($.mode = 493),
+                      x === 'mkdir-index' && ($.mode = 57344),
+                      w.insert({ filepath: _, stats: $, oid: T }),
                       r &&
                         (await r({
                           phase: 'Updating workdir',
                           loaded: ++A,
                           total: k,
                         })))
-                  } catch (F) {
-                    console.log(F)
+                  } catch ($) {
+                    console.log($)
                   }
                 }),
             )
@@ -11126,7 +11126,7 @@ gpgsig` +
       cache: e,
       dir: n,
       gitdir: i,
-      trees: [Pr({ ref: a }), yo(), Ya()],
+      trees: [Rr({ ref: a }), yo(), Ya()],
       map: async function (c, [u, f, d]) {
         if (c === '.') return
         if (o && !o.some((p) => tS(c, p))) return null
@@ -11310,7 +11310,7 @@ gpgsig` +
     onProgress: e,
     onPostCheckout: r,
     dir: n,
-    gitdir: i = $.join(n, '.git'),
+    gitdir: i = F.join(n, '.git'),
     remote: a = 'origin',
     ref: s,
     filepaths: o,
@@ -11385,7 +11385,7 @@ gpgsig` +
     }
     r.return && r.return()
   }
-  async function $f(t) {
+  async function Ff(t) {
     let e = 0,
       r = []
     await uc(t, (a) => {
@@ -11505,7 +11505,7 @@ gpgsig` +
     },
     qm = async (t) => {
       try {
-        let e = Buffer.from(await $f(t.body)),
+        let e = Buffer.from(await Ff(t.body)),
           r = e.toString('utf8')
         return {
           preview: r.length < 256 ? r : r.slice(0, 256) + '...',
@@ -11629,7 +11629,7 @@ gpgsig` +
     Wa = class {
       static async read({ fs: e, gitdir: r }) {
         Ga === null && (Ga = new zl())
-        let n = $.join(r, 'shallow'),
+        let n = F.join(r, 'shallow'),
           i = new Set()
         return (
           await Ga.acquire(n, async function () {
@@ -11647,7 +11647,7 @@ gpgsig` +
       }
       static async write({ fs: e, gitdir: r, oids: n }) {
         Ga === null && (Ga = new zl())
-        let i = $.join(r, 'shallow')
+        let i = F.join(r, 'shallow')
         if (n.size > 0) {
           let a =
             [...n].join(`
@@ -11674,7 +11674,7 @@ gpgsig` +
     oid: n,
     getExternalRefDelta: i,
   }) {
-    let a = await t.readdir($.join(r, 'objects/pack'))
+    let a = await t.readdir(F.join(r, 'objects/pack'))
     a = a.filter((s) => s.endsWith('.idx'))
     for (let s of a) {
       let o = `${r}/objects/pack/${s}`,
@@ -11786,7 +11786,7 @@ gpgsig` +
       e
     )
   }
-  var Ff = class {
+  var $f = class {
     static demux(e) {
       let r = Qe.streamReader(e),
         n = new ro(),
@@ -11825,7 +11825,7 @@ gpgsig` +
     }
   }
   async function nD(t) {
-    let { packetlines: e, packfile: r, progress: n } = Ff.demux(t),
+    let { packetlines: e, packfile: r, progress: n } = $f.demux(t),
       i = [],
       a = [],
       s = [],
@@ -11966,7 +11966,7 @@ gpgsig` +
         headers: S,
         protocolVersion: 1,
       }),
-      F = L.auth,
+      $ = L.auth,
       J = L.refs
     if (J.size === 0)
       return {
@@ -12012,7 +12012,7 @@ gpgsig` +
     N = [...new Set(N)]
     let q = await Wa.read({ fs: t, gitdir: l }),
       B = L.capabilities.has('shallow') ? [...q] : [],
-      Fe = iD({
+      $e = iD({
         capabilities: ce,
         wants: Te,
         haves: N,
@@ -12021,14 +12021,14 @@ gpgsig` +
         since: g,
         exclude: v,
       }),
-      lr = Buffer.from(await $f(Fe)),
+      lr = Buffer.from(await Ff($e)),
       Ut = await I.connect({
         http: r,
         onProgress: n,
         corsProxy: h,
         service: 'git-upload-pack',
         url: T,
-        auth: F,
+        auth: $,
         body: [lr],
         headers: S,
       }),
@@ -12112,7 +12112,7 @@ gpgsig` +
         }
       })
     }
-    let De = Buffer.from(await $f(X.packfile))
+    let De = Buffer.from(await Ff(X.packfile))
     if (Ut.body.error) throw Ut.body.error
     let Pt = De.slice(-20).toString('hex'),
       Le = {
@@ -12126,7 +12126,7 @@ gpgsig` +
       Pt !== '' && !tD(De))
     ) {
       Le.packfile = `objects/pack/pack-${Pt}.pack`
-      let U = $.join(l, Le.packfile)
+      let U = F.join(l, Le.packfile)
       await t.write(U, De)
       let Je = (Z) => Ge({ fs: t, cache: e, gitdir: l, oid: Z }),
         j = await ql.fromPack({
@@ -12142,7 +12142,7 @@ gpgsig` +
     fs: t,
     bare: e = !1,
     dir: r,
-    gitdir: n = e ? r : $.join(r, '.git'),
+    gitdir: n = e ? r : F.join(r, '.git'),
     defaultBranch: i = 'master',
   }) {
     if (await t.exists(n + '/config')) return
@@ -12268,7 +12268,7 @@ gpgsig` +
     onAuthFailure: s,
     onPostCheckout: o,
     dir: l,
-    gitdir: c = $.join(l, '.git'),
+    gitdir: c = F.join(l, '.git'),
     url: u,
     corsProxy: f = void 0,
     ref: d = void 0,
@@ -12328,7 +12328,7 @@ gpgsig` +
     fs: t,
     onSign: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     message: i,
     author: a,
     committer: s,
@@ -12367,7 +12367,7 @@ gpgsig` +
   async function lS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     fullname: n = !1,
     test: i = !1,
   }) {
@@ -12399,7 +12399,7 @@ gpgsig` +
     ;(await o.deleteSection('branch', s),
       await nt.save({ fs: t, gitdir: e, config: o }))
   }
-  async function cS({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), ref: n }) {
+  async function cS({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), ref: n }) {
     try {
       return (
         P('fs', t),
@@ -12410,7 +12410,7 @@ gpgsig` +
       throw ((i.caller = 'git.deleteBranch'), i)
     }
   }
-  async function uS({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), ref: n }) {
+  async function uS({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), ref: n }) {
     try {
       ;(P('fs', t),
         P('ref', n),
@@ -12427,7 +12427,7 @@ gpgsig` +
   async function fS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     remote: n,
   }) {
     try {
@@ -12444,7 +12444,7 @@ gpgsig` +
     ;((r = r.startsWith('refs/tags/') ? r : `refs/tags/${r}`),
       await V.deleteRef({ fs: t, gitdir: e, ref: r }))
   }
-  async function dS({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), ref: n }) {
+  async function dS({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), ref: n }) {
     try {
       return (
         P('fs', t),
@@ -12469,7 +12469,7 @@ gpgsig` +
     getExternalRefDelta: i,
   }) {
     let a = [],
-      s = await t.readdir($.join(r, 'objects/pack'))
+      s = await t.readdir(F.join(r, 'objects/pack'))
     s = s.filter((o) => o.endsWith('.idx'))
     for (let o of s) {
       let l = `${r}/objects/pack/${o}`,
@@ -12498,7 +12498,7 @@ gpgsig` +
   async function hS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     cache: i = {},
   }) {
@@ -12513,7 +12513,7 @@ gpgsig` +
       throw ((a.caller = 'git.expandOid'), a)
     }
   }
-  async function pS({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), ref: n }) {
+  async function pS({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), ref: n }) {
     try {
       return (
         P('fs', t),
@@ -12579,7 +12579,7 @@ gpgsig` +
     fs: t,
     cache: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     index: i,
     ourOid: a,
     baseOid: s,
@@ -12591,9 +12591,9 @@ gpgsig` +
     abortOnConflict: d = !0,
     mergeDriver: h,
   }) {
-    let p = Pr({ ref: a }),
-      g = Pr({ ref: s }),
-      v = Pr({ ref: o }),
+    let p = Rr({ ref: a }),
+      g = Rr({ ref: s }),
+      v = Rr({ ref: o }),
       y = [],
       b = [],
       E = [],
@@ -12687,12 +12687,12 @@ gpgsig` +
                         stage: 0,
                       })
                   else if ((y.push(k), b.push(k), !d)) {
-                    let F = ''
-                    x && (await x.type()) === 'blob' && (F = await x.oid())
+                    let $ = ''
+                    x && (await x.type()) === 'blob' && ($ = await x.oid())
                     let J = await w.oid(),
                       de = await _.oid()
                     ;(i.delete({ filepath: k }),
-                      F && i.insert({ filepath: k, oid: F, stage: 1 }),
+                      $ && i.insert({ filepath: k, oid: $, stage: 1 }),
                       i.insert({ filepath: k, oid: J, stage: 2 }),
                       i.insert({ filepath: k, oid: de, stage: 3 }))
                   }
@@ -12707,10 +12707,10 @@ gpgsig` +
               ) {
                 if ((y.push(k), E.push(k), !d)) {
                   let L = await x.oid(),
-                    F = await _.oid()
+                    $ = await _.oid()
                   ;(i.delete({ filepath: k }),
                     i.insert({ filepath: k, oid: L, stage: 1 }),
-                    i.insert({ filepath: k, oid: F, stage: 3 }))
+                    i.insert({ filepath: k, oid: $, stage: 3 }))
                 }
                 return {
                   mode: await _.mode(),
@@ -12728,10 +12728,10 @@ gpgsig` +
               ) {
                 if ((y.push(k), S.push(k), !d)) {
                   let L = await x.oid(),
-                    F = await w.oid()
+                    $ = await w.oid()
                   ;(i.delete({ filepath: k }),
                     i.insert({ filepath: k, oid: L, stage: 1 }),
-                    i.insert({ filepath: k, oid: F, stage: 2 }))
+                    i.insert({ filepath: k, oid: $, stage: 2 }))
                 }
                 return {
                   mode: await w.mode(),
@@ -12783,7 +12783,7 @@ gpgsig` +
             cache: e,
             dir: r,
             gitdir: n,
-            trees: [Pr({ ref: A.oid })],
+            trees: [Rr({ ref: A.oid })],
             map: async function (k, [w]) {
               let x = `${r}/${k}`
               if ((await w.type()) === 'blob') {
@@ -13025,7 +13025,7 @@ gpgsig` +
     onAuthSuccess: a,
     onAuthFailure: s,
     dir: o,
-    gitdir: l = $.join(o, '.git'),
+    gitdir: l = F.join(o, '.git'),
     ref: c,
     url: u,
     remote: f,
@@ -13073,7 +13073,7 @@ gpgsig` +
     onAuthSuccess: a,
     onAuthFailure: s,
     dir: o,
-    gitdir: l = $.join(o, '.git'),
+    gitdir: l = F.join(o, '.git'),
     ref: c,
     remote: u,
     remoteRef: f,
@@ -13128,7 +13128,7 @@ gpgsig` +
   async function wS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oids: n,
     cache: i = {},
   }) {
@@ -13144,7 +13144,7 @@ gpgsig` +
     }
   }
   async function bS({ fs: t, filepath: e }) {
-    if (await t.exists($.join(e, '.git'))) return e
+    if (await t.exists(F.join(e, '.git'))) return e
     {
       let r = ao(e)
       if (r === e) throw new je(`git root for ${e}`)
@@ -13162,7 +13162,7 @@ gpgsig` +
       throw ((r.caller = 'git.findRoot'), r)
     }
   }
-  async function xS({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), path: n }) {
+  async function xS({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), path: n }) {
     try {
       return (
         P('fs', t),
@@ -13177,7 +13177,7 @@ gpgsig` +
   async function mD({ fs: t, gitdir: e, path: r }) {
     return (await nt.get({ fs: t, gitdir: e })).getall(r)
   }
-  async function SS({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), path: n }) {
+  async function SS({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), path: n }) {
     try {
       return (
         P('fs', t),
@@ -13201,19 +13201,17 @@ gpgsig` +
   }) {
     try {
       ;(P('http', t), P('url', a))
-      let c = await go
-          .getRemoteHelperFor({ url: a })
-          .discover({
-            http: t,
-            onAuth: e,
-            onAuthSuccess: r,
-            onAuthFailure: n,
-            corsProxy: i,
-            service: o ? 'git-receive-pack' : 'git-upload-pack',
-            url: a,
-            headers: s,
-            protocolVersion: 1,
-          }),
+      let c = await go.getRemoteHelperFor({ url: a }).discover({
+          http: t,
+          onAuth: e,
+          onAuthSuccess: r,
+          onAuthFailure: n,
+          corsProxy: i,
+          service: o ? 'git-receive-pack' : 'git-upload-pack',
+          url: a,
+          headers: s,
+          protocolVersion: 1,
+        }),
         u = { capabilities: [...c.capabilities] }
       for (let [f, d] of c.refs) {
         let h = f.split('/'),
@@ -13266,19 +13264,17 @@ gpgsig` +
   }) {
     try {
       ;(P('http', t), P('url', a))
-      let u = await go
-        .getRemoteHelperFor({ url: a })
-        .discover({
-          http: t,
-          onAuth: e,
-          onAuthSuccess: r,
-          onAuthFailure: n,
-          corsProxy: i,
-          service: o ? 'git-receive-pack' : 'git-upload-pack',
-          url: a,
-          headers: s,
-          protocolVersion: l,
-        })
+      let u = await go.getRemoteHelperFor({ url: a }).discover({
+        http: t,
+        onAuth: e,
+        onAuthSuccess: r,
+        onAuthFailure: n,
+        corsProxy: i,
+        service: o ? 'git-receive-pack' : 'git-upload-pack',
+        url: a,
+        headers: s,
+        protocolVersion: l,
+      })
       if (u.protocolVersion === 2)
         return {
           protocolVersion: u.protocolVersion,
@@ -13337,7 +13333,7 @@ gpgsig` +
     filepath: a,
   }) {
     try {
-      a = $.join(n, a)
+      a = F.join(n, a)
       let s = await t.read(a),
         o = (c) => Ge({ fs: t, cache: e, gitdir: i, oid: c }),
         l = await ql.fromPack({
@@ -13357,7 +13353,7 @@ gpgsig` +
     fs: t,
     onProgress: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     filepath: i,
     cache: a = {},
   }) {
@@ -13384,7 +13380,7 @@ gpgsig` +
     fs: t,
     bare: e = !1,
     dir: r,
-    gitdir: n = e ? r : $.join(r, '.git'),
+    gitdir: n = e ? r : F.join(r, '.git'),
     defaultBranch: i = 'master',
   }) {
     try {
@@ -13432,7 +13428,7 @@ gpgsig` +
   async function MS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     ancestor: i,
     depth: a = -1,
@@ -13460,7 +13456,7 @@ gpgsig` +
   async function OS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
   }) {
     try {
@@ -13478,7 +13474,7 @@ gpgsig` +
   async function IS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     remote: n,
   }) {
     try {
@@ -13496,7 +13492,7 @@ gpgsig` +
       let i = await V.resolve({ gitdir: e, fs: t, ref: r }),
         a = []
       return (
-        await $S({
+        await FS({
           fs: t,
           cache: n,
           gitdir: e,
@@ -13511,7 +13507,7 @@ gpgsig` +
         return i.entries.map((a) => a.path)
       })
   }
-  async function $S({
+  async function FS({
     fs: t,
     cache: e,
     gitdir: r,
@@ -13522,20 +13518,20 @@ gpgsig` +
     let { tree: s } = await wo({ fs: t, cache: e, gitdir: r, oid: n })
     for (let o of s)
       o.type === 'tree'
-        ? await $S({
+        ? await FS({
             fs: t,
             cache: e,
             gitdir: r,
             oid: o.oid,
             filenames: i,
-            prefix: $.join(a, o.path),
+            prefix: F.join(a, o.path),
           })
-        : i.push($.join(a, o.path))
+        : i.push(F.join(a, o.path))
   }
-  async function FS({
+  async function $S({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n,
     cache: i = {},
   }) {
@@ -13564,7 +13560,7 @@ gpgsig` +
   async function DS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n = 'refs/notes/commits',
     cache: i = {},
   }) {
@@ -13582,7 +13578,7 @@ gpgsig` +
   async function LS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
   }) {
     try {
@@ -13605,7 +13601,7 @@ gpgsig` +
       }),
     )
   }
-  async function jS({ fs: t, dir: e, gitdir: r = $.join(e, '.git') }) {
+  async function jS({ fs: t, dir: e, gitdir: r = F.join(e, '.git') }) {
     try {
       return (P('fs', t), P('gitdir', r), await bD({ fs: new Q(t), gitdir: r }))
     } catch (n) {
@@ -13693,7 +13689,7 @@ gpgsig` +
       throw ((d.caller = 'git.listServerRefs'), d)
     }
   }
-  async function BS({ fs: t, dir: e, gitdir: r = $.join(e, '.git') }) {
+  async function BS({ fs: t, dir: e, gitdir: r = F.join(e, '.git') }) {
     try {
       return (
         P('fs', t),
@@ -13744,7 +13740,7 @@ gpgsig` +
       let u
       return (
         c.oid === i
-          ? ((u = $.join(o, c.path)), s.push(u))
+          ? ((u = F.join(o, c.path)), s.push(u))
           : c.type === 'tree' &&
             (u = Ge({ fs: t, cache: e, gitdir: r, oid: c.oid }).then(function ({
               object: f,
@@ -13757,7 +13753,7 @@ gpgsig` +
                 fileId: i,
                 oid: a,
                 filepaths: s,
-                parentPath: $.join(o, c.path),
+                parentPath: F.join(o, c.path),
               })
             })),
         u
@@ -13863,7 +13859,7 @@ gpgsig` +
   async function US({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
     ref: i = 'HEAD',
     depth: a,
@@ -13897,7 +13893,7 @@ gpgsig` +
     fs: t,
     onSign: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     ours: i,
     theirs: a,
     fastForward: s = !0,
@@ -13956,7 +13952,7 @@ gpgsig` +
     fs: t,
     cache: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     oids: i,
   }) {
     let a = new Mx(),
@@ -13994,16 +13990,16 @@ gpgsig` +
   }
   async function TD({ fs: t, cache: e, gitdir: r, oids: n, write: i }) {
     let a = await zS({ fs: t, cache: e, gitdir: r, oids: n }),
-      s = Buffer.from(await $f(a)),
+      s = Buffer.from(await Ff(a)),
       l = `pack-${s.slice(-20).toString('hex')}.pack`
     return i
-      ? (await t.write($.join(r, `objects/pack/${l}`), s), { filename: l })
+      ? (await t.write(F.join(r, `objects/pack/${l}`), s), { filename: l })
       : { filename: l, packfile: new Uint8Array(s) }
   }
   async function VS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oids: n,
     write: i = !1,
     cache: a = {},
@@ -14028,7 +14024,7 @@ gpgsig` +
     onAuthSuccess: a,
     onAuthFailure: s,
     dir: o,
-    gitdir: l = $.join(o, '.git'),
+    gitdir: l = F.join(o, '.git'),
     ref: c,
     url: u,
     remote: f,
@@ -14086,7 +14082,7 @@ gpgsig` +
     fs: t,
     cache: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     start: i,
     finish: a,
   }) {
@@ -14109,7 +14105,7 @@ gpgsig` +
         oid: f,
       })
       if (d === 'tag') {
-        let g = Rr.from(h).headers().object
+        let g = Mr.from(h).headers().object
         return u(g)
       }
       if (d !== 'commit') throw new tr(f, d, 'commit')
@@ -14125,7 +14121,7 @@ gpgsig` +
     fs: t,
     cache: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     oids: i,
   }) {
     let a = new Set()
@@ -14139,7 +14135,7 @@ gpgsig` +
         oid: o,
       })
       if (l === 'tag') {
-        let f = Rr.from(c).headers().object
+        let f = Mr.from(c).headers().object
         await s(f)
       } else if (l === 'commit') {
         let f = pr.from(c).headers().tree
@@ -14269,37 +14265,37 @@ gpgsig` +
     )
       throw new uo()
     let L = !_.capabilities.has('no-thin'),
-      F = new Set()
+      $ = new Set()
     if (!g) {
       let q = [..._.refs.values()],
         B = new Set()
       if (I !== '0000000000000000000000000000000000000000') {
-        let Fe = await pg({ fs: t, cache: e, gitdir: c, oids: [w, I] })
-        for (let lr of Fe) q.push(lr)
-        L && (B = await Xm({ fs: t, cache: e, gitdir: c, oids: Fe }))
+        let $e = await pg({ fs: t, cache: e, gitdir: c, oids: [w, I] })
+        for (let lr of $e) q.push(lr)
+        L && (B = await Xm({ fs: t, cache: e, gitdir: c, oids: $e }))
       }
       if (!q.includes(w)) {
-        let Fe = await CD({ fs: t, cache: e, gitdir: c, start: [w], finish: q })
-        F = await Xm({ fs: t, cache: e, gitdir: c, oids: Fe })
+        let $e = await CD({ fs: t, cache: e, gitdir: c, start: [w], finish: q })
+        $ = await Xm({ fs: t, cache: e, gitdir: c, oids: $e })
       }
       if (L) {
         try {
-          let Fe = await V.resolve({
+          let $e = await V.resolve({
               fs: t,
               gitdir: c,
               ref: `refs/remotes/${d}/HEAD`,
               depth: 2,
             }),
             { oid: lr } = await V.resolveAgainstMap({
-              ref: Fe.replace(`refs/remotes/${d}/`, ''),
-              fullref: Fe,
+              ref: $e.replace(`refs/remotes/${d}/`, ''),
+              fullref: $e,
               map: _.refs,
             }),
             Ut = [lr]
           for (let X of await Xm({ fs: t, cache: e, gitdir: c, oids: Ut }))
             B.add(X)
-        } catch (Fe) {}
-        for (let Fe of B) F.delete(Fe)
+        } catch ($e) {}
+        for (let $e of B) $.delete($e)
       }
       if ((w === I && (p = !0), !p)) {
         if (
@@ -14330,7 +14326,7 @@ gpgsig` +
         capabilities: J,
         triplets: [{ oldoid: I, oid: w, fullRef: C }],
       }),
-      le = g ? [] : await zS({ fs: t, cache: e, gitdir: c, oids: [...F] }),
+      le = g ? [] : await zS({ fs: t, cache: e, gitdir: c, oids: [...$] }),
       ce = await x.connect({
         http: r,
         onProgress: n,
@@ -14341,7 +14337,7 @@ gpgsig` +
         headers: y,
         body: [...de, ...le],
       }),
-      { packfile: Te, progress: ne } = await Ff.demux(ce.body)
+      { packfile: Te, progress: ne } = await $f.demux(ce.body)
     if (i) {
       let q = iS(ne)
       uc(q, async (B) => {
@@ -14361,10 +14357,10 @@ gpgsig` +
     if (N.ok && Object.values(N.refs).every((q) => q.ok)) return N
     {
       let q = Object.entries(N.refs)
-        .filter(([B, Fe]) => !Fe.ok)
+        .filter(([B, $e]) => !$e.ok)
         .map(
-          ([B, Fe]) => `
-  - ${B}: ${Fe.error}`,
+          ([B, $e]) => `
+  - ${B}: ${$e.error}`,
         )
         .join('')
       throw new Ql(q, N)
@@ -14380,7 +14376,7 @@ gpgsig` +
     onAuthFailure: s,
     onPrePush: o,
     dir: l,
-    gitdir: c = $.join(l, '.git'),
+    gitdir: c = F.join(l, '.git'),
     ref: u,
     remoteRef: f,
     remote: d = 'origin',
@@ -14430,7 +14426,7 @@ gpgsig` +
     })
     if (i === 'tag')
       return (
-        (n = Rr.from(a).parse().object),
+        (n = Mr.from(a).parse().object),
         YS({ fs: t, cache: e, gitdir: r, oid: n })
       )
     if (i !== 'blob') throw new tr(n, i, 'blob')
@@ -14452,7 +14448,7 @@ gpgsig` +
   async function KS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     filepath: i,
     cache: a = {},
@@ -14471,7 +14467,7 @@ gpgsig` +
   async function mg({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     cache: i = {},
   }) {
@@ -14506,7 +14502,7 @@ gpgsig` +
   async function ZS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n = 'refs/notes/commits',
     oid: i,
     cache: a = {},
@@ -14526,7 +14522,7 @@ gpgsig` +
   async function JS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     format: i = 'parsed',
     filepath: a = void 0,
@@ -14559,7 +14555,7 @@ gpgsig` +
               : ((u.object = new Uint8Array(u.object)), (u.format = 'content'))
             break
           case 'tag':
-            u.object = Rr.from(u.object).parse()
+            u.object = Mr.from(u.object).parse()
             break
           default:
             throw new tr(u.oid, u.type, 'blob|commit|tag|tree')
@@ -14581,13 +14577,13 @@ gpgsig` +
       format: 'content',
     })
     if (i !== 'tag') throw new tr(n, i, 'tag')
-    let s = Rr.from(a)
+    let s = Mr.from(a)
     return { oid: n, tag: s.parse(), payload: s.payload() }
   }
   async function QS({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     cache: i = {},
   }) {
@@ -14605,7 +14601,7 @@ gpgsig` +
   async function eE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     oid: n,
     filepath: i = void 0,
     cache: a = {},
@@ -14624,7 +14620,7 @@ gpgsig` +
   async function tE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
     cache: i = {},
   }) {
@@ -14642,7 +14638,7 @@ gpgsig` +
       throw ((a.caller = 'git.remove'), a)
     }
   }
-  async function $D({
+  async function FD({
     fs: t,
     cache: e,
     onSign: r,
@@ -14687,7 +14683,7 @@ gpgsig` +
     fs: t,
     onSign: e,
     dir: r,
-    gitdir: n = $.join(r, '.git'),
+    gitdir: n = F.join(r, '.git'),
     ref: i = 'refs/notes/commits',
     oid: a,
     author: s,
@@ -14702,7 +14698,7 @@ gpgsig` +
       if (!f) throw new zt('author')
       let d = await ho({ fs: u, gitdir: n, author: f, committer: o })
       if (!d) throw new zt('committer')
-      return await $D({
+      return await FD({
         fs: u,
         cache: c,
         onSign: e,
@@ -14717,7 +14713,7 @@ gpgsig` +
       throw ((u.caller = 'git.removeNote'), u)
     }
   }
-  async function FD({ fs: t, gitdir: e, oldref: r, ref: n, checkout: i = !1 }) {
+  async function $D({ fs: t, gitdir: e, oldref: r, ref: n, checkout: i = !1 }) {
     if (n !== zn.clean(n)) throw new mn(n, zn.clean(n))
     if (r !== zn.clean(r)) throw new mn(r, zn.clean(r))
     let a = `refs/heads/${r}`,
@@ -14734,7 +14730,7 @@ gpgsig` +
   async function nE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n,
     oldref: i,
     checkout: a = !1,
@@ -14745,7 +14741,7 @@ gpgsig` +
         P('gitdir', r),
         P('ref', n),
         P('oldref', i),
-        await FD({ fs: new Q(t), gitdir: r, ref: n, oldref: i, checkout: a })
+        await $D({ fs: new Q(t), gitdir: r, ref: n, oldref: i, checkout: a })
       )
     } catch (s) {
       throw ((s.caller = 'git.renameBranch'), s)
@@ -14757,7 +14753,7 @@ gpgsig` +
   async function aE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
     ref: i,
     cache: a = {},
@@ -14788,10 +14784,10 @@ gpgsig` +
           gid: 0,
           size: 0,
         },
-        u = e && (await s.read($.join(e, n)))
+        u = e && (await s.read(F.join(e, n)))
       ;(u &&
         ((l = await iE({ gitdir: r, type: 'blob', object: u })),
-        o === l && (c = await s.lstat($.join(e, n)))),
+        o === l && (c = await s.lstat(F.join(e, n)))),
         await ct.acquire({ fs: s, gitdir: r, cache: a }, async function (f) {
           ;(f.delete({ filepath: n }),
             o && f.insert({ filepath: n, stats: c, oid: o }))
@@ -14803,7 +14799,7 @@ gpgsig` +
   async function sE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n,
     depth: i,
   }) {
@@ -14821,7 +14817,7 @@ gpgsig` +
   async function oE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     path: n,
     value: i,
     append: a = !1,
@@ -14880,7 +14876,7 @@ gpgsig` +
     return (Km === void 0 && (Km = new zl()), Km.acquire(t, e))
   }
   async function LD(t, e, r, n, i = null) {
-    let a = $.join(r, n),
+    let a = F.join(r, n),
       s = await t.lstat(a)
     if (!s) throw new je(a)
     if (s.isDirectory())
@@ -14983,7 +14979,7 @@ gpgsig` +
         cache: {},
         dir: e,
         gitdir: r,
-        trees: [Pr({ ref: i }), Pr({ ref: n })],
+        trees: [Rr({ ref: i }), Rr({ ref: n })],
         map: async (c, [u, f]) => {
           if (
             c === '.' ||
@@ -15008,14 +15004,14 @@ gpgsig` +
                   o.push({
                     filepath: c,
                     oid: h,
-                    stats: await t.lstat($.join(e, c)),
+                    stats: await t.lstat(F.join(e, c)),
                   }),
                 { method: 'write', filepath: c, oid: h })
         },
       })
     ;(await vo({ fs: t, gitdir: r, dirRemoved: s, ops: l }, async () => {
       for (let c of l) {
-        let u = $.join(e, c.filepath)
+        let u = F.join(e, c.filepath)
         switch (c.method) {
           case 'rmdir':
             await t.rmdir(u)
@@ -15047,7 +15043,7 @@ gpgsig` +
       }))
   }
   var qa = class t {
-    constructor({ fs: e, dir: r, gitdir: n = $.join(r, '.git') }) {
+    constructor({ fs: e, dir: r, gitdir: n = F.join(r, '.git') }) {
       Object.assign(this, { fs: e, dir: r, gitdir: n, _author: null })
     }
     static get refStash() {
@@ -15057,10 +15053,10 @@ gpgsig` +
       return 'logs/refs/stash'
     }
     get refStashPath() {
-      return $.join(this.gitdir, t.refStash)
+      return F.join(this.gitdir, t.refStash)
     }
     get refLogsStashPath() {
-      return $.join(this.gitdir, t.refLogsStash)
+      return F.join(this.gitdir, t.refLogsStash)
     }
     async getAuthor() {
       if (
@@ -15136,12 +15132,12 @@ gpgsig` +
       l = (await mg({ fs: t, dir: e, gitdir: r, oid: s })).commit.message,
       c = [s],
       u = null,
-      f = Pr({ ref: 'HEAD' }),
+      f = Rr({ ref: 'HEAD' }),
       d = await Rx({
         fs: t,
         dir: e,
         gitdir: r,
-        treePair: [Pr({ ref: 'HEAD' }), 'stage'],
+        treePair: [Rr({ ref: 'HEAD' }), 'stage'],
       })
     if (d) {
       let v = await i.writeStashCommit({
@@ -15236,7 +15232,7 @@ gpgsig` +
   async function fE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     op: n = 'push',
     message: i = '',
     refIdx: a = 0,
@@ -15247,7 +15243,7 @@ gpgsig` +
     try {
       let l = new Q(t)
       ;['refs', 'logs', 'logs/refs']
-        .map((f) => $.join(r, f))
+        .map((f) => F.join(r, f))
         .forEach(async (f) => {
           ;(await l.exists(f)) || (await l.mkdir(f))
         })
@@ -15268,7 +15264,7 @@ gpgsig` +
   async function dE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     filepath: n,
     cache: i = {},
   }) {
@@ -15286,14 +15282,14 @@ gpgsig` +
             return null
           },
         ),
-        u = await a.lstat($.join(e, n)),
+        u = await a.lstat(F.join(e, n)),
         f = l !== null,
         d = c !== null,
         h = u !== null,
         p = async () => {
           if (d && !Tf(c, u)) return c.oid
           {
-            let g = await a.read($.join(e, n)),
+            let g = await a.read(F.join(e, n)),
               v = await iE({ gitdir: r, type: 'blob', object: g })
             return (
               d &&
@@ -15361,7 +15357,7 @@ gpgsig` +
   async function pE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n = 'HEAD',
     filepaths: i = ['.'],
     filter: a,
@@ -15376,7 +15372,7 @@ gpgsig` +
         cache: s,
         dir: e,
         gitdir: r,
-        trees: [Pr({ ref: n }), yo(), Ya()],
+        trees: [Rr({ ref: n }), yo(), Ya()],
         map: async function (c, [u, f, d]) {
           if (
             (!u &&
@@ -15417,7 +15413,7 @@ gpgsig` +
   async function mE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n,
     object: i,
     force: a = !1,
@@ -15438,7 +15434,7 @@ gpgsig` +
   async function gE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     cache: n = {},
     filepath: i,
     oid: a,
@@ -15455,7 +15451,7 @@ gpgsig` +
           { fs: u, gitdir: r, cache: n },
           async function (d) {
             if (!c) {
-              let h = await u.lstat($.join(e, i))
+              let h = await u.lstat(F.join(e, i))
               if (h) {
                 if (h.isDirectory()) throw new ta('directory')
                 return
@@ -15466,7 +15462,7 @@ gpgsig` +
         )
       let f
       if (!a) {
-        if (((f = await u.lstat($.join(e, i))), !f))
+        if (((f = await u.lstat(F.join(e, i))), !f))
           throw new je(`file at "${i}" on disk and "remove" not set`)
         if (f.isDirectory()) throw new ta('directory')
       }
@@ -15490,8 +15486,8 @@ gpgsig` +
           else {
             h = f
             let p = h.isSymbolicLink()
-              ? await u.readlink($.join(e, i))
-              : await u.read($.join(e, i))
+              ? await u.readlink(F.join(e, i))
+              : await u.read(F.join(e, i))
             a = await mr({
               fs: u,
               gitdir: r,
@@ -15517,7 +15513,7 @@ gpgsig` +
   async function yE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     trees: n,
     map: i,
     reduce: a,
@@ -15544,7 +15540,7 @@ gpgsig` +
       throw ((l.caller = 'git.walk'), l)
     }
   }
-  async function wE({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), blob: n }) {
+  async function wE({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), blob: n }) {
     try {
       return (
         P('fs', t),
@@ -15565,7 +15561,7 @@ gpgsig` +
   async function bE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     commit: n,
   }) {
     try {
@@ -15582,7 +15578,7 @@ gpgsig` +
   async function _E({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     type: n,
     object: i,
     format: a = 'parsed',
@@ -15603,7 +15599,7 @@ gpgsig` +
             i = Buffer.from(i, o)
             break
           case 'tag':
-            i = Rr.from(i).toObject()
+            i = Mr.from(i).toObject()
             break
           default:
             throw new tr(s || '', n, 'blob|commit|tag|tree')
@@ -15628,7 +15624,7 @@ gpgsig` +
   async function xE({
     fs: t,
     dir: e,
-    gitdir: r = $.join(e, '.git'),
+    gitdir: r = F.join(e, '.git'),
     ref: n,
     value: i,
     force: a = !1,
@@ -15649,7 +15645,7 @@ gpgsig` +
     }
   }
   async function VD({ fs: t, gitdir: e, tag: r }) {
-    let n = Rr.from(r).toObject()
+    let n = Mr.from(r).toObject()
     return await mr({
       fs: t,
       gitdir: e,
@@ -15658,7 +15654,7 @@ gpgsig` +
       format: 'content',
     })
   }
-  async function SE({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), tag: n }) {
+  async function SE({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), tag: n }) {
     try {
       return (
         P('fs', t),
@@ -15670,7 +15666,7 @@ gpgsig` +
       throw ((i.caller = 'git.writeTag'), i)
     }
   }
-  async function EE({ fs: t, dir: e, gitdir: r = $.join(e, '.git'), tree: n }) {
+  async function EE({ fs: t, dir: e, gitdir: r = F.join(e, '.git'), tree: n }) {
     try {
       return (
         P('fs', t),
@@ -15685,7 +15681,7 @@ gpgsig` +
   var WD = {
     Errors: Bx,
     STAGE: Ya,
-    TREE: Pr,
+    TREE: Rr,
     WORKDIR: yo,
     add: Vx,
     abortMerge: Ux,
@@ -15718,7 +15714,7 @@ gpgsig` +
     isDescendent: MS,
     isIgnored: OS,
     listBranches: IS,
-    listFiles: FS,
+    listFiles: $S,
     listNotes: DS,
     listRefs: LS,
     listRemotes: jS,
@@ -15756,7 +15752,7 @@ gpgsig` +
   }
   Y.Errors = Bx
   Y.STAGE = Ya
-  Y.TREE = Pr
+  Y.TREE = Rr
   Y.WORKDIR = yo
   Y.abortMerge = Ux
   Y.add = Vx
@@ -15789,7 +15785,7 @@ gpgsig` +
   Y.isDescendent = MS
   Y.isIgnored = OS
   Y.listBranches = IS
-  Y.listFiles = FS
+  Y.listFiles = $S
   Y.listNotes = DS
   Y.listRefs = LS
   Y.listRemotes = jS
@@ -16233,15 +16229,15 @@ var Gf = M((gr, Uf) => {
     }
   }
 })
-var PE = M((Mr) => {
+var PE = M((Or) => {
   'use strict'
   m()
   var aL =
-    (Mr && Mr.__importDefault) ||
+    (Or && Or.__importDefault) ||
     function (t) {
       return t && t.__esModule ? t : { default: t }
     }
-  Object.defineProperty(Mr, '__esModule', { value: !0 })
+  Object.defineProperty(Or, '__esModule', { value: !0 })
   var sL = require('fs'),
     oL = aL(Gf()),
     So = oL.default('@kwsites/file-exists')
@@ -16263,13 +16259,13 @@ var PE = M((Mr) => {
       throw (So('[FATAL] %o', n), n)
     }
   }
-  function cL(t, e = Mr.READABLE) {
-    return lL(t, (e & Mr.FILE) > 0, (e & Mr.FOLDER) > 0)
+  function cL(t, e = Or.READABLE) {
+    return lL(t, (e & Or.FILE) > 0, (e & Or.FOLDER) > 0)
   }
-  Mr.exists = cL
-  Mr.FILE = 1
-  Mr.FOLDER = 2
-  Mr.READABLE = Mr.FILE + Mr.FOLDER
+  Or.exists = cL
+  Or.FILE = 1
+  Or.FOLDER = 2
+  Or.READABLE = Or.FILE + Or.FOLDER
 })
 var RE = M((zf) => {
   'use strict'
@@ -16311,7 +16307,7 @@ var yg = M((Ka) => {
   Ka.createDeferred = vg
   Ka.default = vg
 })
-var yT = M((FX, vT) => {
+var yT = M(($X, vT) => {
   'use strict'
   m()
   vT.exports = {
@@ -16543,7 +16539,7 @@ var bT = M((LX, wT) => {
       : i
   }
 })
-var $T = M((xi) => {
+var FT = M((xi) => {
   'use strict'
   m()
   Object.defineProperty(xi, '__esModule', { value: !0 })
@@ -16904,9 +16900,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 var f0 = M((HX, DT) => {
   'use strict'
   m()
-  var FT = Object.prototype.toString
+  var $T = Object.prototype.toString
   DT.exports = function (e) {
-    var r = FT.call(e),
+    var r = $T.call(e),
       n = r === '[object Arguments]'
     return (
       n ||
@@ -16916,7 +16912,7 @@ var f0 = M((HX, DT) => {
           typeof e == 'object' &&
           typeof e.length == 'number' &&
           e.length >= 0 &&
-          FT.call(e.callee) === '[object Function]'),
+          $T.call(e.callee) === '[object Function]'),
       n
     )
   }
@@ -17025,8 +17021,8 @@ var VT = M((GX, zT) => {
 var yd = M((VX, YT) => {
   'use strict'
   m()
-  var $B = Array.prototype.slice,
-    FB = f0(),
+  var FB = Array.prototype.slice,
+    $B = f0(),
     WT = Object.keys,
     vd = WT
       ? function (e) {
@@ -17042,7 +17038,7 @@ var yd = M((VX, YT) => {
       })(1, 2)
       e ||
         (Object.keys = function (n) {
-          return FB(n) ? qT($B.call(n)) : qT(n)
+          return $B(n) ? qT(FB.call(n)) : qT(n)
         })
     } else Object.keys = vd
     return Object.keys || vd
@@ -17168,7 +17164,7 @@ var cC = M((tK, lC) => {
   'use strict'
   m()
   var XB = fa(),
-    KB = $a(),
+    KB = Fa(),
     ZB = p0(),
     sC = g0(),
     JB = aC(),
@@ -17182,8 +17178,8 @@ var cC = M((tK, lC) => {
 var v0 = M((nK, dC) => {
   'use strict'
   m()
-  var uC = $n(),
-    fC = $a(),
+  var uC = Fn(),
+    fC = Fa(),
     e7 = fC(uC('String.prototype.indexOf'))
   dC.exports = function (e, r) {
     var n = uC(e, !!r)
@@ -17298,7 +17294,7 @@ var xC = M((hK, _C) => {
     d7 = w0(),
     h7 = Gi(),
     p7 = Object.defineProperty,
-    m7 = $p(),
+    m7 = Fp(),
     bC = qu(),
     g7 = /a/
   _C.exports = function () {
@@ -17320,7 +17316,7 @@ var kC = M((mK, AC) => {
   'use strict'
   m()
   var v7 = fa(),
-    y7 = $a(),
+    y7 = Fa(),
     w7 = y0(),
     SC = w0(),
     b7 = xC(),
@@ -17391,10 +17387,10 @@ var Pc = M((xK, XC) => {
     M7 = String.prototype.toUpperCase,
     IC = String.prototype.toLowerCase,
     UC = RegExp.prototype.test,
-    $C = Array.prototype.concat,
+    FC = Array.prototype.concat,
     qn = Array.prototype.join,
     O7 = Array.prototype.slice,
-    FC = Math.floor,
+    $C = Math.floor,
     k0 = typeof BigInt == 'function' ? BigInt.prototype.valueOf : null,
     E0 = Object.getOwnPropertySymbols,
     T0 =
@@ -17429,7 +17425,7 @@ var Pc = M((xK, XC) => {
       return e
     var r = /[0-9](?=(?:[0-9]{3})+(?![0-9]))/g
     if (typeof t == 'number') {
-      var n = t < 0 ? -FC(-t) : FC(t)
+      var n = t < 0 ? -$C(-t) : $C(t)
       if (n !== t) {
         var i = String(n),
           a = I0.call(e, i.length + 1)
@@ -17501,8 +17497,8 @@ var Pc = M((xK, XC) => {
     var f = Z7(a, n)
     if (typeof i == 'undefined') i = []
     else if (qC(i, e) >= 0) return '[Circular]'
-    function d(L, F, J) {
-      if ((F && ((i = O7.call(i)), i.push(F)), J)) {
+    function d(L, $, J) {
+      if (($ && ((i = O7.call(i)), i.push($)), J)) {
         var de = { depth: a.depth }
         return (
           Si(a, 'quoteStyle') && (de.quoteStyle = a.quoteStyle),
@@ -17535,7 +17531,7 @@ var Pc = M((xK, XC) => {
         b < y.length;
         b++
       )
-        v += ' ' + y[b].name + '=' + VC($7(y[b].value), 'double', a)
+        v += ' ' + y[b].name + '=' + VC(F7(y[b].value), 'double', a)
       return (
         (v += '>'),
         e.childNodes && e.childNodes.length && (v += '...'),
@@ -17556,7 +17552,7 @@ var Pc = M((xK, XC) => {
         ? '{ [' +
             String(e) +
             '] ' +
-            qn.call($C.call('[cause]: ' + d(e.cause), S), ', ') +
+            qn.call(FC.call('[cause]: ' + d(e.cause), S), ', ') +
             ' }'
         : S.length === 0
           ? '[' + String(e) + ']'
@@ -17570,8 +17566,8 @@ var Pc = M((xK, XC) => {
       var A = []
       return (
         RC &&
-          RC.call(e, function (L, F) {
-            A.push(d(F, e, !0) + ' => ' + d(L, e))
+          RC.call(e, function (L, $) {
+            A.push(d($, e, !0) + ' => ' + d(L, e))
           }),
         HC('Map', xd.call(e), A, f)
       )
@@ -17600,7 +17596,7 @@ var Pc = M((xK, XC) => {
       (typeof global != 'undefined' && e === global)
     )
       return '{ [object globalThis] }'
-    if (!F7(e) && !BC(e)) {
+    if (!$7(e) && !BC(e)) {
       var w = _d(e, d),
         x = DC
           ? DC(e) === Object.prototype
@@ -17621,7 +17617,7 @@ var Pc = M((xK, XC) => {
         I =
           C +
           (T || _
-            ? '[' + qn.call($C.call([], T || [], _ || []), ': ') + '] '
+            ? '[' + qn.call(FC.call([], T || [], _ || []), ': ') + '] '
             : '')
       return w.length === 0
         ? I + '{}'
@@ -17636,7 +17632,7 @@ var Pc = M((xK, XC) => {
       i = zC[n]
     return i + t + i
   }
-  function $7(t) {
+  function F7(t) {
     return da.call(String(t), /"/g, '&quot;')
   }
   function ts(t) {
@@ -17647,7 +17643,7 @@ var Pc = M((xK, XC) => {
   function P0(t) {
     return ha(t) === '[object Array]' && ts(t)
   }
-  function F7(t) {
+  function $7(t) {
     return ha(t) === '[object Date]' && ts(t)
   }
   function BC(t) {
@@ -17905,10 +17901,10 @@ var ZC = M((EK, KC) => {
     return r
   }
 })
-var $0 = M((kK, QC) => {
+var F0 = M((kK, QC) => {
   'use strict'
   m()
-  var i9 = $n(),
+  var i9 = Fn(),
     Rc = xt(),
     a9 = Pc(),
     s9 = ur(),
@@ -17950,10 +17946,10 @@ var $0 = M((kK, QC) => {
 var tP = M((CK, eP) => {
   'use strict'
   m()
-  var d9 = $n(),
+  var d9 = Fn(),
     kd = xt(),
     h9 = Pc(),
-    Ad = $0(),
+    Ad = F0(),
     p9 = ur(),
     Mo = d9('%WeakMap%', !0),
     m9 = kd('WeakMap.prototype.get', !0),
@@ -18001,13 +17997,13 @@ var tP = M((CK, eP) => {
       }
     : Ad
 })
-var F0 = M((RK, rP) => {
+var $0 = M((RK, rP) => {
   'use strict'
   m()
   var w9 = ur(),
     b9 = Pc(),
     _9 = ZC(),
-    x9 = $0(),
+    x9 = F0(),
     S9 = tP(),
     E9 = S9 || x9 || _9
   rP.exports = function () {
@@ -18036,7 +18032,7 @@ var iP = M((OK, nP) => {
   'use strict'
   m()
   var A9 = Yu(),
-    Mc = F0()(),
+    Mc = $0()(),
     Ei = ur(),
     D0 = {
       assert: function (t, e) {
@@ -18071,7 +18067,7 @@ var iP = M((OK, nP) => {
   Object.freeze && Object.freeze(D0)
   nP.exports = D0
 })
-var oP = M(($K, sP) => {
+var oP = M((FK, sP) => {
   'use strict'
   m()
   var Oc = iP(),
@@ -18199,7 +18195,7 @@ var TP = M((UK, Md) => {
       }))
     : ((yP = ju()),
       (wP = L0()),
-      (U0 = $n()),
+      (U0 = Fn()),
       (bP = U0('%Map%', !0)),
       (_P = U0('%Set%', !0)),
       (Jr = v0()),
@@ -18327,18 +18323,18 @@ var J0 = M((zK, PP) => {
 var Q0 = M((WK, RP) => {
   'use strict'
   m()
-  var $9 = J0()
+  var F9 = J0()
   RP.exports = function () {
-    return typeof Object.is == 'function' ? Object.is : $9
+    return typeof Object.is == 'function' ? Object.is : F9
   }
 })
 var OP = M((YK, MP) => {
   'use strict'
   m()
-  var F9 = Q0(),
+  var $9 = Q0(),
     D9 = fa()
   MP.exports = function () {
-    var e = F9()
+    var e = $9()
     return (
       D9(
         Object,
@@ -18353,24 +18349,24 @@ var OP = M((YK, MP) => {
     )
   }
 })
-var DP = M((KK, FP) => {
+var DP = M((KK, $P) => {
   'use strict'
   m()
   var L9 = fa(),
-    j9 = $a(),
+    j9 = Fa(),
     N9 = J0(),
     IP = Q0(),
     B9 = OP(),
-    $P = j9(IP(), Object)
-  L9($P, { getPolyfill: IP, implementation: N9, shim: B9 })
-  FP.exports = $P
+    FP = j9(IP(), Object)
+  L9(FP, { getPolyfill: IP, implementation: N9, shim: B9 })
+  $P.exports = FP
 })
 var tv = M((JK, BP) => {
   'use strict'
   m()
-  var H9 = $a(),
+  var H9 = Fa(),
     NP = xt(),
-    U9 = $n(),
+    U9 = Fn(),
     ev = U9('%ArrayBuffer%', !0),
     Od = NP('ArrayBuffer.prototype.byteLength', !0),
     G9 = NP('Object.prototype.toString'),
@@ -18623,22 +18619,22 @@ var yR = M((yZ, vR) => {
 var _R = M((bZ, bR) => {
   'use strict'
   m()
-  var $d = typeof WeakMap == 'function' && WeakMap.prototype ? WeakMap : null,
+  var Fd = typeof WeakMap == 'function' && WeakMap.prototype ? WeakMap : null,
     wR = typeof WeakSet == 'function' && WeakSet.prototype ? WeakSet : null,
-    Fd
-  $d ||
-    (Fd = function (e) {
+    $d
+  Fd ||
+    ($d = function (e) {
       return !1
     })
-  var cv = $d ? $d.prototype.has : null,
+  var cv = Fd ? Fd.prototype.has : null,
     lv = wR ? wR.prototype.has : null
-  !Fd &&
+  !$d &&
     !cv &&
-    (Fd = function (e) {
+    ($d = function (e) {
       return !1
     })
   bR.exports =
-    Fd ||
+    $d ||
     function (e) {
       if (!e || typeof e != 'object') return !1
       try {
@@ -18648,7 +18644,7 @@ var _R = M((bZ, bR) => {
           } catch (r) {
             return !0
           }
-        return e instanceof $d
+        return e instanceof Fd
       } catch (r) {}
       return !1
     }
@@ -18656,7 +18652,7 @@ var _R = M((bZ, bR) => {
 var SR = M((xZ, fv) => {
   'use strict'
   m()
-  var xH = $n(),
+  var xH = Fn(),
     xR = xt(),
     SH = xH('%WeakSet%', !0),
     uv = xR('WeakSet.prototype.has', !0)
@@ -18713,15 +18709,15 @@ var QR = M((CZ, JR) => {
   var XR = cC(),
     Yn = v0(),
     PR = kC(),
-    RH = $n(),
+    RH = Fn(),
     Oo = TP(),
-    MH = F0(),
+    MH = $0(),
     RR = DP(),
     MR = _0(),
     OR = ju(),
     IR = tv(),
-    $R = GP(),
-    FR = av(),
+    FR = GP(),
+    $R = av(),
     DR = ZP(),
     LR = yd(),
     jR = yR(),
@@ -18799,7 +18795,7 @@ var QR = M((CZ, JR) => {
       ? !1
       : !!(t.constructor && t.constructor.isBuffer && t.constructor.isBuffer(t))
   }
-  function $H(t, e, r, n) {
+  function FH(t, e, r, n) {
     if (Ld(t) !== Ld(e)) return !1
     for (var i = Oo(t), a = Oo(e), s, o, l; (s = i.next()) && !s.done; )
       if (s.value && typeof s.value == 'object')
@@ -18818,7 +18814,7 @@ var QR = M((CZ, JR) => {
     }
     return !0
   }
-  function FH(t, e, r, n) {
+  function $H(t, e, r, n) {
     if (VR(t) !== VR(e)) return !1
     for (
       var i = Oo(t), a = Oo(e), s, o, l, c, u, f;
@@ -18865,12 +18861,12 @@ var QR = M((CZ, JR) => {
       c = e instanceof Error
     if (l !== c || ((l || c) && (t.name !== e.name || t.message !== e.message)))
       return !1
-    var u = FR(t),
-      f = FR(e)
+    var u = $R(t),
+      f = $R(e)
     if (u !== f || ((u || f) && (t.source !== e.source || PR(t) !== PR(e))))
       return !1
-    var d = $R(t),
-      h = $R(e)
+    var d = FR(t),
+      h = FR(e)
     if (
       d !== h ||
       ((d || h) && GR(t) !== GR(e)) ||
@@ -18922,9 +18918,9 @@ var QR = M((CZ, JR) => {
     return x !== _
       ? !1
       : x === 'Set' || _ === 'Set'
-        ? $H(t, e, r, n)
+        ? FH(t, e, r, n)
         : x === 'Map'
-          ? FH(t, e, r, n)
+          ? $H(t, e, r, n)
           : !0
   }
   JR.exports = function (e, r, n) {
@@ -19562,7 +19558,7 @@ var bM = M((qv) => {
           C = 0,
           I = 1,
           L = 2,
-          F = C,
+          $ = C,
           J = null,
           de = null,
           le = '',
@@ -19572,7 +19568,7 @@ var bM = M((qv) => {
           N = 0,
           q = '{{',
           B = '}}'
-        function Fe() {
+        function $e() {
           le.length > 0 &&
             (ce.push({ tag: '_t', text: new String(le) }), (le = ''))
         }
@@ -19588,7 +19584,7 @@ var bM = M((qv) => {
           return Oe
         }
         function Ut(Oe, De) {
-          if ((Fe(), Oe && lr()))
+          if (($e(), Oe && lr()))
             for (var Pt = N, Le; Pt < ce.length; Pt++)
               ce[Pt].text &&
                 ((Le = ce[Pt + 1]) &&
@@ -19614,19 +19610,19 @@ var bM = M((qv) => {
           ne < T;
           ne++
         )
-          F == C
+          $ == C
             ? u(q, x, ne)
-              ? (--ne, Fe(), (F = I))
+              ? (--ne, $e(), ($ = I))
               : x.charAt(ne) ==
                   `
 `
                 ? Ut(Te)
                 : (le += x.charAt(ne))
-            : F == I
+            : $ == I
               ? ((ne += q.length - 1),
                 (de = t.tags[x.charAt(ne + 1)]),
                 (J = de ? x.charAt(ne + 1) : '_v'),
-                J == '=' ? ((ne = X(x, ne)), (F = C)) : (de && ne++, (F = L)),
+                J == '=' ? ((ne = X(x, ne)), ($ = C)) : (de && ne++, ($ = L)),
                 (Te = ne))
               : u(B, x, ne)
                 ? (ce.push({
@@ -19638,7 +19634,7 @@ var bM = M((qv) => {
                   }),
                   (le = ''),
                   (ne += B.length - 1),
-                  (F = C),
+                  ($ = C),
                   J == '{' && (B == '}}' ? ne++ : l(ce[ce.length - 1])))
                 : (le += x.charAt(ne))
         return (Ut(Te, !0), ce)
@@ -19661,28 +19657,28 @@ var bM = M((qv) => {
       var C = [],
         I = null,
         L = null,
-        F = null
+        $ = null
       for (L = _[_.length - 1]; w.length > 0; ) {
-        if (((F = w.shift()), L && L.tag == '<' && !(F.tag in f)))
+        if ((($ = w.shift()), L && L.tag == '<' && !($.tag in f)))
           throw new Error('Illegal content in < super tag.')
-        if (t.tags[F.tag] <= t.tags.$ || h(F, T))
-          (_.push(F), (F.nodes = d(w, F.tag, _, T)))
-        else if (F.tag == '/') {
+        if (t.tags[$.tag] <= t.tags.$ || h($, T))
+          (_.push($), ($.nodes = d(w, $.tag, _, T)))
+        else if ($.tag == '/') {
           if (_.length === 0)
-            throw new Error('Closing tag without opener: /' + F.n)
-          if (((I = _.pop()), F.n != I.n && !p(F.n, I.n, T)))
-            throw new Error('Nesting error: ' + I.n + ' vs. ' + F.n)
-          return ((I.end = F.i), C)
+            throw new Error('Closing tag without opener: /' + $.n)
+          if (((I = _.pop()), $.n != I.n && !p($.n, I.n, T)))
+            throw new Error('Nesting error: ' + I.n + ' vs. ' + $.n)
+          return ((I.end = $.i), C)
         } else
-          F.tag ==
+          $.tag ==
             `
 ` &&
-            (F.last =
+            ($.last =
               w.length == 0 ||
               w[0].tag ==
                 `
 `)
-        C.push(F)
+        C.push($)
       }
       if (_.length > 0) throw new Error('missing closing tag: ' + _.pop().n)
       return C
@@ -21040,7 +21036,7 @@ var R5 = M((Eu, uy) => {
               }
             },
             L = k + ' Iterator',
-            F = !1,
+            $ = !1,
             J = A.prototype,
             de = J[v] || J['@@iterator'] || (_ && J[_]),
             le = (!g && de) || I(_),
@@ -21061,7 +21057,7 @@ var R5 = M((Eu, uy) => {
             _ == b &&
               de &&
               de.name !== b &&
-              ((F = !0),
+              (($ = !0),
               (le = function () {
                 return de.call(this)
               })),
@@ -21072,8 +21068,8 @@ var R5 = M((Eu, uy) => {
             if (
               ((ne = { values: I(b), keys: T ? le : I(y), entries: I(E) }), C)
             )
-              for (N in ne) (g || F || !(N in J)) && c(J, N, ne[N])
-            else n({ target: k, proto: !0, forced: g || F }, ne)
+              for (N in ne) (g || $ || !(N in J)) && c(J, N, ne[N])
+            else n({ target: k, proto: !0, forced: g || $ }, ne)
           return ne
         }
       },
@@ -22405,7 +22401,7 @@ m()
 var is = require('obsidian')
 m()
 var p3 = Ot(Gf()),
-  $r = Ot(require('fs/promises')),
+  Fr = Ot(require('fs/promises')),
   Ti = require('obsidian'),
   Ve = Ot(require('path')),
   Dc = require('path')
@@ -22463,11 +22459,11 @@ var td,
       td = new WeakMap()
     },
   }),
-  Ir,
+  wr,
   la = W({
     'src/lib/errors/git-error.ts'() {
       'use strict'
-      Ir = class extends Error {
+      wr = class extends Error {
         constructor(t, e) {
           ;(super(e),
             (this.task = t),
@@ -22481,7 +22477,7 @@ var td,
     'src/lib/errors/git-response-error.ts'() {
       'use strict'
       ;(la(),
-        (mc = class extends Ir {
+        (mc = class extends wr {
           constructor(t, e) {
             ;(super(void 0, e || String(t)), (this.git = t))
           }
@@ -22493,7 +22489,7 @@ var td,
     'src/lib/errors/task-configuration-error.ts'() {
       'use strict'
       ;(la(),
-        (lA = class extends Ir {
+        (lA = class extends wr {
           constructor(t) {
             super(void 0, t)
           }
@@ -22755,7 +22751,7 @@ var _L = W({
 function Pg(t, e) {
   return t(e.stdOut, e.stdErr)
 }
-function wr(t, e, r, n = !0) {
+function br(t, e, r, n = !0) {
   return (
     Vn(r).forEach((i) => {
       for (let a = gc(i, n), s = 0, o = a.length; s < o; s++) {
@@ -22811,7 +22807,7 @@ ft(AA, {
   last: () => Ja,
   objectToString: () => vc,
   orVoid: () => kg,
-  parseStringResponse: () => wr,
+  parseStringResponse: () => br,
   pick: () => yA,
   prefixedArray: () => dc,
   remove: () => nd,
@@ -22923,14 +22919,14 @@ var RA,
   Mg = {}
 ft(Mg, {
   EMPTY_COMMANDS: () => od,
-  adhocExecTask: () => $A,
+  adhocExecTask: () => FA,
   configurationErrorTask: () => yr,
   isBufferTask: () => DA,
   isEmptyTask: () => LA,
-  straightThroughBufferTask: () => FA,
+  straightThroughBufferTask: () => $A,
   straightThroughStringTask: () => rr,
 })
-function $A(t) {
+function FA(t) {
   return { commands: od, format: 'empty', parser: t }
 }
 function yr(t) {
@@ -22951,7 +22947,7 @@ function rr(t, e = !1) {
     },
   }
 }
-function FA(t) {
+function $A(t) {
   return {
     commands: t,
     format: 'buffer',
@@ -23060,7 +23056,7 @@ function IL(t) {
   for (let r of HA(t)) e.addValue(r.file, String(r.key), r.value)
   return e
 }
-function $L(t, e) {
+function FL(t, e) {
   let r = null,
     n = [],
     i = new Map()
@@ -23071,13 +23067,13 @@ function $L(t, e) {
       i.get(a.file).push(r))
   return { key: e, paths: Array.from(i.keys()), scopes: i, value: r, values: n }
 }
-function FL(t) {
+function $L(t) {
   return t.replace(/^(file):/, '')
 }
 function* HA(t, e = null) {
   let r = t.split('\0')
   for (let n = 0, i = r.length - 1; n < i; ) {
-    let a = FL(r[n++]),
+    let a = $L(r[n++]),
       s = r[n++],
       o = e
     if (
@@ -23158,7 +23154,7 @@ function jL(t, e) {
       commands: r,
       format: 'utf-8',
       parser(n) {
-        return $L(n, t)
+        return FL(n, t)
       },
     }
   )
@@ -23430,7 +23426,7 @@ var QA = W({
             attempt(r) {
               let n = this.withProgress(r)
               if (!n)
-                throw new Ir(
+                throw new wr(
                   void 0,
                   'TasksPendingQueue: attempt called for an unknown task',
                 )
@@ -23453,7 +23449,7 @@ function KL(t, e) {
       t.push(Buffer.from(String(r.stack), 'ascii')))
   }
 }
-function $E(t, e, r, n) {
+function FE(t, e, r, n) {
   return (i) => {
     ;(r('%s received %L bytes', e, i), n('%B', i), t.push(i))
   }
@@ -23511,9 +23507,9 @@ var Ig,
           }
           onFatalException(t, e) {
             let r =
-              e instanceof Ir
+              e instanceof wr
                 ? Object.assign(e, { task: t })
-                : new Ir(t, e && String(e))
+                : new wr(t, e && String(e))
             return ((this._chain = Promise.resolve()), this._queue.fatal(r), r)
           }
           async attemptRemoteTask(t, e) {
@@ -23605,8 +23601,8 @@ var Ig,
                 },
               })
               let f = (0, tk.spawn)(e, r, s)
-              ;(f.stdout.on('data', $E(l, 'stdOut', i, a.step('stdOut'))),
-                f.stderr.on('data', $E(c, 'stdErr', i, a.step('stdErr'))),
+              ;(f.stdout.on('data', FE(l, 'stdOut', i, a.step('stdOut'))),
+                f.stderr.on('data', FE(c, 'stdErr', i, a.step('stdErr'))),
                 f.on('error', KL(c, i)),
                 n &&
                   (i(
@@ -23701,8 +23697,8 @@ var tj = W({
     ;(ko(), he())
   },
 })
-function FE(t, e) {
-  return $A((r) => {
+function $E(t, e) {
+  return FA((r) => {
     if (!Hg(t))
       throw new Error(`Git.cwd: cannot change to non-directory "${t}"`)
     return ((e || r).cwd = t)
@@ -23756,7 +23752,7 @@ function sj() {
         commands: ['count-objects', '--verbose'],
         format: 'utf-8',
         parser(t) {
-          return wr(aj(), [ik], t)
+          return br(aj(), [ik], t)
         },
       })
     },
@@ -23774,7 +23770,7 @@ var ik,
     },
   })
 function lj(t) {
-  return wr(
+  return br(
     {
       author: null,
       branch: '',
@@ -23972,7 +23968,7 @@ var Qg,
   })
 function ck(t = '') {
   let e = uk[t]
-  return (r) => wr(new lk(), e, r, !1)
+  return (r) => br(new lk(), e, r, !1)
 }
 var xg,
   DE,
@@ -24156,7 +24152,7 @@ function kj(t, e) {
   )
 }
 function Tj(t) {
-  return Object.keys(t).reduce((e, r) => (r in $g || (e[r] = t[r]), e), {})
+  return Object.keys(t).reduce((e, r) => (r in Fg || (e[r] = t[r]), e), {})
 }
 function gk(t = {}, e = []) {
   let r = Wn(t.splitter, Vt, r0),
@@ -24211,7 +24207,7 @@ function Pj() {
     )
   }
 }
-var $g,
+var Fg,
   vk = W({
     'src/lib/tasks/log.ts'() {
       'use strict'
@@ -24221,7 +24217,7 @@ var $g,
         he(),
         ut(),
         n0(),
-        ($g = ((t) => (
+        (Fg = ((t) => (
           (t[(t['--pretty'] = 0)] = '--pretty'),
           (t[(t['max-count'] = 1)] = 'max-count'),
           (t[(t.maxCount = 2)] = 'maxCount'),
@@ -24236,7 +24232,7 @@ var $g,
           (t[(t.multiLine = 11)] = 'multiLine'),
           (t[(t.strictDate = 12)] = 'strictDate'),
           t
-        ))($g || {})))
+        ))(Fg || {})))
     },
   }),
   Xf,
@@ -24272,12 +24268,12 @@ var $g,
         }))
     },
   }),
-  Fg,
+  $g,
   wk,
   Mj = W({
     'src/lib/responses/PullSummary.ts'() {
       'use strict'
-      ;((Fg = class {
+      ;(($g = class {
         constructor() {
           ;((this.remoteMessages = { all: [] }),
             (this.created = []),
@@ -24349,7 +24345,7 @@ var bk,
     },
   })
 function _k(t, e) {
-  return wr({ remoteMessages: new Sk() }, xk, e)
+  return br({ remoteMessages: new Sk() }, xk, e)
 }
 var xk,
   Sk,
@@ -24392,7 +24388,7 @@ var xk,
     },
   })
 function Ij(t, e) {
-  let r = wr(new wk(), Ak, [t, e])
+  let r = br(new wk(), Ak, [t, e])
   return r.message && r
 }
 var BE,
@@ -24442,14 +24438,14 @@ var BE,
             },
           ),
         ]),
-        (zE = (t, e) => wr(new Fg(), GE, [t, e])),
-        (i0 = (t, e) => Object.assign(new Fg(), zE(t, e), _k(t, e))))
+        (zE = (t, e) => br(new $g(), GE, [t, e])),
+        (i0 = (t, e) => Object.assign(new $g(), zE(t, e), _k(t, e))))
     },
   }),
   VE,
   Tk,
   WE,
-  $j = W({
+  Fj = W({
     'src/lib/parsers/parse-merge.ts'() {
       'use strict'
       ;(Rj(),
@@ -24479,7 +24475,7 @@ var BE,
           }),
         ]),
         (Tk = (t, e) => Object.assign(WE(t, e), i0(t, e))),
-        (WE = (t) => wr(new yk(), VE, t)))
+        (WE = (t) => br(new yk(), VE, t)))
     },
   })
 function qE(t) {
@@ -24495,10 +24491,10 @@ function qE(t) {
       }
     : yr('Git.merge requires at least one option')
 }
-var Fj = W({
+var $j = W({
   'src/lib/tasks/merge.ts'() {
     'use strict'
-    ;(ko(), $j(), ut())
+    ;(ko(), Fj(), ut())
   },
 })
 function Dj(t, e, r) {
@@ -24559,7 +24555,7 @@ var YE,
             n = _k(t, e)
           return { ...r, ...n }
         }),
-        (XE = (t, e) => wr({ pushed: [] }, YE, [t, e])))
+        (XE = (t, e) => br({ pushed: [] }, YE, [t, e])))
     },
   }),
   Pk = {}
@@ -24590,7 +24586,7 @@ function Nj() {
       let t = ['show', ...vr(arguments, 1)]
       return (
         t.includes('--binary') || t.splice(1, 0, '--binary'),
-        this._runTask(FA(t), at(arguments))
+        this._runTask($A(t), at(arguments))
       )
     },
     show() {
@@ -24630,11 +24626,11 @@ function ZE(t) {
   let [e, r] = t.split(Ao)
   return { from: r || e, to: e }
 }
-function Or(t, e, r) {
+function Ir(t, e, r) {
   return [`${t}${e}`, r]
 }
 function Eg(t, ...e) {
-  return e.map((r) => Or(t, r, (n, i) => Me(n.conflicted, i)))
+  return e.map((r) => Ir(t, r, (n, i) => Me(n.conflicted, i)))
 }
 function Uj(t, e) {
   let r = e.trim()
@@ -24680,29 +24676,29 @@ var JE,
           }
         }),
         (Ok = new Map([
-          Or(' ', 'A', (t, e) => Me(t.created, e)),
-          Or(' ', 'D', (t, e) => Me(t.deleted, e)),
-          Or(' ', 'M', (t, e) => Me(t.modified, e)),
-          Or('A', ' ', (t, e) => Me(t.created, e) && Me(t.staged, e)),
-          Or(
+          Ir(' ', 'A', (t, e) => Me(t.created, e)),
+          Ir(' ', 'D', (t, e) => Me(t.deleted, e)),
+          Ir(' ', 'M', (t, e) => Me(t.modified, e)),
+          Ir('A', ' ', (t, e) => Me(t.created, e) && Me(t.staged, e)),
+          Ir(
             'A',
             'M',
             (t, e) => Me(t.created, e) && Me(t.staged, e) && Me(t.modified, e),
           ),
-          Or('D', ' ', (t, e) => Me(t.deleted, e) && Me(t.staged, e)),
-          Or('M', ' ', (t, e) => Me(t.modified, e) && Me(t.staged, e)),
-          Or('M', 'M', (t, e) => Me(t.modified, e) && Me(t.staged, e)),
-          Or('R', ' ', (t, e) => {
+          Ir('D', ' ', (t, e) => Me(t.deleted, e) && Me(t.staged, e)),
+          Ir('M', ' ', (t, e) => Me(t.modified, e) && Me(t.staged, e)),
+          Ir('M', 'M', (t, e) => Me(t.modified, e) && Me(t.staged, e)),
+          Ir('R', ' ', (t, e) => {
             Me(t.renamed, ZE(e))
           }),
-          Or('R', 'M', (t, e) => {
+          Ir('R', 'M', (t, e) => {
             let r = ZE(e)
             ;(Me(t.renamed, r), Me(t.modified, r.to))
           }),
-          Or('!', '!', (t, e) => {
+          Ir('!', '!', (t, e) => {
             Me((t.ignored = t.ignored || []), e)
           }),
-          Or('?', '?', (t, e) => Me(t.not_added, e)),
+          Ir('?', '?', (t, e) => Me(t.not_added, e)),
           ...Eg('A', 'A', 'U'),
           ...Eg('D', 'D', 'U'),
           ...Eg('U', 'A', 'D', 'U'),
@@ -24749,18 +24745,18 @@ function zj(t) {
       '-b',
       '-u',
       '--null',
-      ...t.filter((r) => !$k.includes(r)),
+      ...t.filter((r) => !Fk.includes(r)),
     ],
     parser(r) {
       return Ik(r)
     },
   }
 }
-var $k,
+var Fk,
   Vj = W({
     'src/lib/tasks/status.ts'() {
       'use strict'
-      ;(Gj(), ($k = ['--null', '-z']))
+      ;(Gj(), (Fk = ['--null', '-z']))
     },
   })
 function ed(t = 0, e = 0, r = 0, n = '', i = !0) {
@@ -24795,16 +24791,16 @@ function qj() {
   }
 }
 function Yj(t) {
-  return t === s0 ? Wj() : wr(ed(0, 0, 0, t), Fk, t)
+  return t === s0 ? Wj() : br(ed(0, 0, 0, t), $k, t)
 }
 var s0,
-  Fk,
+  $k,
   Xj = W({
     'src/lib/tasks/version.ts'() {
       'use strict'
       ;(he(),
         (s0 = 'installed=false'),
-        (Fk = [
+        ($k = [
           new me(
             /version (\d+)\.(\d+)\.(\d+)(?:\s*\((.+)\))?/,
             (t, [e, r, n, i = '']) => {
@@ -24837,7 +24833,7 @@ var Dg,
         gj(),
         _j(),
         vk(),
-        Fj(),
+        $j(),
         Rk(),
         Bj(),
         Vj(),
@@ -24866,10 +24862,10 @@ var Dg,
           cwd(t) {
             let e = at(arguments)
             return typeof t == 'string'
-              ? this._runTask(FE(t, this._executor), e)
+              ? this._runTask($E(t, this._executor), e)
               : typeof (t == null ? void 0 : t.path) == 'string'
                 ? this._runTask(
-                    FE(t.path, (t.root && this._executor) || void 0),
+                    $E(t.path, (t.root && this._executor) || void 0),
                     e,
                   )
                 : this._runTask(
@@ -25039,7 +25035,7 @@ var eA,
             ;(t.errors.push(r), t.all.push(r), (t.branches[e] = r))
           }),
         ]),
-        (cd = (t, e) => wr(new Hk(), tA, [t, e])))
+        (cd = (t, e) => br(new Hk(), tA, [t, e])))
     },
   }),
   Gk,
@@ -25071,7 +25067,7 @@ function rA(t) {
   return t ? t.charAt(0) : ''
 }
 function zk(t) {
-  return wr(new Gk(), Vk, t)
+  return br(new Gk(), Vk, t)
 }
 var Vk,
   aN = W({
@@ -25203,7 +25199,7 @@ var gN = W({
   },
 })
 function vN(t, e) {
-  return wr(
+  return br(
     { raw: t, remote: null, branches: [], tags: [], updated: [], deleted: [] },
     Jk,
     [t, e],
@@ -25257,7 +25253,7 @@ var _N = W({
   },
 })
 function xN(t) {
-  return wr({ moves: [] }, eT, t)
+  return br({ moves: [] }, eT, t)
 }
 var eT,
   SN = W({
@@ -25337,8 +25333,8 @@ ft(iT, {
   addRemoteTask: () => MN,
   getRemotesTask: () => ON,
   listRemotesTask: () => IN,
-  remoteTask: () => $N,
-  removeRemoteTask: () => FN,
+  remoteTask: () => FN,
+  removeRemoteTask: () => $N,
 })
 function MN(t, e, r) {
   return rr(['remote', 'add', ...r, t, e])
@@ -25354,11 +25350,11 @@ function IN(t) {
   let e = [...t]
   return (e[0] !== 'ls-remote' && e.unshift('ls-remote'), rr(e))
 }
-function $N(t) {
+function FN(t) {
   let e = [...t]
   return (e[0] !== 'remote' && e.unshift('remote'), rr(e))
 }
-function FN(t) {
+function $N(t) {
   return rr(['remote', 'remove', t])
 }
 var DN = W({
@@ -25529,7 +25525,7 @@ var XN = W({
         { fetchTask: C } = (_N(), it(Qk)),
         { moveTask: I } = (AN(), it(tT)),
         { pullTask: L } = (TN(), it(rT)),
-        { pushTagsTask: F } = (Rk(), it(Pk)),
+        { pushTagsTask: $ } = (Rk(), it(Pk)),
         {
           addRemoteTask: J,
           getRemotesTask: de,
@@ -25541,7 +25537,7 @@ var XN = W({
         { stashListTask: q } = (jN(), it(aT)),
         {
           addSubModuleTask: B,
-          initSubModuleTask: Fe,
+          initSubModuleTask: $e,
           subModuleTask: lr,
           updateSubModuleTask: Ut,
         } = (UN(), it(sT)),
@@ -25680,7 +25676,7 @@ var XN = W({
           return this._runTask(Ut(d(arguments, !0)), h(arguments))
         }),
         (U.prototype.submoduleInit = function (j, Z) {
-          return this._runTask(Fe(d(arguments, !0)), h(arguments))
+          return this._runTask($e(d(arguments, !0)), h(arguments))
         }),
         (U.prototype.subModule = function (j, Z) {
           return this._runTask(lr(d(arguments)), h(arguments))
@@ -25711,7 +25707,7 @@ var XN = W({
           return this._runTask(Le(['update-server-info']), h(arguments))
         }),
         (U.prototype.pushTags = function (j, Z) {
-          let Se = F({ remote: f(j, c) }, d(arguments))
+          let Se = $({ remote: f(j, c) }, d(arguments))
           return this._runTask(Se, h(arguments))
         }),
         (U.prototype.rm = function (j) {
@@ -25792,14 +25788,14 @@ var XN = W({
   })
 pc()
 la()
-var ZN = class extends Ir {
+var ZN = class extends wr {
   constructor(t, e) {
     ;(super(void 0, e), (this.config = t))
   }
 }
 la()
 la()
-var _i = class extends Ir {
+var _i = class extends wr {
   constructor(t, e, r) {
     ;(super(t, r),
       (this.task = t),
@@ -25996,7 +25992,7 @@ function oA(t) {
         exitCode: r.exitCode,
       })
       return Buffer.isBuffer(n)
-        ? { error: new Ir(void 0, n.toString('utf-8')) }
+        ? { error: new wr(void 0, n.toString('utf-8')) }
         : { error: n }
     },
   }
@@ -26222,7 +26218,7 @@ var dT = require('obsidian'),
       gutterSpacingFallbackLength: 5,
     },
   },
-  Ft = { type: 'git-view', name: 'Source Control', icon: 'git-pull-request' },
+  $t = { type: 'git-view', name: 'Source Control', icon: 'git-pull-request' },
   Zr = { type: 'git-history-view', name: 'History', icon: 'history' },
   ca = { type: 'split-diff-view', name: 'Diff view', icon: 'diff' },
   ua = { type: 'diff-view', name: 'Diff View', icon: 'git-pull-request' },
@@ -26599,7 +26595,7 @@ var Co = class extends Error {
   }
 }
 m()
-var e3 = Ot($T()),
+var e3 = Ot(FT()),
   t3 = require('child_process'),
   r3 = Ot(QR()),
   Ai = require('obsidian')
@@ -26661,7 +26657,7 @@ function a3(t) {
 function s3(t, e) {
   return (0, r3.default)(t, e, { strict: !0 })
 }
-function $c(t, e) {
+function Fc(t, e) {
   return new Proxy(t, {
     get(r, n) {
       return n === 'length' ? Math.min(e, r.length) : r[n]
@@ -26709,7 +26705,7 @@ function vv(t) {
     t
   )
 }
-function $o(t, e) {
+function Fo(t, e) {
   let r = e.vault.getAbstractFileByPath(t)
   if (!(r instanceof Ai.TFile)) return !1
   try {
@@ -26728,7 +26724,7 @@ function u3({ isFolder: t, gitRelativePath: e }) {
       .replace(/\s(?=\s*$)/g, String.raw`\ `)
   )
 }
-function Fc(t, e, r = {}) {
+function $c(t, e, r = {}) {
   return new Promise((n, i) => {
     let a = (0, t3.spawn)(t, e, r),
       s = '',
@@ -26749,7 +26745,7 @@ function Fc(t, e, r = {}) {
 }
 m()
 var f3 = require('obsidian'),
-  Fo = class {
+  $o = class {
     constructor(e) {
       ;((this.plugin = e), (this.app = e.app))
     }
@@ -26876,7 +26872,7 @@ Affected files:
       return e
     }
   }
-var Ce = class extends Fo {
+var Ce = class extends $o {
     constructor(r) {
       super(r)
       this.useDefaultWindowsGitPath = !1
@@ -26957,12 +26953,12 @@ var Ce = class extends Fo {
         i = Ve.join(n, this.app.vault.configDir, 'plugins', 'obsidian-git'),
         a = this.app.vault.configDir + '/plugins/obsidian-git/'
       ;(await this.addAskPassScriptToExclude(),
-        await $r.writeFile(Ve.join(i, es), hT),
-        await $r.chmod(Ve.join(i, es), 493),
+        await Fr.writeFile(Ve.join(i, es), hT),
+        await Fr.chmod(Ve.join(i, es), 493),
         (this.watchAbortController = new AbortController()))
       let { signal: s } = this.watchAbortController
       try {
-        let o = $r.watch(i, { signal: s })
+        let o = Fr.watch(i, { signal: s })
         for await (let l of o) {
           if (l.filename != pd) continue
           let c = a + pd
@@ -26981,8 +26977,8 @@ var Ce = class extends Fo {
         }
       } catch (o) {
         ;(this.plugin.displayError(o),
-          await $r.rm(Ve.join(i, es), { force: !0 }),
-          await $r.rm(Ve.join(i, `${es}.response`), { force: !0 }),
+          await Fr.rm(Ve.join(i, es), { force: !0 }),
+          await Fr.rm(Ve.join(i, `${es}.response`), { force: !0 }),
           await new Promise((l) => setTimeout(l, 5e3)),
           this.plugin.log('Retry watch for ask pass'),
           await this.askpass())
@@ -26997,13 +26993,13 @@ var Ce = class extends Fo {
           ]),
           n = Ve.join(this.app.vault.configDir, 'plugins', 'obsidian-git', es),
           i = this.getRelativeRepoPath(n, !0)
-        ;(await $r.readFile(r, 'utf-8'))
+        ;(await Fr.readFile(r, 'utf-8'))
           .split(
             `
 `,
           )
           .some((l) => l.contains(i)) ||
-          (await $r.appendFile(
+          (await Fr.appendFile(
             r,
             i +
               `
@@ -27534,18 +27530,24 @@ var Ce = class extends Fo {
       return { submodule: n, relativeFilepath: o }
     }
     async getLastCommitTime() {
-      let r = await this.git.log({ n: 1 })
-      if (r != null && r.latest != null) return new Date(r.latest.date)
+      try {
+        let r = await this.git.log({ n: 1 })
+        if (r != null && r.latest != null) return new Date(r.latest.date)
+      } catch (r) {
+        if (r instanceof wr) {
+          if (r.message.contains('does not have any commits yet')) return
+        } else throw r
+      }
     }
     async isGitInstalled() {
       let r = this.plugin.localStorage.getGitPath(),
-        n = await Fc(r || 'git', ['--version'], {})
+        n = await $c(r || 'git', ['--version'], {})
       if (n.error)
         if (Ti.Platform.isWin && !r) {
           this.plugin.log(
             `Git not found in PATH. Checking standard installation path(${hd}) of Git for Windows.`,
           )
-          let i = await Fc(hd, ['--version'])
+          let i = await $c(hd, ['--version'])
           if (i.error) return (console.error(i.error), !1)
           this.useDefaultWindowsGitPath = !0
         } else return (console.error(n.error), !1)
@@ -27553,7 +27555,7 @@ var Ce = class extends Fo {
       return !0
     }
     convertErrors(r) {
-      if (r instanceof Ir) {
+      if (r instanceof wr) {
         let n = String(r.message)
         if (
           n.contains('Could not resolve host') ||
@@ -28369,9 +28371,9 @@ function S3(t, e, r, n, i, a, s) {
                 var L
                 ;(L = g).push.apply(L, xv(f(T)))
               } else {
-                var F,
+                var $,
                   J = Math.min(T.length, s.context)
-                ;(F = g).push.apply(F, xv(f(T.slice(0, J))))
+                ;($ = g).push.apply($, xv(f(T.slice(0, J))))
                 var de = {
                   oldStart: h,
                   oldLines: v - h + J,
@@ -28681,7 +28683,7 @@ var ma = require('obsidian'),
     }
     maybeLog(e) {}
   }
-var wn = class extends Fo {
+var wn = class extends $o {
   constructor(r) {
     super(r)
     this.FILE = 0
@@ -30608,12 +30610,12 @@ var Ov = class {
     compare: (t, e) => t === e,
   })
 m()
-function $3() {
+function F3() {
   ;((jo = void 0), (Iv = []), (rh = 0), ih.clear(), ah.clear(), No.clear())
 }
 var jo,
   nh = () => jo
-function F3(t, e) {
+function $3(t, e) {
   var i
   let r = e.length
   if (r < ((i = jo == null ? void 0 : jo.length) != null ? i : 0)) return
@@ -30667,9 +30669,9 @@ function H3(t, e, r) {
   let i = dU(n)
   i &&
     (!i.isZeroCommit && !i.isWaitingGutter && fU(i, t),
-    $v('showCommitHash', t),
-    $v('authorDisplay', t),
-    $v('dateTimeFormatOptions', t))
+    Fv('showCommitHash', t),
+    Fv('authorDisplay', t),
+    Fv('dateTimeFormatOptions', t))
 }
 function fU(t, e) {
   e.addItem((r) =>
@@ -30680,7 +30682,7 @@ function fU(t, e) {
       .onClick((n) => navigator.clipboard.writeText(t.hash)),
   )
 }
-function $v(t, e) {
+function Fv(t, e) {
   var l, c
   let r,
     n,
@@ -30739,15 +30741,15 @@ function oh(t, e, r) {
     u = r.colorNew,
     f = r.colorOld,
     d = c ? 0.4 : 1,
-    h = Fv(u.r, f.r, l) * d,
-    p = Fv(u.g, f.g, l) * d,
-    g = Fv(u.b, f.b, l) * d
+    h = $v(u.r, f.r, l) * d,
+    p = $v(u.g, f.g, l) * d,
+    g = $v(u.b, f.b, l) * d
   return {
     color: `rgba(${h},${p},${g},${c ? 0.75 : 0.25})`,
     daysSinceCommit: o,
   }
 }
-function Fv(t, e, r) {
+function $v(t, e, r) {
   return t + (e - t) * r
 }
 function hU() {
@@ -30832,7 +30834,7 @@ var V3 = '-',
         n = r.isZeroCommit ? '' : this.renderNonZeroCommit(r)
       return (
         !r.isZeroCommit && this.options !== 'waiting-for-result'
-          ? F3(this, n)
+          ? $3(this, n)
           : (n = this.adaptTextForFakeCommit(r, n, this.options)),
         this.createHtmlNode(r, n, this.options === 'waiting-for-result')
       )
@@ -31144,7 +31146,7 @@ var ch = class {
       }
     }
     destroy() {
-      ;(this.lineAuthorings.clear(), Do.clear(), $3())
+      ;(this.lineAuthorings.clear(), Do.clear(), F3())
     }
     async computeLineAuthorInfo(e) {
       let r =
@@ -31338,7 +31340,7 @@ var fh = class {
   }
 }
 m()
-var Fr = require('obsidian')
+var $r = require('obsidian')
 var dh = class {
   constructor(e, r) {
     this.statusBarEl = e
@@ -31386,14 +31388,14 @@ var dh = class {
         (this.textEl.style.float = 'right'),
         (this.textEl.style.marginLeft = '5px')),
       this.plugin.localStorage.getConflict()
-        ? ((0, Fr.setIcon)(this.conflictEl, 'alert-circle'),
+        ? ((0, $r.setIcon)(this.conflictEl, 'alert-circle'),
           (this.conflictEl.ariaLabel =
             'You have merge conflicts. Resolve them and commit afterwards.'),
           (this.conflictEl.style.marginRight = '5px'),
           this.conflictEl.addClass(this.base + 'conflict'))
         : (this.conflictEl.empty(), (this.conflictEl.style.marginRight = '')),
       this.plugin.localStorage.getPausedAutomatics()
-        ? ((0, Fr.setIcon)(this.pausedEl, 'pause-circle'),
+        ? ((0, $r.setIcon)(this.pausedEl, 'pause-circle'),
           (this.pausedEl.ariaLabel =
             'Automatic routines are currently paused.'),
           (this.pausedEl.style.marginRight = '5px'),
@@ -31406,32 +31408,32 @@ var dh = class {
         break
       case 1:
         ;((this.statusBarEl.ariaLabel = 'Checking repository status...'),
-          (0, Fr.setIcon)(this.iconEl, 'refresh-cw'),
+          (0, $r.setIcon)(this.iconEl, 'refresh-cw'),
           this.statusBarEl.addClass(this.base + 'status'))
         break
       case 3:
         ;((this.statusBarEl.ariaLabel = 'Adding files...'),
-          (0, Fr.setIcon)(this.iconEl, 'archive'),
+          (0, $r.setIcon)(this.iconEl, 'archive'),
           this.statusBarEl.addClass(this.base + 'add'))
         break
       case 4:
         ;((this.statusBarEl.ariaLabel = 'Committing changes...'),
-          (0, Fr.setIcon)(this.iconEl, 'git-commit'),
+          (0, $r.setIcon)(this.iconEl, 'git-commit'),
           this.statusBarEl.addClass(this.base + 'commit'))
         break
       case 5:
         ;((this.statusBarEl.ariaLabel = 'Pushing changes...'),
-          (0, Fr.setIcon)(this.iconEl, 'upload'),
+          (0, $r.setIcon)(this.iconEl, 'upload'),
           this.statusBarEl.addClass(this.base + 'push'))
         break
       case 2:
         ;((this.statusBarEl.ariaLabel = 'Pulling changes...'),
-          (0, Fr.setIcon)(this.iconEl, 'download'),
+          (0, $r.setIcon)(this.iconEl, 'download'),
           this.statusBarEl.addClass(this.base + 'pull'))
         break
       default:
         ;((this.statusBarEl.ariaLabel = 'Failed on initialization!'),
-          (0, Fr.setIcon)(this.iconEl, 'alert-triangle'),
+          (0, $r.setIcon)(this.iconEl, 'alert-triangle'),
           this.statusBarEl.addClass(this.base + 'failed-init'))
         break
     }
@@ -31441,7 +31443,7 @@ var dh = class {
     let e = this.lastCommitTimestamp,
       r = this.plugin.state.offlineMode
     if (e) {
-      let i = (0, Fr.moment)(e).fromNow()
+      let i = (0, $r.moment)(e).fromNow()
       ;((this.statusBarEl.ariaLabel = `${r ? 'Offline: ' : ''}Last Commit: ${i}`),
         (n = this.unPushedCommits) != null &&
           n &&
@@ -31449,8 +31451,8 @@ var dh = class {
 (${this.unPushedCommits} unpushed commits)`))
     } else this.statusBarEl.ariaLabel = r ? 'Git is offline' : 'Git is ready'
     ;(r
-      ? (0, Fr.setIcon)(this.iconEl, 'globe')
-      : (0, Fr.setIcon)(this.iconEl, 'check'),
+      ? (0, $r.setIcon)(this.iconEl, 'globe')
+      : (0, $r.setIcon)(this.iconEl, 'check'),
       this.plugin.settings.changedFilesInStatusBar &&
         this.plugin.cachedStatus &&
         this.textEl.setText(this.plugin.cachedStatus.changed.length.toString()),
@@ -31848,14 +31850,14 @@ function oM(t) {
       name: 'Open source control view',
       callback: async () => {
         var i
-        let r = e.workspace.getLeavesOfType(Ft.type),
+        let r = e.workspace.getLeavesOfType($t.type),
           n
         ;(r.length === 0
           ? ((n =
               (i = e.workspace.getRightLeaf(!1)) != null
                 ? i
                 : e.workspace.getLeaf()),
-            await n.setViewState({ type: Ft.type }))
+            await n.setViewState({ type: $t.type }))
           : (n = r.first()),
           await e.workspace.revealLeaf(n),
           e.workspace.trigger('obsidian-git:refresh'))
@@ -32489,7 +32491,7 @@ function gM(t, e = {}) {
     C = /^mode (\d{6}),(\d{6})\.\.(\d{6})/,
     I = /^new file mode (\d{6})/,
     L = /^deleted file mode (\d{6}),(\d{6})/,
-    F = t.replace(/\\ No newline at end of file/g, '').replace(
+    $ = t.replace(/\\ No newline at end of file/g, '').replace(
       /\r\n?/g,
       `
 `,
@@ -32542,13 +32544,13 @@ function gM(t, e = {}) {
     if (n === null || i === null || a === null || o === null) return
     let q = { content: N },
       B = n.isCombined ? ['+ ', ' +', '++'] : ['+'],
-      Fe = n.isCombined ? ['- ', ' -', '--'] : ['-']
+      $e = n.isCombined ? ['- ', ' -', '--'] : ['-']
     ;(pM(N, B)
       ? (n.addedLines++,
         (q.type = Ke.INSERT),
         (q.oldNumber = void 0),
         (q.newNumber = o++))
-      : pM(N, Fe)
+      : pM(N, $e)
         ? (n.deletedLines++,
           (q.type = Ke.DELETE),
           (q.oldNumber = a++),
@@ -32558,12 +32560,12 @@ function gM(t, e = {}) {
   }
   function ne(N, q) {
     let B = q
-    for (; B < F.length - 3; ) {
+    for (; B < $.length - 3; ) {
       if (N.startsWith('diff')) return !1
       if (
-        F[B].startsWith(u) &&
-        F[B + 1].startsWith(f) &&
-        F[B + 2].startsWith(d)
+        $[B].startsWith(u) &&
+        $[B + 1].startsWith(f) &&
+        $[B + 2].startsWith(d)
       )
         return !0
       B++
@@ -32571,12 +32573,12 @@ function gM(t, e = {}) {
     return !1
   }
   return (
-    F.forEach((N, q) => {
+    $.forEach((N, q) => {
       if (!N || N.startsWith('*')) return
       let B,
-        Fe = F[q - 1],
-        lr = F[q + 1],
-        Ut = F[q + 2]
+        $e = $[q - 1],
+        lr = $[q + 1],
+        Ut = $[q + 2]
       if (N.startsWith('diff --git') || N.startsWith('diff --combined')) {
         if (
           (le(),
@@ -32636,7 +32638,7 @@ function gM(t, e = {}) {
       }
       if (
         (N.startsWith(u) && lr.startsWith(f)) ||
-        (N.startsWith(f) && Fe.startsWith(u))
+        (N.startsWith(f) && $e.startsWith(u))
       ) {
         if (
           n &&
@@ -32933,12 +32935,12 @@ function wh(t, e, r, n = {}) {
   }
 }
 var yM = 'file-summary',
-  $U = 'icon',
-  FU = { colorScheme: ss.colorScheme },
+  FU = 'icon',
+  $U = { colorScheme: ss.colorScheme },
   bh = class {
     constructor(e, r = {}) {
       ;((this.hoganUtils = e),
-        (this.config = Object.assign(Object.assign({}, FU), r)))
+        (this.config = Object.assign(Object.assign({}, $U), r)))
     }
     render(e) {
       let r = e.map((n) =>
@@ -32953,7 +32955,7 @@ var yM = 'file-summary',
             deletedLines: '-' + n.deletedLines,
             addedLines: '+' + n.addedLines,
           },
-          { fileIcon: this.hoganUtils.template($U, qo(n)) },
+          { fileIcon: this.hoganUtils.template(FU, qo(n)) },
         ),
       ).join(`
 `)
@@ -34980,10 +34982,10 @@ var Xo = class t {
     return rO(i, e, r, 0, 0, eO())
   }
   static updateA(e, r, n, i, a) {
-    return DM(FM(e, i, !0, n.length), e, r, n, a)
+    return DM($M(e, i, !0, n.length), e, r, n, a)
   }
   static updateB(e, r, n, i, a) {
-    return DM(FM(e, i, !1, r.length), e, r, n, a)
+    return DM($M(e, i, !1, r.length), e, r, n, a)
   }
 }
 function OM(t, e, r, n) {
@@ -35018,7 +35020,7 @@ function rO(t, e, r, n, i, a) {
   return s
 }
 var Eh = 1e3
-function $M(t, e, r, n) {
+function FM(t, e, r, n) {
   let i = 0,
     a = t.length
   for (;;) {
@@ -35037,7 +35039,7 @@ function $M(t, e, r, n) {
     else return n ? [o.fromA, o.fromB] : [o.toA, o.toB]
   }
 }
-function FM(t, e, r, n) {
+function $M(t, e, r, n) {
   let i = []
   return (
     e.iterChangedRanges((a, s, o, l) => {
@@ -35045,8 +35047,8 @@ function FM(t, e, r, n) {
         u = r ? e.length : n,
         f = 0,
         d = r ? n : e.length
-      ;(a > Eh && ([c, f] = $M(t, a - Eh, r, !0)),
-        s < e.length - Eh && ([u, d] = $M(t, s + Eh, r, !1)))
+      ;(a > Eh && ([c, f] = FM(t, a - Eh, r, !0)),
+        s < e.length - Eh && ([u, d] = FM(t, s + Eh, r, !1)))
       let h = l - o - (s - a),
         p,
         [g, v] = r ? [h, 0] : [0, h]
@@ -35860,7 +35862,7 @@ var fs = class extends Qo.ItemView {
       return await this.plugin.gitManager.show(r, n, !1)
     } catch (i) {
       if (
-        i instanceof Ir &&
+        i instanceof wr &&
         (i.message.includes('does not exist') ||
           i.message.includes('unknown revision or path') ||
           i.message.includes('exists on disk, but not in') ||
@@ -36031,7 +36033,7 @@ var nn = Array.isArray,
   Zc = Array.from,
   c1 = Object.keys,
   Wt = Object.defineProperty,
-  br = Object.getOwnPropertyDescriptor,
+  _r = Object.getOwnPropertyDescriptor,
   u1 = Object.getOwnPropertyDescriptors,
   f1 = Object.prototype,
   fO = Array.prototype,
@@ -36054,7 +36056,7 @@ function dO() {
 }
 m()
 m()
-var _r = Symbol('$state'),
+var xr = Symbol('$state'),
   Qc = Symbol('legacy props'),
   hO = Symbol(''),
   Ih = Symbol('proxy path'),
@@ -36261,7 +36263,7 @@ https://svelte.dev/e/lifecycle_double_unmount`,
       )
     : console.warn('https://svelte.dev/e/lifecycle_double_unmount')
 }
-function $h(t) {
+function Fh(t) {
   D
     ? console.warn(
         `%c[svelte] state_proxy_equality_mismatch
@@ -36320,7 +36322,7 @@ function gs() {
     ;(e.remove(), (e = n))
   }
 }
-function Fh(t) {
+function $h(t) {
   if (!t || t.nodeType !== an) throw (ms(), Ci)
   return t.data
 }
@@ -36434,7 +36436,7 @@ function y1(t) {
   )
     al(t, e)
   else {
-    if (!(e.f & 128)) throw (!e.parent && t instanceof Error && FO(t), t)
+    if (!(e.f & 128)) throw (!e.parent && t instanceof Error && $O(t), t)
     e.b.error(t)
   }
 }
@@ -36449,11 +36451,11 @@ function al(t, e) {
       }
     e = e.parent
   }
-  throw (t instanceof Error && FO(t), t)
+  throw (t instanceof Error && $O(t), t)
 }
 function uG(t, e) {
   var s, o, l
-  let r = br(t, 'message')
+  let r = _r(t, 'message')
   if (!(r && !r.configurable)) {
     for (
       var n = iu ? '  ' : '	',
@@ -36485,7 +36487,7 @@ ${i}
     }
   }
 }
-function FO(t) {
+function $O(t) {
   let e = v1.get(t)
   e &&
     (Wt(t, 'message', { value: e.message }), Wt(t, 'stack', { value: e.stack }))
@@ -36648,7 +36650,7 @@ function A1(t) {
   if ((t.equals(e) || ((t.v = e), (t.wv = cu())), !Sn))
     if (_a !== null) _a.set(t, t.v)
     else {
-      var r = ($i || t.f & 256) && t.deps !== null ? 4096 : 1024
+      var r = (Fi || t.f & 256) && t.deps !== null ? 4096 : 1024
       mt(t, r)
     }
 }
@@ -36770,8 +36772,8 @@ var _s = [],
         for (let [s, { v: o, wv: l }] of r) s.wv <= l && (s.v = o)
         _a = null
       }
-      for (let s of ue(this, bs)) Fi(s)
-      for (let s of ue(this, cl)) Fi(s)
+      for (let s of ue(this, bs)) $i(s)
+      for (let s of ue(this, cl)) $i(s)
       ;(It(this, bs, []), It(this, cl, []))
     }
     capture(e, r) {
@@ -36853,7 +36855,7 @@ var _s = [],
           else if (n & 4194304) {
             var o = (u = r.b) != null && u.pending ? ue(this, cl) : ue(this, bs)
             o.push(r)
-          } else Aa(r) && (r.f & 16 && ue(this, ul).push(r), Fi(r))
+          } else Aa(r) && (r.f & 16 && ue(this, ul).push(r), $i(r))
         var l = r.first
         if (l !== null) {
           r = l
@@ -36934,7 +36936,7 @@ function NO(t) {
       if (!(n.f & 24576) && Aa(n)) {
         var i = xe ? xe.current.size : 0
         if (
-          (Fi(n),
+          ($i(n),
           n.deps === null &&
             n.first === null &&
             n.nodes_start === null &&
@@ -37000,10 +37002,10 @@ function Ss(t, e = !1, r = !0) {
 function ie(t, e, r = !1) {
   var i
   oe !== null &&
-    (!Sr || oe.f & 131072) &&
+    (!Er || oe.f & 131072) &&
     on() &&
     oe.f & 4325394 &&
-    !((i = Er) != null && i.includes(t)) &&
+    !((i = Ar) != null && i.includes(t)) &&
     TO()
   let n = r ? Ne(e) : e
   return (D && Nh(n, t.label), ri(t, n))
@@ -37041,7 +37043,7 @@ function ri(t, e) {
 function I1() {
   O1 = !1
   let t = Array.from(ws)
-  for (let e of t) (e.f & 1024 && mt(e, 4096), Aa(e) && Fi(e))
+  for (let e of t) (e.f & 1024 && mt(e, 4096), Aa(e) && $i(e))
   ws.clear()
 }
 function su(t) {
@@ -37065,7 +37067,7 @@ function GO(t, e) {
 }
 var mG = /^[a-zA-Z_$][a-zA-Z_$0-9]*$/
 function Ne(t) {
-  if (typeof t != 'object' || t === null || _r in t) return t
+  if (typeof t != 'object' || t === null || xr in t) return t
   let e = rl(t)
   if (e !== f1 && e !== fO) return t
   var r = new Map(),
@@ -37077,9 +37079,9 @@ function Ne(t) {
       if (ka === s) return u()
       var f = oe,
         d = ka
-      ;(kt(null), $1(s))
+      ;(kt(null), F1(s))
       var h = u()
-      return (kt(f), $1(d), h)
+      return (kt(f), F1(d), h)
     }
   n && (r.set('length', Pe(t.length, a)), D && (t = vG(t)))
   var l = ''
@@ -37121,13 +37123,13 @@ function Ne(t) {
     },
     get(u, f, d) {
       var v
-      if (f === _r) return t
+      if (f === xr) return t
       if (D && f === Ih) return c
       var h = r.get(f),
         p = f in u
       if (
         (h === void 0 &&
-          (!p || ((v = br(u, f)) != null && v.writable)) &&
+          (!p || ((v = _r(u, f)) != null && v.writable)) &&
           ((h = o(() => {
             var y = Ne(p ? u[f] : We),
               b = Pe(y, a)
@@ -37156,12 +37158,12 @@ function Ne(t) {
     },
     has(u, f) {
       var g
-      if (f === _r) return !0
+      if (f === xr) return !0
       var d = r.get(f),
         h = (d !== void 0 && d.v !== We) || Reflect.has(u, f)
       if (
         d !== void 0 ||
-        (ee !== null && (!h || ((g = br(u, f)) != null && g.writable)))
+        (ee !== null && (!h || ((g = _r(u, f)) != null && g.writable)))
       ) {
         d === void 0 &&
           ((d = o(() => {
@@ -37188,7 +37190,7 @@ function Ne(t) {
               ((y = o(() => Pe(We, a))), r.set(v + '', y), D && sn(y, Es(l, v)))
         }
       if (p === void 0)
-        (!g || ((k = br(u, f)) != null && k.writable)) &&
+        (!g || ((k = _r(u, f)) != null && k.writable)) &&
           ((p = o(() => Pe(void 0, a))),
           ie(p, Ne(d)),
           r.set(f, p),
@@ -37235,7 +37237,7 @@ function Es(t, e) {
 }
 function ep(t) {
   try {
-    if (t !== null && typeof t == 'object' && _r in t) return t[_r]
+    if (t !== null && typeof t == 'object' && xr in t) return t[xr]
   } catch (e) {}
   return t
 }
@@ -37274,7 +37276,7 @@ function VO() {
     if (o === -1) {
       for (let l = s != null ? s : 0; l < this.length; l += 1)
         if (ep(this[l]) === a) {
-          $h('array.indexOf(...)')
+          Fh('array.indexOf(...)')
           break
         }
     }
@@ -37285,7 +37287,7 @@ function VO() {
       if (o === -1) {
         for (let l = 0; l <= (s != null ? s : this.length - 1); l += 1)
           if (ep(this[l]) === a) {
-            $h('array.lastIndexOf(...)')
+            Fh('array.lastIndexOf(...)')
             break
           }
       }
@@ -37296,7 +37298,7 @@ function VO() {
       if (!o) {
         for (let l = 0; l < this.length; l += 1)
           if (ep(this[l]) === a) {
-            $h('array.includes(...)')
+            Fh('array.includes(...)')
             break
           }
       }
@@ -37306,17 +37308,17 @@ function VO() {
       ;((t.indexOf = r), (t.lastIndexOf = n), (t.includes = i))
     }))
 }
-var F1, WO, iu, qO, YO
+var $1, WO, iu, qO, YO
 function tp() {
-  if (F1 === void 0) {
-    ;((F1 = window),
+  if ($1 === void 0) {
+    ;(($1 = window),
       (WO = document),
       (iu = /Firefox/.test(navigator.userAgent)))
     var t = Element.prototype,
       e = Node.prototype,
       r = Text.prototype
-    ;((qO = br(e, 'firstChild').get),
-      (YO = br(e, 'nextSibling').get),
+    ;((qO = _r(e, 'firstChild').get),
+      (YO = _r(e, 'nextSibling').get),
       d1(t) &&
         ((t.__click = void 0),
         (t.__className = void 0),
@@ -37346,7 +37348,7 @@ function G(t, e) {
   }
   return (et(r), r)
 }
-function Ar(t, e) {
+function kr(t, e) {
   var i, a
   if (!se) {
     var r = Ht(t)
@@ -37412,7 +37414,7 @@ function si(t, e, r, n = !0) {
   }
   if ((D && (a.component_function = xn), r))
     try {
-      ;(Fi(a), (a.f |= 32768))
+      ;($i(a), (a.f |= 32768))
     } catch (c) {
       throw (At(a), c)
     }
@@ -37470,7 +37472,7 @@ function ZO(t) {
         : (At(e), n(void 0))
     })
 }
-function kr(t) {
+function Tr(t) {
   return si(4, t, !1)
 }
 function jO(t) {
@@ -37479,12 +37481,12 @@ function jO(t) {
 function Kt(t, e = 0) {
   return si(8 | e, t, !0)
 }
-function $e(t, e = [], r = []) {
+function Fe(t, e = [], r = []) {
   qh(e, r, (n) => {
     si(8, () => t(...n.map(R)), !0)
   })
 }
-function xr(t, e = 0) {
+function Sr(t, e = 0) {
   var r = si(16 | e, t, !0)
   return (D && (r.dev_stack = Mi), r)
 }
@@ -37611,7 +37613,7 @@ function D1(t) {
   Sn = t
 }
 var oe = null,
-  Sr = !1
+  Er = !1
 function kt(t) {
   oe = t
 }
@@ -37619,9 +37621,9 @@ var ee = null
 function Nt(t) {
   ee = t
 }
-var Er = null
+var Ar = null
 function Wh(t) {
-  oe !== null && (!_n || oe.f & 2) && (Er === null ? (Er = [t]) : Er.push(t))
+  oe !== null && (!_n || oe.f & 2) && (Ar === null ? (Ar = [t]) : Ar.push(t))
 }
 var or = null,
   Ur = 0,
@@ -37632,10 +37634,10 @@ function zO(t) {
 var r5 = 1,
   wu = 0,
   ka = wu
-function $1(t) {
+function F1(t) {
   ka = t
 }
-var $i = !1
+var Fi = !1
 function cu() {
   return ++r5
 }
@@ -37650,7 +37652,7 @@ function Aa(t) {
       var i,
         a,
         s = (e & 512) !== 0,
-        o = n && ee !== null && !$i,
+        o = n && ee !== null && !Fi,
         l = r.length
       if ((s || o) && (ee === null || !(ee.f & 16384))) {
         var c = t,
@@ -37667,13 +37669,13 @@ function Aa(t) {
       for (i = 0; i < l; i++)
         if (((a = r[i]), Aa(a) && A1(a), a.wv > t.wv)) return !0
     }
-    ;(!n || (ee !== null && !$i)) && mt(t, 1024)
+    ;(!n || (ee !== null && !Fi)) && mt(t, 1024)
   }
   return !1
 }
 function n5(t, e, r = !0) {
   var n = t.reactions
-  if (n !== null && !(!_n && Er != null && Er.includes(t)))
+  if (n !== null && !(!_n && Ar != null && Ar.includes(t)))
     for (var i = 0; i < n.length; i++) {
       var a = n[i]
       a.f & 2
@@ -37687,20 +37689,20 @@ function zh(t) {
     r = Ur,
     n = Br,
     i = oe,
-    a = $i,
-    s = Er,
+    a = Fi,
+    s = Ar,
     o = ye,
-    l = Sr,
+    l = Er,
     c = ka,
     u = t.f
   ;((or = null),
     (Ur = 0),
     (Br = null),
-    ($i = (u & 256) !== 0 && (Sr || !xs || oe === null)),
+    (Fi = (u & 256) !== 0 && (Er || !xs || oe === null)),
     (oe = u & 96 ? null : t),
-    (Er = null),
+    (Ar = null),
     ba(t.ctx),
-    (Sr = !1),
+    (Er = !1),
     (ka = ++wu),
     t.ac !== null && (t.ac.abort(nl), (t.ac = null)))
   try {
@@ -37713,11 +37715,11 @@ function zh(t) {
         for (d.length = Ur + or.length, h = 0; h < or.length; h++)
           d[Ur + h] = or[h]
       else t.deps = d = or
-      if (!$i || (u & 2 && t.reactions !== null))
+      if (!Fi || (u & 2 && t.reactions !== null))
         for (h = Ur; h < d.length; h++)
           ((g = (p = d[h]).reactions) != null ? g : (p.reactions = [])).push(t)
     } else d !== null && Ur < d.length && (yu(t, Ur), (d.length = Ur))
-    if (on() && Br !== null && !Sr && d !== null && !(t.f & 6146))
+    if (on() && Br !== null && !Er && d !== null && !(t.f & 6146))
       for (h = 0; h < Br.length; h++) n5(Br[h], t)
     return (
       i !== null &&
@@ -37734,10 +37736,10 @@ function zh(t) {
       (Ur = r),
       (Br = n),
       (oe = i),
-      ($i = a),
-      (Er = s),
+      (Fi = a),
+      (Ar = s),
       ba(o),
-      (Sr = l),
+      (Er = l),
       (ka = c))
   }
 }
@@ -37759,7 +37761,7 @@ function yu(t, e) {
   var r = t.deps
   if (r !== null) for (var n = e; n < r.length; n++) wG(t, r[n])
 }
-function Fi(t) {
+function $i(t) {
   var l
   var e = t.f
   if (!(e & 16384)) {
@@ -37791,9 +37793,9 @@ function R(t) {
   var p, g, v, y
   var e = t.f,
     r = (e & 2) !== 0
-  if (((p = t5) == null || p.add(t), oe !== null && !Sr)) {
+  if (((p = t5) == null || p.add(t), oe !== null && !Er)) {
     var n = ee !== null && (ee.f & 16384) !== 0
-    if (!n && !(Er != null && Er.includes(t))) {
+    if (!n && !(Ar != null && Ar.includes(t))) {
       var i = oe.deps
       if (oe.f & 2097152)
         t.rv < wu &&
@@ -37802,7 +37804,7 @@ function R(t) {
             ? Ur++
             : or === null
               ? (or = [t])
-              : (!$i || !or.includes(t)) && or.push(t))
+              : (!Fi || !or.includes(t)) && or.push(t))
       else {
         ;((g = oe.deps) != null ? g : (oe.deps = [])).push(t)
         var a = t.reactions
@@ -37818,7 +37820,7 @@ function R(t) {
     if (Ii) {
       var l = (Ii.f & 2097152) !== 0,
         c = (v = Ii.deps) == null ? void 0 : v.includes(t)
-      if (!l && !Sr && !c) {
+      if (!l && !Er && !c) {
         CO(t.label)
         var u = ei('TracedAt')
         u && console.warn(u)
@@ -37826,7 +37828,7 @@ function R(t) {
     }
     if (
       (ou.delete(t),
-      Qn && !Sr && ru !== null && oe !== null && ru.reaction === oe)
+      Qn && !Er && ru !== null && oe !== null && ru.reaction === oe)
     ) {
       if (t.trace) t.trace()
       else if (((u = ei('TracedAt')), u)) {
@@ -37862,11 +37864,11 @@ function i5(t) {
   return !1
 }
 function Ue(t) {
-  var e = Sr
+  var e = Er
   try {
-    return ((Sr = !0), t())
+    return ((Er = !0), t())
   } finally {
-    Sr = e
+    Er = e
   }
 }
 var bG = -7169
@@ -38296,7 +38298,7 @@ function be(t, e, r = !1) {
     if (s === (s = h)) return
     let g = !1
     if (se) {
-      let A = Fh(n) === ya
+      let A = $h(n) === ya
       !!s === A && ((n = gs()), et(n), Yt(!1), (g = !0))
     }
     var v = hl(),
@@ -38317,7 +38319,7 @@ function be(t, e, r = !1) {
     } else f()
     g && Yt(!0)
   }
-  ;(xr(() => {
+  ;(Sr(() => {
     ;((l = !1), e(c), l || d(null, null))
   }, o),
     se && (n = ge))
@@ -38374,7 +38376,7 @@ function Vr(t, e, r, n, i, a = null) {
               u = null
             })))
   }
-  ;(xr(() => {
+  ;(Sr(() => {
     var I
     ;(g != null || (g = ee), (p = R(h)))
     var y = p.length
@@ -38382,7 +38384,7 @@ function Vr(t, e, r, n, i, a = null) {
     f = y === 0
     let b = !1
     if (se) {
-      var E = Fh(s) === ya
+      var E = $h(s) === ya
       E !== (y === 0) && ((s = gs()), et(s), Yt(!1), (b = !0))
     }
     if (se) {
@@ -38411,7 +38413,7 @@ function Vr(t, e, r, n, i, a = null) {
           : ((A = X1(null, o, null, null, w, x, k, i, e, r, !0)), d.set(x, A)),
           _.add(x))
       }
-      for (let [L, F] of o.items) _.has(L) || T.skipped_effects.add(F.e)
+      for (let [L, $] of o.items) _.has(L) || T.skipped_effects.add($.e)
       T.add_callback(v)
     } else v()
     ;(b && Yt(!0), R(h))
@@ -38472,14 +38474,14 @@ function LG(t, e, r, n, i, a, s, o, l) {
             I
           v = C.prev
           var L = b[0],
-            F = b[b.length - 1]
+            $ = b[b.length - 1]
           for (I = 0; I < b.length; I += 1) Y1(b[I], C, i)
           for (I = 0; I < E.length; I += 1) g.delete(E[I])
-          ;(li(r, L.prev, F.next),
+          ;(li(r, L.prev, $.next),
             li(r, v, L),
-            li(r, F, C),
+            li(r, $, C),
             (p = C),
-            (v = F),
+            (v = $),
             (w -= 1),
             (b = []),
             (E = []))
@@ -38580,7 +38582,7 @@ m()
 m()
 m()
 function Tn(t, e) {
-  kr(() => {
+  Tr(() => {
     var i
     var r = t.getRootNode(),
       n = r.host ? r : (i = r.head) != null ? i : r.ownerDocument.head
@@ -38832,7 +38834,7 @@ function Pn(t, e, r, n) {
       y = !b || (b.f & 32768) !== 0
     }
     y &&
-      kr(() => {
+      Tr(() => {
         Ue(() => g.in())
       })
   }
@@ -38971,11 +38973,11 @@ m()
 m()
 m()
 function k5(t, e) {
-  return t === e || (t == null ? void 0 : t[_r]) === e
+  return t === e || (t == null ? void 0 : t[xr]) === e
 }
 function Ze(t = {}, e, r, n) {
   return (
-    kr(() => {
+    Tr(() => {
       var i, a
       return (
         Kt(() => {
@@ -39025,9 +39027,9 @@ function cn(t, e, r, n) {
     c = () => (l && ((l = !1), (o = s ? Ue(n) : n)), o),
     u
   if (a) {
-    var f = _r in t || Qc in t
+    var f = xr in t || Qc in t
     u =
-      (S = (E = br(t, e)) == null ? void 0 : E.set) != null
+      (S = (E = _r(t, e)) == null ? void 0 : E.set) != null
         ? S
         : f && e in t
           ? (A) => (t[e] = A)
@@ -39449,7 +39451,7 @@ function _u(t, e) {
         ae(y, b))
     }
     be(h, (y) => {
-      $o(e.diff.vaultPath, e.view.app) && y(p)
+      Fo(e.diff.vaultPath, e.view.app) && y(p)
     })
   }
   H(d)
@@ -39459,7 +39461,7 @@ function _u(t, e) {
     H(f),
     H(l),
     H(o),
-    $e(
+    Fe(
       (y) => {
         ;(ve(l, 'data-path', e.diff.vaultPath),
           ve(l, 'data-tooltip-position', R(n)),
@@ -39509,7 +39511,7 @@ function xu(t, e) {
     zr,
     (l, c) => {
       var u = Li(),
-        f = Ar(u)
+        f = kr(u)
       {
         var d = (p) => {
             var g = Ez(),
@@ -39571,7 +39573,7 @@ function xu(t, e) {
               })
             }
             ;(H(g),
-              $e(
+              Fe(
                 (x, _) => {
                   ;((v = ot(g, 1, 'tree-item nav-folder', null, v, x)),
                     ve(y, 'data-tooltip-position', R(i)),
@@ -39601,7 +39603,7 @@ function xu(t, e) {
     },
   ),
     H(s),
-    $e(
+    Fe(
       (l) => (o = ot(s, 1, 'svelte-1lnl15d', null, o, l)),
       [() => ({ topLevel: r() })],
     ),
@@ -39613,8 +39615,8 @@ var Rz = (t, e) => ie(e, !R(e)),
   Mz = fe('<div class="git-ref"> </div>'),
   Oz = fe('<div class="git-author"> </div>'),
   Iz = fe('<div class="git-date"> </div>'),
-  $z = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  Fz = fe(
+  Fz = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  $z = fe(
     '<main><div><div class="tree-item-self is-clickable nav-folder-title"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div><!> <!> <!> <div class="tree-item-inner nav-folder-title-content"> </div></div></div> <!></div></main>',
   ),
   Dz = { hash: 'svelte-45h', code: '' }
@@ -39638,7 +39640,7 @@ function oy(t, e) {
         .map((C) => C[0].toUpperCase())
         .join('')
   }
-  var o = Fz(),
+  var o = $z(),
     l = G(o)
   let c
   var u = G(l)
@@ -39651,7 +39653,7 @@ function oy(t, e) {
     var g = (x) => {
       var _ = Mz(),
         T = G(_, !0)
-      ;(H(_), $e((C) => Be(T, C), [() => e.log.refs.join(', ')]), ae(x, _))
+      ;(H(_), Fe((C) => Be(T, C), [() => e.log.refs.join(', ')]), ae(x, _))
     }
     be(p, (x) => {
       e.log.refs.length > 0 && x(g)
@@ -39662,7 +39664,7 @@ function oy(t, e) {
     var y = (x) => {
       var _ = Oz(),
         T = G(_, !0)
-      ;(H(_), $e((C) => Be(T, C), [() => s(e.log)]), ae(x, _))
+      ;(H(_), Fe((C) => Be(T, C), [() => s(e.log)]), ae(x, _))
     }
     be(v, (x) => {
       var _
@@ -39678,7 +39680,7 @@ function oy(t, e) {
       var _ = Iz(),
         T = G(_, !0)
       ;(H(_),
-        $e(
+        Fe(
           (C) => Be(T, C),
           [
             () =>
@@ -39699,7 +39701,7 @@ function oy(t, e) {
   var k = te(u, 2)
   {
     var w = (x) => {
-      var _ = $z(),
+      var _ = Fz(),
         T = G(_)
       {
         var C = (L) => {
@@ -39717,14 +39719,14 @@ function oy(t, e) {
               get closed() {
                 return R(a)
               },
-              set closed(F) {
-                ie(a, F, !0)
+              set closed($) {
+                ie(a, $, !0)
               },
             })
           },
           I = (L) => {
-            var F = Li(),
-              J = Ar(F)
+            var $ = Li(),
+              J = kr($)
             ;(Vr(
               J,
               17,
@@ -39741,7 +39743,7 @@ function oy(t, e) {
                 })
               },
             ),
-              ae(L, F))
+              ae(L, $))
           }
         be(T, (L) => {
           e.showTree ? L(C) : L(I, !1)
@@ -39762,7 +39764,7 @@ function oy(t, e) {
   }
   ;(H(l),
     H(o),
-    $e(
+    Fe(
       (x, _, T) => {
         ;((c = ot(l, 1, 'tree-item nav-folder', null, c, x)),
           ve(u, 'aria-label', _),
@@ -39939,7 +39941,7 @@ function cy(t, e) {
   ;(il(4),
     H(y),
     H(f),
-    $e(
+    Fe(
       (S) => {
         ;(ve(p, 'data-icon', R(s) ? 'list' : 'folder'),
           (v = ot(g, 1, 'clickable-icon nav-action-button', null, v, S)))
@@ -40006,7 +40008,7 @@ var P5 = require('obsidian'),
     }
   }
 m()
-var F5 = require('obsidian')
+var $5 = require('obsidian')
 m()
 var Ms = require('obsidian')
 m()
@@ -40201,7 +40203,7 @@ function ku(t, e) {
         ae(E, S))
     }
     be(h, (E) => {
-      $o(e.change.vaultPath, e.view.app) && E(p)
+      Fo(e.change.vaultPath, e.view.app) && E(p)
     })
   }
   var g = te(h, 2)
@@ -40225,7 +40227,7 @@ function ku(t, e) {
     H(f),
     H(l),
     H(o),
-    $e(
+    Fe(
       (E) => {
         ;(ve(l, 'data-path', e.change.vaultPath),
           ve(l, 'data-tooltip-position', R(n)),
@@ -40286,7 +40288,7 @@ function Tu(t, e) {
     H(l),
     H(a),
     H(i),
-    $e(
+    Fe(
       (f) => {
         ;(ve(a, 'data-path', e.change.vaultPath),
           ve(a, 'data-tooltip-position', R(r)),
@@ -40385,7 +40387,7 @@ function Cu(t, e) {
         ae(b, E))
     }
     be(h, (b) => {
-      $o(e.change.vaultPath, e.view.app) && b(p)
+      Fo(e.change.vaultPath, e.view.app) && b(p)
     })
   }
   var g = te(h, 2)
@@ -40402,7 +40404,7 @@ function Cu(t, e) {
     H(f),
     H(l),
     H(o),
-    $e(
+    Fe(
       (b) => {
         ;(ve(l, 'data-path', e.change.vaultPath),
           ve(l, 'data-tooltip-position', R(n)),
@@ -40448,7 +40450,7 @@ function Ps(t, e) {
       ;(H(l),
         H(o),
         H(s),
-        $e(() => {
+        Fe(() => {
           ;(ve(
             o,
             'aria-label',
@@ -40522,11 +40524,11 @@ function Rs(t, e) {
   Vr(
     h,
     17,
-    () => $c(e.hierarchy.children, 500),
+    () => Fc(e.hierarchy.children, 500),
     zr,
     (g, v) => {
       var y = Li(),
-        b = Ar(y)
+        b = kr(y)
       {
         var E = (A) => {
             var k = nV(),
@@ -40547,7 +40549,7 @@ function Rs(t, e) {
                 },
                 _ = (T) => {
                   var C = Li(),
-                    I = Ar(C)
+                    I = kr(C)
                   {
                     var L = (J) => {
                         ku(J, {
@@ -40562,9 +40564,9 @@ function Rs(t, e) {
                           },
                         })
                       },
-                      F = (J) => {
+                      $ = (J) => {
                         var de = Li(),
-                          le = Ar(de)
+                          le = kr(de)
                         {
                           var ce = (Te) => {
                             Tu(Te, {
@@ -40589,7 +40591,7 @@ function Rs(t, e) {
                     be(
                       I,
                       (J) => {
-                        e.fileType == 1 ? J(L) : J(F, !1)
+                        e.fileType == 1 ? J(L) : J($, !1)
                       },
                       !0,
                     )
@@ -40613,8 +40615,8 @@ function Rs(t, e) {
               I = G(C, !0)
             H(C)
             var L = te(C, 2),
-              F = G(L),
-              J = G(F)
+              $ = G(L),
+              J = G($)
             {
               var de = (ne) => {
                   var N = sV()
@@ -40622,7 +40624,7 @@ function Rs(t, e) {
                 },
                 le = (ne) => {
                   var N = cV(),
-                    q = Ar(N)
+                    q = kr(N)
                   q.__click = [oV, c, v]
                   var B = te(q, 2)
                   ;((B.__click = [lV, o, v]), ae(ne, N))
@@ -40631,7 +40633,7 @@ function Rs(t, e) {
                 e.fileType == 0 ? ne(de) : ne(le, !1)
               })
             }
-            ;(il(2), H(F), H(L), H(x))
+            ;(il(2), H($), H(L), H(x))
             var ce = te(x, 2)
             {
               var Te = (ne) => {
@@ -40671,7 +40673,7 @@ function Rs(t, e) {
               })
             }
             ;(H(k),
-              $e(
+              Fe(
                 (ne, N) => {
                   ;((w = ot(k, 1, 'tree-item nav-folder', null, w, ne)),
                     ve(x, 'data-tooltip-position', R(s)),
@@ -40716,7 +40718,7 @@ function Rs(t, e) {
     },
   }),
     H(f),
-    $e((g) => (d = ot(f, 1, '', null, d, g)), [() => ({ topLevel: i() })]),
+    Fe((g) => (d = ot(f, 1, '', null, d, g)), [() => ({ topLevel: i() })]),
     ae(t, f),
     rt())
 }
@@ -40733,15 +40735,17 @@ function hV(t, e, r, n, i, a) {
   }
 }
 function I5(t, e, r, n, i) {
-  ;(ie(e, !0),
+  ;(t.stopPropagation(),
+    ie(e, !0),
     r().promiseQueue.addTask(() =>
       r()
         .gitManager.stageAll({ status: R(n) })
         .finally(i),
     ))
 }
-function $5(t, e, r, n, i) {
-  ;(ie(e, !0),
+function F5(t, e, r, n, i) {
+  ;(t.stopPropagation(),
+    ie(e, !0),
     r().promiseQueue.addTask(() =>
       r()
         .gitManager.unstageAll({ status: R(n) })
@@ -40939,14 +40943,14 @@ function fy(t, e) {
       (X) => (l[2] = X),
       () => (l == null ? void 0 : l[2]),
     ))
-  var F = te(L, 2)
-  ;((F.__click = [$5, i, r, a, k]),
+  var $ = te(L, 2)
+  ;(($.__click = [F5, i, r, a, k]),
     Ze(
-      F,
+      $,
       (X) => (l[3] = X),
       () => (l == null ? void 0 : l[3]),
     ))
-  var J = te(F, 2)
+  var J = te($, 2)
   ;((J.__click = [pV, i, r, k]),
     Ze(
       J,
@@ -40991,8 +40995,8 @@ function fy(t, e) {
     })
   }
   H(ne)
-  var Fe = te(ne, 2),
-    lr = G(Fe)
+  var $e = te(ne, 2),
+    lr = G($e)
   {
     var Ut = (X) => {
       var Oe = RV(),
@@ -41005,7 +41009,7 @@ function fy(t, e) {
       var j = te(U, 4),
         Z = G(j),
         Se = G(Z)
-      ;((Se.__click = [$5, i, r, a, k]),
+      ;((Se.__click = [F5, i, r, a, k]),
         Ze(
           Se,
           (Mt) => (l[8] = Mt),
@@ -41046,11 +41050,11 @@ function fy(t, e) {
               },
               Os = (Jt) => {
                 var fn = _V(),
-                  Pa = Ar(fn)
+                  Pa = kr(fn)
                 Vr(
                   Pa,
                   17,
-                  () => $c(R(a).staged, 500),
+                  () => Fc(R(a).staged, 500),
                   zr,
                   (Hi, yl) => {
                     Cu(Hi, {
@@ -41144,11 +41148,11 @@ function fy(t, e) {
               },
               Os = (Jt) => {
                 var fn = EV(),
-                  Pa = Ar(fn)
+                  Pa = kr(fn)
                 Vr(
                   Pa,
                   17,
-                  () => $c(R(a).changed, 500),
+                  () => Fc(R(a).changed, 500),
                   zr,
                   (Hi, yl) => {
                     ku(Hi, {
@@ -41231,7 +41235,7 @@ function fy(t, e) {
                   },
                   V5 = (Is) => {
                     var Ou = TV(),
-                      wy = Ar(Ou)
+                      wy = kr(Ou)
                     Vr(
                       wy,
                       17,
@@ -41274,7 +41278,7 @@ function fy(t, e) {
             })
           }
           ;(H(Gt),
-            $e(
+            Fe(
               (fi) => {
                 ;((Bi = ot(Gt, 1, 'pulled nav-folder', null, Bi, fi)),
                   Be(Jt, R(s).length))
@@ -41288,7 +41292,7 @@ function fy(t, e) {
         })
       }
       ;(H(Oe),
-        $e(
+        Fe(
           (Mt, Gt, Bi, Rn) => {
             ;((Pt = ot(De, 1, 'staged tree-item nav-folder', null, Pt, Mt)),
               (Je = ot(
@@ -41324,11 +41328,11 @@ function fy(t, e) {
       R(a) && R(u) && R(c) && X(Ut)
     })
   }
-  ;(H(Fe),
+  ;(H($e),
     H(x),
-    $e(
+    Fe(
       (X) => {
-        ;(ve(x, 'data-type', Ft.type),
+        ;(ve(x, 'data-type', $t.type),
           ve(le, 'data-icon', R(E) ? 'list' : 'folder'),
           (Te = ot(ce, 1, 'clickable-icon nav-action-button', null, Te, X)),
           ve(N, 'rows', R(w)))
@@ -41344,18 +41348,18 @@ function fy(t, e) {
     rt())
 }
 gt(['click'])
-var Pu = class extends F5.ItemView {
+var Pu = class extends $5.ItemView {
   constructor(e, r) {
     ;(super(e), (this.plugin = r), (this.hoverPopover = null))
   }
   getViewType() {
-    return Ft.type
+    return $t.type
   }
   getDisplayText() {
-    return Ft.name
+    return $t.name
   }
   getIcon() {
-    return Ft.icon
+    return $t.icon
   }
   onClose() {
     return (this._view && ji(this._view), super.onClose())
@@ -41429,7 +41433,7 @@ var vp = class extends _e.Plugin {
   }
   async refresh() {
     if (!this.gitReady) return
-    let r = this.app.workspace.getLeavesOfType(Ft.type),
+    let r = this.app.workspace.getLeavesOfType($t.type),
       n = this.app.workspace.getLeavesOfType(Zr.type)
     ;((this.settings.changedFilesInStatusBar ||
       r.some((i) => {
@@ -41473,7 +41477,7 @@ var vp = class extends _e.Plugin {
       (this.log('Reloading settings'),
       this.unloadPlugin(),
       await this.init({ fromReload: !0 }),
-      this.app.workspace.getLeavesOfType(Ft.type).forEach((i) => {
+      this.app.workspace.getLeavesOfType($t.type).forEach((i) => {
         var a
         if (!((a = i.isDeferred) != null && a)) return i.view.reload()
       }),
@@ -41536,7 +41540,7 @@ var vp = class extends _e.Plugin {
             (r = this.autoCommitDebouncer) == null || r.call(this))
         }),
       ),
-      this.registerView(Ft.type, (r) => new Pu(r, this)),
+      this.registerView($t.type, (r) => new Pu(r, this)),
       this.registerView(Zr.type, (r) => new Su(r, this)),
       this.registerView(ua.type, (r) => new ls(r, this)),
       this.registerView(ca.type, (r) => new fs(r, this)),
@@ -41545,19 +41549,19 @@ var vp = class extends _e.Plugin {
         'Open Git source control',
         async () => {
           var i
-          let r = this.app.workspace.getLeavesOfType(Ft.type),
+          let r = this.app.workspace.getLeavesOfType($t.type),
             n
           ;(r.length === 0
             ? ((n =
                 (i = this.app.workspace.getRightLeaf(!1)) != null
                   ? i
                   : this.app.workspace.getLeaf()),
-              await n.setViewState({ type: Ft.type }))
+              await n.setViewState({ type: $t.type }))
             : (n = r.first()),
             await this.app.workspace.revealLeaf(n))
         },
       ),
-      this.registerHoverLinkSource(Ft.type, {
+      this.registerHoverLinkSource($t.type, {
         display: 'Git View',
         defaultMod: !0,
       }),
@@ -41601,12 +41605,12 @@ var vp = class extends _e.Plugin {
             .setSection('action')
             .onClick((l) => {
               this.promiseQueue.addTask(async () => {
-                ;(n instanceof _e.TFile
-                  ? await this.gitManager.stage(n.path, !0)
-                  : await this.gitManager.stageAll({
+                n instanceof _e.TFile
+                  ? await this.stageFile(n)
+                  : (await this.gitManager.stageAll({
                       dir: this.gitManager.getRelativeRepoPath(s, !0),
                     }),
-                  this.displayMessage(`Staged ${s}`))
+                    this.app.workspace.trigger('obsidian-git:refresh'))
               })
             })
         }),
@@ -41616,12 +41620,12 @@ var vp = class extends _e.Plugin {
             .setSection('action')
             .onClick((l) => {
               this.promiseQueue.addTask(async () => {
-                ;(n instanceof _e.TFile
-                  ? await this.gitManager.unstage(n.path, !0)
-                  : await this.gitManager.unstageAll({
+                n instanceof _e.TFile
+                  ? await this.unstageFile(n)
+                  : (await this.gitManager.unstageAll({
                       dir: this.gitManager.getRelativeRepoPath(s, !0),
                     }),
-                  this.displayMessage(`Unstaged ${s}`))
+                    this.app.workspace.trigger('obsidian-git:refresh'))
               })
             })
         }),
@@ -41997,7 +42001,7 @@ var vp = class extends _e.Plugin {
             '{{date}}',
             (0, _e.moment)().format(this.settings.commitDateFormat),
           )
-          let y = await Fc('sh', ['-c', v], {
+          let y = await $c('sh', ['-c', v], {
             cwd: this.gitManager.absoluteRepoPath,
           })
           y.code != 0
@@ -42112,7 +42116,6 @@ var vp = class extends _e.Plugin {
   async stageFile(r) {
     return (await this.isAllInitialized())
       ? (await this.gitManager.stage(r.path, !0),
-        this.displayMessage(`Staged ${r.path}`),
         this.app.workspace.trigger('obsidian-git:refresh'),
         this.setPluginState({ gitAction: 0 }),
         !0)
@@ -42121,7 +42124,6 @@ var vp = class extends _e.Plugin {
   async unstageFile(r) {
     return (await this.isAllInitialized())
       ? (await this.gitManager.unstage(r.path, !0),
-        this.displayMessage(`Unstaged ${r.path}`),
         this.app.workspace.trigger('obsidian-git:refresh'),
         this.setPluginState({ gitAction: 0 }),
         !0)
@@ -42301,7 +42303,10 @@ I strongly recommend to use "Source mode" for viewing the conflicted files. For 
       }).openAndGetResult()
     if (i) {
       let a = await this.gitManager.getRemoteUrl(i),
-        o = await new ze(this, { initialValue: a }).openAndGetResult()
+        o = await new ze(this, {
+          initialValue: a,
+          placeholder: 'Enter remote URL',
+        }).openAndGetResult()
       if (o) return (await this.gitManager.setRemote(i, vv(o)), i)
     }
   }
@@ -42326,7 +42331,7 @@ I strongly recommend to use "Source mode" for viewing the conflicted files. For 
           placeholder:
             'Select or create a new remote branch by typing its name and selecting it',
         }).openAndGetResult()
-      return l.startsWith(a + '/') ? l : `${a}/${l}`
+      return l == null ? void 0 : l.startsWith(a + '/') ? l : `${a}/${l}`
     }
   }
   async removeRemote() {
@@ -42346,7 +42351,7 @@ I strongly recommend to use "Source mode" for viewing the conflicted files. For 
       !(n instanceof ls || n instanceof fs)
     )
       return
-    let i = this.app.workspace.getLeavesOfType(Ft.type).first(),
+    let i = this.app.workspace.getLeavesOfType($t.type).first(),
       a = this.app.workspace.getLeavesOfType(Zr.type).first()
     if (
       ((s =
