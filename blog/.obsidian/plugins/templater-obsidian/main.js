@@ -536,28 +536,28 @@ var Qi = (function () {
     (n.register = function (e) {
       var t = e.docNodeManager
       ;(t.registerDocNodes('@microsoft/tsdoc', [
-        { docNodeKind: g.Block, constructor: Wt },
+        { docNodeKind: g.Block, constructor: Vt },
         { docNodeKind: g.BlockTag, constructor: Yn },
         { docNodeKind: g.CodeSpan, constructor: Un },
         { docNodeKind: g.Comment, constructor: Gn },
         { docNodeKind: g.DeclarationReference, constructor: Wn },
-        { docNodeKind: g.ErrorText, constructor: Ct },
+        { docNodeKind: g.ErrorText, constructor: Dt },
         { docNodeKind: g.EscapedText, constructor: Vn },
         { docNodeKind: g.Excerpt, constructor: j },
         { docNodeKind: g.FencedCode, constructor: zn },
         { docNodeKind: g.HtmlAttribute, constructor: Jn },
         { docNodeKind: g.HtmlEndTag, constructor: Qn },
         { docNodeKind: g.HtmlStartTag, constructor: Xn },
-        { docNodeKind: g.InheritDocTag, constructor: fn },
-        { docNodeKind: g.InlineTag, constructor: Vt },
+        { docNodeKind: g.InheritDocTag, constructor: dn },
+        { docNodeKind: g.InlineTag, constructor: zt },
         { docNodeKind: g.LinkTag, constructor: Zn },
-        { docNodeKind: g.MemberIdentifier, constructor: dn },
+        { docNodeKind: g.MemberIdentifier, constructor: mn },
         { docNodeKind: g.MemberReference, constructor: er },
         { docNodeKind: g.MemberSelector, constructor: tr },
         { docNodeKind: g.MemberSymbol, constructor: nr },
         { docNodeKind: g.Paragraph, constructor: st },
-        { docNodeKind: g.ParamBlock, constructor: mn },
-        { docNodeKind: g.ParamCollection, constructor: un },
+        { docNodeKind: g.ParamBlock, constructor: gn },
+        { docNodeKind: g.ParamCollection, constructor: fn },
         { docNodeKind: g.PlainText, constructor: Ve },
         { docNodeKind: g.Section, constructor: xt },
         { docNodeKind: g.SoftBreak, constructor: rr },
@@ -1189,7 +1189,7 @@ var Ma = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  Wt = (function (n) {
+  Vt = (function (n) {
     Ma(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -1259,7 +1259,7 @@ var u
     (n[(n.Plus = 2028)] = 'Plus'),
     (n[(n.DollarSign = 2029)] = 'DollarSign'))
 })(u || (u = {}))
-var Dt = (function () {
+var Pt = (function () {
   function n(e, t, r) {
     ;((this.kind = e), (this.range = t), (this.line = r))
   }
@@ -1978,7 +1978,7 @@ var Fa = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  un = (function (n) {
+  fn = (function (n) {
     Fa(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -2072,8 +2072,8 @@ var qa = (function () {
         (r.remarksBlock = void 0),
         (r.privateRemarks = void 0),
         (r.deprecatedBlock = void 0),
-        (r.params = new un({ configuration: r.configuration })),
-        (r.typeParams = new un({ configuration: r.configuration })),
+        (r.params = new fn({ configuration: r.configuration })),
+        (r.typeParams = new fn({ configuration: r.configuration })),
         (r.returnsBlock = void 0),
         (r.modifierTagSet = new Ir()),
         (r._seeBlocks = []),
@@ -2306,7 +2306,7 @@ var $a = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  Ct = (function (n) {
+  Dt = (function (n) {
     $a(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -3024,7 +3024,7 @@ var Wa = (function () {
           (o || (o = Array.prototype.slice.call(e, 0, r)), (o[r] = e[r]))
     return n.concat(o || Array.prototype.slice.call(e))
   },
-  zt = (function (n) {
+  Jt = (function (n) {
     Wa(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -3119,7 +3119,7 @@ var Va = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  fn = (function (n) {
+  dn = (function (n) {
     Va(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -3149,7 +3149,7 @@ var Va = (function () {
       }),
       e
     )
-  })(zt)
+  })(Jt)
 var za = (function () {
     var n = function (e, t) {
       return (
@@ -3179,7 +3179,7 @@ var za = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  Vt = (function (n) {
+  zt = (function (n) {
     za(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -3219,7 +3219,7 @@ var za = (function () {
       }),
       e
     )
-  })(zt)
+  })(Jt)
 var Ja = (function () {
     var n = function (e, t) {
       return (
@@ -3358,7 +3358,7 @@ var Ja = (function () {
       }),
       e
     )
-  })(zt)
+  })(Jt)
 var Qa = (function () {
     var n = function (e, t) {
       return (
@@ -3388,7 +3388,7 @@ var Qa = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  dn = (function (n) {
+  mn = (function (n) {
     Qa(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -3644,13 +3644,13 @@ var Za = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  Jt
+  Qt
 ;(function (n) {
   ;((n.Error = 'error'),
     (n.System = 'system'),
     (n.Index = 'index'),
     (n.Label = 'label'))
-})(Jt || (Jt = {}))
+})(Qt || (Qt = {}))
 var tr = (function (n) {
   Za(e, n)
   function e(t) {
@@ -3664,22 +3664,22 @@ var tr = (function (n) {
           })),
           (r._selector = t.selectorExcerpt.toString()))
         : (r._selector = t.selector),
-      (r._selectorKind = Jt.Error),
+      (r._selectorKind = Qt.Error),
       (r._errorMessage = void 0),
       r._selector.length === 0
         ? (r._errorMessage = 'The selector cannot be an empty string')
         : e._likeIndexSelectorRegExp.test(r._selector)
           ? e._indexSelectorRegExp.test(r._selector)
-            ? (r._selectorKind = Jt.Index)
+            ? (r._selectorKind = Qt.Index)
             : (r._errorMessage =
                 'If the selector begins with a number, it must be a positive integer value')
           : e._likeLabelSelectorRegExp.test(r._selector)
             ? e._labelSelectorRegExp.test(r._selector)
-              ? (r._selectorKind = Jt.Label)
+              ? (r._selectorKind = Qt.Label)
               : (r._errorMessage =
                   'A label selector must be comprised of upper case letters, numbers, and underscores and must not start with a number')
             : re.isSystemSelector(r._selector)
-              ? (r._selectorKind = Jt.System)
+              ? (r._selectorKind = Qt.System)
               : e._likeSystemSelectorRegExp.test(r._selector)
                 ? (r._errorMessage =
                     'The selector '.concat(JSON.stringify(r._selector)) +
@@ -3838,7 +3838,7 @@ var ts = (function () {
         t === null ? Object.create(t) : ((r.prototype = t.prototype), new r())
     }
   })(),
-  mn = (function (n) {
+  gn = (function (n) {
     ts(e, n)
     function e(t) {
       var r = n.call(this, t) || this
@@ -3940,7 +3940,7 @@ var ts = (function () {
       }),
       e
     )
-  })(Wt)
+  })(Vt)
 var ns = (function () {
     var n = function (e, t) {
       return (
@@ -4208,7 +4208,7 @@ var ze = (function () {
     n
   )
 })()
-var gn = (function () {
+var hn = (function () {
   function n(e) {
     ;((this.messageId = e.messageId),
       (this.unformattedText = e.messageText),
@@ -4263,11 +4263,11 @@ var Lr = (function () {
       this._messages.push(e)
     }),
     (n.prototype.addMessageForTextRange = function (e, t, r) {
-      this.addMessage(new gn({ messageId: e, messageText: t, textRange: r }))
+      this.addMessage(new hn({ messageId: e, messageText: t, textRange: r }))
     }),
     (n.prototype.addMessageForTokenSequence = function (e, t, r, i) {
       this.addMessage(
-        new gn({
+        new hn({
           messageId: e,
           messageText: t,
           textRange: r.getContainingTextRange(),
@@ -4280,7 +4280,7 @@ var Lr = (function () {
       var t
       ;(e.textExcerpt ? (t = e.textExcerpt) : (t = e.errorLocation),
         this.addMessage(
-          new gn({
+          new hn({
             messageId: e.messageId,
             messageText: e.errorMessage,
             textRange: t.getContainingTextRange(),
@@ -4499,7 +4499,7 @@ var no = (function () {
     n
   )
 })()
-var hn = (function () {
+var An = (function () {
   function n() {}
   return (
     (n.readTokens = function (e) {
@@ -4510,8 +4510,8 @@ var hn = (function () {
       }
       return (
         r
-          ? t.push(new Dt(u.EndOfInput, r.getNewRange(r.end, r.end), r))
-          : t.push(new Dt(u.EndOfInput, ze.empty, ze.empty)),
+          ? t.push(new Pt(u.EndOfInput, r.getNewRange(r.end, r.end), r))
+          : t.push(new Pt(u.EndOfInput, ze.empty, ze.empty)),
         t
       )
     }),
@@ -4524,13 +4524,13 @@ var hn = (function () {
           d = n._charCodeMap[c]
         ;(d === void 0 && (d = u.Other),
           (a !== void 0 && d === a && n._isMultiCharacterToken(a)) ||
-            (a !== void 0 && e.push(new Dt(a, t.getNewRange(l, o), t)),
+            (a !== void 0 && e.push(new Pt(a, t.getNewRange(l, o), t)),
             (l = o),
             (a = d)),
           ++o)
       }
-      ;(a !== void 0 && e.push(new Dt(a, t.getNewRange(l, o), t)),
-        e.push(new Dt(u.Newline, t.getNewRange(t.end, t.end), t)))
+      ;(a !== void 0 && e.push(new Pt(a, t.getNewRange(l, o), t)),
+        e.push(new Pt(u.Newline, t.getNewRange(t.end, t.end), t)))
     }),
     (n._isMultiCharacterToken = function (e) {
       switch (e) {
@@ -4710,7 +4710,7 @@ var lr = function () {
     lr.apply(this, arguments)
   )
 }
-function An(n) {
+function _n(n) {
   return n !== void 0 && Object.hasOwnProperty.call(n, 'failureMessage')
 }
 var ro = (function () {
@@ -4749,7 +4749,7 @@ var ro = (function () {
             var r = e.createMarker(),
               i = this._parseInlineTag(e),
               o = this._parserContext.docComment
-            if (i instanceof fn) {
+            if (i instanceof dn) {
               var a = e.createMarker() - 1
               o.inheritDocTag === void 0
                 ? (this._parserContext.docComment.inheritDocTag = i)
@@ -4919,7 +4919,7 @@ var ro = (function () {
                 (this._currentSection = c.content))
               return
             } else {
-              var d = new Wt({
+              var d = new Vt({
                 configuration: this._configuration,
                 blockTag: a,
               })
@@ -5046,7 +5046,7 @@ var ro = (function () {
       var m = re.explainIfInvalidUnquotedIdentifier(c)
       if (m !== void 0) {
         e.backtrackToMarker(i)
-        var _ = new mn({
+        var _ = new gn({
             configuration: this._configuration,
             blockTag: t,
             parameterName: '',
@@ -5103,7 +5103,7 @@ var ro = (function () {
               t.getTokenSequence(),
               t,
             ),
-        new mn({
+        new gn({
           parsed: !0,
           configuration: this._configuration,
           blockTag: t,
@@ -5137,7 +5137,7 @@ var ro = (function () {
           'A backslash must precede another character that is being escaped',
         )
       var r = e.readToken()
-      if (!hn.isPunctuation(r.kind))
+      if (!An.isPunctuation(r.kind))
         return this._backtrackAndCreateError(
           e,
           t,
@@ -5292,7 +5292,7 @@ var ro = (function () {
               'The TSDoc inline tag name is missing its closing "}"',
             )
           case u.Backslash:
-            if ((e.readToken(), !hn.isPunctuation(e.peekTokenKind()))) {
+            if ((e.readToken(), !An.isPunctuation(e.peekTokenKind()))) {
               var a = this._createFailureForToken(
                 e,
                 v.UnnecessaryBackslash,
@@ -5350,14 +5350,14 @@ var ro = (function () {
           E = this._parseLinkTag(b, k)
           break
         default:
-          E = new Vt(b)
+          E = new zt(b)
       }
       var O =
         this._parserContext.configuration.tryGetTagDefinitionWithUpperCase(S)
       return (this._validateTagDefinition(O, o, !0, l, E), E)
     }),
     (n.prototype._parseInheritDocTag = function (e, t) {
-      var r = new Vt(e),
+      var r = new zt(e),
         i = lr({}, e)
       if (t.peekTokenKind() !== u.EndOfInput) {
         if (
@@ -5381,10 +5381,10 @@ var ro = (function () {
             r
           )
       }
-      return new fn(i)
+      return new dn(i)
     }),
     (n.prototype._parseLinkTag = function (e, t) {
-      var r = new Vt(e),
+      var r = new zt(e),
         i = lr({}, e)
       if (!e.tagContentExcerpt)
         return (
@@ -5822,7 +5822,7 @@ var ro = (function () {
         return (
           e.readToken(),
           (o = e.extractAccumulatedSequence()),
-          new dn({
+          new mn({
             parsed: !0,
             configuration: this._configuration,
             leftQuoteExcerpt: i,
@@ -5862,7 +5862,7 @@ var ro = (function () {
           )
           return
         }
-        return new dn({
+        return new mn({
           parsed: !0,
           configuration: this._configuration,
           leftQuoteExcerpt: i,
@@ -5906,7 +5906,7 @@ var ro = (function () {
         throw new Error('Expecting an HTML tag starting with "<"')
       var i = e.extractAccumulatedSequence(),
         o = this._parseHtmlName(e)
-      if (An(o))
+      if (_n(o))
         return this._backtrackAndCreateErrorForFailure(
           e,
           t,
@@ -5919,7 +5919,7 @@ var ro = (function () {
 
       ) {
         var c = this._parseHtmlAttribute(e)
-        if (An(c))
+        if (_n(c))
           return this._backtrackAndCreateErrorForFailure(
             e,
             t,
@@ -5964,7 +5964,7 @@ var ro = (function () {
     (n.prototype._parseHtmlAttribute = function (e) {
       e.assertAccumulatedSequenceIsEmpty()
       var t = this._parseHtmlName(e)
-      if (An(t)) return t
+      if (_n(t)) return t
       var r = this._tryReadSpacingAndNewlines(e)
       if (e.peekTokenKind() !== u.Equals)
         return this._createFailureForToken(
@@ -5976,7 +5976,7 @@ var ro = (function () {
       var i = e.extractAccumulatedSequence(),
         o = this._tryReadSpacingAndNewlines(e),
         a = this._parseHtmlString(e)
-      if (An(a)) return a
+      if (_n(a)) return a
       var l = e.extractAccumulatedSequence(),
         c = this._tryReadSpacingAndNewlines(e)
       return new Jn({
@@ -6046,7 +6046,7 @@ var ro = (function () {
       e.readToken()
       var o = e.extractAccumulatedSequence(),
         a = this._parseHtmlName(e)
-      if (An(a))
+      if (_n(a))
         return this._backtrackAndCreateErrorForFailure(
           e,
           t,
@@ -6331,7 +6331,7 @@ var ro = (function () {
     (n.prototype._createError = function (e, t, r) {
       e.readToken()
       var i = e.extractAccumulatedSequence(),
-        o = new Ct({
+        o = new Dt({
           parsed: !0,
           configuration: this._configuration,
           textExcerpt: i,
@@ -6348,7 +6348,7 @@ var ro = (function () {
       for (e.backtrackToMarker(t); e.createMarker() !== r; ) e.readToken()
       e.peekTokenKind() !== u.EndOfInput && e.readToken()
       var a = e.extractAccumulatedSequence(),
-        l = new Ct({
+        l = new Dt({
           parsed: !0,
           configuration: this._configuration,
           textExcerpt: a,
@@ -6361,7 +6361,7 @@ var ro = (function () {
     (n.prototype._backtrackAndCreateErrorForFailure = function (e, t, r, i) {
       ;(e.backtrackToMarker(t), e.readToken())
       var o = e.extractAccumulatedSequence(),
-        a = new Ct({
+        a = new Dt({
           parsed: !0,
           configuration: this._configuration,
           textExcerpt: o,
@@ -6381,7 +6381,7 @@ var ro = (function () {
       for (e.backtrackToMarker(t); e.createMarker() !== r; ) e.readToken()
       e.peekTokenKind() !== u.EndOfInput && e.readToken()
       var a = e.extractAccumulatedSequence(),
-        l = new Ct({
+        l = new Dt({
           parsed: !0,
           configuration: this._configuration,
           textExcerpt: a,
@@ -6492,7 +6492,7 @@ var Kr = (function () {
     (n.prototype.parseRange = function (e) {
       var t = new Hr(this.configuration, e)
       if (no.extract(t)) {
-        t.tokens = hn.readTokens(t.lines)
+        t.tokens = An.readTokens(t.lines)
         var r = new ro(t)
         ;(r.parse(), io.splitParagraphs(t.docComment))
       }
@@ -6514,7 +6514,7 @@ var oo = X(require('obsidian')),
     }
   }
 var Te = X(require('obsidian'))
-function _n(n) {
+function jt(n) {
   return new Promise((e) => setTimeout(e, n))
 }
 function ao(n) {
@@ -6530,7 +6530,7 @@ function is(n, e) {
   if (!(t instanceof Te.TFolder)) throw new P(`${e} is a file, not a folder`)
   return t
 }
-function Pt(n, e) {
+function Nt(n, e) {
   e = (0, Te.normalizePath)(e)
   let t = n.vault.getAbstractFileByPath(e)
   if (!t) throw new P(`File "${e}" doesn't exist`)
@@ -6604,12 +6604,12 @@ function cs(n) {
     return []
   }
 }
-function Nt(n, e, t) {
+function Mt(n, e, t) {
   if (t < 0 || t === n.length) return
   let r = n[e]
   ;((n[e] = n[t]), (n[t] = r))
 }
-function Qt(n) {
+function Xt(n) {
   return n.workspace.activeEditor?.file ?? n.workspace.getActiveFile()
 }
 function lo(n) {
@@ -6663,18 +6663,18 @@ var ie = 'top',
   ce = 'right',
   ae = 'left',
   ur = 'auto',
-  jt = [ie, ue, ce, ae],
+  vt = [ie, ue, ce, ae],
   pt = 'start',
-  Mt = 'end',
+  Ot = 'end',
   uo = 'clippingParents',
   fr = 'viewport',
-  Xt = 'popper',
+  Zt = 'popper',
   fo = 'reference',
-  Gr = jt.reduce(function (n, e) {
-    return n.concat([e + '-' + pt, e + '-' + Mt])
+  Gr = vt.reduce(function (n, e) {
+    return n.concat([e + '-' + pt, e + '-' + Ot])
   }, []),
-  dr = [].concat(jt, [ur]).reduce(function (n, e) {
-    return n.concat([e, e + '-' + pt, e + '-' + Mt])
+  dr = [].concat(vt, [ur]).reduce(function (n, e) {
+    return n.concat([e, e + '-' + pt, e + '-' + Ot])
   }, []),
   ls = 'beforeRead',
   ps = 'read',
@@ -6705,7 +6705,7 @@ function fe(n) {
   var e = Z(n).HTMLElement
   return n instanceof e || n instanceof HTMLElement
 }
-function Zt(n) {
+function en(n) {
   if (typeof ShadowRoot == 'undefined') return !1
   var e = Z(n).ShadowRoot
   return n instanceof e || n instanceof ShadowRoot
@@ -6771,9 +6771,9 @@ function ge(n) {
   return n.split('-')[0]
 }
 var qe = Math.max,
-  Ot = Math.min,
+  Bt = Math.min,
   ut = Math.round
-function en() {
+function tn() {
   var n = navigator.userAgentData
   return n != null && n.brands && Array.isArray(n.brands)
     ? n.brands
@@ -6784,7 +6784,7 @@ function en() {
     : navigator.userAgent
 }
 function jn() {
-  return !/^((?!chrome|android).)*safari/i.test(en())
+  return !/^((?!chrome|android).)*safari/i.test(tn())
 }
 function Oe(n, e, t) {
   ;(e === void 0 && (e = !1), t === void 0 && (t = !1))
@@ -6813,7 +6813,7 @@ function Oe(n, e, t) {
     y: m,
   }
 }
-function Bt(n) {
+function It(n) {
   var e = Oe(n),
     t = n.offsetWidth,
     r = n.offsetHeight
@@ -6826,7 +6826,7 @@ function Bt(n) {
 function vn(n, e) {
   var t = e.getRootNode && e.getRootNode()
   if (n.contains(e)) return !0
-  if (t && Zt(t)) {
+  if (t && en(t)) {
     var r = e
     do {
       if (r && n.isSameNode(r)) return !0
@@ -6848,20 +6848,20 @@ function Ae(n) {
 function ft(n) {
   return me(n) === 'html'
     ? n
-    : n.assignedSlot || n.parentNode || (Zt(n) ? n.host : null) || Ae(n)
+    : n.assignedSlot || n.parentNode || (en(n) ? n.host : null) || Ae(n)
 }
 function ho(n) {
   return !fe(n) || we(n).position === 'fixed' ? null : n.offsetParent
 }
 function ys(n) {
-  var e = /firefox/i.test(en()),
-    t = /Trident/i.test(en())
+  var e = /firefox/i.test(tn()),
+    t = /Trident/i.test(tn())
   if (t && fe(n)) {
     var r = we(n)
     if (r.position === 'fixed') return null
   }
   var i = ft(n)
-  for (Zt(i) && (i = i.host); fe(i) && ['html', 'body'].indexOf(me(i)) < 0; ) {
+  for (en(i) && (i = i.host); fe(i) && ['html', 'body'].indexOf(me(i)) < 0; ) {
     var o = we(i)
     if (
       o.transform !== 'none' ||
@@ -6884,14 +6884,14 @@ function Le(n) {
     ? e
     : t || ys(n) || e
 }
-function It(n) {
+function Ft(n) {
   return ['top', 'bottom'].indexOf(n) >= 0 ? 'x' : 'y'
 }
-function Ft(n, e, t) {
-  return qe(n, Ot(e, t))
+function qt(n, e, t) {
+  return qe(n, Bt(e, t))
 }
 function Ao(n, e, t) {
-  var r = Ft(n, e, t)
+  var r = qt(n, e, t)
   return r > t ? t : r
 }
 function wn() {
@@ -6911,7 +6911,7 @@ var js = function (e, t) {
       typeof e == 'function'
         ? e(Object.assign({}, t.rects, { placement: t.placement }))
         : e),
-    bn(typeof e != 'number' ? e : En(e, jt))
+    bn(typeof e != 'number' ? e : En(e, vt))
   )
 }
 function vs(n) {
@@ -6922,12 +6922,12 @@ function vs(n) {
     o = t.elements.arrow,
     a = t.modifiersData.popperOffsets,
     l = ge(t.placement),
-    c = It(l),
+    c = Ft(l),
     d = [ae, ce].indexOf(l) >= 0,
     m = d ? 'height' : 'width'
   if (!(!o || !a)) {
     var _ = js(i.padding, t),
-      w = Bt(o),
+      w = It(o),
       b = c === 'y' ? ie : ae,
       S = c === 'y' ? ue : ce,
       k =
@@ -6939,7 +6939,7 @@ function vs(n) {
       D = _[b],
       H = $ - w[m] - _[S],
       F = $ / 2 - w[m] / 2 + K,
-      J = Ft(D, F, H),
+      J = qt(D, F, H),
       te = c
     t.modifiersData[r] = ((e = {}), (e[te] = J), (e.centerOffset = J - F), e)
   }
@@ -7007,13 +7007,13 @@ function xo(n) {
           l === 'absolute' &&
           ((J = 'scrollHeight'), (te = 'scrollWidth'))),
       (F = F),
-      i === ie || ((i === ae || i === ce) && o === Mt))
+      i === ie || ((i === ae || i === ce) && o === Ot))
     ) {
       D = ue
       var ne = _ && F === H && H.visualViewport ? H.visualViewport.height : F[J]
       ;((k -= ne - r.height), (k *= c ? 1 : -1))
     }
-    if (i === ae || ((i === ie || i === ue) && o === Mt)) {
+    if (i === ae || ((i === ie || i === ue) && o === Ot)) {
       K = ce
       var Q = _ && F === H && H.visualViewport ? H.visualViewport.width : F[te]
       ;((b -= Q - r.width), (b *= c ? 1 : -1))
@@ -7135,7 +7135,7 @@ var jo = {
   data: {},
 }
 var Ss = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' }
-function tn(n) {
+function nn(n) {
   return n.replace(/left|right|bottom|top/g, function (e) {
     return Ss[e]
   })
@@ -7146,14 +7146,14 @@ function gr(n) {
     return Cs[e]
   })
 }
-function qt(n) {
+function Lt(n) {
   var e = Z(n),
     t = e.pageXOffset,
     r = e.pageYOffset
   return { scrollLeft: t, scrollTop: r }
 }
-function Lt(n) {
-  return Oe(Ae(n)).left + qt(n).scrollLeft
+function Ht(n) {
+  return Oe(Ae(n)).left + Lt(n).scrollLeft
 }
 function Vr(n, e) {
   var t = Z(n),
@@ -7168,12 +7168,12 @@ function Vr(n, e) {
     var d = jn()
     ;(d || (!d && e === 'fixed')) && ((l = i.offsetLeft), (c = i.offsetTop))
   }
-  return { width: o, height: a, x: l + Lt(n), y: c }
+  return { width: o, height: a, x: l + Ht(n), y: c }
 }
 function zr(n) {
   var e,
     t = Ae(n),
-    r = qt(n),
+    r = Lt(n),
     i = (e = n.ownerDocument) == null ? void 0 : e.body,
     o = qe(
       t.scrollWidth,
@@ -7187,7 +7187,7 @@ function zr(n) {
       i ? i.scrollHeight : 0,
       i ? i.clientHeight : 0,
     ),
-    l = -r.scrollLeft + Lt(n),
+    l = -r.scrollLeft + Ht(n),
     c = -r.scrollTop
   return (
     we(i || t).direction === 'rtl' &&
@@ -7195,7 +7195,7 @@ function zr(n) {
     { width: o, height: a, x: l, y: c }
   )
 }
-function Ht(n) {
+function $t(n) {
   var e = we(n),
     t = e.overflow,
     r = e.overflowX,
@@ -7205,21 +7205,21 @@ function Ht(n) {
 function hr(n) {
   return ['html', 'body', '#document'].indexOf(me(n)) >= 0
     ? n.ownerDocument.body
-    : fe(n) && Ht(n)
+    : fe(n) && $t(n)
       ? n
       : hr(ft(n))
 }
-function vt(n, e) {
+function wt(n, e) {
   var t
   e === void 0 && (e = [])
   var r = hr(n),
     i = r === ((t = n.ownerDocument) == null ? void 0 : t.body),
     o = Z(r),
-    a = i ? [o].concat(o.visualViewport || [], Ht(r) ? r : []) : r,
+    a = i ? [o].concat(o.visualViewport || [], $t(r) ? r : []) : r,
     l = e.concat(a)
-  return i ? l : l.concat(vt(ft(a)))
+  return i ? l : l.concat(wt(ft(a)))
 }
-function nn(n) {
+function rn(n) {
   return Object.assign({}, n, {
     left: n.x,
     top: n.y,
@@ -7242,10 +7242,10 @@ function Ds(n, e) {
   )
 }
 function vo(n, e, t) {
-  return e === fr ? nn(Vr(n, t)) : Me(e) ? Ds(e, t) : nn(zr(Ae(n)))
+  return e === fr ? rn(Vr(n, t)) : Me(e) ? Ds(e, t) : rn(zr(Ae(n)))
 }
 function Ps(n) {
-  var e = vt(ft(n)),
+  var e = wt(ft(n)),
     t = ['absolute', 'fixed'].indexOf(we(n).position) >= 0,
     r = t && fe(n) ? Le(n) : n
   return Me(r)
@@ -7263,8 +7263,8 @@ function Jr(n, e, t, r) {
         var m = vo(n, d, r)
         return (
           (c.top = qe(m.top, c.top)),
-          (c.right = Ot(m.right, c.right)),
-          (c.bottom = Ot(m.bottom, c.bottom)),
+          (c.right = Bt(m.right, c.right)),
+          (c.bottom = Bt(m.bottom, c.bottom)),
           (c.left = qe(m.left, c.left)),
           c
         )
@@ -7304,14 +7304,14 @@ function Tn(n) {
     default:
       c = { x: e.x, y: e.y }
   }
-  var d = i ? It(i) : null
+  var d = i ? Ft(i) : null
   if (d != null) {
     var m = d === 'y' ? 'height' : 'width'
     switch (o) {
       case pt:
         c[d] = c[d] - (e[m] / 2 - t[m] / 2)
         break
-      case Mt:
+      case Ot:
         c[d] = c[d] + (e[m] / 2 - t[m] / 2)
         break
       default:
@@ -7331,20 +7331,20 @@ function He(n, e) {
     d = t.rootBoundary,
     m = d === void 0 ? fr : d,
     _ = t.elementContext,
-    w = _ === void 0 ? Xt : _,
+    w = _ === void 0 ? Zt : _,
     b = t.altBoundary,
     S = b === void 0 ? !1 : b,
     k = t.padding,
     E = k === void 0 ? 0 : k,
-    O = bn(typeof E != 'number' ? E : En(E, jt)),
-    $ = w === Xt ? fo : Xt,
+    O = bn(typeof E != 'number' ? E : En(E, vt)),
+    $ = w === Zt ? fo : Zt,
     K = n.rects.popper,
     D = n.elements[S ? $ : w],
     H = Jr(Me(D) ? D : D.contextElement || Ae(n.elements.popper), c, m, a),
     F = Oe(n.elements.reference),
     J = Tn({ reference: F, element: K, strategy: 'absolute', placement: i }),
-    te = nn(Object.assign({}, K, J)),
-    ne = w === Xt ? te : F,
+    te = rn(Object.assign({}, K, J)),
+    ne = w === Zt ? te : F,
     Q = {
       top: H.top - ne.top + O.top,
       bottom: ne.bottom - H.bottom + O.bottom,
@@ -7352,7 +7352,7 @@ function He(n, e) {
       right: ne.right - H.right + O.right,
     },
     h = n.modifiersData.offset
-  if (w === Xt && h) {
+  if (w === Zt && h) {
     var C = h[i]
     Object.keys(Q).forEach(function (f) {
       var Ie = [ce, ue].indexOf(f) >= 0 ? 1 : -1,
@@ -7379,7 +7379,7 @@ function Qr(n, e) {
         : Gr.filter(function (S) {
             return Be(S) === m
           })
-      : jt,
+      : vt,
     w = _.filter(function (S) {
       return d.indexOf(S) >= 0
     })
@@ -7398,7 +7398,7 @@ function Qr(n, e) {
 }
 function Ns(n) {
   if (ge(n) === ur) return []
-  var e = tn(n)
+  var e = nn(n)
   return [gr(n), e, gr(e)]
 }
 function Ms(n) {
@@ -7422,7 +7422,7 @@ function Ms(n) {
         E = e.options.placement,
         O = ge(E),
         $ = O === E,
-        K = c || ($ || !S ? [tn(E)] : Ns(E)),
+        K = c || ($ || !S ? [nn(E)] : Ns(E)),
         D = [E].concat(K).reduce(function (B, N) {
           return B.concat(
             ge(N) === ur
@@ -7459,8 +7459,8 @@ function Ms(n) {
           padding: d,
         }),
         xe = Ie ? (f ? ce : ae) : f ? ue : ie
-      H[Ee] > F[Ee] && (xe = tn(xe))
-      var Ye = tn(xe),
+      H[Ee] > F[Ee] && (xe = nn(xe))
+      var Ye = nn(xe),
         ke = []
       if (
         (o && ke.push(_e[C] <= 0),
@@ -7476,7 +7476,7 @@ function Ms(n) {
     }
     if (te)
       for (
-        var Kt = S ? 3 : 1,
+        var Rt = S ? 3 : 1,
           Ue = function (N) {
             var q = D.find(function (ee) {
               var tt = J.get(ee)
@@ -7487,7 +7487,7 @@ function Ms(n) {
             })
             if (q) return ((ne = q), 'break')
           },
-          et = Kt;
+          et = Rt;
         et > 0;
         et--
       ) {
@@ -7622,7 +7622,7 @@ function qs(n) {
     O = ge(e.placement),
     $ = Be(e.placement),
     K = !$,
-    D = It(O),
+    D = Ft(O),
     H = Xr(D),
     F = e.modifiersData.popperOffsets,
     J = e.rects.reference,
@@ -7646,42 +7646,42 @@ function qs(n) {
         xe = F[D],
         Ye = xe + E[Ie],
         ke = xe - E[Ee],
-        Kt = b ? -te[_e] / 2 : 0,
+        Rt = b ? -te[_e] / 2 : 0,
         Ue = $ === pt ? J[_e] : te[_e],
         et = $ === pt ? -te[_e] : -J[_e],
         ye = e.elements.arrow,
-        B = b && ye ? Bt(ye) : { width: 0, height: 0 },
+        B = b && ye ? It(ye) : { width: 0, height: 0 },
         N = e.modifiersData['arrow#persistent']
           ? e.modifiersData['arrow#persistent'].padding
           : wn(),
         q = N[Ie],
         ee = N[Ee],
-        tt = Ft(0, J[_e], B[_e]),
-        W = K ? J[_e] / 2 - Kt - tt - q - Q.mainAxis : Ue - tt - q - Q.mainAxis,
+        tt = qt(0, J[_e], B[_e]),
+        W = K ? J[_e] / 2 - Rt - tt - q - Q.mainAxis : Ue - tt - q - Q.mainAxis,
         je = K
-          ? -J[_e] / 2 + Kt + tt + ee + Q.mainAxis
+          ? -J[_e] / 2 + Rt + tt + ee + Q.mainAxis
           : et + tt + ee + Q.mainAxis,
-        Et = e.elements.arrow && Le(e.elements.arrow),
-        Nn = Et ? (D === 'y' ? Et.clientTop || 0 : Et.clientLeft || 0) : 0,
+        Tt = e.elements.arrow && Le(e.elements.arrow),
+        Nn = Tt ? (D === 'y' ? Tt.clientTop || 0 : Tt.clientLeft || 0) : 0,
         nt = (f = h == null ? void 0 : h[D]) != null ? f : 0,
         rt = xe + W - nt - Nn,
         ht = xe + je - nt,
-        Tt = Ft(b ? Ot(Ye, rt) : Ye, xe, b ? qe(ke, ht) : ke)
-      ;((F[D] = Tt), (C[D] = Tt - xe))
+        kt = qt(b ? Bt(Ye, rt) : Ye, xe, b ? qe(ke, ht) : ke)
+      ;((F[D] = kt), (C[D] = kt - xe))
     }
     if (l) {
       var Mn,
         On = D === 'x' ? ie : ae,
         Bn = D === 'x' ? ue : ce,
         it = F[H],
-        Rt = H === 'y' ? 'height' : 'width',
+        Yt = H === 'y' ? 'height' : 'width',
         In = it + E[On],
         Fn = it - E[Bn],
-        sn = [ie, ae].indexOf(O) !== -1,
-        kt = (Mn = h == null ? void 0 : h[H]) != null ? Mn : 0,
-        qn = sn ? In : it - J[Rt] - te[Rt] - kt + Q.altAxis,
-        Ge = sn ? it + J[Rt] + te[Rt] - kt - Q.altAxis : Fn,
-        se = b && sn ? Ao(qn, it, Ge) : Ft(b ? qn : In, it, b ? Ge : Fn)
+        cn = [ie, ae].indexOf(O) !== -1,
+        St = (Mn = h == null ? void 0 : h[H]) != null ? Mn : 0,
+        qn = cn ? In : it - J[Yt] - te[Yt] - St + Q.altAxis,
+        Ge = cn ? it + J[Yt] + te[Yt] - St - Q.altAxis : Fn,
+        se = b && cn ? Ao(qn, it, Ge) : qt(b ? qn : In, it, b ? Ge : Fn)
       ;((F[H] = se), (C[H] = se - it))
     }
     e.modifiersData[r] = C
@@ -7698,7 +7698,7 @@ function Zr(n) {
   return { scrollLeft: n.scrollLeft, scrollTop: n.scrollTop }
 }
 function ei(n) {
-  return n === Z(n) || !fe(n) ? qt(n) : Zr(n)
+  return n === Z(n) || !fe(n) ? Lt(n) : Zr(n)
 }
 function Ls(n) {
   var e = n.getBoundingClientRect(),
@@ -7716,10 +7716,10 @@ function ti(n, e, t) {
     c = { x: 0, y: 0 }
   return (
     (r || (!r && !t)) &&
-      ((me(e) !== 'body' || Ht(o)) && (l = ei(e)),
+      ((me(e) !== 'body' || $t(o)) && (l = ei(e)),
       fe(e)
         ? ((c = Oe(e, !0)), (c.x += e.clientLeft), (c.y += e.clientTop))
-        : o && (c.x = Lt(o))),
+        : o && (c.x = Ht(o))),
     {
       x: a.left + l.scrollLeft - c.x,
       y: a.top + l.scrollTop - c.y,
@@ -7830,11 +7830,11 @@ function No(n) {
             (m.options = Object.assign({}, o, m.options, $)),
             (m.scrollParents = {
               reference: Me(l)
-                ? vt(l)
+                ? wt(l)
                 : l.contextElement
-                  ? vt(l.contextElement)
+                  ? wt(l.contextElement)
                   : [],
-              popper: vt(c),
+              popper: wt(c),
             }))
           var K = ni(ii([].concat(r, m.options.modifiers)))
           return (
@@ -7853,7 +7853,7 @@ function No(n) {
             if (!!Po($, K)) {
               ;((m.rects = {
                 reference: ti($, Le(K), m.options.strategy === 'fixed'),
-                popper: Bt(K),
+                popper: It(K),
               }),
                 (m.reset = !1),
                 (m.placement = m.options.placement),
@@ -8030,7 +8030,7 @@ var $e
   ;((t[(t.TemplateFiles = 0)] = 'TemplateFiles'),
     (t[(t.ScriptFiles = 1)] = 'ScriptFiles'))
 })($e || ($e = {}))
-var rn = class extends kn {
+var on = class extends kn {
   constructor(e, t, r) {
     super(t.app, e)
     this.inputEl = e
@@ -8288,7 +8288,7 @@ var Ho = {
         this.plugin.settings.enabled_templates_hotkeys.forEach((t, r) => {
           new L.Setting(this.containerEl)
             .addSearch((o) => {
-              ;(new rn(o.inputEl, this.plugin, $e.TemplateFiles),
+              ;(new on(o.inputEl, this.plugin, $e.TemplateFiles),
                 o
                   .setPlaceholder('Example: folder1/template_file')
                   .setValue(t)
@@ -8323,7 +8323,7 @@ var Ho = {
               o.setIcon('up-chevron-glyph')
                 .setTooltip('Move up')
                 .onClick(() => {
-                  ;(Nt(
+                  ;(Mt(
                     this.plugin.settings.enabled_templates_hotkeys,
                     r,
                     r - 1,
@@ -8336,7 +8336,7 @@ var Ho = {
               o.setIcon('down-chevron-glyph')
                 .setTooltip('Move down')
                 .onClick(() => {
-                  ;(Nt(
+                  ;(Mt(
                     this.plugin.settings.enabled_templates_hotkeys,
                     r,
                     r + 1,
@@ -8429,7 +8429,7 @@ var Ho = {
                   a.containerEl.addClass('templater_search'))
               })
               .addSearch((a) => {
-                ;(new rn(a.inputEl, this.plugin, $e.TemplateFiles),
+                ;(new on(a.inputEl, this.plugin, $e.TemplateFiles),
                   a
                     .setPlaceholder('Template')
                     .setValue(r.template)
@@ -8443,7 +8443,7 @@ var Ho = {
                 a.setIcon('up-chevron-glyph')
                   .setTooltip('Move up')
                   .onClick(() => {
-                    ;(Nt(this.plugin.settings.folder_templates, i, i - 1),
+                    ;(Mt(this.plugin.settings.folder_templates, i, i - 1),
                       this.plugin.save_settings(),
                       this.display())
                   })
@@ -8452,7 +8452,7 @@ var Ho = {
                 a.setIcon('down-chevron-glyph')
                   .setTooltip('Move down')
                   .onClick(() => {
-                    ;(Nt(this.plugin.settings.folder_templates, i, i + 1),
+                    ;(Mt(this.plugin.settings.folder_templates, i, i + 1),
                       this.plugin.save_settings(),
                       this.display())
                   })
@@ -8530,7 +8530,7 @@ var Ho = {
                   a.inputEl.addClass('templater_search'))
               })
               .addSearch((a) => {
-                ;(new rn(a.inputEl, this.plugin, $e.TemplateFiles),
+                ;(new on(a.inputEl, this.plugin, $e.TemplateFiles),
                   a
                     .setPlaceholder('Template')
                     .setValue(r.template)
@@ -8544,7 +8544,7 @@ var Ho = {
                 a.setIcon('up-chevron-glyph')
                   .setTooltip('Move up')
                   .onClick(() => {
-                    ;(Nt(this.plugin.settings.file_templates, i, i - 1),
+                    ;(Mt(this.plugin.settings.file_templates, i, i - 1),
                       this.plugin.save_settings(),
                       this.display())
                   })
@@ -8553,7 +8553,7 @@ var Ho = {
                 a.setIcon('down-chevron-glyph')
                   .setTooltip('Move down')
                   .onClick(() => {
-                    ;(Nt(this.plugin.settings.file_templates, i, i + 1),
+                    ;(Mt(this.plugin.settings.file_templates, i, i + 1),
                       this.plugin.save_settings(),
                       this.display())
                   })
@@ -8597,7 +8597,7 @@ var Ho = {
         this.plugin.settings.startup_templates.forEach((t, r) => {
           new L.Setting(this.containerEl)
             .addSearch((o) => {
-              ;(new rn(o.inputEl, this.plugin, $e.TemplateFiles),
+              ;(new on(o.inputEl, this.plugin, $e.TemplateFiles),
                 o
                   .setPlaceholder('Example: folder1/template_file')
                   .setValue(t)
@@ -8874,11 +8874,11 @@ var Ho = {
     }
   }
 var Ar = X(require('obsidian'))
-var on
+var an
 ;(function (t) {
   ;((t[(t.InsertTemplate = 0)] = 'InsertTemplate'),
     (t[(t.CreateNoteTemplate = 1)] = 'CreateNoteTemplate'))
-})(on || (on = {}))
+})(an || (an = {}))
 var si = class extends Ar.FuzzySuggestModal {
   constructor(e) {
     super(e.app)
@@ -9317,7 +9317,7 @@ var ui = class extends be {
       let t = this.plugin.app.workspace.on(
         'templater:all-templates-executed',
         async () => {
-          ;(await _n(1), e())
+          ;(await jt(1), e())
         },
       )
       t && this.event_refs.push(t)
@@ -9803,10 +9803,10 @@ var _r = new Uint8Array()
 function xr() {
   return (_r.byteLength === 0 && (_r = new Uint8Array(M.memory.buffer)), _r)
 }
-function wt(n, e) {
+function bt(n, e) {
   return Wo.decode(xr().subarray(n, n + e))
 }
-function bt(n) {
+function Et(n) {
   Dn === Ke.length && Ke.push(Ke.length + 1)
   let e = Dn
   return ((Dn = Ke[e]), (Ke[e] = n), e)
@@ -9904,12 +9904,12 @@ function Ei(n, e) {
   try {
     return n.apply(this, e)
   } catch (t) {
-    M.__wbindgen_exn_store(bt(t))
+    M.__wbindgen_exn_store(Et(t))
   }
 }
-var $t = class {
+var Kt = class {
     static __wrap(e) {
-      let t = Object.create($t.prototype)
+      let t = Object.create(Kt.prototype)
       return ((t.ptr = e), t)
     }
     __destroy_into_raw() {
@@ -9967,7 +9967,7 @@ var $t = class {
           w,
           b,
         )
-      return $t.__wrap(S)
+      return Kt.__wrap(S)
     }
     get opening_tag() {
       try {
@@ -9975,7 +9975,7 @@ var $t = class {
         M.parserconfig_opening_tag(r, this.ptr)
         var e = Ne()[r / 4 + 0],
           t = Ne()[r / 4 + 1]
-        return wt(e, t)
+        return bt(e, t)
       } finally {
         ;(M.__wbindgen_add_to_stack_pointer(16), M.__wbindgen_free(e, t))
       }
@@ -9991,7 +9991,7 @@ var $t = class {
         M.parserconfig_closing_tag(r, this.ptr)
         var e = Ne()[r / 4 + 0],
           t = Ne()[r / 4 + 1]
-        return wt(e, t)
+        return bt(e, t)
       } finally {
         ;(M.__wbindgen_add_to_stack_pointer(16), M.__wbindgen_free(e, t))
       }
@@ -10007,7 +10007,7 @@ var $t = class {
         M.parserconfig_global_var(r, this.ptr)
         var e = Ne()[r / 4 + 0],
           t = Ne()[r / 4 + 1]
-        return wt(e, t)
+        return bt(e, t)
       } finally {
         ;(M.__wbindgen_add_to_stack_pointer(16), M.__wbindgen_free(e, t))
       }
@@ -10018,9 +10018,9 @@ var $t = class {
       M.parserconfig_set_global_var(this.ptr, t, r)
     }
   },
-  an = class {
+  sn = class {
     static __wrap(e) {
-      let t = Object.create(an.prototype)
+      let t = Object.create(sn.prototype)
       return ((t.ptr = e), t)
     }
     __destroy_into_raw() {
@@ -10032,11 +10032,11 @@ var $t = class {
       M.__wbg_renderer_free(e)
     }
     constructor(e) {
-      Ws(e, $t)
+      Ws(e, Kt)
       var t = e.ptr
       e.ptr = 0
       let r = M.renderer_new(t)
-      return an.__wrap(r)
+      return sn.__wrap(r)
     }
     render_content(e, t) {
       try {
@@ -10082,8 +10082,8 @@ function Js() {
       wi(e)
     }),
     (n.wbg.__wbindgen_string_new = function (e, t) {
-      let r = wt(e, t)
-      return bt(r)
+      let r = bt(e, t)
+      return Et(r)
     }),
     (n.wbg.__wbindgen_string_get = function (e, t) {
       let r = Pe(t),
@@ -10095,31 +10095,31 @@ function Js() {
     (n.wbg.__wbg_call_97ae9d8645dc388b = function () {
       return Ei(function (e, t) {
         let r = Pe(e).call(Pe(t))
-        return bt(r)
+        return Et(r)
       }, arguments)
     }),
     (n.wbg.__wbg_new_8d2af00bc1e329ee = function (e, t) {
-      let r = new Error(wt(e, t))
-      return bt(r)
+      let r = new Error(bt(e, t))
+      return Et(r)
     }),
     (n.wbg.__wbg_message_fe2af63ccc8985bc = function (e) {
       let t = Pe(e).message
-      return bt(t)
+      return Et(t)
     }),
     (n.wbg.__wbg_newwithargs_8fe23e3842840c8e = function (e, t, r, i) {
-      let o = new Function(wt(e, t), wt(r, i))
-      return bt(o)
+      let o = new Function(bt(e, t), bt(r, i))
+      return Et(o)
     }),
     (n.wbg.__wbg_call_168da88779e35f61 = function () {
       return Ei(function (e, t, r) {
         let i = Pe(e).call(Pe(t), Pe(r))
-        return bt(i)
+        return Et(i)
       }, arguments)
     }),
     (n.wbg.__wbg_call_3999bee59e9f7719 = function () {
       return Ei(function (e, t, r, i) {
         let o = Pe(e).call(Pe(t), Pe(r), Pe(i))
-        return bt(o)
+        return Et(o)
       }, arguments)
     }),
     (n.wbg.__wbindgen_debug_string = function (e, t) {
@@ -10129,7 +10129,7 @@ function Js() {
       ;((Ne()[e / 4 + 1] = o), (Ne()[e / 4 + 0] = i))
     }),
     (n.wbg.__wbindgen_throw = function (e, t) {
-      throw new Error(wt(e, t))
+      throw new Error(bt(e, t))
     }),
     n
   )
@@ -10162,8 +10162,8 @@ var Jo = zi(
 var Ti = class {
   async init() {
     await zo(Jo)
-    let e = new $t('<%', '%>', '\0', '*', '-', '_', 'tR')
-    this.renderer = new an(e)
+    let e = new Kt('<%', '%>', '\0', '*', '-', '_', 'tR')
+    this.renderer = new sn(e)
   }
   async parse_commands(e, t) {
     return this.renderer.render_content(e, t)
@@ -10193,7 +10193,7 @@ var Pn = class {
       ))
   }
   create_running_config(e, t, r) {
-    let i = Qt(this.plugin.app)
+    let i = Xt(this.plugin.app)
     return { template_file: e, target_file: t, run_mode: r, active_file: i }
   }
   async read_and_parse_template(e) {
@@ -10220,7 +10220,7 @@ var Pn = class {
     if (!t)
       switch (this.plugin.app.vault.getConfig('newFileLocation')) {
         case 'current': {
-          let _ = Qt(this.plugin.app)
+          let _ = Xt(this.plugin.app)
           _ && (t = _.parent)
           break
         }
@@ -10315,7 +10315,7 @@ var Pn = class {
           t instanceof de.MarkdownView &&
           typeof t.metadataEditor?.insertProperties == 'function' &&
           t.metadataEditor.insertProperties(c),
-        await _n(100),
+        await jt(100),
         await t.save()),
       this.plugin.app.workspace.trigger('templater:template-appended', {
         view: t,
@@ -10332,7 +10332,7 @@ var Pn = class {
     this.start_templater_task(r)
     let i = this.plugin.app.workspace.getActiveViewOfType(de.MarkdownView),
       o = this.plugin.app.workspace.activeEditor,
-      a = Qt(this.plugin.app),
+      a = Xt(this.plugin.app),
       l = this.create_running_config(e, t, 2),
       c = await Se(
         async () => this.read_and_parse_template(l),
@@ -10354,6 +10354,7 @@ ${(0, de.stringifyYaml)(b)}---
         (_ += w + d),
         o.editor.setValue(_),
         o.editor.setSelection({ line: 0, ch: 0 }, { line: 0, ch: 0 }),
+        await jt(100),
         await i.save())
     } else
       await this.plugin.app.vault.process(t, (_) => {
@@ -10468,7 +10469,7 @@ ${(0, de.stringifyYaml)(S)}---
     let i = (0, de.normalizePath)(e.plugin.settings.templates_folder)
     if (
       (r.path.includes(i) && i !== '/') ||
-      (await _n(300), e.files_with_pending_templates.has(r.path))
+      (await jt(300), e.files_with_pending_templates.has(r.path))
     )
       return
     let o = await t.vault.read(r),
@@ -10477,13 +10478,13 @@ ${(0, de.stringifyYaml)(S)}---
     if (l == 0 && e.plugin.settings.enable_folder_templates) {
       let c = e.get_new_file_template_for_folder(r.parent)
       if (!c) return
-      let d = await Se(async () => Pt(t, c), `Couldn't find template ${c}`)
+      let d = await Se(async () => Nt(t, c), `Couldn't find template ${c}`)
       if (d == null) return
       await e.write_template_to_file(d, r)
     } else if (l == 0 && e.plugin.settings.enable_file_templates) {
       let c = e.get_new_file_template_for_file(r)
       if (!c) return
-      let d = await Se(async () => Pt(t, c), `Couldn't find template ${c}`)
+      let d = await Se(async () => Nt(t, c), `Couldn't find template ${c}`)
       if (d == null) return
       await e.write_template_to_file(d, r)
     } else {
@@ -10499,7 +10500,7 @@ ${(0, de.stringifyYaml)(S)}---
     for (let e of this.plugin.settings.startup_templates) {
       if (!e) continue
       let t = Ce(
-        () => Pt(this.plugin.app, e),
+        () => Nt(this.plugin.app, e),
         `Couldn't find startup template "${e}"`,
       )
       if (!t) continue
@@ -10632,7 +10633,7 @@ var ki = class {
         icon: 'templater-icon',
         callback: () => {
           let i = Ce(
-            () => Pt(this.plugin.app, t),
+            () => Nt(this.plugin.app, t),
             "Couldn't find the template file associated with this hotkey",
           )
           !i || this.plugin.templater.append_template_to_active_file(i)
@@ -10644,7 +10645,7 @@ var ki = class {
           icon: 'templater-icon',
           callback: () => {
             let i = Ce(
-              () => Pt(this.plugin.app, t),
+              () => Nt(this.plugin.app, t),
               "Couldn't find the template file associated with this hotkey",
             )
             !i || this.plugin.templater.create_new_note_from_template(i)
@@ -10679,7 +10680,7 @@ var Ci = class {
             o.folds = o.folds.filter((l) => l.from > a.line || l.to < a.line)
           }),
           e instanceof Si.MarkdownView &&
-            (e.currentMode.applyFoldInfo(o), e.save())),
+            (e.currentMode.applyFoldInfo(o), await jt(100), e.save())),
         this.set_cursor_location(i))
     }
     try {
@@ -12146,10 +12147,10 @@ var Ni = class extends ta.EditorSuggest {
     function ke(s, p) {
       ;((this.name = s), (this.next = p))
     }
-    var Kt = new ke('this', new ke('arguments', null))
+    var Rt = new ke('this', new ke('arguments', null))
     function Ue() {
       ;((h.state.context = new Ye(h.state.context, h.state.localVars, !1)),
-        (h.state.localVars = Kt))
+        (h.state.localVars = Rt))
     }
     function et() {
       ;((h.state.context = new Ye(h.state.context, h.state.localVars, !0)),
@@ -12193,7 +12194,7 @@ var Ni = class extends ta.EditorSuggest {
       return s == 'var'
         ? f(B('vardef', p), Cr, q(';'), N)
         : s == 'keyword a'
-          ? f(B('form'), Et, ee, N)
+          ? f(B('form'), Tt, ee, N)
           : s == 'keyword b'
             ? f(B('form'), ee, N)
             : s == 'keyword d'
@@ -12210,7 +12211,7 @@ var Ni = class extends ta.EditorSuggest {
                       ? (h.state.lexical.info == 'else' &&
                           h.state.cc[h.state.cc.length - 1] == N &&
                           h.state.cc.pop()(),
-                        f(B('form'), Et, ee, N, Hi))
+                        f(B('form'), Tt, ee, N, Hi))
                       : s == 'function'
                         ? f(_t)
                         : s == 'for'
@@ -12249,7 +12250,7 @@ var Ni = class extends ta.EditorSuggest {
                               : s == 'switch'
                                 ? f(
                                     B('form'),
-                                    Et,
+                                    Tt,
                                     q('{'),
                                     B('}', 'switch'),
                                     et,
@@ -12275,7 +12276,7 @@ var Ni = class extends ta.EditorSuggest {
                                               : C(B('stat'), W, q(';'), N)
     }
     function tt(s) {
-      if (s == '(') return f(St, q(')'))
+      if (s == '(') return f(Ct, q(')'))
     }
     function W(s, p) {
       return Nn(s, p, !1)
@@ -12283,13 +12284,13 @@ var Ni = class extends ta.EditorSuggest {
     function je(s, p) {
       return Nn(s, p, !0)
     }
-    function Et(s) {
+    function Tt(s) {
       return s != '(' ? C() : f(B(')'), nt, q(')'), N)
     }
     function Nn(s, p, A) {
       if (h.state.fatArrowAt == h.stream.start) {
         var x = A ? Bn : On
-        if (s == '(') return f(Ue, B(')'), se(St, ')'), N, q('=>'), x, ye)
+        if (s == '(') return f(Ue, B(')'), se(Ct, ')'), N, q('=>'), x, ye)
         if (s == 'variable') return C(Ue, Fe, q('=>'), x, ye)
       }
       var I = A ? ht : rt
@@ -12308,9 +12309,9 @@ var Ni = class extends ta.EditorSuggest {
                   : s == '['
                     ? f(B(']'), _a, N, I)
                     : s == '{'
-                      ? cn(kt, '}', null, I)
+                      ? ln(St, '}', null, I)
                       : s == 'quasi'
-                        ? C(Tt, I)
+                        ? C(kt, I)
                         : s == 'new'
                           ? f(it(A))
                           : f()
@@ -12333,10 +12334,10 @@ var Ni = class extends ta.EditorSuggest {
             : p == '?'
               ? f(W, q(':'), I)
               : f(I)
-      if (s == 'quasi') return C(Tt, x)
+      if (s == 'quasi') return C(kt, x)
       if (s != ';') {
-        if (s == '(') return cn(je, ')', 'call', x)
-        if (s == '.') return f(sn, x)
+        if (s == '(') return ln(je, ')', 'call', x)
+        if (s == '.') return f(cn, x)
         if (s == '[') return f(B(']'), nt, q(']'), N, x)
         if (c && p == 'as') return ((h.marked = 'keyword'), f(V, x))
         if (s == 'regexp')
@@ -12347,16 +12348,16 @@ var Ni = class extends ta.EditorSuggest {
           )
       }
     }
-    function Tt(s, p) {
+    function kt(s, p) {
       return s != 'quasi'
         ? C()
         : p.slice(p.length - 2) != '${'
-          ? f(Tt)
+          ? f(kt)
           : f(nt, Mn)
     }
     function Mn(s) {
       if (s == '}')
-        return ((h.marked = 'string-2'), (h.state.tokenize = D), f(Tt))
+        return ((h.marked = 'string-2'), (h.state.tokenize = D), f(kt))
     }
     function On(s) {
       return (F(h.stream, h.state), C(s == '{' ? ee : W))
@@ -12367,13 +12368,13 @@ var Ni = class extends ta.EditorSuggest {
     function it(s) {
       return function (p) {
         return p == '.'
-          ? f(s ? In : Rt)
+          ? f(s ? In : Yt)
           : p == 'variable' && c
             ? f(la, s ? ht : rt)
             : C(s ? je : W)
       }
     }
-    function Rt(s, p) {
+    function Yt(s, p) {
       if (p == 'target') return ((h.marked = 'keyword'), f(rt))
     }
     function In(s, p) {
@@ -12382,11 +12383,11 @@ var Ni = class extends ta.EditorSuggest {
     function Fn(s) {
       return s == ':' ? f(N, ee) : C(rt, q(';'), N)
     }
-    function sn(s) {
+    function cn(s) {
       if (s == 'variable') return ((h.marked = 'property'), f())
     }
-    function kt(s, p) {
-      if (s == 'async') return ((h.marked = 'property'), f(kt))
+    function St(s, p) {
+      if (s == 'async') return ((h.marked = 'property'), f(St))
       if (s == 'variable' || h.style == 'keyword') {
         if (((h.marked = 'property'), p == 'get' || p == 'set')) return f(qn)
         var A
@@ -12401,10 +12402,10 @@ var Ni = class extends ta.EditorSuggest {
         if (s == 'number' || s == 'string')
           return ((h.marked = o ? 'property' : h.style + ' property'), f(Ge))
         if (s == 'jsonld-keyword') return f(Ge)
-        if (c && xe(p)) return ((h.marked = 'keyword'), f(kt))
-        if (s == '[') return f(W, Yt, q(']'), Ge)
+        if (c && xe(p)) return ((h.marked = 'keyword'), f(St))
+        if (s == '[') return f(W, Ut, q(']'), Ge)
         if (s == 'spread') return f(je, Ge)
-        if (p == '*') return ((h.marked = 'keyword'), f(kt))
+        if (p == '*') return ((h.marked = 'keyword'), f(St))
         if (s == ':') return C(Ge)
       }
     }
@@ -12436,17 +12437,17 @@ var Ni = class extends ta.EditorSuggest {
         return I == p || Y == p ? f() : C(s, x)
       }
     }
-    function cn(s, p, A) {
+    function ln(s, p, A) {
       for (var x = 3; x < arguments.length; x++) h.cc.push(arguments[x])
       return f(B(p, A), se(s, p), N)
     }
     function Ln(s) {
       return s == '}' ? f() : C(ee, Ln)
     }
-    function Yt(s, p) {
+    function Ut(s, p) {
       if (c) {
         if (s == ':') return f(V)
-        if (p == '?') return f(Yt)
+        if (p == '?') return f(Ut)
       }
     }
     function oa(s, p) {
@@ -12479,15 +12480,15 @@ var Ni = class extends ta.EditorSuggest {
         ? f()
         : s == ',' || s == ';'
           ? f(Tr)
-          : C(ln, Tr)
+          : C(pn, Tr)
     }
-    function ln(s, p) {
+    function pn(s, p) {
       if (s == 'variable' || h.style == 'keyword')
-        return ((h.marked = 'property'), f(ln))
-      if (p == '?' || s == 'number' || s == 'string') return f(ln)
+        return ((h.marked = 'property'), f(pn))
+      if (p == '?' || s == 'number' || s == 'string') return f(pn)
       if (s == ':') return f(V)
-      if (s == '[') return f(q('variable'), oa, q(']'), ln)
-      if (s == '(') return C(Gt, ln)
+      if (s == '[') return f(q('variable'), oa, q(']'), pn)
+      if (s == '(') return C(Wt, pn)
       if (!s.match(/[;\}\)\],]/)) return f()
     }
     function kr(s, p) {
@@ -12528,14 +12529,14 @@ var Ni = class extends ta.EditorSuggest {
       if (p == '=') return f(V)
     }
     function Cr(s, p) {
-      return p == 'enum' ? ((h.marked = 'keyword'), f(Gi)) : C(Fe, Yt, At, fa)
+      return p == 'enum' ? ((h.marked = 'keyword'), f(Gi)) : C(Fe, Ut, At, fa)
     }
     function Fe(s, p) {
       if (c && xe(p)) return ((h.marked = 'keyword'), f(Fe))
       if (s == 'variable') return (Ee(p), f())
       if (s == 'spread') return f(Fe)
-      if (s == '[') return cn(ua, ']')
-      if (s == '{') return cn(Li, '}')
+      if (s == '[') return ln(ua, ']')
+      if (s == '{') return ln(Li, '}')
     }
     function Li(s, p) {
       return s == 'variable' && !h.stream.match(/^\s*:/, !1)
@@ -12566,43 +12567,43 @@ var Ni = class extends ta.EditorSuggest {
       if (s == '(') return f(B(')'), da, N)
     }
     function da(s) {
-      return s == 'var' ? f(Cr, Ut) : s == 'variable' ? f(Ut) : C(Ut)
+      return s == 'var' ? f(Cr, Gt) : s == 'variable' ? f(Gt) : C(Gt)
     }
-    function Ut(s, p) {
+    function Gt(s, p) {
       return s == ')'
         ? f()
         : s == ';'
-          ? f(Ut)
+          ? f(Gt)
           : p == 'in' || p == 'of'
-            ? ((h.marked = 'keyword'), f(W, Ut))
-            : C(W, Ut)
+            ? ((h.marked = 'keyword'), f(W, Gt))
+            : C(W, Gt)
     }
     function _t(s, p) {
       if (p == '*') return ((h.marked = 'keyword'), f(_t))
       if (s == 'variable') return (Ee(p), f(_t))
-      if (s == '(') return f(Ue, B(')'), se(St, ')'), N, qi, ee, ye)
+      if (s == '(') return f(Ue, B(')'), se(Ct, ')'), N, qi, ee, ye)
       if (c && p == '<') return f(B('>'), se(Hn, '>'), N, _t)
     }
-    function Gt(s, p) {
-      if (p == '*') return ((h.marked = 'keyword'), f(Gt))
-      if (s == 'variable') return (Ee(p), f(Gt))
-      if (s == '(') return f(Ue, B(')'), se(St, ')'), N, qi, ye)
-      if (c && p == '<') return f(B('>'), se(Hn, '>'), N, Gt)
+    function Wt(s, p) {
+      if (p == '*') return ((h.marked = 'keyword'), f(Wt))
+      if (s == 'variable') return (Ee(p), f(Wt))
+      if (s == '(') return f(Ue, B(')'), se(Ct, ')'), N, qi, ye)
+      if (c && p == '<') return f(B('>'), se(Hn, '>'), N, Wt)
     }
     function Ki(s, p) {
       if (s == 'keyword' || s == 'variable') return ((h.marked = 'type'), f(Ki))
       if (p == '<') return f(B('>'), se(Hn, '>'), N)
     }
-    function St(s, p) {
+    function Ct(s, p) {
       return (
-        p == '@' && f(W, St),
+        p == '@' && f(W, Ct),
         s == 'spread'
-          ? f(St)
+          ? f(Ct)
           : c && xe(p)
-            ? ((h.marked = 'keyword'), f(St))
+            ? ((h.marked = 'keyword'), f(Ct))
             : c && s == 'this'
-              ? f(Yt, At)
-              : C(Fe, Yt, At)
+              ? f(Ut, At)
+              : C(Fe, Ut, At)
       )
     }
     function ma(s, p) {
@@ -12626,22 +12627,22 @@ var Ni = class extends ta.EditorSuggest {
       )
         return ((h.marked = 'keyword'), f(at))
       if (s == 'variable' || h.style == 'keyword')
-        return ((h.marked = 'property'), f(pn, at))
-      if (s == 'number' || s == 'string') return f(pn, at)
-      if (s == '[') return f(W, Yt, q(']'), pn, at)
+        return ((h.marked = 'property'), f(un, at))
+      if (s == 'number' || s == 'string') return f(un, at)
+      if (s == '[') return f(W, Ut, q(']'), un, at)
       if (p == '*') return ((h.marked = 'keyword'), f(at))
-      if (c && s == '(') return C(Gt, at)
+      if (c && s == '(') return C(Wt, at)
       if (s == ';' || s == ',') return f(at)
       if (s == '}') return f()
       if (p == '@') return f(W, at)
     }
-    function pn(s, p) {
-      if (p == '!' || p == '?') return f(pn)
+    function un(s, p) {
+      if (p == '!' || p == '?') return f(un)
       if (s == ':') return f(V, At)
       if (p == '=') return f(je)
       var A = h.state.lexical.prev,
         x = A && A.info == 'interface'
-      return C(x ? Gt : _t)
+      return C(x ? Wt : _t)
     }
     function ga(s, p) {
       return p == '*'
@@ -12667,7 +12668,7 @@ var Ni = class extends ta.EditorSuggest {
     }
     function Kn(s, p) {
       return s == '{'
-        ? cn(Kn, '}')
+        ? ln(Kn, '}')
         : (s == 'variable' && Ee(p), p == '*' && (h.marked = 'keyword'), f(Aa))
     }
     function Ui(s) {
@@ -12940,7 +12941,7 @@ var na = X(require('@codemirror/language')),
     }
     async jump_to_next_cursor_location(e = null, t = !1) {
       ;(t && !this.plugin.settings.auto_jump_to_cursor) ||
-        (e && Qt(this.plugin.app) !== e) ||
+        (e && Xt(this.plugin.app) !== e) ||
         (await this.cursor_jumper.jump_to_next_cursor_location())
     }
     async registerCodeMirrorMode() {
