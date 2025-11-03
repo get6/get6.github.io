@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Ensure PATH includes Homebrew binaries
+export PATH="/opt/homebrew/bin:/opt/homebrew/opt/node@22/bin:$PATH"
+
 # Pre-commit hook for code quality checks
 echo "🔍 Running pre-commit checks..."
 
