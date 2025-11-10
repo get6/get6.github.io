@@ -67,14 +67,14 @@ var Ey = M((Iu) => {
   Iu.toByteArray = oI
   Iu.fromByteArray = uI
   var Mn = [],
-    Wr = [],
+    qr = [],
     iI = typeof Uint8Array != 'undefined' ? Uint8Array : Array,
     bp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
   for (Ra = 0, xy = bp.length; Ra < xy; ++Ra)
-    ((Mn[Ra] = bp[Ra]), (Wr[bp.charCodeAt(Ra)] = Ra))
+    ((Mn[Ra] = bp[Ra]), (qr[bp.charCodeAt(Ra)] = Ra))
   var Ra, xy
-  Wr[45] = 62
-  Wr[95] = 63
+  qr[45] = 62
+  qr[95] = 63
   function Sy(t) {
     var e = t.length
     if (e % 4 > 0)
@@ -104,22 +104,22 @@ var Ey = M((Iu) => {
       l
     for (l = 0; l < o; l += 4)
       ((e =
-        (Wr[t.charCodeAt(l)] << 18) |
-        (Wr[t.charCodeAt(l + 1)] << 12) |
-        (Wr[t.charCodeAt(l + 2)] << 6) |
-        Wr[t.charCodeAt(l + 3)]),
+        (qr[t.charCodeAt(l)] << 18) |
+        (qr[t.charCodeAt(l + 1)] << 12) |
+        (qr[t.charCodeAt(l + 2)] << 6) |
+        qr[t.charCodeAt(l + 3)]),
         (a[s++] = (e >> 16) & 255),
         (a[s++] = (e >> 8) & 255),
         (a[s++] = e & 255))
     return (
       i === 2 &&
-        ((e = (Wr[t.charCodeAt(l)] << 2) | (Wr[t.charCodeAt(l + 1)] >> 4)),
+        ((e = (qr[t.charCodeAt(l)] << 2) | (qr[t.charCodeAt(l + 1)] >> 4)),
         (a[s++] = e & 255)),
       i === 1 &&
         ((e =
-          (Wr[t.charCodeAt(l)] << 10) |
-          (Wr[t.charCodeAt(l + 1)] << 4) |
-          (Wr[t.charCodeAt(l + 2)] >> 2)),
+          (qr[t.charCodeAt(l)] << 10) |
+          (qr[t.charCodeAt(l + 1)] << 4) |
+          (qr[t.charCodeAt(l + 2)] >> 2)),
         (a[s++] = (e >> 8) & 255),
         (a[s++] = e & 255)),
       a
@@ -1595,7 +1595,7 @@ var Uy,
     Uy.Platform.isMobileApp ? (Mp = Rp().Buffer) : (Mp = global.Buffer)
     Buffer = Mp
   })
-var zy = M((GV, Gy) => {
+var zy = M((UV, Gy) => {
   'use strict'
   m()
   var Cr = function (t) {
@@ -1758,12 +1758,12 @@ var zy = M((GV, Gy) => {
   }
   Gy.exports = Cr
 })
-var Wy = M((VV, Vy) => {
+var qy = M((zV, Vy) => {
   'use strict'
   m()
   Vy.exports = zy()
 })
-var qy = M((qV, Op) => {
+var Wy = M((qV, Op) => {
   m()
   typeof Object.create == 'function'
     ? (Op.exports = function (e, r) {
@@ -1829,7 +1829,7 @@ var Lu = M((Ip, Xy) => {
     return Du.SlowBuffer(t)
   }
 })
-var ju = M((KV, Ky) => {
+var ju = M((XV, Ky) => {
   m()
   var DI = {}.toString
   Ky.exports =
@@ -1838,77 +1838,77 @@ var ju = M((KV, Ky) => {
       return DI.call(t) == '[object Array]'
     }
 })
-var ur = M((JV, Zy) => {
+var ur = M((ZV, Zy) => {
   'use strict'
   m()
   Zy.exports = TypeError
 })
-var Nu = M((eW, Jy) => {
+var Nu = M((QV, Jy) => {
   'use strict'
   m()
   Jy.exports = Object
 })
-var Fp = M((rW, Qy) => {
+var Fp = M((tq, Qy) => {
   'use strict'
   m()
   Qy.exports = Error
 })
-var tw = M((iW, ew) => {
+var tw = M((nq, ew) => {
   'use strict'
   m()
   ew.exports = EvalError
 })
-var nw = M((sW, rw) => {
+var nw = M((aq, rw) => {
   'use strict'
   m()
   rw.exports = RangeError
 })
-var aw = M((lW, iw) => {
+var aw = M((oq, iw) => {
   'use strict'
   m()
   iw.exports = ReferenceError
 })
-var Bu = M((uW, sw) => {
+var Bu = M((cq, sw) => {
   'use strict'
   m()
   sw.exports = SyntaxError
 })
-var lw = M((dW, ow) => {
+var lw = M((fq, ow) => {
   'use strict'
   m()
   ow.exports = URIError
 })
-var uw = M((pW, cw) => {
+var uw = M((hq, cw) => {
   'use strict'
   m()
   cw.exports = Math.abs
 })
-var dw = M((gW, fw) => {
+var dw = M((mq, fw) => {
   'use strict'
   m()
   fw.exports = Math.floor
 })
-var pw = M((yW, hw) => {
+var pw = M((vq, hw) => {
   'use strict'
   m()
   hw.exports = Math.max
 })
-var gw = M((bW, mw) => {
+var gw = M((wq, mw) => {
   'use strict'
   m()
   mw.exports = Math.min
 })
-var yw = M((xW, vw) => {
+var yw = M((_q, vw) => {
   'use strict'
   m()
   vw.exports = Math.pow
 })
-var bw = M((EW, ww) => {
+var bw = M((Sq, ww) => {
   'use strict'
   m()
   ww.exports = Math.round
 })
-var xw = M((kW, _w) => {
+var xw = M((Aq, _w) => {
   'use strict'
   m()
   _w.exports =
@@ -1917,7 +1917,7 @@ var xw = M((kW, _w) => {
       return e !== e
     }
 })
-var Ew = M((CW, Sw) => {
+var Ew = M((Tq, Sw) => {
   'use strict'
   m()
   var LI = xw()
@@ -1925,12 +1925,12 @@ var Ew = M((CW, Sw) => {
     return LI(e) || e === 0 ? e : e < 0 ? -1 : 1
   }
 })
-var kw = M((RW, Aw) => {
+var kw = M((Pq, Aw) => {
   'use strict'
   m()
   Aw.exports = Object.getOwnPropertyDescriptor
 })
-var Gi = M((OW, Tw) => {
+var Gi = M((Mq, Tw) => {
   'use strict'
   m()
   var Hu = kw()
@@ -1942,7 +1942,7 @@ var Gi = M((OW, Tw) => {
     }
   Tw.exports = Hu
 })
-var _l = M((FW, Cw) => {
+var _l = M((Iq, Cw) => {
   'use strict'
   m()
   var Uu = Object.defineProperty || !1
@@ -1954,7 +1954,7 @@ var _l = M((FW, Cw) => {
     }
   Cw.exports = Uu
 })
-var xl = M((DW, Pw) => {
+var xl = M(($q, Pw) => {
   'use strict'
   m()
   Pw.exports = function () {
@@ -1996,7 +1996,7 @@ var xl = M((DW, Pw) => {
     return !0
   }
 })
-var Gu = M((jW, Mw) => {
+var Gu = M((Lq, Mw) => {
   'use strict'
   m()
   var Rw = typeof Symbol != 'undefined' && Symbol,
@@ -2010,18 +2010,18 @@ var Gu = M((jW, Mw) => {
       : jI()
   }
 })
-var $p = M((BW, Ow) => {
+var $p = M((Nq, Ow) => {
   'use strict'
   m()
   Ow.exports = (typeof Reflect != 'undefined' && Reflect.getPrototypeOf) || null
 })
-var Dp = M((UW, Iw) => {
+var Dp = M((Hq, Iw) => {
   'use strict'
   m()
   var NI = Nu()
   Iw.exports = NI.getPrototypeOf || null
 })
-var Dw = M((zW, $w) => {
+var Dw = M((Gq, $w) => {
   'use strict'
   m()
   var BI = 'Function.prototype.bind called on incompatible ',
@@ -2081,37 +2081,37 @@ var Dw = M((zW, $w) => {
     return i
   }
 })
-var js = M((WW, Lw) => {
+var js = M((Vq, Lw) => {
   'use strict'
   m()
-  var WI = Dw()
-  Lw.exports = Function.prototype.bind || WI
+  var qI = Dw()
+  Lw.exports = Function.prototype.bind || qI
 })
-var zu = M((YW, jw) => {
+var zu = M((Wq, jw) => {
   'use strict'
   m()
   jw.exports = Function.prototype.call
 })
-var Vu = M((KW, Nw) => {
+var Vu = M((Xq, Nw) => {
   'use strict'
   m()
   Nw.exports = Function.prototype.apply
 })
-var Hw = M((JW, Bw) => {
+var Hw = M((Zq, Bw) => {
   'use strict'
   m()
   Bw.exports = typeof Reflect != 'undefined' && Reflect && Reflect.apply
 })
-var Lp = M((eq, Uw) => {
+var Lp = M((Qq, Uw) => {
   'use strict'
   m()
-  var qI = js(),
+  var WI = js(),
     YI = Vu(),
     XI = zu(),
     KI = Hw()
-  Uw.exports = KI || qI.call(XI, YI)
+  Uw.exports = KI || WI.call(XI, YI)
 })
-var Wu = M((rq, Gw) => {
+var qu = M((tW, Gw) => {
   'use strict'
   m()
   var ZI = js(),
@@ -2124,14 +2124,14 @@ var Wu = M((rq, Gw) => {
     return e6(ZI, QI, e)
   }
 })
-var Xw = M((iq, Yw) => {
+var Xw = M((nW, Yw) => {
   'use strict'
   m()
-  var t6 = Wu(),
+  var t6 = qu(),
     zw = Gi(),
-    Ww
+    qw
   try {
-    Ww = [].__proto__ === Array.prototype
+    qw = [].__proto__ === Array.prototype
   } catch (t) {
     if (
       !t ||
@@ -2141,19 +2141,19 @@ var Xw = M((iq, Yw) => {
     )
       throw t
   }
-  var jp = !!Ww && zw && zw(Object.prototype, '__proto__'),
-    qw = Object,
-    Vw = qw.getPrototypeOf
+  var jp = !!qw && zw && zw(Object.prototype, '__proto__'),
+    Ww = Object,
+    Vw = Ww.getPrototypeOf
   Yw.exports =
     jp && typeof jp.get == 'function'
       ? t6([jp.get])
       : typeof Vw == 'function'
         ? function (e) {
-            return Vw(e == null ? e : qw(e))
+            return Vw(e == null ? e : Ww(e))
           }
         : !1
 })
-var qu = M((sq, Qw) => {
+var Wu = M((aW, Qw) => {
   'use strict'
   m()
   var Kw = $p(),
@@ -2175,7 +2175,7 @@ var qu = M((sq, Qw) => {
           }
         : null
 })
-var Yu = M((lq, eb) => {
+var Yu = M((oW, eb) => {
   'use strict'
   m()
   var r6 = Function.prototype.call,
@@ -2183,10 +2183,10 @@ var Yu = M((lq, eb) => {
     i6 = js()
   eb.exports = i6.call(r6, n6)
 })
-var Fn = M((uq, sb) => {
+var Fn = M((cW, sb) => {
   'use strict'
   m()
-  var we,
+  var be,
     a6 = Nu(),
     s6 = Fp(),
     o6 = tw(),
@@ -2227,33 +2227,33 @@ var Fn = M((uq, sb) => {
         })()
       : Bp,
     Ns = Gu()(),
-    _t = qu(),
+    _t = Wu(),
     b6 = Dp(),
     _6 = $p(),
     ab = Vu(),
     El = zu(),
     Bs = {},
-    x6 = typeof Uint8Array == 'undefined' || !_t ? we : _t(Uint8Array),
+    x6 = typeof Uint8Array == 'undefined' || !_t ? be : _t(Uint8Array),
     Ia = {
       __proto__: null,
       '%AggregateError%':
-        typeof AggregateError == 'undefined' ? we : AggregateError,
+        typeof AggregateError == 'undefined' ? be : AggregateError,
       '%Array%': Array,
-      '%ArrayBuffer%': typeof ArrayBuffer == 'undefined' ? we : ArrayBuffer,
-      '%ArrayIteratorPrototype%': Ns && _t ? _t([][Symbol.iterator]()) : we,
-      '%AsyncFromSyncIteratorPrototype%': we,
+      '%ArrayBuffer%': typeof ArrayBuffer == 'undefined' ? be : ArrayBuffer,
+      '%ArrayIteratorPrototype%': Ns && _t ? _t([][Symbol.iterator]()) : be,
+      '%AsyncFromSyncIteratorPrototype%': be,
       '%AsyncFunction%': Bs,
       '%AsyncGenerator%': Bs,
       '%AsyncGeneratorFunction%': Bs,
       '%AsyncIteratorPrototype%': Bs,
-      '%Atomics%': typeof Atomics == 'undefined' ? we : Atomics,
-      '%BigInt%': typeof BigInt == 'undefined' ? we : BigInt,
+      '%Atomics%': typeof Atomics == 'undefined' ? be : Atomics,
+      '%BigInt%': typeof BigInt == 'undefined' ? be : BigInt,
       '%BigInt64Array%':
-        typeof BigInt64Array == 'undefined' ? we : BigInt64Array,
+        typeof BigInt64Array == 'undefined' ? be : BigInt64Array,
       '%BigUint64Array%':
-        typeof BigUint64Array == 'undefined' ? we : BigUint64Array,
+        typeof BigUint64Array == 'undefined' ? be : BigUint64Array,
       '%Boolean%': Boolean,
-      '%DataView%': typeof DataView == 'undefined' ? we : DataView,
+      '%DataView%': typeof DataView == 'undefined' ? be : DataView,
       '%Date%': Date,
       '%decodeURI%': decodeURI,
       '%decodeURIComponent%': decodeURIComponent,
@@ -2262,24 +2262,24 @@ var Fn = M((uq, sb) => {
       '%Error%': s6,
       '%eval%': eval,
       '%EvalError%': o6,
-      '%Float16Array%': typeof Float16Array == 'undefined' ? we : Float16Array,
-      '%Float32Array%': typeof Float32Array == 'undefined' ? we : Float32Array,
-      '%Float64Array%': typeof Float64Array == 'undefined' ? we : Float64Array,
+      '%Float16Array%': typeof Float16Array == 'undefined' ? be : Float16Array,
+      '%Float32Array%': typeof Float32Array == 'undefined' ? be : Float32Array,
+      '%Float64Array%': typeof Float64Array == 'undefined' ? be : Float64Array,
       '%FinalizationRegistry%':
-        typeof FinalizationRegistry == 'undefined' ? we : FinalizationRegistry,
+        typeof FinalizationRegistry == 'undefined' ? be : FinalizationRegistry,
       '%Function%': ib,
       '%GeneratorFunction%': Bs,
-      '%Int8Array%': typeof Int8Array == 'undefined' ? we : Int8Array,
-      '%Int16Array%': typeof Int16Array == 'undefined' ? we : Int16Array,
-      '%Int32Array%': typeof Int32Array == 'undefined' ? we : Int32Array,
+      '%Int8Array%': typeof Int8Array == 'undefined' ? be : Int8Array,
+      '%Int16Array%': typeof Int16Array == 'undefined' ? be : Int16Array,
+      '%Int32Array%': typeof Int32Array == 'undefined' ? be : Int32Array,
       '%isFinite%': isFinite,
       '%isNaN%': isNaN,
-      '%IteratorPrototype%': Ns && _t ? _t(_t([][Symbol.iterator]())) : we,
-      '%JSON%': typeof JSON == 'object' ? JSON : we,
-      '%Map%': typeof Map == 'undefined' ? we : Map,
+      '%IteratorPrototype%': Ns && _t ? _t(_t([][Symbol.iterator]())) : be,
+      '%JSON%': typeof JSON == 'object' ? JSON : be,
+      '%Map%': typeof Map == 'undefined' ? be : Map,
       '%MapIteratorPrototype%':
         typeof Map == 'undefined' || !Ns || !_t
-          ? we
+          ? be
           : _t(new Map()[Symbol.iterator]()),
       '%Math%': Math,
       '%Number%': Number,
@@ -2287,35 +2287,35 @@ var Fn = M((uq, sb) => {
       '%Object.getOwnPropertyDescriptor%': Sl,
       '%parseFloat%': parseFloat,
       '%parseInt%': parseInt,
-      '%Promise%': typeof Promise == 'undefined' ? we : Promise,
-      '%Proxy%': typeof Proxy == 'undefined' ? we : Proxy,
+      '%Promise%': typeof Promise == 'undefined' ? be : Promise,
+      '%Proxy%': typeof Proxy == 'undefined' ? be : Proxy,
       '%RangeError%': l6,
       '%ReferenceError%': c6,
-      '%Reflect%': typeof Reflect == 'undefined' ? we : Reflect,
+      '%Reflect%': typeof Reflect == 'undefined' ? be : Reflect,
       '%RegExp%': RegExp,
-      '%Set%': typeof Set == 'undefined' ? we : Set,
+      '%Set%': typeof Set == 'undefined' ? be : Set,
       '%SetIteratorPrototype%':
         typeof Set == 'undefined' || !Ns || !_t
-          ? we
+          ? be
           : _t(new Set()[Symbol.iterator]()),
       '%SharedArrayBuffer%':
-        typeof SharedArrayBuffer == 'undefined' ? we : SharedArrayBuffer,
+        typeof SharedArrayBuffer == 'undefined' ? be : SharedArrayBuffer,
       '%String%': String,
-      '%StringIteratorPrototype%': Ns && _t ? _t(''[Symbol.iterator]()) : we,
-      '%Symbol%': Ns ? Symbol : we,
+      '%StringIteratorPrototype%': Ns && _t ? _t(''[Symbol.iterator]()) : be,
+      '%Symbol%': Ns ? Symbol : be,
       '%SyntaxError%': Us,
       '%ThrowTypeError%': w6,
       '%TypedArray%': x6,
       '%TypeError%': Hs,
-      '%Uint8Array%': typeof Uint8Array == 'undefined' ? we : Uint8Array,
+      '%Uint8Array%': typeof Uint8Array == 'undefined' ? be : Uint8Array,
       '%Uint8ClampedArray%':
-        typeof Uint8ClampedArray == 'undefined' ? we : Uint8ClampedArray,
-      '%Uint16Array%': typeof Uint16Array == 'undefined' ? we : Uint16Array,
-      '%Uint32Array%': typeof Uint32Array == 'undefined' ? we : Uint32Array,
+        typeof Uint8ClampedArray == 'undefined' ? be : Uint8ClampedArray,
+      '%Uint16Array%': typeof Uint16Array == 'undefined' ? be : Uint16Array,
+      '%Uint32Array%': typeof Uint32Array == 'undefined' ? be : Uint32Array,
       '%URIError%': u6,
-      '%WeakMap%': typeof WeakMap == 'undefined' ? we : WeakMap,
-      '%WeakRef%': typeof WeakRef == 'undefined' ? we : WeakRef,
-      '%WeakSet%': typeof WeakSet == 'undefined' ? we : WeakSet,
+      '%WeakMap%': typeof WeakMap == 'undefined' ? be : WeakMap,
+      '%WeakRef%': typeof WeakRef == 'undefined' ? be : WeakRef,
+      '%WeakSet%': typeof WeakSet == 'undefined' ? be : WeakSet,
       '%Function.prototype.call%': El,
       '%Function.prototype.apply%': ab,
       '%Object.defineProperty%': y6,
@@ -2509,18 +2509,18 @@ var Fn = M((uq, sb) => {
     return o
   }
 })
-var xt = M((dq, cb) => {
+var xt = M((fW, cb) => {
   'use strict'
   m()
   var ob = Fn(),
-    lb = Wu(),
+    lb = qu(),
     M6 = lb([ob('%String.prototype.indexOf%')])
   cb.exports = function (e, r) {
     var n = ob(e, !!r)
     return typeof n == 'function' && M6(e, '.prototype.') > -1 ? lb([n]) : n
   }
 })
-var hb = M((pq, db) => {
+var hb = M((hW, db) => {
   'use strict'
   m()
   var fb = Function.prototype.toString,
@@ -2608,7 +2608,7 @@ var hb = M((pq, db) => {
         return r !== F6 && r !== $6 && !/^\[object HTML/.test(r) ? !1 : Hp(e)
       }
 })
-var gb = M((gq, mb) => {
+var gb = M((mW, mb) => {
   'use strict'
   m()
   var H6 = hb(),
@@ -2626,17 +2626,17 @@ var gb = M((gq, mb) => {
       for (var i in e)
         pb.call(e, i) && (n == null ? r(e[i], i, e) : r.call(n, e[i], i, e))
     }
-  function W6(t) {
+  function q6(t) {
     return U6.call(t) === '[object Array]'
   }
   mb.exports = function (e, r, n) {
     if (!H6(r)) throw new TypeError('iterator must be a function')
     var i
     ;(arguments.length >= 3 && (i = n),
-      W6(e) ? G6(e, r, i) : typeof e == 'string' ? z6(e, r, i) : V6(e, r, i))
+      q6(e) ? G6(e, r, i) : typeof e == 'string' ? z6(e, r, i) : V6(e, r, i))
   }
 })
-var yb = M((yq, vb) => {
+var yb = M((vW, vb) => {
   'use strict'
   m()
   vb.exports = [
@@ -2654,18 +2654,18 @@ var yb = M((yq, vb) => {
     'BigUint64Array',
   ]
 })
-var bb = M((bq, wb) => {
+var bb = M((wW, wb) => {
   'use strict'
   m()
   var Vp = yb(),
-    q6 = typeof globalThis == 'undefined' ? global : globalThis
+    W6 = typeof globalThis == 'undefined' ? global : globalThis
   wb.exports = function () {
     for (var e = [], r = 0; r < Vp.length; r++)
-      typeof q6[Vp[r]] == 'function' && (e[e.length] = Vp[r])
+      typeof W6[Vp[r]] == 'function' && (e[e.length] = Vp[r])
     return e
   }
 })
-var Qu = M((xq, Sb) => {
+var Qu = M((_W, Sb) => {
   'use strict'
   m()
   var _b = _l(),
@@ -2716,24 +2716,24 @@ var Qu = M((xq, Sb) => {
       )
   }
 })
-var ef = M((Eq, Ab) => {
+var ef = M((SW, Ab) => {
   'use strict'
   m()
-  var Wp = _l(),
+  var qp = _l(),
     Eb = function () {
-      return !!Wp
+      return !!qp
     }
   Eb.hasArrayLengthDefineBug = function () {
-    if (!Wp) return null
+    if (!qp) return null
     try {
-      return Wp([], 'length', { value: 1 }).length !== 1
+      return qp([], 'length', { value: 1 }).length !== 1
     } catch (e) {
       return !0
     }
   }
   Ab.exports = Eb
 })
-var Rb = M((kq, Pb) => {
+var Rb = M((AW, Pb) => {
   'use strict'
   m()
   var X6 = Fn(),
@@ -2759,7 +2759,7 @@ var Rb = M((kq, Pb) => {
     )
   }
 })
-var Ob = M((Cq, Mb) => {
+var Ob = M((TW, Mb) => {
   'use strict'
   m()
   var J6 = js(),
@@ -2769,12 +2769,12 @@ var Ob = M((Cq, Mb) => {
     return eF(J6, Q6, arguments)
   }
 })
-var Fa = M((Rq, tf) => {
+var Fa = M((PW, tf) => {
   'use strict'
   m()
   var tF = Rb(),
     Ib = _l(),
-    rF = Wu(),
+    rF = qu(),
     Fb = Ob()
   tf.exports = function (e) {
     var r = rF(arguments),
@@ -2783,7 +2783,7 @@ var Fa = M((Rq, tf) => {
   }
   Ib ? Ib(tf.exports, 'apply', { value: Fb }) : (tf.exports.apply = Fb)
 })
-var zi = M((Oq, $b) => {
+var zi = M((MW, $b) => {
   'use strict'
   m()
   var nF = xl()
@@ -2791,7 +2791,7 @@ var zi = M((Oq, $b) => {
     return nF() && !!Symbol.toStringTag
   }
 })
-var Kp = M((Fq, Nb) => {
+var Kp = M((IW, Nb) => {
   'use strict'
   m()
   var af = gb(),
@@ -2799,11 +2799,11 @@ var Kp = M((Fq, Nb) => {
     Db = Fa(),
     Yp = xt(),
     nf = Gi(),
-    rf = qu(),
+    rf = Wu(),
     aF = Yp('Object.prototype.toString'),
     jb = zi()(),
     Lb = typeof globalThis == 'undefined' ? global : globalThis,
-    qp = iF(),
+    Wp = iF(),
     Xp = Yp('String.prototype.slice'),
     sF =
       Yp('Array.prototype.indexOf', !0) ||
@@ -2813,7 +2813,7 @@ var Kp = M((Fq, Nb) => {
       },
     sf = { __proto__: null }
   jb && nf && rf
-    ? af(qp, function (t) {
+    ? af(Wp, function (t) {
         var e = new Lb[t]()
         if (Symbol.toStringTag in e && rf) {
           var r = rf(e),
@@ -2825,7 +2825,7 @@ var Kp = M((Fq, Nb) => {
           sf['$' + t] = Db(n.get)
         }
       })
-    : af(qp, function (t) {
+    : af(Wp, function (t) {
         var e = new Lb[t](),
           r = e.slice || e.set
         r && (sf['$' + t] = Db(r))
@@ -2858,12 +2858,12 @@ var Kp = M((Fq, Nb) => {
     if (!e || typeof e != 'object') return !1
     if (!jb) {
       var r = Xp(aF(e), 8, -1)
-      return sF(qp, r) > -1 ? r : r !== 'Object' ? !1 : lF(e)
+      return sF(Wp, r) > -1 ? r : r !== 'Object' ? !1 : lF(e)
     }
     return nf ? oF(e) : null
   }
 })
-var Hb = M((Dq, Bb) => {
+var Hb = M(($W, Bb) => {
   'use strict'
   m()
   var cF = Kp()
@@ -2871,7 +2871,7 @@ var Hb = M((Dq, Bb) => {
     return !!cF(e)
   }
 })
-var Gb = M((jq, Ub) => {
+var Gb = M((LW, Ub) => {
   'use strict'
   m()
   var uF = ur(),
@@ -2885,7 +2885,7 @@ var Gb = M((jq, Ub) => {
       return e.buffer
     }
 })
-var Wb = M((Bq, Vb) => {
+var qb = M((NW, Vb) => {
   'use strict'
   m()
   var $n = Lu().Buffer,
@@ -2942,11 +2942,11 @@ var Wb = M((Bq, Vb) => {
     )
   }
 })
-var Yb = M((Uq, qb) => {
+var Yb = M((HW, Wb) => {
   'use strict'
   m()
   var wF = Lu().Buffer,
-    bF = Wb()
+    bF = qb()
   function of(t, e) {
     ;((this._block = wF.alloc(t)),
       (this._finalSize = e),
@@ -2990,12 +2990,12 @@ var Yb = M((Uq, qb) => {
   of.prototype._update = function () {
     throw new Error('_update must be implemented by subclass')
   }
-  qb.exports = of
+  Wb.exports = of
 })
-var Zb = M((zq, Kb) => {
+var Zb = M((GW, Kb) => {
   'use strict'
   m()
-  var _F = qy(),
+  var _F = Wy(),
     Xb = Yb(),
     xF = Lu().Buffer,
     SF = [1518500249, 1859775393, -1894007588, -899497514],
@@ -3068,7 +3068,7 @@ var Zb = M((zq, Kb) => {
   }
   Kb.exports = kl
 })
-var e2 = M((Wq, Qb) => {
+var e2 = M((VW, Qb) => {
   'use strict'
   m()
   function Dn(t) {
@@ -3541,7 +3541,7 @@ var A2 = M((Ys) => {
     n2 = 0,
     i2 = 1,
     DF = 2
-  function qs(t) {
+  function Ws(t) {
     for (var e = t.length; --e >= 0; ) t[e] = 0
   }
   var LF = 0,
@@ -3552,7 +3552,7 @@ var A2 = M((Ys) => {
     im = 29,
     Ol = 256,
     Cl = Ol + 1 + im,
-    Ws = 30,
+    qs = 30,
     am = 19,
     f2 = 2 * Cl + 1,
     $a = 15,
@@ -3574,17 +3574,17 @@ var A2 = M((Ys) => {
     m2 = [16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15],
     GF = 512,
     mi = new Array((Cl + 2) * 2)
-  qs(mi)
-  var Tl = new Array(Ws * 2)
-  qs(Tl)
+  Ws(mi)
+  var Tl = new Array(qs * 2)
+  Ws(Tl)
   var Pl = new Array(GF)
-  qs(Pl)
+  Ws(Pl)
   var Rl = new Array(BF - NF + 1)
-  qs(Rl)
+  Ws(Rl)
   var om = new Array(im)
-  qs(om)
-  var cf = new Array(Ws)
-  qs(cf)
+  Ws(om)
+  var cf = new Array(qs)
+  Ws(cf)
   function Qp(t, e, r, n, i) {
     ;((this.static_tree = t),
       (this.extra_bits = e),
@@ -3683,7 +3683,7 @@ var A2 = M((Ys) => {
       o !== 0 && (t[s * 2] = b2(n[o]++, o))
     }
   }
-  function WF() {
+  function qF() {
     var t,
       e,
       r,
@@ -3694,23 +3694,23 @@ var A2 = M((Ys) => {
       for (om[n] = r, t = 0; t < 1 << rm[n]; t++) Rl[r++] = n
     for (Rl[r - 1] = n, i = 0, n = 0; n < 16; n++)
       for (cf[n] = i, t = 0; t < 1 << lf[n]; t++) Pl[i++] = n
-    for (i >>= 7; n < Ws; n++)
+    for (i >>= 7; n < qs; n++)
       for (cf[n] = i << 7, t = 0; t < 1 << (lf[n] - 7); t++) Pl[256 + i++] = n
     for (e = 0; e <= $a; e++) a[e] = 0
     for (t = 0; t <= 143; ) ((mi[t * 2 + 1] = 8), t++, a[8]++)
     for (; t <= 255; ) ((mi[t * 2 + 1] = 9), t++, a[9]++)
     for (; t <= 279; ) ((mi[t * 2 + 1] = 7), t++, a[7]++)
     for (; t <= 287; ) ((mi[t * 2 + 1] = 8), t++, a[8]++)
-    for (_2(mi, Cl + 1, a), t = 0; t < Ws; t++)
+    for (_2(mi, Cl + 1, a), t = 0; t < qs; t++)
       ((Tl[t * 2 + 1] = 5), (Tl[t * 2] = b2(t, 5)))
     ;((g2 = new Qp(mi, rm, Ol + 1, Cl, $a)),
-      (v2 = new Qp(Tl, lf, 0, Ws, $a)),
+      (v2 = new Qp(Tl, lf, 0, qs, $a)),
       (y2 = new Qp(new Array(0), UF, 0, am, HF)))
   }
   function x2(t) {
     var e
     for (e = 0; e < Cl; e++) t.dyn_ltree[e * 2] = 0
-    for (e = 0; e < Ws; e++) t.dyn_dtree[e * 2] = 0
+    for (e = 0; e < qs; e++) t.dyn_dtree[e * 2] = 0
     for (e = 0; e < am; e++) t.bl_tree[e * 2] = 0
     ;((t.dyn_ltree[sm * 2] = 1),
       (t.opt_len = t.static_len = 0),
@@ -3723,7 +3723,7 @@ var A2 = M((Ys) => {
       (t.bi_buf = 0),
       (t.bi_valid = 0))
   }
-  function qF(t, e, r, n) {
+  function WF(t, e, r, n) {
     ;(S2(t),
       n && (Ml(t, r), Ml(t, ~r)),
       FF.arraySet(t.pending_buf, t.window, e, r, t.pending),
@@ -3903,7 +3903,7 @@ var A2 = M((Ys) => {
   }
   var c2 = !1
   function ZF(t) {
-    ;(c2 || (WF(), (c2 = !0)),
+    ;(c2 || (qF(), (c2 = !0)),
       (t.l_desc = new em(t.dyn_ltree, g2)),
       (t.d_desc = new em(t.dyn_dtree, v2)),
       (t.bl_desc = new em(t.bl_tree, y2)),
@@ -3912,7 +3912,7 @@ var A2 = M((Ys) => {
       x2(t))
   }
   function E2(t, e, r, n) {
-    ;(fr(t, (LF << 1) + (n ? 1 : 0), 3), qF(t, e, r, !0))
+    ;(fr(t, (LF << 1) + (n ? 1 : 0), 3), WF(t, e, r, !0))
   }
   function JF(t) {
     ;(fr(t, u2 << 1, 3), Ln(t, sm, mi), zF(t))
@@ -3961,7 +3961,7 @@ var A2 = M((Ys) => {
   Ys._tr_tally = e$
   Ys._tr_align = JF
 })
-var lm = M((eY, k2) => {
+var lm = M((QW, k2) => {
   'use strict'
   m()
   function t$(t, e, r, n) {
@@ -3979,7 +3979,7 @@ var lm = M((eY, k2) => {
   }
   k2.exports = t$
 })
-var cm = M((rY, T2) => {
+var cm = M((tY, T2) => {
   'use strict'
   m()
   function r$() {
@@ -4000,7 +4000,7 @@ var cm = M((rY, T2) => {
   }
   T2.exports = i$
 })
-var uf = M((iY, C2) => {
+var uf = M((nY, C2) => {
   'use strict'
   m()
   C2.exports = {
@@ -4019,7 +4019,7 @@ var L2 = M((Bn) => {
   'use strict'
   m()
   var er = pi(),
-    qr = A2(),
+    Wr = A2(),
     O2 = lm(),
     Vi = cm(),
     a$ = uf(),
@@ -4073,10 +4073,10 @@ var L2 = M((Bn) => {
   function M2(t) {
     return (t << 1) - (t > 4 ? 9 : 0)
   }
-  function qi(t) {
+  function Wi(t) {
     for (var e = t.length; --e >= 0; ) t[e] = 0
   }
-  function Wi(t) {
+  function qi(t) {
     var e = t.state,
       r = e.pending
     ;(r > t.avail_out && (r = t.avail_out),
@@ -4090,14 +4090,14 @@ var L2 = M((Bn) => {
         e.pending === 0 && (e.pending_out = 0)))
   }
   function Ft(t, e) {
-    ;(qr._tr_flush_block(
+    ;(Wr._tr_flush_block(
       t,
       t.block_start >= 0 ? t.block_start : -1,
       t.strstart - t.block_start,
       e,
     ),
       (t.block_start = t.strstart),
-      Wi(t.strm))
+      qi(t.strm))
   }
   function Re(t, e) {
     t.pending_buf[t.pending++] = e
@@ -4265,7 +4265,7 @@ var L2 = M((Bn) => {
         t.match_length >= Ee)
       )
         if (
-          ((n = qr._tr_tally(
+          ((n = Wr._tr_tally(
             t,
             t.strstart - t.match_start,
             t.match_length - Ee,
@@ -4291,7 +4291,7 @@ var L2 = M((Bn) => {
               ((t.ins_h << t.hash_shift) ^ t.window[t.strstart + 1]) &
               t.hash_mask))
       else
-        ((n = qr._tr_tally(t, 0, t.window[t.strstart])),
+        ((n = Wr._tr_tally(t, 0, t.window[t.strstart])),
           t.lookahead--,
           t.strstart++)
       if (n && (Ft(t, !1), t.strm.avail_out === 0)) return wt
@@ -4333,7 +4333,7 @@ var L2 = M((Bn) => {
         t.prev_length >= Ee && t.match_length <= t.prev_length)
       ) {
         ;((i = t.strstart + t.lookahead - Ee),
-          (n = qr._tr_tally(
+          (n = Wr._tr_tally(
             t,
             t.strstart - 1 - t.prev_match,
             t.prev_length - Ee,
@@ -4357,7 +4357,7 @@ var L2 = M((Bn) => {
           return wt
       } else if (t.match_available) {
         if (
-          ((n = qr._tr_tally(t, 0, t.window[t.strstart - 1])),
+          ((n = Wr._tr_tally(t, 0, t.window[t.strstart - 1])),
           n && Ft(t, !1),
           t.strstart++,
           t.lookahead--,
@@ -4368,7 +4368,7 @@ var L2 = M((Bn) => {
     }
     return (
       t.match_available &&
-        ((n = qr._tr_tally(t, 0, t.window[t.strstart - 1])),
+        ((n = Wr._tr_tally(t, 0, t.window[t.strstart - 1])),
         (t.match_available = 0)),
       (t.insert = t.strstart < Ee - 1 ? t.strstart : Ee - 1),
       e === Ki
@@ -4410,11 +4410,11 @@ var L2 = M((Bn) => {
       }
       if (
         (t.match_length >= Ee
-          ? ((r = qr._tr_tally(t, 1, t.match_length - Ee)),
+          ? ((r = Wr._tr_tally(t, 1, t.match_length - Ee)),
             (t.lookahead -= t.match_length),
             (t.strstart += t.match_length),
             (t.match_length = 0))
-          : ((r = qr._tr_tally(t, 0, t.window[t.strstart])),
+          : ((r = Wr._tr_tally(t, 0, t.window[t.strstart])),
             t.lookahead--,
             t.strstart++),
         r && (Ft(t, !1), t.strm.avail_out === 0))
@@ -4438,7 +4438,7 @@ var L2 = M((Bn) => {
       }
       if (
         ((t.match_length = 0),
-        (r = qr._tr_tally(t, 0, t.window[t.strstart])),
+        (r = Wr._tr_tally(t, 0, t.window[t.strstart])),
         t.lookahead--,
         t.strstart++,
         r && (Ft(t, !1), t.strm.avail_out === 0))
@@ -4476,7 +4476,7 @@ var L2 = M((Bn) => {
   ]
   function R$(t) {
     ;((t.window_size = 2 * t.w_size),
-      qi(t.head),
+      Wi(t.head),
       (t.max_lazy_match = Ks[t.level].max_lazy),
       (t.good_match = Ks[t.level].good_length),
       (t.nice_match = Ks[t.level].nice_length),
@@ -4530,19 +4530,19 @@ var L2 = M((Bn) => {
       (this.dyn_ltree = new er.Buf16(x$ * 2)),
       (this.dyn_dtree = new er.Buf16((2 * b$ + 1) * 2)),
       (this.bl_tree = new er.Buf16((2 * _$ + 1) * 2)),
-      qi(this.dyn_ltree),
-      qi(this.dyn_dtree),
-      qi(this.bl_tree),
+      Wi(this.dyn_ltree),
+      Wi(this.dyn_dtree),
+      Wi(this.bl_tree),
       (this.l_desc = null),
       (this.d_desc = null),
       (this.bl_desc = null),
       (this.bl_count = new er.Buf16(S$ + 1)),
       (this.heap = new er.Buf16(2 * dm + 1)),
-      qi(this.heap),
+      Wi(this.heap),
       (this.heap_len = 0),
       (this.heap_max = 0),
       (this.depth = new er.Buf16(2 * dm + 1)),
-      qi(this.depth),
+      Wi(this.depth),
       (this.l_buf = 0),
       (this.lit_bufsize = 0),
       (this.last_lit = 0),
@@ -4567,7 +4567,7 @@ var L2 = M((Bn) => {
         (e.status = e.wrap ? gf : Da),
         (t.adler = e.wrap === 2 ? 0 : 1),
         (e.last_flush = Na),
-        qr._tr_init(e),
+        Wr._tr_init(e),
         Nn)
   }
   function $2(t) {
@@ -4708,7 +4708,7 @@ var L2 = M((Bn) => {
             (n.gzhead.hcrc &&
               n.pending > i &&
               (t.adler = Vi(t.adler, n.pending_buf, n.pending - i, i)),
-            Wi(t),
+            qi(t),
             (i = n.pending),
             n.pending === n.pending_buf_size)
           );
@@ -4730,7 +4730,7 @@ var L2 = M((Bn) => {
             (n.gzhead.hcrc &&
               n.pending > i &&
               (t.adler = Vi(t.adler, n.pending_buf, n.pending - i, i)),
-            Wi(t),
+            qi(t),
             (i = n.pending),
             n.pending === n.pending_buf_size)
           ) {
@@ -4756,7 +4756,7 @@ var L2 = M((Bn) => {
             (n.gzhead.hcrc &&
               n.pending > i &&
               (t.adler = Vi(t.adler, n.pending_buf, n.pending - i, i)),
-            Wi(t),
+            qi(t),
             (i = n.pending),
             n.pending === n.pending_buf_size)
           ) {
@@ -4776,7 +4776,7 @@ var L2 = M((Bn) => {
     if (
       (n.status === pf &&
         (n.gzhead.hcrc
-          ? (n.pending + 2 > n.pending_buf_size && Wi(t),
+          ? (n.pending + 2 > n.pending_buf_size && qi(t),
             n.pending + 2 <= n.pending_buf_size &&
               (Re(n, t.adler & 255),
               Re(n, (t.adler >> 8) & 255),
@@ -4785,7 +4785,7 @@ var L2 = M((Bn) => {
           : (n.status = Da)),
       n.pending !== 0)
     ) {
-      if ((Wi(t), t.avail_out === 0)) return ((n.last_flush = -1), Nn)
+      if ((qi(t), t.avail_out === 0)) return ((n.last_flush = -1), Nn)
     } else if (t.avail_in === 0 && M2(e) <= M2(r) && e !== Ki) return Xi(t, um)
     if (n.status === Fl && t.avail_in !== 0) return Xi(t, um)
     if (
@@ -4804,14 +4804,14 @@ var L2 = M((Bn) => {
       if (
         l === $l &&
         (e === s$
-          ? qr._tr_align(n)
+          ? Wr._tr_align(n)
           : e !== P2 &&
-            (qr._tr_stored_block(n, 0, 0, !1),
+            (Wr._tr_stored_block(n, 0, 0, !1),
             e === o$ &&
-              (qi(n.head),
+              (Wi(n.head),
               n.lookahead === 0 &&
                 ((n.strstart = 0), (n.block_start = 0), (n.insert = 0)))),
-        Wi(t),
+        qi(t),
         t.avail_out === 0)
       )
         return ((n.last_flush = -1), Nn)
@@ -4830,7 +4830,7 @@ var L2 = M((Bn) => {
               Re(n, (t.total_in >> 16) & 255),
               Re(n, (t.total_in >> 24) & 255))
             : (Il(n, t.adler >>> 16), Il(n, t.adler & 65535)),
-          Wi(t),
+          qi(t),
           n.wrap > 0 && (n.wrap = -n.wrap),
           n.pending !== 0 ? Nn : R2)
   }
@@ -4872,7 +4872,7 @@ var L2 = M((Bn) => {
         n.wrap = 0,
         r >= n.w_size &&
           (s === 0 &&
-            (qi(n.head), (n.strstart = 0), (n.block_start = 0), (n.insert = 0)),
+            (Wi(n.head), (n.strstart = 0), (n.block_start = 0), (n.insert = 0)),
           (u = new er.Buf8(n.w_size)),
           er.arraySet(u, e, r - n.w_size, n.w_size, 0),
           (e = u),
@@ -5045,7 +5045,7 @@ var pm = M((Js) => {
     return r < 0 || r === 0 ? e : r + Dl[t[r]] > e ? r : e
   }
 })
-var mm = M((uY, H2) => {
+var mm = M((cY, H2) => {
   'use strict'
   m()
   function L$() {
@@ -5191,12 +5191,12 @@ var V2 = M((Nl) => {
   Nl.deflateRaw = G$
   Nl.gzip = z$
 })
-var q2 = M((pY, W2) => {
+var W2 = M((hY, q2) => {
   'use strict'
   m()
   var yf = 30,
     V$ = 12
-  W2.exports = function (e, r) {
+  q2.exports = function (e, r) {
     var n,
       i,
       a,
@@ -5367,7 +5367,7 @@ var q2 = M((pY, W2) => {
       (n.bits = g))
   }
 })
-var e_ = M((gY, Q2) => {
+var e_ = M((mY, Q2) => {
   'use strict'
   m()
   var Y2 = pi(),
@@ -5377,11 +5377,11 @@ var e_ = M((gY, Q2) => {
     Z2 = 0,
     bm = 1,
     J2 = 2,
-    W$ = [
+    q$ = [
       3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59,
       67, 83, 99, 115, 131, 163, 195, 227, 258, 0, 0,
     ],
-    q$ = [
+    W$ = [
       16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19,
       19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 16, 72, 78,
     ],
@@ -5440,7 +5440,7 @@ var e_ = M((gY, Q2) => {
       (e === Z2
         ? ((_ = $ = o), (C = 19))
         : e === bm
-          ? ((_ = W$), (T -= 257), ($ = q$), (J -= 257), (C = 256))
+          ? ((_ = q$), (T -= 257), ($ = W$), (J -= 257), (C = 256))
           : ((_ = Y$), ($ = X$), (C = -1)),
       (E = 0),
       (f = 0),
@@ -5496,7 +5496,7 @@ var $_ = M((hn) => {
   var Pr = pi(),
     km = lm(),
     Hn = cm(),
-    K$ = q2(),
+    K$ = W2(),
     Bl = e_(),
     Z$ = 0,
     k_ = 1,
@@ -6379,7 +6379,7 @@ var $_ = M((hn) => {
   hn.inflateSetDictionary = h8
   hn.inflateInfo = 'pako inflate (from Nodeca project)'
 })
-var Pm = M((bY, D_) => {
+var Pm = M((wY, D_) => {
   'use strict'
   m()
   D_.exports = {
@@ -6412,7 +6412,7 @@ var Pm = M((bY, D_) => {
     Z_DEFLATED: 8,
   }
 })
-var j_ = M((xY, L_) => {
+var j_ = M((_Y, L_) => {
   'use strict'
   m()
   function p8() {
@@ -6563,7 +6563,7 @@ var B_ = M((Ul) => {
   Ul.inflateRaw = v8
   Ul.ungzip = Mm
 })
-var G_ = M((kY, U_) => {
+var G_ = M((AY, U_) => {
   'use strict'
   m()
   var y8 = pi().assign,
@@ -6574,7 +6574,7 @@ var G_ = M((kY, U_) => {
   y8(H_, w8, b8, _8)
   U_.exports = H_
 })
-var W_ = M((CY, V_) => {
+var q_ = M((TY, V_) => {
   'use strict'
   m()
   var z_ = (t, e) =>
@@ -6620,9 +6620,9 @@ var W_ = M((CY, V_) => {
     return i
   }
 })
-var tx = M((RY, ex) => {
+var tx = M((PY, ex) => {
   m()
-  function q_(t) {
+  function W_(t) {
     return Array.isArray(t) ? t : [t]
   }
   var Fm = '',
@@ -6772,7 +6772,7 @@ var tx = M((RY, ex) => {
       add(e) {
         return (
           (this._added = !1),
-          q_(Lm(e) ? $8(e) : e).forEach(this._addPattern, this),
+          W_(Lm(e) ? $8(e) : e).forEach(this._addPattern, this),
           this._added && this._initCache(),
           this
         )
@@ -6813,7 +6813,7 @@ var tx = M((RY, ex) => {
         return (e) => !this.ignores(e)
       }
       filter(e) {
-        return q_(e).filter(this.createFilter())
+        return W_(e).filter(this.createFilter())
       }
       test(e) {
         return this._test(e, this._testCache, !0)
@@ -6838,7 +6838,7 @@ var tx = M((RY, ex) => {
     yi.isNotRelative = (r) => e.test(r) || Q_(r)
   }
 })
-var nx = M((OY, rx) => {
+var nx = M((MY, rx) => {
   'use strict'
   m()
   function N8(t) {
@@ -6871,7 +6871,7 @@ var nx = M((OY, rx) => {
   }
   rx.exports = B8
 })
-var ax = M((FY, ix) => {
+var ax = M((IY, ix) => {
   m()
   ix.exports = function (t, e) {
     var r = t,
@@ -6977,7 +6977,7 @@ var ax = M((FY, ix) => {
     )
   }
 })
-var lx = M((DY, ox) => {
+var lx = M(($Y, ox) => {
   m()
   var H8 = ax()
   function U8(t, e) {
@@ -7121,15 +7121,15 @@ var gg = M((Y) => {
   function aa(t) {
     return t && typeof t == 'object' && 'default' in t ? t.default : t
   }
-  var zl = aa(Wy()),
+  var zl = aa(qy()),
     Mx = aa(Zb()),
     F = e2(),
     V8 = aa(r2()),
     cg = aa(G_()),
-    jm = aa(W_()),
-    W8 = aa(tx()),
+    jm = aa(q_()),
+    q8 = aa(tx()),
     zn = aa(nx()),
-    q8 = aa(lx()),
+    W8 = aa(lx()),
     Ae = class t extends Error {
       constructor(e) {
         ;(super(e), (this.caller = ''))
@@ -7737,7 +7737,7 @@ var gg = M((Y) => {
     }
   }
   Qi.code = 'InvalidOidError'
-  var Wl = class t extends Ae {
+  var ql = class t extends Ae {
     constructor(e) {
       ;(super(`Could not find a fetch refspec for remote "${e}". Make sure the config file has an entry like the following:
 [remote "${e}"]
@@ -7747,7 +7747,7 @@ var gg = M((Y) => {
         (this.data = { remote: e }))
     }
   }
-  Wl.code = 'NoRefspecError'
+  ql.code = 'NoRefspecError'
   var Pf = class t {
       constructor(e) {
         if (((this.refs = new Map()), (this.parsedConfig = []), e)) {
@@ -8117,7 +8117,7 @@ var gg = M((Y) => {
       let u = await nt.get({ fs: e, gitdir: r })
       if (!o) {
         if (((o = await u.getall(`remote.${n}.fetch`)), o.length === 0))
-          throw new Wl(n)
+          throw new ql(n)
         o.unshift(`+HEAD:refs/remotes/${n}/HEAD`)
       }
       let f = Qm.from(o),
@@ -8706,7 +8706,7 @@ var gg = M((Y) => {
     while (i & 128)
     return r
   }
-  var ql = class t {
+  var Wl = class t {
       constructor(e) {
         ;(Object.assign(this, e), (this.offsetCache = {}))
       }
@@ -8918,7 +8918,7 @@ var gg = M((Y) => {
     emitterPrefix: i,
   }) {
     let a = await t.read(e)
-    return ql.fromIdx({ idx: a, getExternalRefDelta: r })
+    return Wl.fromIdx({ idx: a, getExternalRefDelta: r })
   }
   function ug({
     fs: t,
@@ -9277,7 +9277,7 @@ var gg = M((Y) => {
     MissingNameError: zt,
     MissingParameterError: dr,
     MultipleGitError: tc,
-    NoRefspecError: Wl,
+    NoRefspecError: ql,
     NotFoundError: je,
     ObjectTypeError: tr,
     ParseError: Va,
@@ -10247,7 +10247,7 @@ gpgsig` +
         } catch (p) {
           if (p.code === 'NOENT') continue
         }
-        let d = W8().add(a)
+        let d = q8().add(a)
         d.add(f)
         let h = ao(u.filepath)
         if (h !== '.' && d.ignores(h)) return !0
@@ -10407,7 +10407,7 @@ gpgsig` +
   async function oc({ fs: t, gitdir: e, path: r }) {
     return (await nt.get({ fs: t, gitdir: e })).get(r)
   }
-  function Wx(t, ...e) {
+  function qx(t, ...e) {
     for (let r of e)
       if (r)
         for (let n of Object.keys(r)) {
@@ -10424,7 +10424,7 @@ gpgsig` +
         timestamp: i,
         timezoneOffset: new Date(i * 1e3).getTimezoneOffset(),
       },
-      s = Wx({}, a, n ? n.author : void 0, r)
+      s = qx({}, a, n ? n.author : void 0, r)
     if (s.name !== void 0) return s
   }
   async function ho({ fs: t, gitdir: e, author: r, committer: n, commit: i }) {
@@ -10435,10 +10435,10 @@ gpgsig` +
         timestamp: a,
         timezoneOffset: new Date(a * 1e3).getTimezoneOffset(),
       },
-      o = Wx({}, s, i ? i.committer : void 0, r, n)
+      o = qx({}, s, i ? i.committer : void 0, r, n)
     if (o.name !== void 0) return o
   }
-  async function qx({ fs: t, cache: e, gitdir: r, oid: n }) {
+  async function Wx({ fs: t, cache: e, gitdir: r, oid: n }) {
     let { type: i, object: a } = await Ge({
       fs: t,
       cache: e,
@@ -10448,13 +10448,13 @@ gpgsig` +
     if (i === 'tag')
       return (
         (n = Mr.from(a).parse().object),
-        qx({ fs: t, cache: e, gitdir: r, oid: n })
+        Wx({ fs: t, cache: e, gitdir: r, oid: n })
       )
     if (i !== 'commit') throw new tr(n, i, 'commit')
     return { commit: pr.from(a), oid: n }
   }
   async function po({ fs: t, cache: e, gitdir: r, oid: n }) {
-    let { commit: i, oid: a } = await qx({ fs: t, cache: e, gitdir: r, oid: n })
+    let { commit: i, oid: a } = await Wx({ fs: t, cache: e, gitdir: r, oid: n })
     return { oid: a, commit: i.parse(), payload: i.withoutSignature() }
   }
   async function Nf({
@@ -10836,7 +10836,7 @@ gpgsig` +
       throw ((d.caller = 'git.annotatedTag'), d)
     }
   }
-  async function W4({
+  async function q4({
     fs: t,
     gitdir: e,
     ref: r,
@@ -10870,7 +10870,7 @@ gpgsig` +
         P('fs', t),
         P('gitdir', r),
         P('ref', n),
-        await W4({
+        await q4({
           fs: new Q(t),
           gitdir: r,
           ref: n,
@@ -10931,7 +10931,7 @@ gpgsig` +
     if (!c) {
       let b
       try {
-        b = await q4({
+        b = await W4({
           fs: t,
           cache: e,
           onProgress: r,
@@ -11110,7 +11110,7 @@ gpgsig` +
         : await V.writeRef({ fs: t, gitdir: a, ref: 'HEAD', value: y })
     }
   }
-  async function q4({
+  async function W4({
     fs: t,
     cache: e,
     onProgress: r,
@@ -11469,17 +11469,17 @@ gpgsig` +
     for (; o === null; ) o = await a()
     if (o === !0) return { capabilities: r, refs: n, symrefs: i }
     if (((o = o.toString('utf8')), o.includes('version 2'))) return Ex(a)
-    let [l, c] = Wm(o, '\0', '\\x00')
+    let [l, c] = qm(o, '\0', '\\x00')
     if (
       (c.split(' ').map((u) => r.add(u)),
       l !== '0000000000000000000000000000000000000000 capabilities^{}')
     ) {
-      let [u, f] = Wm(l, ' ', ' ')
+      let [u, f] = qm(l, ' ', ' ')
       for (n.set(f, u); ; ) {
         let d = await a()
         if (d === !0) break
         if (d !== null) {
-          let [h, p] = Wm(d.toString('utf8'), ' ', ' ')
+          let [h, p] = qm(d.toString('utf8'), ' ', ' ')
           n.set(p, h)
         }
       }
@@ -11491,7 +11491,7 @@ gpgsig` +
       }
     return { protocolVersion: 1, capabilities: r, refs: n, symrefs: i }
   }
-  function Wm(t, e, r) {
+  function qm(t, e, r) {
     let n = t.trim().split(e)
     if (n.length !== 2)
       throw new Va(`Two strings separated by '${r}'`, t.toString('utf8'))
@@ -11503,7 +11503,7 @@ gpgsig` +
       ;((e.username || e.password) && (t.Authorization = rS(e)),
         e.headers && Object.assign(t, e.headers))
     },
-    qm = async (t) => {
+    Wm = async (t) => {
       try {
         let e = Buffer.from(await Ff(t.body)),
           r = e.toString('utf8')
@@ -11561,14 +11561,14 @@ gpgsig` +
           } else p.statusCode === 200 && v && i && (await i(f, d))
         while (g)
         if (p.statusCode !== 200) {
-          let { response: y } = await qm(p)
+          let { response: y } = await Wm(p)
           throw new so(p.statusCode, p.statusMessage, y)
         }
         if (p.headers['content-type'] === `application/x-${o}-advertisement`) {
           let y = await Ax(p.body, { service: o })
           return ((y.auth = d), y)
         } else {
-          let { preview: y, response: b, data: E } = await qm(p)
+          let { preview: y, response: b, data: E } = await Wm(p)
           try {
             let S = await Ax([E], { service: o })
             return ((S.auth = d), S)
@@ -11601,7 +11601,7 @@ gpgsig` +
           headers: l,
         })
         if (u.statusCode !== 200) {
-          let { response: f } = qm(u)
+          let { response: f } = Wm(u)
           throw new so(u.statusCode, u.statusMessage, f)
         }
         return u
@@ -11626,7 +11626,7 @@ gpgsig` +
       }
     },
     Ga = null,
-    Wa = class {
+    qa = class {
       static async read({ fs: e, gitdir: r }) {
         Ga === null && (Ga = new zl())
         let n = F.join(r, 'shallow'),
@@ -12010,8 +12010,8 @@ gpgsig` +
         ;(await Cx({ fs: t, cache: e, gitdir: l, oid: Je })) && N.push(Je)
       } catch (Je) {}
     N = [...new Set(N)]
-    let q = await Wa.read({ fs: t, gitdir: l }),
-      B = L.capabilities.has('shallow') ? [...q] : [],
+    let W = await qa.read({ fs: t, gitdir: l }),
+      B = L.capabilities.has('shallow') ? [...W] : [],
       $e = iD({
         capabilities: ce,
         wants: Te,
@@ -12035,23 +12035,23 @@ gpgsig` +
       X = await nD(Ut.body)
     Ut.headers && (X.headers = Ut.headers)
     for (let U of X.shallows)
-      if (!q.has(U))
+      if (!W.has(U))
         try {
           let { object: Je } = await Ge({ fs: t, cache: e, gitdir: l, oid: U }),
             j = new pr(Je),
             Z = await Promise.all(
               j
                 .headers()
-                .parent.map((qe) =>
-                  Cx({ fs: t, cache: e, gitdir: l, oid: qe }),
+                .parent.map((We) =>
+                  Cx({ fs: t, cache: e, gitdir: l, oid: We }),
                 ),
             )
-          Z.length === 0 || Z.every((qe) => qe) || q.add(U)
+          Z.length === 0 || Z.every((We) => We) || W.add(U)
         } catch (Je) {
-          q.add(U)
+          W.add(U)
         }
-    for (let U of X.unshallows) q.delete(U)
-    if ((await Wa.write({ fs: t, gitdir: l, oids: q }), E)) {
+    for (let U of X.unshallows) W.delete(U)
+    if ((await qa.write({ fs: t, gitdir: l, oids: W }), E)) {
       let U = new Map([[le, de]]),
         Je = new Map(),
         j = 10,
@@ -12063,7 +12063,7 @@ gpgsig` +
       }
       let Se = J.get(Z)
       Se && U.set(Z, Se)
-      let { pruned: qe } = await V.updateRemoteRefs({
+      let { pruned: We } = await V.updateRemoteRefs({
         fs: t,
         gitdir: l,
         remote: _,
@@ -12072,7 +12072,7 @@ gpgsig` +
         tags: b,
         prune: A,
       })
-      A && (X.pruned = qe)
+      A && (X.pruned = We)
     } else {
       let { pruned: U } = await V.updateRemoteRefs({
         fs: t,
@@ -12129,7 +12129,7 @@ gpgsig` +
       let U = F.join(l, Le.packfile)
       await t.write(U, De)
       let Je = (Z) => Ge({ fs: t, cache: e, gitdir: l, oid: Z }),
-        j = await ql.fromPack({
+        j = await Wl.fromPack({
           pack: De,
           getExternalRefDelta: Je,
           onProgress: n,
@@ -12557,7 +12557,7 @@ gpgsig` +
       o = a.match(Ym),
       l = i.match(Ym),
       c = s.match(Ym),
-      u = q8(o, l, c),
+      u = W8(o, l, c),
       f = 7,
       d = '',
       h = !0
@@ -13201,17 +13201,19 @@ gpgsig` +
   }) {
     try {
       ;(P('http', t), P('url', a))
-      let c = await go.getRemoteHelperFor({ url: a }).discover({
-          http: t,
-          onAuth: e,
-          onAuthSuccess: r,
-          onAuthFailure: n,
-          corsProxy: i,
-          service: o ? 'git-receive-pack' : 'git-upload-pack',
-          url: a,
-          headers: s,
-          protocolVersion: 1,
-        }),
+      let c = await go
+          .getRemoteHelperFor({ url: a })
+          .discover({
+            http: t,
+            onAuth: e,
+            onAuthSuccess: r,
+            onAuthFailure: n,
+            corsProxy: i,
+            service: o ? 'git-receive-pack' : 'git-upload-pack',
+            url: a,
+            headers: s,
+            protocolVersion: 1,
+          }),
         u = { capabilities: [...c.capabilities] }
       for (let [f, d] of c.refs) {
         let h = f.split('/'),
@@ -13264,17 +13266,19 @@ gpgsig` +
   }) {
     try {
       ;(P('http', t), P('url', a))
-      let u = await go.getRemoteHelperFor({ url: a }).discover({
-        http: t,
-        onAuth: e,
-        onAuthSuccess: r,
-        onAuthFailure: n,
-        corsProxy: i,
-        service: o ? 'git-receive-pack' : 'git-upload-pack',
-        url: a,
-        headers: s,
-        protocolVersion: l,
-      })
+      let u = await go
+        .getRemoteHelperFor({ url: a })
+        .discover({
+          http: t,
+          onAuth: e,
+          onAuthSuccess: r,
+          onAuthFailure: n,
+          corsProxy: i,
+          service: o ? 'git-receive-pack' : 'git-upload-pack',
+          url: a,
+          headers: s,
+          protocolVersion: l,
+        })
       if (u.protocolVersion === 2)
         return {
           protocolVersion: u.protocolVersion,
@@ -13336,7 +13340,7 @@ gpgsig` +
       a = F.join(n, a)
       let s = await t.read(a),
         o = (c) => Ge({ fs: t, cache: e, gitdir: i, oid: c }),
-        l = await ql.fromPack({
+        l = await Wl.fromPack({
           pack: s,
           getExternalRefDelta: o,
           onProgress: r,
@@ -13402,7 +13406,7 @@ gpgsig` +
     ancestor: i,
     depth: a,
   }) {
-    let s = await Wa.read({ fs: t, gitdir: r })
+    let s = await qa.read({ fs: t, gitdir: r })
     if (!n) throw new dr('oid')
     if (!i) throw new dr('ancestor')
     if (n === i) return !1
@@ -13774,7 +13778,7 @@ gpgsig` +
   }) {
     let c = typeof s == 'undefined' ? void 0 : Math.floor(s.valueOf() / 1e3),
       u = [],
-      f = await Wa.read({ fs: t, gitdir: r }),
+      f = await qa.read({ fs: t, gitdir: r }),
       d = await V.resolve({ fs: t, gitdir: r, ref: i }),
       h = [await po({ fs: t, cache: e, gitdir: r, oid: d })],
       p,
@@ -14015,7 +14019,7 @@ gpgsig` +
       throw ((s.caller = 'git.packObjects'), s)
     }
   }
-  async function WS({
+  async function qS({
     fs: t,
     http: e,
     onProgress: r,
@@ -14086,7 +14090,7 @@ gpgsig` +
     start: i,
     finish: a,
   }) {
-    let s = await Wa.read({ fs: t, gitdir: n }),
+    let s = await qa.read({ fs: t, gitdir: n }),
       o = new Set(),
       l = new Set()
     for (let f of i) o.add(await V.resolve({ fs: t, gitdir: n, ref: f }))
@@ -14249,9 +14253,9 @@ gpgsig` +
     else
       try {
         C = await V.expandAgainstMap({ ref: A, map: _.refs })
-      } catch (q) {
-        if (q instanceof je) C = A.startsWith('refs/') ? A : `refs/heads/${A}`
-        else throw q
+      } catch (W) {
+        if (W instanceof je) C = A.startsWith('refs/') ? A : `refs/heads/${A}`
+        else throw W
       }
     let I = _.refs.get(C) || '0000000000000000000000000000000000000000'
     if (
@@ -14267,15 +14271,15 @@ gpgsig` +
     let L = !_.capabilities.has('no-thin'),
       $ = new Set()
     if (!g) {
-      let q = [..._.refs.values()],
+      let W = [..._.refs.values()],
         B = new Set()
       if (I !== '0000000000000000000000000000000000000000') {
         let $e = await pg({ fs: t, cache: e, gitdir: c, oids: [w, I] })
-        for (let lr of $e) q.push(lr)
+        for (let lr of $e) W.push(lr)
         L && (B = await Xm({ fs: t, cache: e, gitdir: c, oids: $e }))
       }
-      if (!q.includes(w)) {
-        let $e = await CD({ fs: t, cache: e, gitdir: c, start: [w], finish: q })
+      if (!W.includes(w)) {
+        let $e = await CD({ fs: t, cache: e, gitdir: c, start: [w], finish: W })
         $ = await Xm({ fs: t, cache: e, gitdir: c, oids: $e })
       }
       if (L) {
@@ -14339,8 +14343,8 @@ gpgsig` +
       }),
       { packfile: Te, progress: ne } = await $f.demux(ce.body)
     if (i) {
-      let q = iS(ne)
-      uc(q, async (B) => {
+      let W = iS(ne)
+      uc(W, async (B) => {
         await i(B)
       })
     }
@@ -14349,24 +14353,24 @@ gpgsig` +
       (ce.headers && (N.headers = ce.headers),
       d && N.ok && N.refs[C].ok && !k.startsWith('refs/tags'))
     ) {
-      let q = `refs/remotes/${d}/${C.replace('refs/heads', '')}`
+      let W = `refs/remotes/${d}/${C.replace('refs/heads', '')}`
       g
-        ? await V.deleteRef({ fs: t, gitdir: c, ref: q })
-        : await V.writeRef({ fs: t, gitdir: c, ref: q, value: w })
+        ? await V.deleteRef({ fs: t, gitdir: c, ref: W })
+        : await V.writeRef({ fs: t, gitdir: c, ref: W, value: w })
     }
-    if (N.ok && Object.values(N.refs).every((q) => q.ok)) return N
+    if (N.ok && Object.values(N.refs).every((W) => W.ok)) return N
     {
-      let q = Object.entries(N.refs)
+      let W = Object.entries(N.refs)
         .filter(([B, $e]) => !$e.ok)
         .map(
           ([B, $e]) => `
   - ${B}: ${$e.error}`,
         )
         .join('')
-      throw new Ql(q, N)
+      throw new Ql(W, N)
     }
   }
-  async function qS({
+  async function WS({
     fs: t,
     http: e,
     onProgress: r,
@@ -15042,7 +15046,7 @@ gpgsig` +
         })
       }))
   }
-  var qa = class t {
+  var Wa = class t {
     constructor({ fs: e, dir: r, gitdir: n = F.join(r, '.git') }) {
       Object.assign(this, { fs: e, dir: r, gitdir: n, _author: null })
     }
@@ -15125,7 +15129,7 @@ gpgsig` +
     }
   }
   async function BD({ fs: t, dir: e, gitdir: r, message: n = '' }) {
-    let i = new qa({ fs: t, dir: e, gitdir: r })
+    let i = new Wa({ fs: t, dir: e, gitdir: r })
     await i.getAuthor()
     let a = await sa({ fs: t, gitdir: r, fullname: !1 }),
       s = await V.resolve({ fs: t, gitdir: r, ref: 'HEAD' }),
@@ -15167,7 +15171,7 @@ gpgsig` +
     )
   }
   async function cE({ fs: t, dir: e, gitdir: r, refIdx: n = 0 }) {
-    let a = await new qa({ fs: t, dir: e, gitdir: r }).readStashCommit(n),
+    let a = await new Wa({ fs: t, dir: e, gitdir: r }).readStashCommit(n),
       { parent: s = null } = a.commit ? a.commit : {}
     if (!(!s || !Array.isArray(s)))
       for (let o = 0; o < s.length - 1; o++) {
@@ -15185,7 +15189,7 @@ gpgsig` +
       }
   }
   async function uE({ fs: t, dir: e, gitdir: r, refIdx: n = 0 }) {
-    let i = new qa({ fs: t, dir: e, gitdir: r })
+    let i = new Wa({ fs: t, dir: e, gitdir: r })
     if (!(await i.readStashCommit(n)).commit) return
     let s = i.refStashPath
     await vo(s, async () => {
@@ -15212,10 +15216,10 @@ gpgsig` +
     )
   }
   async function HD({ fs: t, dir: e, gitdir: r }) {
-    return new qa({ fs: t, dir: e, gitdir: r }).readStashReflogs({ parsed: !0 })
+    return new Wa({ fs: t, dir: e, gitdir: r }).readStashReflogs({ parsed: !0 })
   }
   async function UD({ fs: t, dir: e, gitdir: r }) {
-    let n = new qa({ fs: t, dir: e, gitdir: r }),
+    let n = new Wa({ fs: t, dir: e, gitdir: r }),
       i = [n.refStashPath, n.refLogsStashPath]
     await vo(i, async () => {
       await Promise.all(
@@ -15678,7 +15682,7 @@ gpgsig` +
       throw ((i.caller = 'git.writeTree'), i)
     }
   }
-  var WD = {
+  var qD = {
     Errors: Bx,
     STAGE: Ya,
     TREE: Rr,
@@ -15723,8 +15727,8 @@ gpgsig` +
     log: US,
     merge: GS,
     packObjects: VS,
-    pull: WS,
-    push: qS,
+    pull: qS,
+    push: WS,
     readBlob: KS,
     readCommit: mg,
     readNote: ZS,
@@ -15764,7 +15768,7 @@ gpgsig` +
   Y.clone = sS
   Y.commit = oS
   Y.currentBranch = lS
-  Y.default = WD
+  Y.default = qD
   Y.deleteBranch = cS
   Y.deleteRef = uS
   Y.deleteRemote = fS
@@ -15794,8 +15798,8 @@ gpgsig` +
   Y.log = US
   Y.merge = GS
   Y.packObjects = VS
-  Y.pull = WS
-  Y.push = qS
+  Y.pull = qS
+  Y.push = WS
   Y.readBlob = KS
   Y.readCommit = mg
   Y.readNote = ZS
@@ -15822,13 +15826,13 @@ gpgsig` +
   Y.writeTag = SE
   Y.writeTree = EE
 })
-var kE = M((GY, AE) => {
+var kE = M((UY, AE) => {
   m()
   var bo = 1e3,
     _o = bo * 60,
     xo = _o * 60,
     Xa = xo * 24,
-    qD = Xa * 7,
+    WD = Xa * 7,
     YD = Xa * 365.25
   AE.exports = function (t, e) {
     e = e || {}
@@ -15859,7 +15863,7 @@ var kE = M((GY, AE) => {
           case 'weeks':
           case 'week':
           case 'w':
-            return r * qD
+            return r * WD
           case 'days':
           case 'day':
           case 'd':
@@ -15923,7 +15927,7 @@ var kE = M((GY, AE) => {
     return Math.round(t / r) + ' ' + n + (i ? 's' : '')
   }
 })
-var CE = M((VY, TE) => {
+var CE = M((zY, TE) => {
   m()
   function JD(t) {
     ;((r.debug = r),
@@ -16307,7 +16311,7 @@ var yg = M((Ka) => {
   Ka.createDeferred = vg
   Ka.default = vg
 })
-var yT = M(($X, vT) => {
+var yT = M((FX, vT) => {
   'use strict'
   m()
   vT.exports = {
@@ -16461,7 +16465,7 @@ var yT = M(($X, vT) => {
     yellowgreen: [154, 205, 50],
   }
 })
-var bT = M((LX, wT) => {
+var bT = M((DX, wT) => {
   m()
   var c0 = {
     px: {
@@ -16897,7 +16901,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
   xi.default = IB
 })
-var f0 = M((HX, DT) => {
+var f0 = M((BX, DT) => {
   'use strict'
   m()
   var $T = Object.prototype.toString
@@ -16917,7 +16921,7 @@ var f0 = M((HX, DT) => {
     )
   }
 })
-var VT = M((GX, zT) => {
+var VT = M((UX, zT) => {
   'use strict'
   m()
   var GT
@@ -17018,18 +17022,18 @@ var VT = M((GX, zT) => {
   var _c, d0, LT, h0, jT, NT, xc, gd, BT, HT, UT
   zT.exports = GT
 })
-var yd = M((VX, YT) => {
+var yd = M((zX, YT) => {
   'use strict'
   m()
   var FB = Array.prototype.slice,
     $B = f0(),
-    WT = Object.keys,
-    vd = WT
+    qT = Object.keys,
+    vd = qT
       ? function (e) {
-          return WT(e)
+          return qT(e)
         }
       : VT(),
-    qT = Object.keys
+    WT = Object.keys
   vd.shim = function () {
     if (Object.keys) {
       var e = (function () {
@@ -17038,7 +17042,7 @@ var yd = M((VX, YT) => {
       })(1, 2)
       e ||
         (Object.keys = function (n) {
-          return $B(n) ? qT(FB.call(n)) : qT(n)
+          return $B(n) ? WT(FB.call(n)) : WT(n)
         })
     } else Object.keys = vd
     return Object.keys || vd
@@ -17074,7 +17078,7 @@ var fa = M((qX, JT) => {
   ZT.supportsDescriptors = !!KT
   JT.exports = ZT
 })
-var p0 = M((XX, rC) => {
+var p0 = M((YX, rC) => {
   'use strict'
   m()
   var UB = yd(),
@@ -17108,7 +17112,7 @@ var p0 = M((XX, rC) => {
     return n
   }
 })
-var g0 = M((ZX, nC) => {
+var g0 = M((KX, nC) => {
   'use strict'
   m()
   var m0 = p0(),
@@ -17125,7 +17129,7 @@ var g0 = M((ZX, nC) => {
       for (var s in i) a += s
       return t !== a
     },
-    WB = function () {
+    qB = function () {
       if (!Object.assign || !Object.preventExtensions) return !1
       var t = Object.preventExtensions({ 1: 2 })
       try {
@@ -17136,18 +17140,18 @@ var g0 = M((ZX, nC) => {
       return !1
     }
   nC.exports = function () {
-    return !Object.assign || VB() || WB() ? m0 : Object.assign
+    return !Object.assign || VB() || qB() ? m0 : Object.assign
   }
 })
-var aC = M((QX, iC) => {
+var aC = M((JX, iC) => {
   'use strict'
   m()
-  var qB = fa(),
+  var WB = fa(),
     YB = g0()
   iC.exports = function () {
     var e = YB()
     return (
-      qB(
+      WB(
         Object,
         { assign: e },
         {
@@ -17160,7 +17164,7 @@ var aC = M((QX, iC) => {
     )
   }
 })
-var cC = M((tK, lC) => {
+var cC = M((eK, lC) => {
   'use strict'
   m()
   var XB = fa(),
@@ -17175,7 +17179,7 @@ var cC = M((tK, lC) => {
   XB(oC, { getPolyfill: sC, implementation: ZB, shim: JB })
   lC.exports = oC
 })
-var v0 = M((nK, dC) => {
+var v0 = M((rK, dC) => {
   'use strict'
   m()
   var uC = Fn(),
@@ -17186,7 +17190,7 @@ var v0 = M((nK, dC) => {
     return typeof n == 'function' && e7(e, '.prototype.') > -1 ? fC(n) : n
   }
 })
-var pC = M((aK, hC) => {
+var pC = M((iK, hC) => {
   'use strict'
   m()
   var Ec = function () {
@@ -17210,7 +17214,7 @@ var pC = M((aK, hC) => {
   }
   hC.exports = Ec
 })
-var vC = M((oK, gC) => {
+var vC = M((sK, gC) => {
   'use strict'
   m()
   var mC = Qu(),
@@ -17223,7 +17227,7 @@ var vC = M((oK, gC) => {
     return ((!n || n7) && (r7 ? mC(e, 'name', r, !0, !0) : mC(e, 'name', r)), e)
   }
 })
-var y0 = M((cK, yC) => {
+var y0 = M((lK, yC) => {
   'use strict'
   m()
   var a7 = vC(),
@@ -17250,7 +17254,7 @@ var y0 = M((cK, yC) => {
     !0,
   )
 })
-var w0 = M((fK, wC) => {
+var w0 = M((uK, wC) => {
   'use strict'
   m()
   var l7 = y0(),
@@ -17287,7 +17291,7 @@ var w0 = M((fK, wC) => {
     return l7
   }
 })
-var xC = M((hK, _C) => {
+var xC = M((dK, _C) => {
   'use strict'
   m()
   var f7 = fa().supportsDescriptors,
@@ -17295,7 +17299,7 @@ var xC = M((hK, _C) => {
     h7 = Gi(),
     p7 = Object.defineProperty,
     m7 = Fp(),
-    bC = qu(),
+    bC = Wu(),
     g7 = /a/
   _C.exports = function () {
     if (!f7 || !bC)
@@ -17312,7 +17316,7 @@ var xC = M((hK, _C) => {
     )
   }
 })
-var kC = M((mK, AC) => {
+var kC = M((pK, AC) => {
   'use strict'
   m()
   var v7 = fa(),
@@ -17324,7 +17328,7 @@ var kC = M((mK, AC) => {
   v7(EC, { getPolyfill: SC, implementation: w7, shim: b7 })
   AC.exports = EC
 })
-var _0 = M((vK, CC) => {
+var _0 = M((gK, CC) => {
   'use strict'
   m()
   var _7 = zi()(),
@@ -17356,7 +17360,7 @@ var _0 = M((vK, CC) => {
 var PC = M(() => {
   m()
 })
-var Pc = M((xK, XC) => {
+var Pc = M((_K, XC) => {
   m()
   var M0 = typeof Map == 'function' && Map.prototype,
     x0 =
@@ -17388,7 +17392,7 @@ var Pc = M((xK, XC) => {
     IC = String.prototype.toLowerCase,
     UC = RegExp.prototype.test,
     FC = Array.prototype.concat,
-    qn = Array.prototype.join,
+    Wn = Array.prototype.join,
     O7 = Array.prototype.slice,
     $C = Math.floor,
     k0 = typeof BigInt == 'function' ? BigInt.prototype.valueOf : null,
@@ -17440,7 +17444,7 @@ var Pc = M((xK, XC) => {
   }
   var C0 = PC(),
     jC = C0.custom,
-    NC = WC(jC) ? jC : null,
+    NC = qC(jC) ? jC : null,
     zC = { __proto__: null, double: '"', single: "'" },
     I7 = { __proto__: null, double: /(["\\])/g, single: /(['\\])/g }
   XC.exports = function t(e, r, n, i) {
@@ -17496,7 +17500,7 @@ var Pc = M((xK, XC) => {
       return P0(e) ? '[Array]' : '[Object]'
     var f = Z7(a, n)
     if (typeof i == 'undefined') i = []
-    else if (qC(i, e) >= 0) return '[Circular]'
+    else if (WC(i, e) >= 0) return '[Circular]'
     function d(L, $, J) {
       if (($ && ((i = O7.call(i)), i.push($)), J)) {
         var de = { depth: a.depth }
@@ -17514,10 +17518,10 @@ var Pc = M((xK, XC) => {
         '[Function' +
         (h ? ': ' + h : ' (anonymous)') +
         ']' +
-        (p.length > 0 ? ' { ' + qn.call(p, ', ') + ' }' : '')
+        (p.length > 0 ? ' { ' + Wn.call(p, ', ') + ' }' : '')
       )
     }
-    if (WC(e)) {
+    if (qC(e)) {
       var g = Ro
         ? da.call(String(e), /^(Symbol\(.*\))_[^)]*$/, '$1')
         : T0.call(e)
@@ -17542,7 +17546,7 @@ var Pc = M((xK, XC) => {
     if (P0(e)) {
       if (e.length === 0) return '[]'
       var E = _d(e, d)
-      return f && !K7(E) ? '[' + R0(E, f) + ']' : '[ ' + qn.call(E, ', ') + ' ]'
+      return f && !K7(E) ? '[' + R0(E, f) + ']' : '[ ' + Wn.call(E, ', ') + ' ]'
     }
     if (D7(e)) {
       var S = _d(e, d)
@@ -17552,11 +17556,11 @@ var Pc = M((xK, XC) => {
         ? '{ [' +
             String(e) +
             '] ' +
-            qn.call(FC.call('[cause]: ' + d(e.cause), S), ', ') +
+            Wn.call(FC.call('[cause]: ' + d(e.cause), S), ', ') +
             ' }'
         : S.length === 0
           ? '[' + String(e) + ']'
-          : '{ [' + String(e) + '] ' + qn.call(S, ', ') + ' }'
+          : '{ [' + String(e) + '] ' + Wn.call(S, ', ') + ' }'
     }
     if (typeof e == 'object' && s) {
       if (NC && typeof e[NC] == 'function' && C0) return C0(e, { depth: u - n })
@@ -17572,7 +17576,7 @@ var Pc = M((xK, XC) => {
         HC('Map', xd.call(e), A, f)
       )
     }
-    if (W7(e)) {
+    if (q7(e)) {
       var k = []
       return (
         MC &&
@@ -17583,7 +17587,7 @@ var Pc = M((xK, XC) => {
       )
     }
     if (z7(e)) return A0('WeakMap')
-    if (q7(e)) return A0('WeakSet')
+    if (W7(e)) return A0('WeakSet')
     if (V7(e)) return A0('WeakRef')
     if (j7(e)) return Ac(d(Number(e)))
     if (B7(e)) return Ac(d(k0.call(e)))
@@ -17617,13 +17621,13 @@ var Pc = M((xK, XC) => {
         I =
           C +
           (T || _
-            ? '[' + qn.call(FC.call([], T || [], _ || []), ': ') + '] '
+            ? '[' + Wn.call(FC.call([], T || [], _ || []), ': ') + '] '
             : '')
       return w.length === 0
         ? I + '{}'
         : f
           ? I + '{' + R0(w, f) + '}'
-          : I + '{ ' + qn.call(w, ', ') + ' }'
+          : I + '{ ' + Wn.call(w, ', ') + ' }'
     }
     return String(e)
   }
@@ -17661,7 +17665,7 @@ var Pc = M((xK, XC) => {
   function N7(t) {
     return ha(t) === '[object Boolean]' && ts(t)
   }
-  function WC(t) {
+  function qC(t) {
     if (Ro) return t && typeof t == 'object' && t instanceof Symbol
     if (typeof t == 'symbol') return !0
     if (!t || typeof t != 'object' || !T0) return !1
@@ -17693,7 +17697,7 @@ var Pc = M((xK, XC) => {
     var e = R7.call(P7.call(t), /^function\s*([\w$]+)/)
     return e ? e[1] : null
   }
-  function qC(t, e) {
+  function WC(t, e) {
     if (t.indexOf) return t.indexOf(e)
     for (var r = 0, n = t.length; r < n; r++) if (t[r] === e) return r
     return -1
@@ -17731,7 +17735,7 @@ var Pc = M((xK, XC) => {
     } catch (e) {}
     return !1
   }
-  function W7(t) {
+  function q7(t) {
     if (!Sd || !t || typeof t != 'object') return !1
     try {
       Sd.call(t)
@@ -17744,7 +17748,7 @@ var Pc = M((xK, XC) => {
     } catch (e) {}
     return !1
   }
-  function q7(t) {
+  function W7(t) {
     if (!Tc || !t || typeof t != 'object') return !1
     try {
       Tc.call(t, Tc)
@@ -17787,13 +17791,13 @@ var Pc = M((xK, XC) => {
     return t + ' { ? }'
   }
   function HC(t, e, r, n) {
-    var i = n ? R0(r, n) : qn.call(r, ', ')
+    var i = n ? R0(r, n) : Wn.call(r, ', ')
     return t + ' (' + e + ') {' + i + '}'
   }
   function K7(t) {
     for (var e = 0; e < t.length; e++)
       if (
-        qC(
+        WC(
           t[e],
           `
 `,
@@ -17806,9 +17810,9 @@ var Pc = M((xK, XC) => {
     var r
     if (t.indent === '	') r = '	'
     else if (typeof t.indent == 'number' && t.indent > 0)
-      r = qn.call(Array(t.indent + 1), ' ')
+      r = Wn.call(Array(t.indent + 1), ' ')
     else return null
-    return { base: r, prev: qn.call(Array(e + 1), r) }
+    return { base: r, prev: Wn.call(Array(e + 1), r) }
   }
   function R0(t, e) {
     if (t.length === 0) return ''
@@ -17819,7 +17823,7 @@ var Pc = M((xK, XC) => {
       e.base
     return (
       r +
-      qn.call(t, ',' + r) +
+      Wn.call(t, ',' + r) +
       `
 ` +
       e.prev
@@ -17851,7 +17855,7 @@ var Pc = M((xK, XC) => {
     return n
   }
 })
-var ZC = M((EK, KC) => {
+var ZC = M((SK, KC) => {
   'use strict'
   m()
   var J7 = Pc(),
@@ -17901,7 +17905,7 @@ var ZC = M((EK, KC) => {
     return r
   }
 })
-var F0 = M((kK, QC) => {
+var F0 = M((AK, QC) => {
   'use strict'
   m()
   var i9 = Fn(),
@@ -17943,7 +17947,7 @@ var F0 = M((kK, QC) => {
       return r
     }
 })
-var tP = M((CK, eP) => {
+var tP = M((TK, eP) => {
   'use strict'
   m()
   var d9 = Fn(),
@@ -17997,7 +18001,7 @@ var tP = M((CK, eP) => {
       }
     : Ad
 })
-var $0 = M((RK, rP) => {
+var $0 = M((PK, rP) => {
   'use strict'
   m()
   var w9 = ur(),
@@ -18028,7 +18032,7 @@ var $0 = M((RK, rP) => {
     return r
   }
 })
-var iP = M((OK, nP) => {
+var iP = M((MK, nP) => {
   'use strict'
   m()
   var A9 = Yu(),
@@ -18067,7 +18071,7 @@ var iP = M((OK, nP) => {
   Object.freeze && Object.freeze(D0)
   nP.exports = D0
 })
-var oP = M((FK, sP) => {
+var oP = M((IK, sP) => {
   'use strict'
   m()
   var Oc = iP(),
@@ -18091,7 +18095,7 @@ var oP = M((FK, sP) => {
     return (Oc.set(r, '[[Iterator]]', e), r)
   }
 })
-var L0 = M((DK, cP) => {
+var L0 = M(($K, cP) => {
   'use strict'
   m()
   var lP = xt(),
@@ -18116,7 +18120,7 @@ var L0 = M((DK, cP) => {
           : P9(e) === R9
   }
 })
-var N0 = M((jK, dP) => {
+var N0 = M((LK, dP) => {
   'use strict'
   m()
   var j0 = typeof Map == 'function' && Map.prototype ? Map : null,
@@ -18149,7 +18153,7 @@ var N0 = M((jK, dP) => {
       return !1
     }
 })
-var H0 = M((BK, mP) => {
+var H0 = M((NK, mP) => {
   'use strict'
   m()
   var I9 = typeof Map == 'function' && Map.prototype ? Map : null,
@@ -18182,7 +18186,7 @@ var H0 = M((BK, mP) => {
       return !1
     }
 })
-var TP = M((UK, Md) => {
+var TP = M((HK, Md) => {
   'use strict'
   m()
   var gP = _0(),
@@ -18241,8 +18245,8 @@ var TP = M((UK, Md) => {
           })
         : ((EP = N0()),
           (AP = H0()),
-          (W0 = Jr('Map.prototype.forEach', !0)),
-          (q0 = Jr('Set.prototype.forEach', !0)),
+          (q0 = Jr('Map.prototype.forEach', !0)),
+          (W0 = Jr('Set.prototype.forEach', !0)),
           (typeof process == 'undefined' ||
             !process.versions ||
             !process.versions.node) &&
@@ -18258,10 +18262,10 @@ var TP = M((UK, Md) => {
             if (EP(e)) {
               if (Y0) return vP(Y0(e))
               if (K0) return K0(e)
-              if (W0) {
+              if (q0) {
                 var r = []
                 return (
-                  W0(e, function (i, a) {
+                  q0(e, function (i, a) {
                     G0(r, [a, i])
                   }),
                   Rd(r)
@@ -18271,10 +18275,10 @@ var TP = M((UK, Md) => {
             if (AP(e)) {
               if (X0) return vP(X0(e))
               if (Z0) return Z0(e)
-              if (q0) {
+              if (W0) {
                 var n = []
                 return (
-                  q0(e, function (i) {
+                  W0(e, function (i) {
                     G0(n, i)
                   }),
                   Rd(n)
@@ -18300,15 +18304,15 @@ var TP = M((UK, Md) => {
     V0,
     EP,
     AP,
-    W0,
     q0,
+    W0,
     Y0,
     X0,
     K0,
     Z0,
     kP
 })
-var J0 = M((zK, PP) => {
+var J0 = M((GK, PP) => {
   'use strict'
   m()
   var CP = function (t) {
@@ -18320,7 +18324,7 @@ var J0 = M((zK, PP) => {
       : !!(e === r || (CP(e) && CP(r)))
   }
 })
-var Q0 = M((WK, RP) => {
+var Q0 = M((VK, RP) => {
   'use strict'
   m()
   var F9 = J0()
@@ -18328,7 +18332,7 @@ var Q0 = M((WK, RP) => {
     return typeof Object.is == 'function' ? Object.is : F9
   }
 })
-var OP = M((YK, MP) => {
+var OP = M((WK, MP) => {
   'use strict'
   m()
   var $9 = Q0(),
@@ -18349,7 +18353,7 @@ var OP = M((YK, MP) => {
     )
   }
 })
-var DP = M((KK, $P) => {
+var DP = M((XK, $P) => {
   'use strict'
   m()
   var L9 = fa(),
@@ -18361,7 +18365,7 @@ var DP = M((KK, $P) => {
   L9(FP, { getPolyfill: IP, implementation: N9, shim: B9 })
   $P.exports = FP
 })
-var tv = M((JK, BP) => {
+var tv = M((ZK, BP) => {
   'use strict'
   m()
   var H9 = Fa(),
@@ -18390,7 +18394,7 @@ var tv = M((JK, BP) => {
             return !1
           }
 })
-var GP = M((eZ, UP) => {
+var GP = M((QK, UP) => {
   'use strict'
   m()
   var HP = xt(),
@@ -18402,14 +18406,14 @@ var GP = M((eZ, UP) => {
         return !1
       }
     },
-    W9 = HP('Object.prototype.toString'),
-    q9 = '[object Date]',
+    q9 = HP('Object.prototype.toString'),
+    W9 = '[object Date]',
     Y9 = zi()()
   UP.exports = function (e) {
-    return typeof e != 'object' || e === null ? !1 : Y9 ? V9(e) : W9(e) === q9
+    return typeof e != 'object' || e === null ? !1 : Y9 ? V9(e) : q9(e) === W9
   }
 })
-var av = M((rZ, YP) => {
+var av = M((tZ, YP) => {
   'use strict'
   m()
   var zP = xt(),
@@ -18436,17 +18440,17 @@ var av = M((rZ, YP) => {
           return i === rv
         }
       }))
-    : ((WP = zP('Object.prototype.toString')),
-      (qP = '[object RegExp]'),
+    : ((qP = zP('Object.prototype.toString')),
+      (WP = '[object RegExp]'),
       (iv = function (e) {
         return !e || (typeof e != 'object' && typeof e != 'function')
           ? !1
-          : WP(e) === qP
+          : qP(e) === WP
       }))
-  var VP, rv, Id, nv, WP, qP
+  var VP, rv, Id, nv, qP, WP
   YP.exports = iv
 })
-var ZP = M((iZ, KP) => {
+var ZP = M((nZ, KP) => {
   'use strict'
   m()
   var J9 = xt(),
@@ -18464,7 +18468,7 @@ var ZP = M((iZ, KP) => {
         return !1
       }
 })
-var eR = M((sZ, QP) => {
+var eR = M((aZ, QP) => {
   'use strict'
   m()
   var JP = xt(),
@@ -18489,7 +18493,7 @@ var eR = M((sZ, QP) => {
           : tH(e) === rH
   }
 })
-var nR = M((lZ, rR) => {
+var nR = M((oZ, rR) => {
   'use strict'
   m()
   var tR = xt(),
@@ -18514,7 +18518,7 @@ var nR = M((lZ, rR) => {
           : aH(e) === oH
   }
 })
-var aR = M((uZ, iR) => {
+var aR = M((cZ, iR) => {
   'use strict'
   m()
   var cH = xt(),
@@ -18528,7 +18532,7 @@ var aR = M((uZ, iR) => {
     }
   }
 })
-var uR = M((dZ, sv) => {
+var uR = M((fZ, sv) => {
   'use strict'
   m()
   var cR = xt(),
@@ -18555,7 +18559,7 @@ var uR = M((dZ, sv) => {
       })
   var sR, oR, lR
 })
-var hR = M((pZ, dR) => {
+var hR = M((hZ, dR) => {
   'use strict'
   m()
   var fR = typeof BigInt != 'undefined' && BigInt
@@ -18568,7 +18572,7 @@ var hR = M((pZ, dR) => {
     )
   }
 })
-var gR = M((gZ, ov) => {
+var gR = M((mZ, ov) => {
   'use strict'
   m()
   var gH = hR()()
@@ -18598,7 +18602,7 @@ var gR = M((gZ, ov) => {
       })
   var pR, mR
 })
-var yR = M((yZ, vR) => {
+var yR = M((vZ, vR) => {
   'use strict'
   m()
   var vH = L0(),
@@ -18616,7 +18620,7 @@ var yR = M((yZ, vR) => {
     if (_H(e)) return 'BigInt'
   }
 })
-var _R = M((bZ, bR) => {
+var _R = M((wZ, bR) => {
   'use strict'
   m()
   var Fd = typeof WeakMap == 'function' && WeakMap.prototype ? WeakMap : null,
@@ -18649,7 +18653,7 @@ var _R = M((bZ, bR) => {
       return !1
     }
 })
-var SR = M((xZ, fv) => {
+var SR = M((_Z, fv) => {
   'use strict'
   m()
   var xH = Fn(),
@@ -18676,7 +18680,7 @@ var SR = M((xZ, fv) => {
       })
   var Dd
 })
-var AR = M((EZ, ER) => {
+var AR = M((SZ, ER) => {
   'use strict'
   m()
   var EH = N0(),
@@ -18693,7 +18697,7 @@ var AR = M((EZ, ER) => {
     return !1
   }
 })
-var CR = M((kZ, TR) => {
+var CR = M((AZ, TR) => {
   'use strict'
   m()
   var CH = xt(),
@@ -18703,7 +18707,7 @@ var CR = M((kZ, TR) => {
     return PH(e) ? (kR ? kR(e) : e.byteLength) : NaN
   }
 })
-var QR = M((CZ, JR) => {
+var QR = M((TZ, JR) => {
   'use strict'
   m()
   var XR = cC(),
@@ -18736,7 +18740,7 @@ var QR = M((CZ, JR) => {
     KR = Yn('Set.prototype.delete', !0),
     Hd = Yn('Set.prototype.has', !0),
     Ld = Yn('Set.prototype.size', !0)
-  function WR(t, e, r, n) {
+  function qR(t, e, r, n) {
     for (var i = Oo(t), a; (a = i.next()) && !a.done; )
       if (gn(e, a.value, r, n)) return (KR(t, a.value), !0)
     return !1
@@ -18763,7 +18767,7 @@ var QR = M((CZ, JR) => {
     var n = ZR(r)
     return n != null ? n : Hd(e, n) && !Hd(t, n)
   }
-  function qR(t, e, r, n, i, a) {
+  function WR(t, e, r, n, i, a) {
     for (var s = Oo(t), o, l; (o = s.next()) && !o.done; )
       if (((l = o.value), gn(r, l, i, a) && gn(n, Nd(e, l), i, a)))
         return (KR(t, l), !0)
@@ -18807,8 +18811,8 @@ var QR = M((CZ, JR) => {
     if (l) {
       for (; (o = a.next()) && !o.done; )
         if (o.value && typeof o.value == 'object') {
-          if (!WR(l, o.value, r.strict, n)) return !1
-        } else if (!r.strict && !Hd(t, o.value) && !WR(l, o.value, r.strict, n))
+          if (!qR(l, o.value, r.strict, n)) return !1
+        } else if (!r.strict && !Hd(t, o.value) && !qR(l, o.value, r.strict, n))
           return !1
       return Ld(l) === 0
     }
@@ -18833,11 +18837,11 @@ var QR = M((CZ, JR) => {
     if (l) {
       for (; (o = a.next()) && !o.done; )
         if (((c = o.value[0]), (f = o.value[1]), c && typeof c == 'object')) {
-          if (!qR(l, t, c, f, r, n)) return !1
+          if (!WR(l, t, c, f, r, n)) return !1
         } else if (
           !r.strict &&
           (!t.has(c) || !gn(Nd(t, c), f, r, n)) &&
-          !qR(l, t, c, f, XR({}, r, { strict: !1 }), n)
+          !WR(l, t, c, f, XR({}, r, { strict: !1 }), n)
         )
           return !1
       return Ld(l) === 0
@@ -19529,7 +19533,7 @@ var _v = M((exports, module) => {
             })))
   })()
 })
-var bM = M((qv) => {
+var bM = M((Wv) => {
   m()
   ;(function (t) {
     var e = /\S/,
@@ -19566,7 +19570,7 @@ var bM = M((qv) => {
           Te = !1,
           ne = 0,
           N = 0,
-          q = '{{',
+          W = '{{',
           B = '}}'
         function $e() {
           le.length > 0 &&
@@ -19603,15 +19607,15 @@ var bM = M((qv) => {
           var Pt = '=' + B,
             Le = Oe.indexOf(Pt, De),
             U = c(Oe.substring(Oe.indexOf('=', De) + 1, Le)).split(' ')
-          return ((q = U[0]), (B = U[U.length - 1]), Le + Pt.length - 1)
+          return ((W = U[0]), (B = U[U.length - 1]), Le + Pt.length - 1)
         }
         for (
-          _ && ((_ = _.split(' ')), (q = _[0]), (B = _[1])), ne = 0;
+          _ && ((_ = _.split(' ')), (W = _[0]), (B = _[1])), ne = 0;
           ne < T;
           ne++
         )
           $ == C
-            ? u(q, x, ne)
+            ? u(W, x, ne)
               ? (--ne, $e(), ($ = I))
               : x.charAt(ne) ==
                   `
@@ -19619,7 +19623,7 @@ var bM = M((qv) => {
                 ? Ut(Te)
                 : (le += x.charAt(ne))
             : $ == I
-              ? ((ne += q.length - 1),
+              ? ((ne += W.length - 1),
                 (de = t.tags[x.charAt(ne + 1)]),
                 (J = de ? x.charAt(ne + 1) : '_v'),
                 J == '=' ? ((ne = X(x, ne)), ($ = C)) : (de && ne++, ($ = L)),
@@ -19628,9 +19632,9 @@ var bM = M((qv) => {
                 ? (ce.push({
                     tag: J,
                     n: c(le),
-                    otag: q,
+                    otag: W,
                     ctag: B,
-                    i: J == '/' ? Te - q.length : ne + B.length,
+                    i: J == '/' ? Te - W.length : ne + B.length,
                   }),
                   (le = ''),
                   (ne += B.length - 1),
@@ -19857,11 +19861,11 @@ var bM = M((qv) => {
           (this.cache[_] = T)
         )
       }))
-  })(typeof qv != 'undefined' ? qv : Hogan)
+  })(typeof Wv != 'undefined' ? Wv : Hogan)
 })
 var _M = M((Yv) => {
   m()
-  var HU = {}
+  var BU = {}
   ;(function (t) {
     ;((t.Template = function (d, h, p, g) {
       ;((d = d || {}),
@@ -20081,9 +20085,9 @@ var _M = M((Yv) => {
       function (d) {
         return Object.prototype.toString.call(d) === '[object Array]'
       }
-  })(typeof Yv != 'undefined' ? Yv : HU)
+  })(typeof Yv != 'undefined' ? Yv : BU)
 })
-var Xv = M((Dee, xM) => {
+var Xv = M(($ee, xM) => {
   m()
   var _h = bM()
   _h.Template = _M().Template
@@ -21014,21 +21018,21 @@ var R5 = M((Eu, uy) => {
           }
         t.exports = function (A, k, w, x, _, T, C) {
           i(w, k, x)
-          var I = function (q) {
-              if (q === _ && le) return le
-              if (!g && q in J) return J[q]
-              switch (q) {
+          var I = function (W) {
+              if (W === _ && le) return le
+              if (!g && W in J) return J[W]
+              switch (W) {
                 case y:
                   return function () {
-                    return new w(this, q)
+                    return new w(this, W)
                   }
                 case b:
                   return function () {
-                    return new w(this, q)
+                    return new w(this, W)
                   }
                 case E:
                   return function () {
-                    return new w(this, q)
+                    return new w(this, W)
                   }
               }
               return function () {
@@ -22390,12 +22394,12 @@ var R5 = M((Eu, uy) => {
     })
   })
 })
-var IV = {}
-rI(IV, { default: () => vp })
-module.exports = nI(IV)
+var OV = {}
+rI(OV, { default: () => vp })
+module.exports = nI(OV)
 m()
 var D5 = Ot(gg()),
-  _e = require('obsidian'),
+  we = require('obsidian'),
   L5 = Ot(require('path'))
 m()
 var is = require('obsidian')
@@ -22416,7 +22420,7 @@ var rd = Ot(RE(), 1),
   fL = Object.getOwnPropertyDescriptor,
   Ng = Object.getOwnPropertyNames,
   dL = Object.prototype.hasOwnProperty,
-  W = (t, e) =>
+  q = (t, e) =>
     function () {
       return (t && (e = (0, t[Ng(t)[0]])((t = 0))), e)
     },
@@ -22453,14 +22457,14 @@ function ME(t) {
   return td.get(t) || []
 }
 var td,
-  pc = W({
+  pc = q({
     'src/lib/args/pathspec.ts'() {
       'use strict'
       td = new WeakMap()
     },
   }),
   wr,
-  la = W({
+  la = q({
     'src/lib/errors/git-error.ts'() {
       'use strict'
       wr = class extends Error {
@@ -22473,7 +22477,7 @@ var td,
     },
   }),
   mc,
-  ko = W({
+  ko = q({
     'src/lib/errors/git-response-error.ts'() {
       'use strict'
       ;(la(),
@@ -22485,7 +22489,7 @@ var td,
     },
   }),
   lA,
-  cA = W({
+  cA = q({
     'src/lib/errors/task-configuration-error.ts'() {
       'use strict'
       ;(la(),
@@ -22579,7 +22583,7 @@ function kg(t) {
 var Ao,
   Qa,
   vc,
-  id = W({
+  id = q({
     'src/lib/utils/util.ts'() {
       'use strict'
       ;((Ao = '\0'),
@@ -22587,7 +22591,7 @@ var Ao,
         (vc = Object.prototype.toString.call.bind(Object.prototype.toString)))
     },
   })
-function Wn(t, e, r) {
+function qn(t, e, r) {
   return e(t) ? t : arguments.length > 2 ? r : void 0
 }
 function Tg(t, e) {
@@ -22605,7 +22609,7 @@ var yc,
   bA,
   Zf,
   Ug,
-  _A = W({
+  _A = q({
     'src/lib/utils/argument-filters.ts'() {
       'use strict'
       ;(id(),
@@ -22623,7 +22627,7 @@ var yc,
     },
   }),
   Cg,
-  gL = W({
+  gL = q({
     'src/lib/utils/exit-codes.ts'() {
       'use strict'
       Cg = ((t) => (
@@ -22636,7 +22640,7 @@ var yc,
     },
   }),
   Jf,
-  vL = W({
+  vL = q({
     'src/lib/utils/git-output-streams.ts'() {
       'use strict'
       Jf = class xA {
@@ -22654,7 +22658,7 @@ var yc,
   }),
   me,
   oa,
-  yL = W({
+  yL = q({
     'src/lib/utils/line-parser.ts'() {
       'use strict'
       ;((me = class {
@@ -22705,7 +22709,7 @@ function SA(...t) {
   return ((r.baseDir = r.baseDir || e), (r.trimmed = r.trimmed === !0), r)
 }
 var EA,
-  wL = W({
+  wL = q({
     'src/lib/utils/simple-git-options.ts'() {
       'use strict'
       EA = { binary: 'git', maxConcurrentProcesses: 5, config: [], trimmed: !1 }
@@ -22732,17 +22736,17 @@ function vr(t, e = 0, r = !1) {
 }
 function bL(t) {
   let e = typeof Ja(t) == 'function'
-  return Wn(Ja(t, e ? 1 : 0), yc, [])
+  return qn(Ja(t, e ? 1 : 0), yc, [])
 }
 function zg(t) {
   let e = wA(Ja(t))
-  return Wn(Ja(t, e ? 1 : 0), ad)
+  return qn(Ja(t, e ? 1 : 0), ad)
 }
 function at(t, e = !0) {
   let r = uA(Ja(t))
   return e || fA(r) ? r : void 0
 }
-var _L = W({
+var _L = q({
   'src/lib/utils/task-options.ts'() {
     'use strict'
     ;(_A(), id(), pc())
@@ -22764,7 +22768,7 @@ function br(t, e, r, n = !0) {
     t
   )
 }
-var xL = W({
+var xL = q({
     'src/lib/utils/task-parser.ts'() {
       'use strict'
       id()
@@ -22797,7 +22801,7 @@ ft(AA, {
   filterString: () => Vt,
   filterStringArray: () => bA,
   filterStringOrStringArray: () => Zf,
-  filterType: () => Wn,
+  filterType: () => qn,
   first: () => hA,
   folderExists: () => Hg,
   forEachLineWithContent: () => Bg,
@@ -22816,7 +22820,7 @@ ft(AA, {
   trailingFunctionArgument: () => at,
   trailingOptionsArgument: () => zg,
 })
-var he = W({
+var he = q({
     'src/lib/utils/index.ts'() {
       'use strict'
       ;(_A(), gL(), vL(), yL(), wL(), _L(), xL(), id())
@@ -22867,7 +22871,7 @@ function EL(t) {
 var Rg,
   sd,
   Vg,
-  PA = W({
+  PA = q({
     'src/lib/tasks/check-is-repo.ts'() {
       'use strict'
       ;(he(),
@@ -22899,7 +22903,7 @@ var RA,
   MA,
   OA,
   IA,
-  kL = W({
+  kL = q({
     'src/lib/responses/CleanSummary.ts'() {
       'use strict'
       ;(he(),
@@ -22963,7 +22967,7 @@ function LA(t) {
   return t.format === 'empty' || !t.commands.length
 }
 var od,
-  ut = W({
+  ut = q({
     'src/lib/tasks/task.ts'() {
       'use strict'
       ;(cA(), (od = []))
@@ -22971,10 +22975,10 @@ var od,
   }),
   jA = {}
 ft(jA, {
-  CONFIG_ERROR_INTERACTIVE_MODE: () => Wg,
-  CONFIG_ERROR_MODE_REQUIRED: () => qg,
+  CONFIG_ERROR_INTERACTIVE_MODE: () => qg,
+  CONFIG_ERROR_MODE_REQUIRED: () => Wg,
   CONFIG_ERROR_UNKNOWN_OPTION: () => Yg,
-  CleanOptions: () => Wf,
+  CleanOptions: () => qf,
   cleanTask: () => NA,
   cleanWithOptionsTask: () => TL,
   isCleanOptionsArray: () => CL,
@@ -22983,9 +22987,9 @@ function TL(t, e) {
   let { cleanMode: r, options: n, valid: i } = PL(t)
   return r
     ? i.options
-      ? (n.push(...e), n.some(OL) ? yr(Wg) : NA(r, n))
+      ? (n.push(...e), n.some(OL) ? yr(qg) : NA(r, n))
       : yr(Yg + JSON.stringify(t))
-    : yr(qg)
+    : yr(Wg)
 }
 function NA(t, e) {
   return {
@@ -23024,21 +23028,21 @@ function ML(t) {
 function OL(t) {
   return /^-[^\-]/.test(t) ? t.indexOf('i') > 0 : t === '--interactive'
 }
-var Wg,
-  qg,
+var qg,
+  Wg,
   Yg,
-  Wf,
+  qf,
   Xg,
-  BA = W({
+  BA = q({
     'src/lib/tasks/clean.ts'() {
       'use strict'
       ;(kL(),
         he(),
         ut(),
-        (Wg = 'Git clean interactive mode is not supported'),
-        (qg = 'Git clean mode parameter ("n" or "f") is required'),
+        (qg = 'Git clean interactive mode is not supported'),
+        (Wg = 'Git clean mode parameter ("n" or "f") is required'),
         (Yg = 'Git clean unknown option found in: '),
-        (Wf = ((t) => (
+        (qf = ((t) => (
           (t.DRY_RUN = 'n'),
           (t.FORCE = 'f'),
           (t.IGNORED_INCLUDED = 'x'),
@@ -23047,8 +23051,8 @@ var Wg,
           (t.QUIET = 'q'),
           (t.RECURSIVE = 'd'),
           t
-        ))(Wf || {})),
-        (Xg = new Set(['i', ...vA(Object.values(Wf))])))
+        ))(qf || {})),
+        (Xg = new Set(['i', ...vA(Object.values(qf))])))
     },
   })
 function IL(t) {
@@ -23091,7 +23095,7 @@ function* HA(t, e = null) {
   }
 }
 var UA,
-  DL = W({
+  DL = q({
     'src/lib/responses/ConfigList.ts'() {
       'use strict'
       ;(he(),
@@ -23189,7 +23193,7 @@ function BL() {
   }
 }
 var Og,
-  GA = W({
+  GA = q({
     'src/lib/tasks/config.ts'() {
       'use strict'
       ;(DL(),
@@ -23208,7 +23212,7 @@ function HL(t) {
 }
 var bg,
   zA,
-  VA = W({
+  VA = q({
     'src/lib/tasks/diff-name-status.ts'() {
       'use strict'
       ;((bg = ((t) => (
@@ -23227,7 +23231,7 @@ var bg,
     },
   })
 function UL(...t) {
-  return new qA().param(...t)
+  return new WA().param(...t)
 }
 function GL(t) {
   let e = new Set(),
@@ -23246,7 +23250,7 @@ function zL() {
     grep(t) {
       let e = at(arguments),
         r = vr(arguments)
-      for (let i of WA)
+      for (let i of qA)
         if (r.includes(i))
           return this._runTask(
             yr(`git.grep: use of "${i}" is not supported.`),
@@ -23267,18 +23271,18 @@ function zL() {
     },
   }
 }
-var WA,
+var qA,
   fc,
   OE,
-  qA,
-  YA = W({
+  WA,
+  YA = q({
     'src/lib/tasks/grep.ts'() {
       'use strict'
       ;(he(),
         ut(),
-        (WA = ['-h']),
+        (qA = ['-h']),
         (fc = Symbol('grepQuery')),
-        (qA = class {
+        (WA = class {
           constructor() {
             this[OE] = []
           }
@@ -23298,12 +23302,12 @@ var WA,
     },
   }),
   XA = {}
-ft(XA, { ResetMode: () => qf, getResetMode: () => WL, resetTask: () => VL })
+ft(XA, { ResetMode: () => Wf, getResetMode: () => qL, resetTask: () => VL })
 function VL(t, e) {
   let r = ['reset']
   return (KA(t) && r.push(`--${t}`), r.push(...e), rr(r))
 }
-function WL(t) {
+function qL(t) {
   if (KA(t)) return t
   switch (typeof t) {
     case 'string':
@@ -23314,24 +23318,24 @@ function WL(t) {
 function KA(t) {
   return ZA.includes(t)
 }
-var qf,
+var Wf,
   ZA,
-  JA = W({
+  JA = q({
     'src/lib/tasks/reset.ts'() {
       'use strict'
       ;(ut(),
-        (qf = ((t) => (
+        (Wf = ((t) => (
           (t.MIXED = 'mixed'),
           (t.SOFT = 'soft'),
           (t.HARD = 'hard'),
           (t.MERGE = 'merge'),
           (t.KEEP = 'keep'),
           t
-        ))(qf || {})),
-        (ZA = Array.from(Object.values(qf))))
+        ))(Wf || {})),
+        (ZA = Array.from(Object.values(Wf))))
     },
   })
-function qL() {
+function WL() {
   return (0, Qf.default)('simple-git')
 }
 function IE(t, e, r) {
@@ -23350,11 +23354,11 @@ function YL(t, e, { namespace: r }) {
   let n = (e && e.namespace) || ''
   return n.startsWith(r) ? n.substr(r.length + 1) : n || r
 }
-function Kg(t, e, r, n = qL()) {
+function Kg(t, e, r, n = WL()) {
   let i = (t && `[${t}]`) || '',
     a = [],
     s = typeof e == 'string' ? n.extend(e) : e,
-    o = YL(Wn(e, Vt), s, n)
+    o = YL(qn(e, Vt), s, n)
   return c(r)
   function l(u, f) {
     return Me(a, Kg(t, o.replace(/^[^:]+/, u), f, n))
@@ -23366,7 +23370,7 @@ function Kg(t, e, r, n = qL()) {
     return Object.assign(s ? d : h, { label: t, sibling: l, info: h, step: c })
   }
 }
-var QA = W({
+var QA = q({
     'src/lib/git-logger.ts'() {
       'use strict'
       ;(he(),
@@ -23376,7 +23380,7 @@ var QA = W({
     },
   }),
   ek,
-  XL = W({
+  XL = q({
     'src/lib/runners/tasks-pending-queue.ts'() {
       'use strict'
       var t
@@ -23455,7 +23459,7 @@ function FE(t, e, r, n) {
   }
 }
 var Ig,
-  ZL = W({
+  ZL = q({
     'src/lib/runners/git-executor-chain.ts'() {
       'use strict'
       ;(la(),
@@ -23639,7 +23643,7 @@ var Ig,
   rk = {}
 ft(rk, { GitExecutor: () => nk })
 var nk,
-  JL = W({
+  JL = q({
     'src/lib/runners/git-executor.ts'() {
       'use strict'
       ;(ZL(),
@@ -23691,7 +23695,7 @@ function ej(t) {
     )
   }
 }
-var tj = W({
+var tj = q({
   'src/lib/task-callback.ts'() {
     'use strict'
     ;(ko(), he())
@@ -23704,7 +23708,7 @@ function $E(t, e) {
     return ((e || r).cwd = t)
   })
 }
-var rj = W({
+var rj = q({
   'src/lib/tasks/change-working-directory.ts'() {
     'use strict'
     ;(he(), ut())
@@ -23727,7 +23731,7 @@ function nj() {
     },
   }
 }
-var ij = W({
+var ij = q({
   'src/lib/tasks/checkout.ts'() {
     'use strict'
     ;(he(), ut())
@@ -23759,7 +23763,7 @@ function sj() {
   }
 }
 var ik,
-  oj = W({
+  oj = q({
     'src/lib/tasks/count-objects.ts'() {
       'use strict'
       ;(he(),
@@ -23783,7 +23787,7 @@ function lj(t) {
   )
 }
 var ak,
-  cj = W({
+  cj = q({
     'src/lib/parsers/parse-commit.ts'() {
       'use strict'
       ;(he(),
@@ -23832,8 +23836,8 @@ function fj() {
       let n = at(arguments),
         i =
           t(e) ||
-          uj(Vn(e), Vn(Wn(r[0], Zf, [])), [
-            ...Wn(r[1], yc, []),
+          uj(Vn(e), Vn(qn(r[0], Zf, [])), [
+            ...qn(r[1], yc, []),
             ...vr(arguments, 0, !0),
           ])
       return this._runTask(i, n)
@@ -23848,7 +23852,7 @@ function fj() {
     )
   }
 }
-var dj = W({
+var dj = q({
   'src/lib/tasks/commit.ts'() {
     'use strict'
     ;(cj(), he(), ut())
@@ -23864,7 +23868,7 @@ function hj() {
     },
   }
 }
-var pj = W({
+var pj = q({
   'src/lib/tasks/first-commit.ts'() {
     'use strict'
     ;(he(), ut())
@@ -23874,7 +23878,7 @@ function mj(t, e) {
   let r = ['hash-object', t]
   return (e && r.push('-w'), rr(r, !0))
 }
-var gj = W({
+var gj = q({
   'src/lib/tasks/hash-object.ts'() {
     'use strict'
     ut()
@@ -23897,7 +23901,7 @@ function vj(t, e, r) {
 var Yf,
   sk,
   ok,
-  yj = W({
+  yj = q({
     'src/lib/responses/InitSummary.ts'() {
       'use strict'
       ;((Yf = class {
@@ -23929,7 +23933,7 @@ function bj(t = !1, e, r) {
   )
 }
 var Zg,
-  _j = W({
+  _j = q({
     'src/lib/tasks/init.ts'() {
       'use strict'
       ;(yj(), (Zg = '--bare'))
@@ -23946,14 +23950,14 @@ function xj(t) {
   return Qg.test(t)
 }
 var Qg,
-  wc = W({
+  wc = q({
     'src/lib/args/log-format.ts'() {
       'use strict'
       Qg = /^--(stat|numstat|name-only|name-status)(=|$)/
     },
   }),
   lk,
-  Sj = W({
+  Sj = q({
     'src/lib/responses/DiffSummary.ts'() {
       'use strict'
       lk = class {
@@ -23975,7 +23979,7 @@ var xg,
   LE,
   jE,
   uk,
-  fk = W({
+  fk = q({
     'src/lib/parsers/parse-diff-summary.ts'() {
       'use strict'
       ;(wc(),
@@ -24094,7 +24098,7 @@ var e0,
   t0,
   r0,
   hk,
-  pk = W({
+  pk = q({
     'src/lib/parsers/parse-list-log-summary.ts'() {
       'use strict'
       ;(he(),
@@ -24135,7 +24139,7 @@ function ld(t) {
       `Summary flag ${e} parsing is not compatible with null termination option '-z'`,
     )
 }
-var n0 = W({
+var n0 = q({
   'src/lib/tasks/diff.ts'() {
     'use strict'
     ;(wc(), fk(), ut())
@@ -24155,7 +24159,7 @@ function Tj(t) {
   return Object.keys(t).reduce((e, r) => (r in Fg || (e[r] = t[r]), e), {})
 }
 function gk(t = {}, e = []) {
-  let r = Wn(t.splitter, Vt, r0),
+  let r = qn(t.splitter, Vt, r0),
     n = ad(t.format)
       ? t.format
       : {
@@ -24189,7 +24193,7 @@ function Pj() {
   return {
     log(...r) {
       let n = at(arguments),
-        i = gk(zg(arguments), Wn(arguments[0], yc)),
+        i = gk(zg(arguments), qn(arguments[0], yc)),
         a = e(...r) || ld(i.commands) || t(i)
       return this._runTask(a, n)
     },
@@ -24208,7 +24212,7 @@ function Pj() {
   }
 }
 var Fg,
-  vk = W({
+  vk = q({
     'src/lib/tasks/log.ts'() {
       'use strict'
       ;(wc(),
@@ -24237,7 +24241,7 @@ var Fg,
   }),
   Xf,
   yk,
-  Rj = W({
+  Rj = q({
     'src/lib/responses/MergeSummary.ts'() {
       'use strict'
       ;((Xf = class {
@@ -24270,7 +24274,7 @@ var Fg,
   }),
   $g,
   wk,
-  Mj = W({
+  Mj = q({
     'src/lib/responses/PullSummary.ts'() {
       'use strict'
       ;(($g = class {
@@ -24313,7 +24317,7 @@ function NE(t) {
   return { count: He((e && e[1]) || '0'), delta: He((r && r[1]) || '0') }
 }
 var bk,
-  Oj = W({
+  Oj = q({
     'src/lib/parsers/parse-remote-objects.ts'() {
       'use strict'
       ;(he(),
@@ -24349,7 +24353,7 @@ function _k(t, e) {
 }
 var xk,
   Sk,
-  Ek = W({
+  Ek = q({
     'src/lib/parsers/parse-remote-messages.ts'() {
       'use strict'
       ;(he(),
@@ -24398,7 +24402,7 @@ var BE,
   Ak,
   zE,
   i0,
-  kk = W({
+  kk = q({
     'src/lib/parsers/parse-pull.ts'() {
       'use strict'
       ;(Mj(),
@@ -24444,8 +24448,8 @@ var BE,
   }),
   VE,
   Tk,
-  WE,
-  Fj = W({
+  qE,
+  Fj = q({
     'src/lib/parsers/parse-merge.ts'() {
       'use strict'
       ;(Rj(),
@@ -24474,11 +24478,11 @@ var BE,
             t.result = e
           }),
         ]),
-        (Tk = (t, e) => Object.assign(WE(t, e), i0(t, e))),
-        (WE = (t) => br(new yk(), VE, t)))
+        (Tk = (t, e) => Object.assign(qE(t, e), i0(t, e))),
+        (qE = (t) => br(new yk(), VE, t)))
     },
   })
-function qE(t) {
+function WE(t) {
   return t.length
     ? {
         commands: ['merge', ...t],
@@ -24491,7 +24495,7 @@ function qE(t) {
       }
     : yr('Git.merge requires at least one option')
 }
-var $j = W({
+var $j = q({
   'src/lib/tasks/merge.ts'() {
     'use strict'
     ;(ko(), Fj(), ut())
@@ -24514,7 +24518,7 @@ function Dj(t, e, r) {
 var YE,
   Ck,
   XE,
-  Lj = W({
+  Lj = q({
     'src/lib/parsers/parse-push.ts'() {
       'use strict'
       ;(he(),
@@ -24574,7 +24578,7 @@ function a0(t = {}, e) {
     { commands: r, format: 'utf-8', parser: Ck }
   )
 }
-var Rk = W({
+var Rk = q({
   'src/lib/tasks/push.ts'() {
     'use strict'
     ;(Lj(), he())
@@ -24595,7 +24599,7 @@ function Nj() {
     },
   }
 }
-var Bj = W({
+var Bj = q({
     'src/lib/tasks/show.ts'() {
       'use strict'
       ;(he(), ut())
@@ -24603,7 +24607,7 @@ var Bj = W({
   }),
   KE,
   Mk,
-  Hj = W({
+  Hj = q({
     'src/lib/responses/FileStatusSummary.ts'() {
       'use strict'
       ;((KE = /^(.+)\0(.+)$/),
@@ -24651,7 +24655,7 @@ function Uj(t, e) {
 var JE,
   Ok,
   Ik,
-  Gj = W({
+  Gj = q({
     'src/lib/responses/StatusSummary.ts'() {
       'use strict'
       ;(he(),
@@ -24753,7 +24757,7 @@ function zj(t) {
   }
 }
 var Fk,
-  Vj = W({
+  Vj = q({
     'src/lib/tasks/status.ts'() {
       'use strict'
       ;(Gj(), (Fk = ['--null', '-z']))
@@ -24772,10 +24776,10 @@ function ed(t = 0, e = 0, r = 0, n = '', i = !0) {
     },
   )
 }
-function Wj() {
+function qj() {
   return ed(0, 0, 0, '', !1)
 }
-function qj() {
+function Wj() {
   return {
     version() {
       return this._runTask({
@@ -24791,11 +24795,11 @@ function qj() {
   }
 }
 function Yj(t) {
-  return t === s0 ? Wj() : br(ed(0, 0, 0, t), $k, t)
+  return t === s0 ? qj() : br(ed(0, 0, 0, t), $k, t)
 }
 var s0,
   $k,
-  Xj = W({
+  Xj = q({
     'src/lib/tasks/version.ts'() {
       'use strict'
       ;(he(),
@@ -24819,7 +24823,7 @@ var s0,
   Dk = {}
 ft(Dk, { SimpleGitApi: () => Dg })
 var Dg,
-  Kj = W({
+  Kj = q({
     'src/lib/simple-git-api.ts'() {
       'use strict'
       ;(tj(),
@@ -24885,11 +24889,11 @@ var Dg,
             )
           }
           merge() {
-            return this._runTask(qE(vr(arguments)), at(arguments))
+            return this._runTask(WE(vr(arguments)), at(arguments))
           }
           mergeFromTo(t, e) {
             return Vt(t) && Vt(e)
-              ? this._runTask(qE([t, e, ...vr(arguments)]), at(arguments, !1))
+              ? this._runTask(WE([t, e, ...vr(arguments)]), at(arguments, !1))
               : this._runTask(
                   yr(
                     "Git.mergeFromTo requires that the 'remote' and 'branch' arguments are supplied as strings",
@@ -24901,7 +24905,7 @@ var Dg,
           }
           push() {
             let t = a0(
-              { remote: Wn(arguments[0], Vt), branch: Wn(arguments[1], Vt) },
+              { remote: qn(arguments[0], Vt), branch: qn(arguments[1], Vt) },
               vr(arguments),
             )
             return this._runTask(t, at(arguments))
@@ -24923,7 +24927,7 @@ var Dg,
           zL(),
           Pj(),
           Nj(),
-          qj(),
+          Wj(),
         ))
     },
   }),
@@ -24931,7 +24935,7 @@ var Dg,
 ft(Lk, { Scheduler: () => Nk })
 var QE,
   Nk,
-  Zj = W({
+  Zj = q({
     'src/lib/runners/scheduler.ts'() {
       'use strict'
       ;(he(),
@@ -24985,7 +24989,7 @@ ft(Bk, { applyPatchTask: () => Jj })
 function Jj(t, e) {
   return rr(['apply', ...e, ...t])
 }
-var Qj = W({
+var Qj = q({
   'src/lib/tasks/apply-patch.ts'() {
     'use strict'
     ut()
@@ -24998,7 +25002,7 @@ function tN(t) {
   return { branch: t, hash: null, success: !1 }
 }
 var Hk,
-  rN = W({
+  rN = q({
     'src/lib/responses/BranchDeleteSummary.ts'() {
       'use strict'
       Hk = class {
@@ -25018,7 +25022,7 @@ var eA,
   Lg,
   tA,
   cd,
-  nN = W({
+  nN = q({
     'src/lib/parsers/parse-branch-delete.ts'() {
       'use strict'
       ;(rN(),
@@ -25039,7 +25043,7 @@ var eA,
     },
   }),
   Gk,
-  iN = W({
+  iN = q({
     'src/lib/responses/BranchSummary.ts'() {
       'use strict'
       Gk = class {
@@ -25070,7 +25074,7 @@ function zk(t) {
   return br(new Gk(), Vk, t)
 }
 var Vk,
-  aN = W({
+  aN = q({
     'src/lib/parsers/parse-branch.ts'() {
       'use strict'
       ;(iN(),
@@ -25091,20 +25095,20 @@ var Vk,
         ]))
     },
   }),
-  Wk = {}
-ft(Wk, {
+  qk = {}
+ft(qk, {
   branchLocalTask: () => oN,
   branchTask: () => sN,
-  containsDeleteBranchCommand: () => qk,
+  containsDeleteBranchCommand: () => Wk,
   deleteBranchTask: () => cN,
   deleteBranchesTask: () => lN,
 })
-function qk(t) {
+function Wk(t) {
   let e = ['-d', '-D', '--delete']
   return t.some((r) => e.includes(r))
 }
 function sN(t) {
-  let e = qk(t),
+  let e = Wk(t),
     r = ['branch', ...t]
   return (
     r.length === 1 && r.push('-a'),
@@ -25148,14 +25152,14 @@ function cN(t, e = !1) {
   }
   return r
 }
-var uN = W({
+var uN = q({
     'src/lib/tasks/branch.ts'() {
       'use strict'
       ;(ko(), nN(), aN(), he())
     },
   }),
   Yk,
-  fN = W({
+  fN = q({
     'src/lib/responses/CheckIgnore.ts'() {
       'use strict'
       Yk = (t) =>
@@ -25170,7 +25174,7 @@ ft(Xk, { checkIgnoreTask: () => dN })
 function dN(t) {
   return { commands: ['check-ignore', ...t], format: 'utf-8', parser: Yk }
 }
-var hN = W({
+var hN = q({
     'src/lib/tasks/check-ignore.ts'() {
       'use strict'
       fN()
@@ -25192,7 +25196,7 @@ function Zk(t, e, r) {
 function mN(t, e, r) {
   return (Me(r, '--mirror'), Zk(t, e, r))
 }
-var gN = W({
+var gN = q({
   'src/lib/tasks/clone.ts'() {
     'use strict'
     ;(ut(), he())
@@ -25206,7 +25210,7 @@ function vN(t, e) {
   )
 }
 var Jk,
-  yN = W({
+  yN = q({
     'src/lib/parsers/parse-fetch.ts'() {
       'use strict'
       ;(he(),
@@ -25246,7 +25250,7 @@ function bN(t, e, r) {
       : { commands: n, format: 'utf-8', parser: vN }
   )
 }
-var _N = W({
+var _N = q({
   'src/lib/tasks/fetch.ts'() {
     'use strict'
     ;(yN(), ut())
@@ -25256,7 +25260,7 @@ function xN(t) {
   return br({ moves: [] }, eT, t)
 }
 var eT,
-  SN = W({
+  SN = q({
     'src/lib/parsers/parse-move.ts'() {
       'use strict'
       ;(he(),
@@ -25272,7 +25276,7 @@ ft(tT, { moveTask: () => EN })
 function EN(t, e) {
   return { commands: ['mv', '-v', ...Vn(t), e], format: 'utf-8', parser: xN }
 }
-var AN = W({
+var AN = q({
     'src/lib/tasks/move.ts'() {
       'use strict'
       ;(SN(), he())
@@ -25298,7 +25302,7 @@ function kN(t, e, r) {
     }
   )
 }
-var TN = W({
+var TN = q({
   'src/lib/tasks/pull.ts'() {
     'use strict'
     ;(ko(), kk(), he())
@@ -25322,7 +25326,7 @@ function PN(t) {
 function nT(t, e) {
   Bg(t, (r) => e(r.split(/\s+/)))
 }
-var RN = W({
+var RN = q({
     'src/lib/responses/GetRemoteSummary.ts'() {
       'use strict'
       he()
@@ -25357,7 +25361,7 @@ function FN(t) {
 function $N(t) {
   return rr(['remote', 'remove', t])
 }
-var DN = W({
+var DN = q({
     'src/lib/tasks/remote.ts'() {
       'use strict'
       ;(RN(), ut())
@@ -25371,7 +25375,7 @@ function LN(t = {}, e) {
     i = dk(r.splitter, r.fields, Jg(n))
   return ld(n) || { commands: n, format: 'utf-8', parser: i }
 }
-var jN = W({
+var jN = q({
     'src/lib/tasks/stash-list.ts'() {
       'use strict'
       ;(wc(), pk(), n0(), vk())
@@ -25397,7 +25401,7 @@ function ud(t) {
 function HN(t) {
   return ud(['update', ...t])
 }
-var UN = W({
+var UN = q({
   'src/lib/tasks/sub-module.ts'() {
     'use strict'
     ut()
@@ -25419,7 +25423,7 @@ function Vf(t) {
 }
 var nA,
   lT,
-  VN = W({
+  VN = q({
     'src/lib/responses/TagList.ts'() {
       'use strict'
       ;((nA = class {
@@ -25455,10 +25459,10 @@ var nA,
   cT = {}
 ft(cT, {
   addAnnotatedTagTask: () => YN,
-  addTagTask: () => qN,
-  tagListTask: () => WN,
+  addTagTask: () => WN,
+  tagListTask: () => qN,
 })
-function WN(t = []) {
+function qN(t = []) {
   let e = t.some((r) => /^--sort=/.test(r))
   return {
     format: 'utf-8',
@@ -25468,7 +25472,7 @@ function WN(t = []) {
     },
   }
 }
-function qN(t) {
+function WN(t) {
   return {
     format: 'utf-8',
     commands: ['tag', t],
@@ -25486,7 +25490,7 @@ function YN(t, e) {
     },
   }
 }
-var XN = W({
+var XN = q({
     'src/lib/tasks/tag.ts'() {
       'use strict'
       VN()
@@ -25516,7 +25520,7 @@ var XN = W({
           branchLocalTask: y,
           deleteBranchesTask: b,
           deleteBranchTask: E,
-        } = (uN(), it(Wk)),
+        } = (uN(), it(qk)),
         { checkIgnoreTask: S } = (hN(), it(Xk)),
         { checkIsRepoTask: A } = (PA(), it(kA)),
         { cloneTask: k, cloneMirrorTask: w } = (gN(), it(Kk)),
@@ -25534,7 +25538,7 @@ var XN = W({
           removeRemoteTask: Te,
         } = (DN(), it(iT)),
         { getResetMode: ne, resetTask: N } = (JA(), it(XA)),
-        { stashListTask: q } = (jN(), it(aT)),
+        { stashListTask: W } = (jN(), it(aT)),
         {
           addSubModuleTask: B,
           initSubModuleTask: $e,
@@ -25571,14 +25575,14 @@ var XN = W({
         }),
         (U.prototype.stashList = function (j) {
           return this._runTask(
-            q(p(arguments) || {}, (o(j) && j) || []),
+            W(p(arguments) || {}, (o(j) && j) || []),
             h(arguments),
           )
         }))
-      function Je(j, Z, Se, qe) {
+      function Je(j, Z, Se, We) {
         return typeof Se != 'string'
           ? a(`git.${j}() requires a string 'repoPath'`)
-          : Z(Se, f(qe, c), d(arguments))
+          : Z(Se, f(We, c), d(arguments))
       }
       ;((U.prototype.clone = function () {
         return this._runTask(Je('clone', k, ...arguments), h(arguments))
@@ -25592,12 +25596,12 @@ var XN = W({
         (U.prototype.checkoutLatestTag = function (j) {
           var Z = this
           return this.pull(function () {
-            Z.tags(function (Se, qe) {
-              Z.checkout(qe.latest, j)
+            Z.tags(function (Se, We) {
+              Z.checkout(We.latest, j)
             })
           })
         }),
-        (U.prototype.pull = function (j, Z, Se, qe) {
+        (U.prototype.pull = function (j, Z, Se, We) {
           return this._runTask(L(f(j, c), f(Z, c), d(arguments)), h(arguments))
         }),
         (U.prototype.fetch = function (j, Z) {
@@ -25661,12 +25665,12 @@ var XN = W({
               break
             }
           Se.push(...d(arguments, 0, !0))
-          var qe = h(arguments)
+          var We = h(arguments)
           return Se.length
-            ? this._runTask(Le(Se, this._trimmed), qe)
+            ? this._runTask(Le(Se, this._trimmed), We)
             : this._runTask(
                 a('Raw: must supply one or more command to execute'),
-                qe,
+                We,
               )
         }),
         (U.prototype.submoduleAdd = function (j, Z, Se) {
@@ -25724,15 +25728,15 @@ var XN = W({
         }),
         (U.prototype._catFile = function (j, Z) {
           var Se = h(Z),
-            qe = ['cat-file'],
+            We = ['cat-file'],
             Rt = Z[0]
           if (typeof Rt == 'string')
             return this._runTask(
               a('Git.catFile: options must be supplied as an array of strings'),
               Se,
             )
-          Array.isArray(Rt) && qe.push.apply(qe, Rt)
-          let vl = j === 'buffer' ? Pt(qe) : Le(qe)
+          Array.isArray(Rt) && We.push.apply(We, Rt)
+          let vl = j === 'buffer' ? Pt(We) : Le(We)
           return this._runTask(vl, Se)
         }),
         (U.prototype.diff = function (j, Z) {
@@ -25759,9 +25763,9 @@ var XN = W({
           return this._runTask(Le(j, !0), h(arguments))
         }),
         (U.prototype.clean = function (j, Z, Se) {
-          let qe = _(j),
-            Rt = (qe && j.join('')) || f(j, c) || '',
-            vl = d([].slice.call(arguments, qe ? 1 : 0))
+          let We = _(j),
+            Rt = (We && j.join('')) || f(j, c) || '',
+            vl = d([].slice.call(arguments, We ? 1 : 0))
           return this._runTask(x(Rt, vl), h(arguments))
         }),
         (U.prototype.exec = function (j) {
@@ -26902,7 +26906,7 @@ var Ce = class extends $o {
           l = this.plugin.localStorage.getEnvVars(),
           c = this.plugin.settings.gitDir
         if (o.length > 0) {
-          let v = process.env.PATH + ':' + o.join(':')
+          let v = o.join(':') + ':' + process.env.PATH
           process.env.PATH = v
         }
         c && (process.env.GIT_DIR = c)
@@ -27041,7 +27045,7 @@ var Ce = class extends $o {
         s = this.git.raw(a)
       return (
         s.catch((o) => console.warn('obsidian-git: rev-parse error:', o)),
-        s
+        (await s).trim()
       )
     }
     async getSubmodulePaths() {
@@ -27973,14 +27977,14 @@ function GH(t, e) {
 var zd =
     'a-zA-Z0-9_\\u{C0}-\\u{FF}\\u{D8}-\\u{F6}\\u{F8}-\\u{2C6}\\u{2C8}-\\u{2D7}\\u{2DE}-\\u{2FF}\\u{1E00}-\\u{1EFF}',
   zH = new RegExp('['.concat(zd, ']+|\\s+|[^').concat(zd, ']'), 'ug'),
-  Wd = new yn()
-Wd.equals = function (t, e, r) {
+  qd = new yn()
+qd.equals = function (t, e, r) {
   return (
     r.ignoreCase && ((t = t.toLowerCase()), (e = e.toLowerCase())),
     t.trim() === e.trim()
   )
 }
-Wd.tokenize = function (t) {
+qd.tokenize = function (t) {
   var e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {},
     r
   if (e.intlSegmenter) {
@@ -28008,14 +28012,14 @@ Wd.tokenize = function (t) {
     n
   )
 }
-Wd.join = function (t) {
+qd.join = function (t) {
   return t
     .map(function (e, r) {
       return r == 0 ? e : e.replace(/^\s+/, '')
     })
     .join('')
 }
-Wd.postProcess = function (t, e) {
+qd.postProcess = function (t, e) {
   if (!t || e.oneChangePerToken) return t
   var r = null,
     n = null,
@@ -28086,8 +28090,8 @@ A3.tokenize = function (t) {
 function k3(t, e, r) {
   return A3.diff(t, e, r)
 }
-var qd = new yn()
-qd.tokenize = function (t, e) {
+var Wd = new yn()
+Wd.tokenize = function (t, e) {
   e.stripTrailingCr &&
     (t = t.replace(
       /\r\n/g,
@@ -28103,7 +28107,7 @@ qd.tokenize = function (t, e) {
   }
   return r
 }
-qd.equals = function (t, e, r) {
+Wd.equals = function (t, e, r) {
   return (
     r.ignoreWhitespace
       ? ((!r.newlineIsToken ||
@@ -28124,14 +28128,14 @@ qd.equals = function (t, e, r) {
   )
 }
 function _3(t, e, r) {
-  return qd.diff(t, e, r)
+  return Wd.diff(t, e, r)
 }
 var VH = new yn()
 VH.tokenize = function (t) {
   return t.split(/(\S.+?[.!?])(?=\s+|$)/)
 }
-var WH = new yn()
-WH.tokenize = function (t) {
+var qH = new yn()
+qH.tokenize = function (t) {
   return t.split(/([{}:;,]|\s+)/)
 }
 function x3(t, e) {
@@ -28161,7 +28165,7 @@ function Vd(t) {
   }
   return t
 }
-function qH(t, e) {
+function WH(t, e) {
   if (typeof t != 'object' || !t) return t
   var r = t[Symbol.toPrimitive]
   if (r !== void 0) {
@@ -28172,7 +28176,7 @@ function qH(t, e) {
   return (e === 'string' ? String : Number)(t)
 }
 function YH(t) {
-  var e = qH(t, 'string')
+  var e = WH(t, 'string')
   return typeof e == 'symbol' ? e : e + ''
 }
 function Av(t) {
@@ -28245,7 +28249,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 }
 var jc = new yn()
 jc.useLongestToken = !0
-jc.tokenize = qd.tokenize
+jc.tokenize = Wd.tokenize
 jc.castInput = function (t, e) {
   var r = e.undefinedReplacement,
     n = e.stringifyReplacer,
@@ -30472,7 +30476,10 @@ You can always see the logs of this and every other plugin by opening the consol
     }
     setNonDefaultValue({ settingsProperty: r, text: n }) {
       let i = this.plugin.settings[r]
-      Xe[r] !== i && n.setValue(JSON.stringify(i))
+      Xe[r] !== i &&
+        (typeof i == 'string' || typeof i == 'number' || typeof i == 'boolean'
+          ? n.setValue(String(i))
+          : n.setValue(JSON.stringify(i)))
     }
     refreshDisplayWithDelay(r = 80) {
       setTimeout(() => this.display(), r)
@@ -30489,24 +30496,17 @@ function C3(t, e, r) {
   if (!(t === void 0 || e === void 0 || r === void 0))
     return `head${t}-obj${e}-path${r}`
 }
-var P3 = Jd.Annotation.define()
+var P3 = Jd.StateEffect.define()
 function R3(t, e, r) {
   return r.update({
-    annotations: P3.of({
-      key: t,
-      la: e,
-      lineOffsetsFromUnsavedChanges: new Map(),
-    }),
+    effects: P3.of({ key: t, la: e, lineOffsetsFromUnsavedChanges: new Map() }),
   })
-}
-function oU(t) {
-  return t.annotation(P3)
 }
 var Lo = Jd.StateField.define({
   create: (t) => {},
   update: (t, e) => {
-    var r
-    return (r = oU(e)) != null ? r : lU(e, t)
+    for (let r of e.effects) if (r.is(P3)) return r.value
+    return oU(e, t)
   },
   compare: (t, e) =>
     (t == null ? void 0 : t.key) === (e == null ? void 0 : e.key),
@@ -30530,7 +30530,7 @@ function eh(t) {
     ? r
     : Zd(Xe.lineAuthor.coloringMaxAge).asDays()
 }
-function lU(t, e) {
+function oU(t, e) {
   if (e)
     return (
       t.changes.empty ||
@@ -30625,10 +30625,10 @@ function $3(t, e) {
     ((n.gutterSpacingFallbackLength = r), Qr.save(n))
 }
 var Iv = [],
-  cU = 15,
+  lU = 15,
   rh = 0
 function D3(t) {
-  ;((Iv[rh] = t), (rh = (rh + 1) % cU))
+  ;((Iv[rh] = t), (rh = (rh + 1) % lU))
 }
 function L3() {
   return a3(Iv)
@@ -30641,7 +30641,7 @@ var K3 = require('@codemirror/state'),
   Z3 = require('@codemirror/view')
 m()
 var Lv = require('@codemirror/view'),
-  W3 = Ot(_v()),
+  q3 = Ot(_v()),
   lh = require('obsidian')
 m()
 m()
@@ -30653,9 +30653,9 @@ function j3() {
     })
 }
 function N3() {
-  for (let t of No) if (uU(t, sh)) return t
+  for (let t of No) if (cU(t, sh)) return t
 }
-function uU(t, e) {
+function cU(t, e) {
   let { x: r, y: n, width: i, height: a } = t.getBoundingClientRect()
   return r <= e.x && e.x <= r + i && n <= e.y && e.y <= n + a
 }
@@ -30666,14 +30666,14 @@ function H3(t, e, r) {
   if (e.hasFocus()) return
   let n = N3()
   if (!n) return
-  let i = dU(n)
+  let i = fU(n)
   i &&
-    (!i.isZeroCommit && !i.isWaitingGutter && fU(i, t),
+    (!i.isZeroCommit && !i.isWaitingGutter && uU(i, t),
     Fv('showCommitHash', t),
     Fv('authorDisplay', t),
     Fv('dateTimeFormatOptions', t))
 }
-function fU(t, e) {
+function uU(t, e) {
   e.addItem((r) =>
     r
       .setTitle('Copy commit hash')
@@ -30723,7 +30723,7 @@ function U3(t, e, r) {
     }),
   )
 }
-function dU(t) {
+function fU(t) {
   let e = t.getAttr(B3)
   return e ? JSON.parse(e) : void 0
 }
@@ -30737,7 +30737,7 @@ function oh(t, e, r) {
     a = t != null ? t : 0,
     o = (e ? 0 : i - a) / 60 / 60 / 24,
     l = Math.pow(Math.clamp(o / n, 0, 1), 1 / 2.3),
-    c = hU(),
+    c = dU(),
     u = r.colorNew,
     f = r.colorOld,
     d = c ? 0.4 : 1,
@@ -30752,7 +30752,7 @@ function oh(t, e, r) {
 function $v(t, e, r) {
   return t + (e - t) * r
 }
-function hU() {
+function dU() {
   var t
   return ((t = window.app) == null ? void 0 : t.getTheme()) === 'obsidian'
 }
@@ -30765,11 +30765,11 @@ function z3(t, e, r) {
   for (let i = e; i <= r; i++) {
     let a = t.hashPerLine[i],
       s = t.commits.get(a)
-    ;(!n || s.isZeroCommit || pU(s, n)) && (n = s)
+    ;(!n || s.isZeroCommit || hU(s, n)) && (n = s)
   }
   return n
 }
-function pU(t, e) {
+function hU(t, e) {
   var i, a, s, o
   let r =
       (a = (i = t.author) == null ? void 0 : i.epochSeconds) != null ? a : 0,
@@ -30777,11 +30777,11 @@ function pU(t, e) {
   return r > n
 }
 var V3 = '-',
-  mU = '+',
-  gU = 3,
-  vU = '*',
-  yU = /\S/g,
-  wU = '%',
+  pU = '+',
+  mU = 3,
+  gU = '*',
+  vU = /\S/g,
+  yU = '%',
   Bo = class t extends Lv.GutterMarker {
     constructor(r) {
       super()
@@ -30897,7 +30897,7 @@ var V3 = '-',
       }
       return (
         s3(r == null ? void 0 : r.author, r == null ? void 0 : r.committer) ||
-          (s = s + vU),
+          (s = s + gU),
         s
       )
     }
@@ -30948,22 +30948,22 @@ var V3 = '-',
     adaptTextForFakeCommit(r, n, i) {
       var l, c, u, f
       let a = (c = (l = nh()) == null ? void 0 : l.text) != null ? c : n,
-        s = i !== 'waiting-for-result' && r.isZeroCommit ? mU : wU
-      n = a.replace(yU, s)
+        s = i !== 'waiting-for-result' && r.isZeroCommit ? pU : yU
+      n = a.replace(vU, s)
       let o =
         (f = (u = Qr.get()) == null ? void 0 : u.gutterSpacingFallbackLength) !=
         null
           ? f
           : n.length
       if (((n = o3(n, o, s)), i !== 'waiting-for-result' && r.isZeroCommit)) {
-        let d = Math.min(o, gU)
+        let d = Math.min(o, mU)
         n = l3(n, o - d)
       }
       return n
     }
   }
 function ns(t, e, r, n, i, a) {
-  let s = W3.sha256.create()
+  let s = q3.sha256.create()
   ;(s.update(JSON.stringify(i)), s.update(`s${e}-e${r}-k${n}-o${a}`))
   let o = s.hex(),
     l = ih.get(o)
@@ -30972,7 +30972,7 @@ function ns(t, e, r, n, i, a) {
   return (ih.set(o, c), c)
 }
 m()
-var q3 = require('obsidian')
+var W3 = require('obsidian')
 function jv() {
   var e, r
   let t =
@@ -30983,13 +30983,13 @@ function jv() {
   return new Bo(Array(t).fill('-').join(''))
 }
 function Nv(t) {
-  let { lineAuthoring: e, ageForInitialRender: r } = bU(t)
+  let { lineAuthoring: e, ageForInitialRender: r } = wU(t)
   return ns(e, 1, 1, 'initialGutter' + r, t, 'waiting-for-result')
 }
-function bU(t) {
+function wU(t) {
   var a
   let e = (a = L3()) != null ? a : eh(t) * 0.25,
-    r = (0, q3.moment)().add(-e, 'days'),
+    r = (0, W3.moment)().add(-e, 'days'),
     n = { name: '', epochSeconds: i3(r), tz: '+0000' },
     i = {
       hash: 'waiting-for-result',
@@ -31020,7 +31020,7 @@ var Bv = new Bo(''),
     class: 'line-author-gutter-container',
     markers(t) {
       let e = t.state.field(Lo, !1)
-      return _U(t, e)
+      return bU(t, e)
     },
     lineMarkerChange(t) {
       let e = Qd(t.state.field(Lo))
@@ -31036,7 +31036,7 @@ var Bv = new Bo(''),
       )
     },
   })
-function _U(t, e) {
+function bU(t, e) {
   let r = Qd(e),
     n = t.state.doc,
     i = new Map()
@@ -31050,17 +31050,17 @@ function _U(t, e) {
   let s = r.hex(),
     o = ah.get(s)
   if (o) return o
-  let { result: l, allowCache: c } = xU(n, i, a, e)
+  let { result: l, allowCache: c } = _U(n, i, a, e)
   return (c && ah.set(s, l), l)
 }
-function xU(t, e, r, n) {
+function _U(t, e, r, n) {
   let i = !0,
     a = t.lines,
     s = []
   function o(f, d, h) {
     return s.push(h.range(f, d))
   }
-  let l = SU(a, n),
+  let l = xU(a, n),
     c = t.length === 0,
     u = t.iterLines(a, a + 1).next().value === ''
   for (let f = 1; f <= a; f++) {
@@ -31103,7 +31103,7 @@ function xU(t, e, r, n) {
   }
   return { result: K3.RangeSet.of(s, !0), allowCache: i }
 }
-function SU(t, e) {
+function xU(t, e) {
   if (!(e != null && e.lineOffsetsFromUnsavedChanges))
     return Array.from(new Array(t + 1), (i) => i)
   let r = [void 0],
@@ -32398,7 +32398,7 @@ var lM = { LINE_BY_LINE: 'line-by-line', SIDE_BY_SIDE: 'side-by-side' },
   ;((t.AUTO = 'auto'), (t.DARK = 'dark'), (t.LIGHT = 'light'))
 })(as || (as = {}))
 m()
-var EU = [
+var SU = [
     '-',
     '[',
     ']',
@@ -32416,9 +32416,9 @@ var EU = [
     '$',
     '|',
   ],
-  AU = RegExp('[' + EU.join('\\') + ']', 'g')
+  EU = RegExp('[' + SU.join('\\') + ']', 'g')
 function fM(t) {
-  return t.replace(AU, '\\$&')
+  return t.replace(EU, '\\$&')
 }
 function Hv(t) {
   return t && t.replace(/\\/g, '/')
@@ -32456,10 +32456,10 @@ function ga(t, e, r) {
     '',
   )
 }
-function kU(t, e) {
+function AU(t, e) {
   return ga(t, '---', e)
 }
-function TU(t, e) {
+function kU(t, e) {
   return ga(t, '+++', e)
 }
 function gM(t, e = {}) {
@@ -32513,20 +32513,20 @@ function gM(t, e = {}) {
   }
   function ce(N) {
     J()
-    let q
+    let W
     ;(n !== null &&
-      ((q = /^@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@.*/.exec(N))
+      ((W = /^@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@.*/.exec(N))
         ? ((n.isCombined = !1),
-          (a = parseInt(q[1], 10)),
-          (o = parseInt(q[2], 10)))
-        : (q =
+          (a = parseInt(W[1], 10)),
+          (o = parseInt(W[2], 10)))
+        : (W =
               /^@@@ -(\d+)(?:,\d+)? -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@@.*/.exec(
                 N,
               ))
           ? ((n.isCombined = !0),
-            (a = parseInt(q[1], 10)),
-            (s = parseInt(q[2], 10)),
-            (o = parseInt(q[3], 10)))
+            (a = parseInt(W[1], 10)),
+            (s = parseInt(W[2], 10)),
+            (o = parseInt(W[3], 10)))
           : (N.startsWith(d) &&
               console.error('Failed to parse lines, starting in 0!'),
             (a = 0),
@@ -32542,24 +32542,24 @@ function gM(t, e = {}) {
   }
   function Te(N) {
     if (n === null || i === null || a === null || o === null) return
-    let q = { content: N },
+    let W = { content: N },
       B = n.isCombined ? ['+ ', ' +', '++'] : ['+'],
       $e = n.isCombined ? ['- ', ' -', '--'] : ['-']
     ;(pM(N, B)
       ? (n.addedLines++,
-        (q.type = Ke.INSERT),
-        (q.oldNumber = void 0),
-        (q.newNumber = o++))
+        (W.type = Ke.INSERT),
+        (W.oldNumber = void 0),
+        (W.newNumber = o++))
       : pM(N, $e)
         ? (n.deletedLines++,
-          (q.type = Ke.DELETE),
-          (q.oldNumber = a++),
-          (q.newNumber = void 0))
-        : ((q.type = Ke.CONTEXT), (q.oldNumber = a++), (q.newNumber = o++)),
-      i.lines.push(q))
+          (W.type = Ke.DELETE),
+          (W.oldNumber = a++),
+          (W.newNumber = void 0))
+        : ((W.type = Ke.CONTEXT), (W.oldNumber = a++), (W.newNumber = o++)),
+      i.lines.push(W))
   }
-  function ne(N, q) {
-    let B = q
+  function ne(N, W) {
+    let B = W
     for (; B < $.length - 3; ) {
       if (N.startsWith('diff')) return !1
       if (
@@ -32573,12 +32573,12 @@ function gM(t, e = {}) {
     return !1
   }
   return (
-    $.forEach((N, q) => {
+    $.forEach((N, W) => {
       if (!N || N.startsWith('*')) return
       let B,
-        $e = $[q - 1],
-        lr = $[q + 1],
-        Ut = $[q + 2]
+        $e = $[W - 1],
+        lr = $[W + 1],
+        Ut = $[W + 2]
       if (N.startsWith('diff --git') || N.startsWith('diff --combined')) {
         if (
           (le(),
@@ -32644,7 +32644,7 @@ function gM(t, e = {}) {
           n &&
           !n.oldName &&
           N.startsWith('--- ') &&
-          (B = kU(N, e.srcPrefix))
+          (B = AU(N, e.srcPrefix))
         ) {
           ;((n.oldName = B), (n.language = hM(n.oldName, n.language)))
           return
@@ -32653,7 +32653,7 @@ function gM(t, e = {}) {
           n &&
           !n.newName &&
           N.startsWith('+++ ') &&
-          (B = TU(N, e.dstPrefix))
+          (B = kU(N, e.dstPrefix))
         ) {
           ;((n.newName = B), (n.language = hM(n.newName, n.language)))
           return
@@ -32670,7 +32670,7 @@ function gM(t, e = {}) {
         Te(N)
         return
       }
-      let X = !ne(N, q)
+      let X = !ne(N, W)
       if (n === null) throw new Error('Where is my file !!!')
       ;(B = h.exec(N))
         ? (n.oldMode = B[1])
@@ -32723,7 +32723,7 @@ function gM(t, e = {}) {
 m()
 m()
 m()
-function PU(t, e) {
+function CU(t, e) {
   if (t.length === 0) return e.length
   if (e.length === 0) return t.length
   let r = [],
@@ -32745,7 +32745,7 @@ function Uo(t) {
   return (e, r) => {
     let n = t(e).trim(),
       i = t(r).trim()
-    return PU(n, i) / (n.length + i.length)
+    return CU(n, i) / (n.length + i.length)
   }
 }
 function Go(t) {
@@ -32801,14 +32801,14 @@ var Dt = {
   },
   Zn = '/',
   vM = Uo((t) => t.value),
-  RU = Go(vM)
+  PU = Go(vM)
 function Gv(t) {
   return t.indexOf('dev/null') !== -1
 }
-function MU(t) {
+function RU(t) {
   return t.replace(/(<ins[^>]*>((.|\n)*?)<\/ins>)/g, '')
 }
-function OU(t) {
+function MU(t) {
   return t.replace(/(<del[^>]*>((.|\n)*?)<\/del>)/g, '')
 }
 function zo(t) {
@@ -32832,7 +32832,7 @@ function Vo(t) {
       return 'd2h-light-color-scheme'
   }
 }
-function IU(t) {
+function OU(t) {
   return t ? 2 : 1
 }
 function va(t) {
@@ -32846,7 +32846,7 @@ function va(t) {
     .replace(/\//g, '&#x2F;')
 }
 function en(t, e, r = !0) {
-  let n = IU(e)
+  let n = OU(e)
   return {
     prefix: t.substring(0, n),
     content: r ? va(t.substring(n)) : t.substring(n),
@@ -32881,10 +32881,10 @@ function os(t) {
           : e + ' \u2192 ' + r
   } else return Gv(r) ? e : r
 }
-function Wo(t) {
+function qo(t) {
   return `d2h-${dM(os(t)).toString().slice(-6)}`
 }
-function qo(t) {
+function Wo(t) {
   let e = 'file-changed'
   return (
     t.isRename || t.isCopy
@@ -32916,7 +32916,7 @@ function wh(t, e, r, n = {}) {
   if (o === 'word' && i === 'words') {
     let h = u.filter((v) => v.removed),
       p = u.filter((v) => v.added)
-    RU(p, h).forEach((v) => {
+    PU(p, h).forEach((v) => {
       v[0].length === 1 &&
         v[1].length === 1 &&
         vM(v[0][0], v[1][0]) < s &&
@@ -32930,17 +32930,17 @@ function wh(t, e, r, n = {}) {
     return g !== null ? `${h}<${g}${v}>${y}</${g}>` : `${h}${y}`
   }, '')
   return {
-    oldLine: { prefix: l.prefix, content: MU(d) },
-    newLine: { prefix: c.prefix, content: OU(d) },
+    oldLine: { prefix: l.prefix, content: RU(d) },
+    newLine: { prefix: c.prefix, content: MU(d) },
   }
 }
 var yM = 'file-summary',
-  FU = 'icon',
-  $U = { colorScheme: ss.colorScheme },
+  IU = 'icon',
+  FU = { colorScheme: ss.colorScheme },
   bh = class {
     constructor(e, r = {}) {
       ;((this.hoganUtils = e),
-        (this.config = Object.assign(Object.assign({}, $U), r)))
+        (this.config = Object.assign(Object.assign({}, FU), r)))
     }
     render(e) {
       let r = e.map((n) =>
@@ -32948,14 +32948,14 @@ var yM = 'file-summary',
           yM,
           'line',
           {
-            fileHtmlId: Wo(n),
+            fileHtmlId: qo(n),
             oldName: n.oldName,
             newName: n.newName,
             fileName: os(n),
             deletedLines: '-' + n.deletedLines,
             addedLines: '+' + n.addedLines,
           },
-          { fileIcon: this.hoganUtils.template(FU, qo(n)) },
+          { fileIcon: this.hoganUtils.template(IU, Wo(n)) },
         ),
       ).join(`
 `)
@@ -32974,8 +32974,8 @@ var Vv = Object.assign(Object.assign({}, ss), {
   }),
   Gc = 'generic',
   wM = 'line-by-line',
-  DU = 'icon',
-  LU = 'tag',
+  $U = 'icon',
+  DU = 'tag',
   zc = class {
     constructor(e, r = {}) {
       ;((this.hoganUtils = e),
@@ -33006,11 +33006,11 @@ var Vv = Object.assign(Object.assign({}, ss), {
         return ''
       let n = this.hoganUtils.template(wM, 'file-diff'),
         i = this.hoganUtils.template(Gc, 'file-path'),
-        a = this.hoganUtils.template(DU, 'file'),
-        s = this.hoganUtils.template(LU, qo(e))
+        a = this.hoganUtils.template($U, 'file'),
+        s = this.hoganUtils.template(DU, Wo(e))
       return n.render({
         file: e,
-        fileHtmlId: Wo(e),
+        fileHtmlId: qo(e),
         diffs: r,
         filePath: i.render(
           { fileDiffName: os(e) },
@@ -33184,19 +33184,19 @@ var Vv = Object.assign(Object.assign({}, ss), {
     }
   }
 m()
-var Wv = Object.assign(Object.assign({}, ss), {
+var qv = Object.assign(Object.assign({}, ss), {
     renderNothingWhenEmpty: !1,
     matchingMaxComparisons: 2500,
     maxLineSizeInBlockForComparison: 200,
   }),
   Vc = 'generic',
-  jU = 'side-by-side',
-  NU = 'icon',
-  BU = 'tag',
-  Wc = class {
+  LU = 'side-by-side',
+  jU = 'icon',
+  NU = 'tag',
+  qc = class {
     constructor(e, r = {}) {
       ;((this.hoganUtils = e),
-        (this.config = Object.assign(Object.assign({}, Wv), r)))
+        (this.config = Object.assign(Object.assign({}, qv), r)))
     }
     render(e) {
       let r = e.map((n) => {
@@ -33221,13 +33221,13 @@ var Wv = Object.assign(Object.assign({}, ss), {
         e.blocks.length === 0
       )
         return ''
-      let n = this.hoganUtils.template(jU, 'file-diff'),
+      let n = this.hoganUtils.template(LU, 'file-diff'),
         i = this.hoganUtils.template(Vc, 'file-path'),
-        a = this.hoganUtils.template(NU, 'file'),
-        s = this.hoganUtils.template(BU, qo(e))
+        a = this.hoganUtils.template(jU, 'file'),
+        s = this.hoganUtils.template(NU, Wo(e))
       return n.render({
         file: e,
-        fileHtmlId: Wo(e),
+        fileHtmlId: qo(e),
         diffs: r,
         filePath: i.render(
           { fileDiffName: os(e) },
@@ -34258,7 +34258,7 @@ dt['tag-file-renamed'] = new ht.Template({
   partials: {},
   subs: {},
 })
-var qc = class {
+var Wc = class {
   constructor({ compiledTemplates: e = {}, rawTemplates: r = {} }) {
     let n = Object.entries(r).reduce((i, [a, s]) => {
       let o = Kv.compile(s, { asString: !1 })
@@ -34287,20 +34287,20 @@ var qc = class {
     return `${e}-${r}`
   }
 }
-var UU = Object.assign(Object.assign(Object.assign({}, Vv), Wv), {
+var HU = Object.assign(Object.assign(Object.assign({}, Vv), qv), {
   outputFormat: lM.LINE_BY_LINE,
   drawFileList: !0,
 })
 function SM(t, e = {}) {
-  let r = Object.assign(Object.assign({}, UU), e),
+  let r = Object.assign(Object.assign({}, HU), e),
     n = typeof t == 'string' ? gM(t, r) : t,
-    i = new qc(r),
+    i = new Wc(r),
     { colorScheme: a } = r,
     s = { colorScheme: a },
     o = r.drawFileList ? new bh(i, s).render(n) : '',
     l =
       r.outputFormat === 'side-by-side'
-        ? new Wc(i, r).render(n)
+        ? new qc(i, r).render(n)
         : new zc(i, r).render(n)
   return o + l
 }
@@ -34562,7 +34562,7 @@ var Zv = '\u037C',
     }
   }
 var zM = require('@codemirror/language'),
-  GU = require('@lezer/highlight'),
+  UU = require('@lezer/highlight'),
   pt = class t {
     constructor(e, r, n, i) {
       ;((this.fromA = e), (this.toA = r), (this.fromB = n), (this.toB = i))
@@ -34587,17 +34587,17 @@ function us(t, e, r, n, i, a) {
     if (f > -1) return [new pt(e, e, i, i + f), new pt(r, r, i + f + l, a)]
   }
   if (l == 1 || c == 1) return [new pt(e, r, i, a)]
-  let u = WM(t, e, r, n, i, a)
+  let u = qM(t, e, r, n, i, a)
   if (u) {
     let [f, d, h] = u
     return us(t, e, f, n, i, d).concat(us(t, f + h, r, n, d + h, a))
   }
-  return zU(t, e, r, n, i, a)
+  return GU(t, e, r, n, i, a)
 }
 var Yc = 1e9,
   Xc = 0,
   s1 = !1
-function zU(t, e, r, n, i, a) {
+function GU(t, e, r, n, i, a) {
   let s = r - e,
     o = a - i
   if ((Yc < 1e9 && Math.min(s, o) > Yc * 16) || (Xc > 0 && Date.now() > Xc))
@@ -34614,7 +34614,7 @@ function zU(t, e, r, n, i, a) {
     if (h > Yc || (Xc > 0 && !(h & 63) && Date.now() > Xc))
       return TM(t, e, r, n, i, a)
     let p = e1.advance(h, s, o, l, f, !1, c) || t1.advance(h, s, o, l, d, !0, u)
-    if (p) return VU(t, e, r, e + p[0], n, i, a, i + p[1])
+    if (p) return zU(t, e, r, e + p[0], n, i, a, i + p[1])
   }
   return [new pt(e, r, i, a)]
 }
@@ -34655,7 +34655,7 @@ var Ch = class {
   },
   e1 = new Ch(),
   t1 = new Ch()
-function VU(t, e, r, n, i, a, s, o) {
+function zU(t, e, r, n, i, a, s, o) {
   let l = !1
   return (
     !Ko(t, n) && ++n == r && (l = !0),
@@ -34722,11 +34722,11 @@ function r1(t, e, r, n, i, a, s, o) {
     s = s >> 1
   }
 }
-function WM(t, e, r, n, i, a) {
+function qM(t, e, r, n, i, a) {
   let s = r - e,
     o = a - i
   if (s < o) {
-    let l = WM(n, i, a, t, e, r)
+    let l = qM(n, i, a, t, e, r)
     return l && [l[1], l[0], l[2]]
   }
   return s < 4 || o * 2 < s ? null : r1(t, e, r, n, i, a, Math.floor(s / 4), -1)
@@ -34744,7 +34744,7 @@ function TM(t, e, r, n, i, a) {
   let [c, u, f] = l
   return us(t, e, c, n, i, u).concat(us(t, c + f, r, n, u + f, a))
 }
-function qM(t, e) {
+function WM(t, e) {
   for (let r = 1; r < t.length; r++) {
     let n = t[r - 1],
       i = t[r]
@@ -34753,9 +34753,9 @@ function qM(t, e) {
       ((t[r - 1] = new pt(n.fromA, i.toA, n.fromB, i.toB)), t.splice(r--, 1))
   }
 }
-function WU(t, e, r) {
+function VU(t, e, r) {
   for (;;) {
-    qM(r, 1)
+    WM(r, 1)
     let n = !1
     for (let i = 0; i < r.length; i++) {
       let a = r[i],
@@ -34844,7 +34844,7 @@ function qU(t, e, r) {
     }
     n = a.toA
   }
-  return (qM(t, 3), t)
+  return (WM(t, 3), t)
 }
 var cs
 try {
@@ -34919,7 +34919,7 @@ var JM = (t) => t >= 55296 && t <= 56319,
 function Ko(t, e) {
   return !e || e == t.length || !JM(t.charCodeAt(e - 1)) || !QM(t.charCodeAt(e))
 }
-function YU(t, e, r) {
+function WU(t, e, r) {
   var n
   return (
     (Yc =
@@ -34928,25 +34928,25 @@ function YU(t, e, r) {
         : 1e9) >> 1),
     (Xc = r != null && r.timeout ? Date.now() + r.timeout : 0),
     (s1 = !1),
-    WU(t, e, us(t, 0, t.length, e, 0, e.length))
+    VU(t, e, us(t, 0, t.length, e, 0, e.length))
   )
 }
 function eO() {
   return !s1
 }
 function tO(t, e, r) {
-  return qU(YU(t, e, r), t, e)
+  return qU(WU(t, e, r), t, e)
 }
 var Jn = ke.Facet.define({ combine: (t) => t[0] }),
   n1 = ke.StateEffect.define(),
-  XU = ke.Facet.define(),
+  YU = ke.Facet.define(),
   Zo = ke.StateField.define({
     create(t) {
       return null
     },
     update(t, e) {
       for (let r of e.effects) r.is(n1) && (t = r.value)
-      for (let r of e.state.facet(XU)) t = r(t, e)
+      for (let r of e.state.facet(YU)) t = r(t, e)
       return t
     },
   })
@@ -35091,7 +35091,7 @@ function DM(t, e, r, n, i) {
   }
   return a
 }
-var KU = { scanLimit: 500 },
+var XU = { scanLimit: 500 },
   nO = Ie.ViewPlugin.fromClass(
     class {
       constructor(t) {
@@ -35100,8 +35100,8 @@ var KU = { scanLimit: 500 },
       update(t) {
         ;(t.docChanged ||
           t.viewportChanged ||
-          ZU(t.startState, t.state) ||
-          JU(t.startState, t.state)) &&
+          KU(t.startState, t.state) ||
+          ZU(t.startState, t.state)) &&
           ({ deco: this.deco, gutter: this.gutter } = NM(t.view))
       }
     },
@@ -35119,27 +35119,27 @@ var KU = { scanLimit: 500 },
       },
     }),
   )
-function ZU(t, e) {
+function KU(t, e) {
   return t.field(Zo, !1) != e.field(Zo, !1)
 }
-function JU(t, e) {
+function ZU(t, e) {
   return t.facet(Jn) != e.facet(Jn)
 }
 var LM = Ie.Decoration.line({ class: 'cm-changedLine' }),
-  QU = Ie.Decoration.mark({ class: 'cm-changedText' }),
-  eG = Ie.Decoration.mark({ tagName: 'ins', class: 'cm-insertedLine' }),
-  tG = Ie.Decoration.mark({ tagName: 'del', class: 'cm-deletedLine' }),
+  JU = Ie.Decoration.mark({ class: 'cm-changedText' }),
+  QU = Ie.Decoration.mark({ tagName: 'ins', class: 'cm-insertedLine' }),
+  eG = Ie.Decoration.mark({ tagName: 'del', class: 'cm-deletedLine' }),
   jM = new (class extends Ie.GutterMarker {
     constructor() {
       ;(super(...arguments), (this.elementClass = 'cm-changedLineGutter'))
     }
   })()
-function rG(t, e, r, n, i, a) {
+function tG(t, e, r, n, i, a) {
   let s = r ? t.fromA : t.fromB,
     o = r ? t.toA : t.toB,
     l = 0
   if (s != o) {
-    ;(i.add(s, s, LM), i.add(s, o, r ? tG : eG), a && a.add(s, s, jM))
+    ;(i.add(s, s, LM), i.add(s, o, r ? eG : QU), a && a.add(s, s, jM))
     for (let c = e.iterRange(s, o - 1), u = s; !c.next().done; ) {
       if (c.lineBreak) {
         ;(u++, i.add(u, u, LM), a && a.add(u, u, jM))
@@ -35153,7 +35153,7 @@ function rG(t, e, r, n, i, a) {
             p = s + (r ? d.toA : d.toB),
             g = Math.max(u, h),
             v = Math.min(f, p)
-          if ((g < v && i.add(g, v, QU), p < f)) l++
+          if ((g < v && i.add(g, v, JU), p < f)) l++
           else break
         }
       u = f
@@ -35176,7 +35176,7 @@ function NM(t) {
     if ((s ? f.fromA : f.fromB) >= u) break
     ;(s ? f.toA : f.toB) > c &&
       (!a || !a(t.state, f, o, l)) &&
-      rG(f, t.state.doc, s, n, o, l)
+      tG(f, t.state.doc, s, n, o, l)
   }
   return { deco: o.finish(), gutter: l && l.finish() }
 }
@@ -35229,7 +35229,7 @@ function BM(t, e) {
   }
   return !0
 }
-function nG(t, e, r) {
+function rG(t, e, r) {
   let n = new ke.RangeSetBuilder(),
     i = new ke.RangeSetBuilder(),
     a = t.state.field(Kc).iter(),
@@ -35311,7 +35311,7 @@ var i1 = ke.StateEffect.define({ map: (t, e) => e.mapPos(t) }),
           e.dispatch({ effects: i1.of(i) })
           let { side: a, sibling: s } = e.state.facet(Jn)
           s &&
-            s().dispatch({ effects: i1.of(iG(i, e.state.field(Zo), a == 'a')) })
+            s().dispatch({ effects: i1.of(nG(i, e.state.field(Zo), a == 'a')) })
         }),
         r
       )
@@ -35326,7 +35326,7 @@ var i1 = ke.StateEffect.define({ map: (t, e) => e.mapPos(t) }),
       return 'collapsed-unchanged-code'
     }
   }
-function iG(t, e, r) {
+function nG(t, e, r) {
   let n = 0,
     i = 0
   for (let a = 0; ; a++) {
@@ -35335,7 +35335,7 @@ function iG(t, e, r) {
     ;[n, i] = r ? [s.toA, s.toB] : [s.toB, s.toA]
   }
 }
-var aG = ke.StateField.define({
+var iG = ke.StateField.define({
   create(t) {
     return Ie.Decoration.none
   },
@@ -35348,9 +35348,9 @@ var aG = ke.StateField.define({
   provide: (t) => Ie.EditorView.decorations.from(t),
 })
 function HM({ margin: t = 3, minSize: e = 4 }) {
-  return aG.init((r) => sG(r, t, e))
+  return iG.init((r) => aG(r, t, e))
 }
-function sG(t, e, r) {
+function aG(t, e, r) {
   let n = new ke.RangeSetBuilder(),
     i = t.facet(Jn).side == 'a',
     a = t.field(Zo),
@@ -35374,7 +35374,7 @@ function sG(t, e, r) {
   }
   return n.finish()
 }
-var oG = Ie.EditorView.styleModule.of(
+var sG = Ie.EditorView.styleModule.of(
     new Sh({
       '.cm-mergeView': { overflowY: 'auto' },
       '.cm-mergeViewEditors': { display: 'flex', alignItems: 'stretch' },
@@ -35398,7 +35398,7 @@ var oG = Ie.EditorView.styleModule.of(
       },
     }),
   ),
-  lG = Ie.EditorView.baseTheme({
+  oG = Ie.EditorView.baseTheme({
     '.cm-mergeView & .cm-scroller, .cm-mergeView &': {
       height: 'auto !important',
       overflowY: 'visible !important',
@@ -35479,11 +35479,11 @@ var oG = Ie.EditorView.styleModule.of(
         (this.revertToA = !1),
         (this.revertToLeft = !1),
         (this.measuring = -1),
-        (this.diffConf = e.diffConfig || KU))
+        (this.diffConf = e.diffConfig || XU))
       let r = [
           ke.Prec.low(nO),
-          lG,
           oG,
+          sG,
           Kc,
           Ie.EditorView.updateListener.of((f) => {
             this.measuring < 0 &&
@@ -35694,7 +35694,7 @@ var oG = Ie.EditorView.styleModule.of(
       }
     }
     measure() {
-      ;(nG(this.a, this.b, this.chunks),
+      ;(rG(this.a, this.b, this.chunks),
         this.revertDOM && this.updateRevertButtons())
     }
     updateRevertButtons() {
@@ -35817,7 +35817,7 @@ var fs = class extends Qo.ItemView {
           a &&
             ((this.ignoreNextModification = !0),
             this.plugin.app.vault.adapter
-              .write(a, i)
+              .write(this.plugin.gitManager.getRelativeVaultPath(a), i)
               .catch((s) => this.plugin.displayError(s)))
         },
         1e3,
@@ -36016,7 +36016,7 @@ var tl = '[',
   ya = '[!',
   ds = ']',
   Ci = {}
-var We = Symbol(),
+var qe = Symbol(),
   rn = Symbol('filename'),
   lO = Symbol('hmr'),
   cO = 'http://www.w3.org/1999/xhtml'
@@ -36032,7 +36032,7 @@ var nn = Array.isArray,
   uO = Array.prototype.indexOf,
   Zc = Array.from,
   c1 = Object.keys,
-  Wt = Object.defineProperty,
+  qt = Object.defineProperty,
   _r = Object.getOwnPropertyDescriptor,
   u1 = Object.getOwnPropertyDescriptors,
   f1 = Object.prototype,
@@ -36368,11 +36368,11 @@ function ei(t) {
   }
   return i.length === 1
     ? null
-    : (Wt(e, 'stack', {
+    : (qt(e, 'stack', {
         value: i.join(`
 `),
       }),
-      Wt(e, 'name', { value: `${t}Error` }),
+      qt(e, 'name', { value: `${t}Error` }),
       e)
 }
 function sn(t, e) {
@@ -36432,7 +36432,7 @@ function y1(t) {
   var e = ee
   if (e === null) return ((oe.f |= 8388608), t)
   if (
-    (D && t instanceof Error && !v1.has(t) && v1.set(t, uG(t, e)), e.f & 32768)
+    (D && t instanceof Error && !v1.has(t) && v1.set(t, cG(t, e)), e.f & 32768)
   )
     al(t, e)
   else {
@@ -36453,7 +36453,7 @@ function al(t, e) {
   }
   throw (t instanceof Error && $O(t), t)
 }
-function uG(t, e) {
+function cG(t, e) {
   var s, o, l
   let r = _r(t, 'message')
   if (!(r && !r.configurable)) {
@@ -36490,7 +36490,7 @@ ${i}
 function $O(t) {
   let e = v1.get(t)
   e &&
-    (Wt(t, 'message', { value: e.message }), Wt(t, 'stack', { value: e.stack }))
+    (qt(t, 'message', { value: e.message }), qt(t, 'stack', { value: e.stack }))
 }
 m()
 var au = [],
@@ -36499,7 +36499,7 @@ function DO() {
   var t = au
   ;((au = []), Jc(t))
 }
-function fG() {
+function uG() {
   var t = w1
   ;((w1 = []), Jc(t))
 }
@@ -36507,10 +36507,10 @@ function Lr(t) {
   ;(au.length === 0 && queueMicrotask(DO), au.push(t))
 }
 function LO() {
-  ;(au.length > 0 && DO(), w1.length > 0 && fG())
+  ;(au.length > 0 && DO(), w1.length > 0 && uG())
 }
 m()
-var sne = 589952
+var ane = 589952
 function Uh() {
   for (var t = ee.b; t !== null && !t.has_pending_snippet(); ) t = t.parent
   return (t === null && pO(), t)
@@ -36535,7 +36535,7 @@ function vs(t) {
     fn: t,
     reactions: null,
     rv: 0,
-    v: We,
+    v: qe,
     wv: 0,
     parent: r != null ? r : ee,
     ac: null,
@@ -36547,7 +36547,7 @@ function E1(t, e) {
   r === null && mO()
   var n = r.b,
     i = void 0,
-    a = jr(We),
+    a = jr(qe),
     s = null,
     o = !oe
   return (
@@ -36605,7 +36605,7 @@ function E1(t, e) {
 }
 function Ct(t) {
   let e = vs(t)
-  return (Wh(e), e)
+  return (qh(e), e)
 }
 function ys(t) {
   let e = vs(t)
@@ -36619,7 +36619,7 @@ function Gh(t) {
   }
 }
 var _1 = []
-function dG(t) {
+function fG(t) {
   for (var e = t.parent; e !== null; ) {
     if (!(e.f & 2)) return e
     e = e.parent
@@ -36629,7 +36629,7 @@ function dG(t) {
 function lu(t) {
   var e,
     r = ee
-  if ((Nt(dG(t)), D)) {
+  if ((Nt(fG(t)), D)) {
     let n = ws
     x1(new Set())
     try {
@@ -36654,7 +36654,7 @@ function A1(t) {
       mt(t, r)
     }
 }
-function qh(t, e, r) {
+function Wh(t, e, r) {
   let n = on() ? vs : ys
   if (e.length === 0) {
     r(t.map(n))
@@ -36662,7 +36662,7 @@ function qh(t, e, r) {
   }
   var i = xe,
     a = ee,
-    s = hG(),
+    s = dG(),
     o = Uh()
   Promise.all(e.map((l) => E1(l)))
     .then((l) => {
@@ -36678,7 +36678,7 @@ function qh(t, e, r) {
       o.error(l)
     })
 }
-function hG() {
+function dG() {
   var t = ee,
     e = oe,
     r = ye
@@ -36913,7 +36913,7 @@ function C1() {
             }
           for (let s of n.values()) console.error(s.error)
         }
-        pG()
+        hG()
       }
       ;(r.process(_s), Di.clear())
     }
@@ -36921,11 +36921,11 @@ function C1() {
     ;((k1 = !1), P1(t), (Qh = null))
   }
 }
-function pG() {
+function hG() {
   try {
     bO()
   } catch (t) {
-    ;(D && Wt(t, 'stack', { value: '' }), al(t, Qh))
+    ;(D && qt(t, 'stack', { value: '' }), al(t, Qh))
   }
 }
 function NO(t) {
@@ -36984,7 +36984,7 @@ function jr(t, e) {
 }
 function Pe(t, e) {
   let r = jr(t, e)
-  return (Wh(r), r)
+  return (qh(r), r)
 }
 function Ss(t, e = !1, r = !0) {
   var i, a
@@ -37065,7 +37065,7 @@ function GO(t, e) {
       }
     }
 }
-var mG = /^[a-zA-Z_$][a-zA-Z_$0-9]*$/
+var pG = /^[a-zA-Z_$][a-zA-Z_$0-9]*$/
 function Ne(t) {
   if (typeof t != 'object' || t === null || xr in t) return t
   let e = rl(t)
@@ -37083,7 +37083,7 @@ function Ne(t) {
       var h = u()
       return (kt(f), F1(d), h)
     }
-  n && (r.set('length', Pe(t.length, a)), D && (t = vG(t)))
+  n && (r.set('length', Pe(t.length, a)), D && (t = gG(t)))
   var l = ''
   function c(u) {
     ;((l = u), sn(i, `${l} version`))
@@ -37115,10 +37115,10 @@ function Ne(t) {
       var d = r.get(f)
       if (d === void 0) {
         if (f in u) {
-          let h = o(() => Pe(We, a))
+          let h = o(() => Pe(qe, a))
           ;(r.set(f, h), su(i), D && sn(h, Es(l, f)))
         }
-      } else (ie(d, We), su(i))
+      } else (ie(d, qe), su(i))
       return !0
     },
     get(u, f, d) {
@@ -37131,7 +37131,7 @@ function Ne(t) {
         (h === void 0 &&
           (!p || ((v = _r(u, f)) != null && v.writable)) &&
           ((h = o(() => {
-            var y = Ne(p ? u[f] : We),
+            var y = Ne(p ? u[f] : qe),
               b = Pe(y, a)
             return (D && sn(b, Es(l, f)), b)
           })),
@@ -37139,7 +37139,7 @@ function Ne(t) {
         h !== void 0)
       ) {
         var g = R(h)
-        return g === We ? void 0 : g
+        return g === qe ? void 0 : g
       }
       return Reflect.get(u, f, d)
     },
@@ -37151,7 +37151,7 @@ function Ne(t) {
       } else if (d === void 0) {
         var p = r.get(f),
           g = p == null ? void 0 : p.v
-        if (p !== void 0 && g !== We)
+        if (p !== void 0 && g !== qe)
           return { enumerable: !0, configurable: !0, value: g, writable: !0 }
       }
       return d
@@ -37160,20 +37160,20 @@ function Ne(t) {
       var g
       if (f === xr) return !0
       var d = r.get(f),
-        h = (d !== void 0 && d.v !== We) || Reflect.has(u, f)
+        h = (d !== void 0 && d.v !== qe) || Reflect.has(u, f)
       if (
         d !== void 0 ||
         (ee !== null && (!h || ((g = _r(u, f)) != null && g.writable)))
       ) {
         d === void 0 &&
           ((d = o(() => {
-            var v = h ? Ne(u[f]) : We,
+            var v = h ? Ne(u[f]) : qe,
               y = Pe(v, a)
             return (D && sn(y, Es(l, f)), y)
           })),
           r.set(f, d))
         var p = R(d)
-        if (p === We) return !1
+        if (p === qe) return !1
       }
       return h
     },
@@ -37185,9 +37185,9 @@ function Ne(t) {
         for (var v = d; v < p.v; v += 1) {
           var y = r.get(v + '')
           y !== void 0
-            ? ie(y, We)
+            ? ie(y, qe)
             : v in u &&
-              ((y = o(() => Pe(We, a))), r.set(v + '', y), D && sn(y, Es(l, v)))
+              ((y = o(() => Pe(qe, a))), r.set(v + '', y), D && sn(y, Es(l, v)))
         }
       if (p === void 0)
         (!g || ((k = _r(u, f)) != null && k.writable)) &&
@@ -37196,7 +37196,7 @@ function Ne(t) {
           r.set(f, p),
           D && sn(p, Es(l, f)))
       else {
-        g = p.v !== We
+        g = p.v !== qe
         var b = o(() => Ne(d))
         ie(p, b)
       }
@@ -37215,9 +37215,9 @@ function Ne(t) {
       R(i)
       var f = Reflect.ownKeys(u).filter((p) => {
         var g = r.get(p)
-        return g === void 0 || g.v !== We
+        return g === void 0 || g.v !== qe
       })
-      for (var [d, h] of r) h.v !== We && !(d in u) && f.push(d)
+      for (var [d, h] of r) h.v !== qe && !(d in u) && f.push(d)
       return f
     },
     setPrototypeOf() {
@@ -37229,7 +37229,7 @@ function Es(t, e) {
   var r
   return typeof e == 'symbol'
     ? `${t}[Symbol(${(r = e.description) != null ? r : ''})]`
-    : mG.test(e)
+    : pG.test(e)
       ? `${t}.${e}`
       : /^\d+$/.test(e)
         ? `${t}[${e}]`
@@ -37241,7 +37241,7 @@ function ep(t) {
   } catch (e) {}
   return t
 }
-var gG = new Set([
+var mG = new Set([
   'copyWithin',
   'fill',
   'pop',
@@ -37252,11 +37252,11 @@ var gG = new Set([
   'splice',
   'unshift',
 ])
-function vG(t) {
+function gG(t) {
   return new Proxy(t, {
     get(e, r, n) {
       var i = Reflect.get(e, r, n)
-      return gG.has(r)
+      return mG.has(r)
         ? function (...a) {
             UO()
             var s = i.apply(this, a)
@@ -37308,16 +37308,16 @@ function VO() {
       ;((t.indexOf = r), (t.lastIndexOf = n), (t.includes = i))
     }))
 }
-var $1, WO, iu, qO, YO
+var $1, qO, iu, WO, YO
 function tp() {
   if ($1 === void 0) {
     ;(($1 = window),
-      (WO = document),
+      (qO = document),
       (iu = /Firefox/.test(navigator.userAgent)))
     var t = Element.prototype,
       e = Node.prototype,
       r = Text.prototype
-    ;((qO = _r(e, 'firstChild').get),
+    ;((WO = _r(e, 'firstChild').get),
       (YO = _r(e, 'nextSibling').get),
       d1(t) &&
         ((t.__click = void 0),
@@ -37333,7 +37333,7 @@ function Bt(t = '') {
   return document.createTextNode(t)
 }
 function Ht(t) {
-  return qO.call(t)
+  return WO.call(t)
 }
 function jt(t) {
   return YO.call(t)
@@ -37383,7 +37383,7 @@ function KO(t) {
     oe !== null && oe.f & 256 && ee === null && yO(),
     Sn && vO(t))
 }
-function yG(t, e) {
+function vG(t, e) {
   var r = e.last
   r === null
     ? (e.last = e.first = t)
@@ -37429,7 +37429,7 @@ function si(t, e, r, n = !0) {
   if (
     !s &&
     n &&
-    (i !== null && yG(a, i), oe !== null && oe.f & 2 && !(t & 64))
+    (i !== null && vG(a, i), oe !== null && oe.f & 2 && !(t & 64))
   ) {
     var o = oe
     ;((l = o.effects) != null ? l : (o.effects = [])).push(a)
@@ -37442,7 +37442,7 @@ function Hr(t) {
 }
 function Zt(t) {
   var i
-  ;(KO('$effect'), D && Wt(t, 'name', { value: '$effect' }))
+  ;(KO('$effect'), D && qt(t, 'name', { value: '$effect' }))
   var e = ee.f,
     r = !oe && (e & 32) !== 0 && (e & 32768) === 0
   if (r) {
@@ -37482,7 +37482,7 @@ function Kt(t, e = 0) {
   return si(8 | e, t, !0)
 }
 function Fe(t, e = [], r = []) {
-  qh(e, r, (n) => {
+  Wh(e, r, (n) => {
     si(8, () => t(...n.map(R)), !0)
   })
 }
@@ -37622,7 +37622,7 @@ function Nt(t) {
   ee = t
 }
 var Ar = null
-function Wh(t) {
+function qh(t) {
   oe !== null && (!_n || oe.f & 2) && (Ar === null ? (Ar = [t]) : Ar.push(t))
 }
 var or = null,
@@ -37743,7 +37743,7 @@ function zh(t) {
       (ka = c))
   }
 }
-function wG(t, e) {
+function yG(t, e) {
   let r = e.reactions
   if (r !== null) {
     var n = uO.call(r, t)
@@ -37759,7 +37759,7 @@ function wG(t, e) {
 }
 function yu(t, e) {
   var r = t.deps
-  if (r !== null) for (var n = e; n < r.length; n++) wG(t, r[n])
+  if (r !== null) for (var n = e; n < r.length; n++) yG(t, r[n])
 }
 function $i(t) {
   var l
@@ -37858,7 +37858,7 @@ function R(t) {
   return t.v
 }
 function i5(t) {
-  if (t.v === We) return !0
+  if (t.v === qe) return !0
   if (t.deps === null) return !1
   for (let e of t.deps) if (Di.has(e) || (e.f & 2 && i5(e))) return !0
   return !1
@@ -37871,9 +37871,9 @@ function Ue(t) {
     Er = e
   }
 }
-var bG = -7169
+var wG = -7169
 function mt(t, e) {
-  t.f = (t.f & bG) | e
+  t.f = (t.f & wG) | e
 }
 m()
 m()
@@ -37969,7 +37969,7 @@ function pl(t) {
     l <= c && (s = l)
   }
   if (((a = i[s] || t.target), a !== e)) {
-    Wt(t, 'currentTarget', {
+    qt(t, 'currentTarget', {
       configurable: !0,
       get() {
         return a || r
@@ -38007,9 +38007,9 @@ function pl(t) {
   }
 }
 m()
-var _G
+var bG
 function o5() {
-  _G = void 0
+  bG = void 0
 }
 m()
 m()
@@ -38053,7 +38053,7 @@ function ae(t, e) {
   t !== null && t.before(e)
 }
 m()
-var AG = [
+var EG = [
   'allowfullscreen',
   'async',
   'autofocus',
@@ -38084,8 +38084,8 @@ var AG = [
   'disablepictureinpicture',
   'disableremoteplayback',
 ]
-var Xae = [
-  ...AG,
+var Yae = [
+  ...EG,
   'formNoValidate',
   'isMap',
   'noModule',
@@ -38101,13 +38101,13 @@ var Xae = [
   'disablePictureInPicture',
   'disableRemotePlayback',
 ]
-var kG = ['touchstart', 'touchmove']
+var AG = ['touchstart', 'touchmove']
 function c5(t) {
-  return kG.includes(t)
+  return AG.includes(t)
 }
-var TG = ['$state', '$state.raw', '$derived', '$derived.by'],
-  Kae = [
-    ...TG,
+var kG = ['$state', '$state.raw', '$derived', '$derived.by'],
+  Xae = [
+    ...kG,
     '$state.snapshot',
     '$props',
     '$props.id',
@@ -38132,7 +38132,7 @@ function Be(t, e) {
 function Ta(t, e) {
   return u5(t, e)
 }
-function W1(t, e) {
+function q1(t, e) {
   var s
   ;(tp(), (e.intro = (s = e.intro) != null ? s : !1))
   let r = e.target,
@@ -38239,19 +38239,19 @@ if (D) {
     t('$props'),
     t('$bindable'))
 }
-function q1(t) {
+function W1(t) {
   ;(ye === null && tu('onMount'),
     Pi && ye.l !== null
-      ? MG(ye).m.push(t)
+      ? RG(ye).m.push(t)
       : Zt(() => {
           let e = Ue(t)
           if (typeof e == 'function') return e
         }))
 }
 function d5(t) {
-  ;(ye === null && tu('onDestroy'), q1(() => () => Ue(t)))
+  ;(ye === null && tu('onDestroy'), W1(() => () => Ue(t)))
 }
-function MG(t) {
+function RG(t) {
   var r
   var e = t.l
   return (r = e.u) != null ? r : (e.u = { a: [], b: [], m: [] })
@@ -38272,12 +38272,12 @@ m()
 m()
 m()
 m()
-function be(t, e, r = !1) {
+function _e(t, e, r = !1) {
   se && Xt()
   var n = t,
     i = null,
     a = null,
-    s = We,
+    s = qe,
     o = r ? 65536 : 0,
     l = !1
   let c = (h, p = !0) => {
@@ -38331,7 +38331,7 @@ var bu = null
 function zr(t, e) {
   return e
 }
-function DG(t, e, r) {
+function $G(t, e, r) {
   for (var n = t.items, i = [], a = e.length, s = 0; s < a; s++)
     rp(e[s].e, i, !0)
   var o = a > 0 && i.length === 0 && r !== null
@@ -38365,7 +38365,7 @@ function Vr(t, e, r, n, i, a = null) {
     p,
     g
   function v() {
-    ;(LG(g, p, o, d, s, i, e, n, r),
+    ;(DG(g, p, o, d, s, i, e, n, r),
       a !== null &&
         (p.length === 0
           ? u
@@ -38420,8 +38420,8 @@ function Vr(t, e, r, n, i, a = null) {
   }),
     se && (s = ge))
 }
-function LG(t, e, r, n, i, a, s, o, l) {
-  var Te, ne, N, q
+function DG(t, e, r, n, i, a, s, o, l) {
+  var Te, ne, N, W
   var c = (s & 8) !== 0,
     u = (s & 3) !== 0,
     f = e.length,
@@ -38511,9 +38511,9 @@ function LG(t, e, r, n, i, a, s, o, l) {
       var le = s & 4 && f === 0 ? i : null
       if (c) {
         for (w = 0; w < de; w += 1) (N = J[w].a) == null || N.measure()
-        for (w = 0; w < de; w += 1) (q = J[w].a) == null || q.fix()
+        for (w = 0; w < de; w += 1) (W = J[w].a) == null || W.fix()
       }
-      DG(r, J, le)
+      $G(r, J, le)
     }
   }
   ;(c &&
@@ -38642,39 +38642,39 @@ function ot(t, e, r, n, i, a) {
 }
 m()
 m()
-var VG = Symbol('class'),
-  WG = Symbol('style'),
+var zG = Symbol('class'),
+  VG = Symbol('style'),
   qG = Symbol('is custom element'),
-  YG = Symbol('is html')
+  WG = Symbol('is html')
 function ve(t, e, r, n) {
-  var i = XG(t)
+  var i = YG(t)
   if (
     se &&
     ((i[e] = t.getAttribute(e)),
     e === 'src' || e === 'srcset' || (e === 'href' && t.nodeName === 'LINK'))
   ) {
-    n || ZG(t, e, r != null ? r : '')
+    n || KG(t, e, r != null ? r : '')
     return
   }
   i[e] !== (i[e] = r) &&
     (e === 'loading' && (t[hO] = r),
     r == null
       ? t.removeAttribute(e)
-      : typeof r != 'string' && KG(t).includes(e)
+      : typeof r != 'string' && XG(t).includes(e)
         ? (t[e] = r)
         : t.setAttribute(e, r))
 }
-function XG(t) {
+function YG(t) {
   var e
   return (e = t.__attributes) != null
     ? e
     : (t.__attributes = {
         [qG]: t.nodeName.includes('-'),
-        [YG]: t.namespaceURI === cO,
+        [WG]: t.namespaceURI === cO,
       })
 }
 var _5 = new Map()
-function KG(t) {
+function XG(t) {
   var e = _5.get(t.nodeName)
   if (e) return e
   _5.set(t.nodeName, (e = []))
@@ -38685,10 +38685,10 @@ function KG(t) {
   }
   return e
 }
-function ZG(t, e, r) {
+function KG(t, e, r) {
   var n
   D &&
-    ((e === 'srcset' && JG(t, r)) ||
+    ((e === 'srcset' && ZG(t, r)) ||
       K1((n = t.getAttribute(e)) != null ? n : '', r) ||
       RO(e, t.outerHTML.replace(t.innerHTML, t.innerHTML && '...'), String(r)))
 }
@@ -38700,7 +38700,7 @@ function K1(t, e) {
 function x5(t) {
   return t.split(',').map((e) => e.trim().split(' ').filter(Boolean))
 }
-function JG(t, e) {
+function ZG(t, e) {
   var r = x5(t.srcset),
     n = x5(e)
   return (
@@ -38711,10 +38711,10 @@ function JG(t, e) {
 m()
 m()
 m()
-var QG = Oh ? () => performance.now() : () => Date.now(),
+var JG = Oh ? () => performance.now() : () => Date.now(),
   Cn = {
     tick: (t) => (Oh ? requestAnimationFrame : ir)(t),
-    now: () => QG(),
+    now: () => JG(),
     tasks: new Set(),
   }
 function S5() {
@@ -38743,7 +38743,7 @@ function up(t, e) {
     t.dispatchEvent(new CustomEvent(e))
   })
 }
-function nz(t) {
+function rz(t) {
   if (t === 'float') return 'cssFloat'
   if (t === 'offset') return 'cssOffset'
   if (t.startsWith('--')) return t
@@ -38762,12 +38762,12 @@ function A5(t) {
   for (let n of r) {
     let [i, a] = n.split(':')
     if (!i || a === void 0) break
-    let s = nz(i.trim())
+    let s = rz(i.trim())
     e[s] = a.trim()
   }
   return e
 }
-var iz = (t) => t
+var nz = (t) => t
 function Pn(t, e, r, n) {
   var E
   var i = (t & 1) !== 0,
@@ -38863,7 +38863,7 @@ function Z1(t, e, r, n, i) {
   }
   if ((r == null || r.deactivate(), !(e != null && e.duration)))
     return (i(), { abort: ir, deactivate: ir, reset: ir, t: () => n })
-  let { delay: l = 0, css: c, tick: u, easing: f = iz } = e
+  let { delay: l = 0, css: c, tick: u, easing: f = nz } = e
   var d = []
   if (a && r === void 0 && (u && u(0, 1), c)) {
     var h = A5(c(0, 1))
@@ -39008,7 +39008,7 @@ m()
 m()
 m()
 var dp = !1,
-  Yde = Symbol()
+  Wde = Symbol()
 function ry(t) {
   var e = dp
   try {
@@ -39117,7 +39117,7 @@ var Ni,
       ;(It(
         this,
         un,
-        (e.hydrate ? W1 : Ta)(e.component, {
+        (e.hydrate ? q1 : Ta)(e.component, {
           target: e.target,
           anchor: e.anchor,
           props: i,
@@ -39135,7 +39135,7 @@ var Ni,
         o === '$set' ||
           o === '$destroy' ||
           o === '$on' ||
-          Wt(this, o, {
+          qt(this, o, {
             get() {
               return ue(this, un)[o]
             },
@@ -39169,9 +39169,9 @@ var Ni,
     }
   }
 ;((Ni = new WeakMap()), (un = new WeakMap()))
-var yz
+var vz
 typeof HTMLElement == 'function' &&
-  (yz = class extends HTMLElement {
+  (vz = class extends HTMLElement {
     constructor(e, r, n) {
       super()
       vt(this, '$$ctor')
@@ -39211,7 +39211,7 @@ typeof HTMLElement == 'function' &&
         }
         if ((await Promise.resolve(), !this.$$cn || this.$$c)) return
         let r = {},
-          n = wz(this)
+          n = yz(this)
         for (let i of this.$$s)
           i in n &&
             (i === 'default' && !this.$$d.children
@@ -39311,7 +39311,7 @@ function iy(t, e, r, n) {
         return e
     }
 }
-function wz(t) {
+function yz(t) {
   let e = {}
   return (
     t.childNodes.forEach((r) => {
@@ -39355,14 +39355,14 @@ var ly = require('obsidian')
 m()
 var sy = require('obsidian')
 m()
-function bz(t) {
+function wz(t) {
   let e = t - 1
   return e * e * e + 1
 }
 var ay = !1
 function ui(
   t,
-  { delay: e = 0, duration: r = 400, easing: n = bz, axis: i = 'y' } = {},
+  { delay: e = 0, duration: r = 400, easing: n = wz, axis: i = 'y' } = {},
 ) {
   let a = getComputedStyle(t)
   D &&
@@ -39390,18 +39390,18 @@ function ui(
 }
 m()
 var hp = require('obsidian')
-var _z = fe(
+var bz = fe(
     '<div data-icon="go-to-file" aria-label="Open File" class="clickable-icon"></div>',
   ),
-  xz = fe(
+  _z = fe(
     '<main class="tree-item nav-file svelte-1wbh8tp"><div class="tree-item-self is-clickable nav-file-title svelte-1wbh8tp"><div class="tree-item-inner nav-file-title-content"> </div> <div class="git-tools"><div class="buttons"><!></div> <span class="type"> </span></div></div></main>',
   ),
-  Sz = {
+  xz = {
     hash: 'svelte-1wbh8tp',
     code: 'main.svelte-1wbh8tp .nav-file-title:where(.svelte-1wbh8tp) {align-items:center;}',
   }
 function _u(t, e) {
-  ;(tt(e, !0), Tn(t, Sz))
+  ;(tt(e, !0), Tn(t, xz))
   let r = Ne([]),
     n = Ct(() => (e.view.leaf.getRoot().side == 'left' ? 'right' : 'left'))
   Zt(() => {
@@ -39429,7 +39429,7 @@ function _u(t, e) {
       bRef: e.diff.hash,
     })
   }
-  var o = xz()
+  var o = _z()
   o.__click = i
   var l = G(o),
     c = G(l),
@@ -39440,7 +39440,7 @@ function _u(t, e) {
     h = G(d)
   {
     var p = (y) => {
-      var b = _z()
+      var b = bz()
       ;((b.__click = a),
         Ze(
           b,
@@ -39450,7 +39450,7 @@ function _u(t, e) {
         Gr('auxclick', b, a),
         ae(y, b))
     }
-    be(h, (y) => {
+    _e(h, (y) => {
       Fo(e.diff.vaultPath, e.view.app) && y(p)
     })
   }
@@ -39483,26 +39483,26 @@ function _u(t, e) {
 }
 gt(['click'])
 m()
-var Ez = fe('<div><!></div>'),
-  Az = (t, e, r) => e(t, R(r)),
-  kz = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  Tz = fe(
+var Sz = fe('<div><!></div>'),
+  Ez = (t, e, r) => e(t, R(r)),
+  Az = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  kz = fe(
     '<div><div class="tree-item-self is-clickable nav-folder-title"><div data-icon="folder" style="padding-right: 5px; display: flex; "></div> <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div class="tree-item-inner nav-folder-title-content svelte-1lnl15d"> </div></div> <!></div>',
   ),
-  Cz = fe('<main></main>'),
-  Pz = {
+  Tz = fe('<main></main>'),
+  Cz = {
     hash: 'svelte-1lnl15d',
     code: 'main.svelte-1lnl15d .nav-folder-title-content:where(.svelte-1lnl15d) {display:flex;align-items:center;}',
   }
 function xu(t, e) {
-  ;(tt(e, !0), Tn(t, Pz))
+  ;(tt(e, !0), Tn(t, Cz))
   let r = cn(e, 'topLevel', 3, !1),
     n = cn(e, 'closed', 15),
     i = Ct(() => (e.view.leaf.getRoot().side == 'left' ? 'right' : 'left'))
   function a(l, c) {
     ;(l.stopPropagation(), n((n()[c.path] = !n()[c.path]), !0))
   }
-  var s = Cz()
+  var s = Tz()
   let o
   ;(Vr(
     s,
@@ -39514,7 +39514,7 @@ function xu(t, e) {
         f = kr(u)
       {
         var d = (p) => {
-            var g = Ez(),
+            var g = Sz(),
               v = G(g)
             ;(_u(v, {
               get diff() {
@@ -39528,10 +39528,10 @@ function xu(t, e) {
               ae(p, g))
           },
           h = (p) => {
-            var g = Tz()
+            var g = kz()
             let v
             var y = G(g)
-            y.__click = [Az, a, c]
+            y.__click = [Ez, a, c]
             var b = te(G(y), 2)
             let E
             var S = te(b, 2),
@@ -39540,7 +39540,7 @@ function xu(t, e) {
             var k = te(y, 2)
             {
               var w = (x) => {
-                var _ = kz(),
+                var _ = Az(),
                   T = G(_)
                 ;(xu(T, {
                   get hierarchy() {
@@ -39568,7 +39568,7 @@ function xu(t, e) {
                   ),
                   ae(x, _))
               }
-              be(k, (x) => {
+              _e(k, (x) => {
                 n()[R(c).path] || x(w)
               })
             }
@@ -39595,7 +39595,7 @@ function xu(t, e) {
               ),
               ae(p, g))
           }
-        be(f, (p) => {
+        _e(f, (p) => {
           R(c).data ? p(d) : p(h, !1)
         })
       }
@@ -39611,17 +39611,17 @@ function xu(t, e) {
     rt())
 }
 gt(['click'])
-var Rz = (t, e) => ie(e, !R(e)),
-  Mz = fe('<div class="git-ref"> </div>'),
-  Oz = fe('<div class="git-author"> </div>'),
-  Iz = fe('<div class="git-date"> </div>'),
-  Fz = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  $z = fe(
+var Pz = (t, e) => ie(e, !R(e)),
+  Rz = fe('<div class="git-ref"> </div>'),
+  Mz = fe('<div class="git-author"> </div>'),
+  Oz = fe('<div class="git-date"> </div>'),
+  Iz = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  Fz = fe(
     '<main><div><div class="tree-item-self is-clickable nav-folder-title"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div><!> <!> <!> <div class="tree-item-inner nav-folder-title-content"> </div></div></div> <!></div></main>',
   ),
-  Dz = { hash: 'svelte-45h', code: '' }
+  $z = { hash: 'svelte-45h', code: '' }
 function oy(t, e) {
-  ;(tt(e, !0), Tn(t, Dz))
+  ;(tt(e, !0), Tn(t, $z))
   let r = Ct(() => ({
       title: '',
       path: '',
@@ -39640,33 +39640,33 @@ function oy(t, e) {
         .map((C) => C[0].toUpperCase())
         .join('')
   }
-  var o = $z(),
+  var o = Fz(),
     l = G(o)
   let c
   var u = G(l)
-  u.__click = [Rz, i]
+  u.__click = [Pz, i]
   var f = G(u)
   let d
   var h = te(f, 2),
     p = G(h)
   {
     var g = (x) => {
-      var _ = Mz(),
+      var _ = Rz(),
         T = G(_, !0)
       ;(H(_), Fe((C) => Be(T, C), [() => e.log.refs.join(', ')]), ae(x, _))
     }
-    be(p, (x) => {
+    _e(p, (x) => {
       e.log.refs.length > 0 && x(g)
     })
   }
   var v = te(p, 2)
   {
     var y = (x) => {
-      var _ = Oz(),
+      var _ = Mz(),
         T = G(_, !0)
       ;(H(_), Fe((C) => Be(T, C), [() => s(e.log)]), ae(x, _))
     }
-    be(v, (x) => {
+    _e(v, (x) => {
       var _
       e.plugin.settings.authorInHistoryView != 'hide' &&
         (_ = e.log.author) != null &&
@@ -39677,7 +39677,7 @@ function oy(t, e) {
   var b = te(v, 2)
   {
     var E = (x) => {
-      var _ = Iz(),
+      var _ = Oz(),
         T = G(_, !0)
       ;(H(_),
         Fe(
@@ -39691,7 +39691,7 @@ function oy(t, e) {
         ),
         ae(x, _))
     }
-    be(b, (x) => {
+    _e(b, (x) => {
       e.plugin.settings.dateInHistoryView && x(E)
     })
   }
@@ -39701,7 +39701,7 @@ function oy(t, e) {
   var k = te(u, 2)
   {
     var w = (x) => {
-      var _ = Fz(),
+      var _ = Iz(),
         T = G(_)
       {
         var C = (L) => {
@@ -39745,7 +39745,7 @@ function oy(t, e) {
             ),
               ae(L, $))
           }
-        be(T, (L) => {
+        _e(T, (L) => {
           e.showTree ? L(C) : L(I, !1)
         })
       }
@@ -39758,7 +39758,7 @@ function oy(t, e) {
         ),
         ae(x, _))
     }
-    be(k, (x) => {
+    _e(k, (x) => {
       R(i) || x(w)
     })
   }
@@ -39800,22 +39800,22 @@ ${e.log.message}`
     rt())
 }
 gt(['click'])
-function Lz(t, e) {
+function Dz(t, e) {
   e().catch(console.error)
 }
-var jz = (t, e, r, n) => {
+var Lz = (t, e, r, n) => {
     ;(ie(e, !R(e)),
       (0, ly.setIcon)(r[0], R(e) ? 'list' : 'folder'),
       n((n().settings.treeStructure = R(e)), !0),
       n().saveSettings())
   },
-  Nz = fe('<div class="tree-item nav-folder mod-root"></div>'),
-  Bz = fe(
+  jz = fe('<div class="tree-item nav-folder mod-root"></div>'),
+  Nz = fe(
     '<main class="git-view"><div class="nav-header"><div class="nav-buttons-container"><div id="layoutChange" class="clickable-icon nav-action-button" aria-label="Change Layout"></div> <div id="refresh" data-icon="refresh-cw" aria-label="Refresh"></div></div></div> <div class="nav-files-container" style="position: relative;"><!> <div id="sentinel"></div> <div style="margin-bottom:40px"></div></div></main>',
   ),
-  Hz = { hash: 'svelte-45h', code: '' }
+  Bz = { hash: 'svelte-45h', code: '' }
 function cy(t, e) {
-  ;(tt(e, !0), Tn(t, Hz))
+  ;(tt(e, !0), Tn(t, Bz))
   let r = cn(e, 'plugin', 15),
     n = Pe(!1),
     i = Ne([]),
@@ -39836,7 +39836,7 @@ function cy(t, e) {
     d5(() => {
       e.view.app.workspace.offref(o)
     }),
-    q1(() => {
+    W1(() => {
       let S = new IntersectionObserver((k) => {
           k[0].isIntersecting && !R(n) && u().catch(console.error)
         }),
@@ -39884,11 +39884,11 @@ function cy(t, e) {
       ;(R(a).push(...w.slice(1)), ie(n, !1))
     })
   }
-  var f = Bz(),
+  var f = Nz(),
     d = G(f),
     h = G(d),
     p = G(h)
-  ;((p.__click = [jz, s, i, r]),
+  ;((p.__click = [Lz, s, i, r]),
     Ze(
       p,
       (S) => (i[0] = S),
@@ -39896,7 +39896,7 @@ function cy(t, e) {
     ))
   var g = te(p, 2)
   let v
-  ;((g.__click = [Lz, c]),
+  ;((g.__click = [Dz, c]),
     Ze(
       g,
       (S) => (i[1] = S),
@@ -39908,7 +39908,7 @@ function cy(t, e) {
     b = G(y)
   {
     var E = (S) => {
-      var A = Nz()
+      var A = jz()
       ;(Vr(
         A,
         21,
@@ -39934,7 +39934,7 @@ function cy(t, e) {
         H(A),
         ae(S, A))
     }
-    be(b, (S) => {
+    _e(b, (S) => {
       R(a) && S(E)
     })
   }
@@ -40015,7 +40015,7 @@ m()
 var Au = require('obsidian')
 m()
 m()
-var Uz = Ot(R5()),
+var Hz = Ot(R5()),
   Ca = require('obsidian')
 function Cs(t, e, r) {
   let n = t.target
@@ -40107,11 +40107,11 @@ var gl = class extends M5.Modal {
     r.empty()
   }
 }
-function Gz(t, e) {
+function Uz(t, e) {
   e.view.app.vault.getAbstractFileByPath(e.change.vaultPath) &&
     Cs(t, e.view, e.change.vaultPath)
 }
-function zz(t, e) {
+function Gz(t, e) {
   ;(t.stopPropagation(),
     e.manager
       .stage(e.change.path, !1)
@@ -40120,7 +40120,7 @@ function zz(t, e) {
         e.view.app.workspace.trigger('obsidian-git:refresh')
       }))
 }
-function Vz(t, e) {
+function zz(t, e) {
   t.stopPropagation()
   let r = e.change.workingDir == 'U'
   new gl({
@@ -40148,7 +40148,7 @@ function Vz(t, e) {
       (n) => e.view.plugin.displayError(n),
     )
 }
-var Wz = fe(
+var Vz = fe(
     '<div data-icon="go-to-file" aria-label="Open File" class="clickable-icon"></div>',
   ),
   qz = fe(
@@ -40182,7 +40182,7 @@ function ku(t, e) {
       }))
   }
   var o = qz()
-  ;((o.__mouseover = [Gz, e]), (o.__click = i))
+  ;((o.__mouseover = [Uz, e]), (o.__click = i))
   var l = G(o),
     c = G(l),
     u = G(c, !0)
@@ -40192,7 +40192,7 @@ function ku(t, e) {
     h = G(d)
   {
     var p = (E) => {
-      var S = Wz()
+      var S = Vz()
       ;((S.__click = a),
         Ze(
           S,
@@ -40202,19 +40202,19 @@ function ku(t, e) {
         Gr('auxclick', S, a),
         ae(E, S))
     }
-    be(h, (E) => {
+    _e(h, (E) => {
       Fo(e.change.vaultPath, e.view.app) && E(p)
     })
   }
   var g = te(h, 2)
-  ;((g.__click = [Vz, e]),
+  ;((g.__click = [zz, e]),
     Ze(
       g,
       (E) => (r[1] = E),
       () => (r == null ? void 0 : r[1]),
     ))
   var v = te(g, 2)
-  ;((v.__click = [zz, e]),
+  ;((v.__click = [Gz, e]),
     Ze(
       v,
       (E) => (r[2] = E),
@@ -40256,11 +40256,11 @@ function ku(t, e) {
 gt(['mouseover', 'click'])
 m()
 var O5 = require('obsidian')
-function Yz(t, e) {
+function Wz(t, e) {
   e.view.app.vault.getAbstractFileByPath(e.change.vaultPath) &&
     Cs(t, e.view, e.change.vaultPath)
 }
-var Xz = fe(
+var Yz = fe(
   '<main class="tree-item nav-file"><div class="tree-item-self is-clickable nav-file-title"><div class="tree-item-inner nav-file-title-content"> </div> <div class="git-tools"><span class="type"> </span></div></div></main>',
 )
 function Tu(t, e) {
@@ -40275,8 +40275,8 @@ function Tu(t, e) {
         d === void 0 ||
         d.openFile(h).catch((p) => e.view.plugin.displayError(p)))
   }
-  var i = Xz()
-  ;((i.__mouseover = [Yz, e]), (i.__click = n))
+  var i = Yz()
+  ;((i.__mouseover = [Wz, e]), (i.__click = n))
   var a = G(i),
     s = G(a),
     o = G(s, !0)
@@ -40317,11 +40317,11 @@ function Tu(t, e) {
 gt(['mouseover', 'click'])
 m()
 var mp = require('obsidian')
-function Kz(t, e) {
+function Xz(t, e) {
   e.view.app.vault.getFileByPath(e.change.vaultPath) &&
     Cs(t, e.view, e.change.vaultPath)
 }
-function Zz(t, e) {
+function Kz(t, e) {
   ;(t.stopPropagation(),
     e.manager
       .unstage(e.change.path, !1)
@@ -40330,10 +40330,10 @@ function Zz(t, e) {
         e.view.app.workspace.trigger('obsidian-git:refresh')
       }))
 }
-var Jz = fe(
+var Zz = fe(
     '<div data-icon="go-to-file" aria-label="Open File" class="clickable-icon"></div>',
   ),
-  Qz = fe(
+  Jz = fe(
     '<main class="tree-item nav-file"><div class="tree-item-self is-clickable nav-file-title"><div class="tree-item-inner nav-file-title-content"> </div> <div class="git-tools"><div class="buttons"><!> <div data-icon="minus" aria-label="Unstage" class="clickable-icon"></div></div> <div class="type"> </div></div></div></main>',
   )
 function Cu(t, e) {
@@ -40366,8 +40366,8 @@ function Cu(t, e) {
         event: b,
       }))
   }
-  var o = Qz()
-  ;((o.__mouseover = [Kz, e]), (o.__click = i))
+  var o = Jz()
+  ;((o.__mouseover = [Xz, e]), (o.__click = i))
   var l = G(o),
     c = G(l),
     u = G(c, !0)
@@ -40377,7 +40377,7 @@ function Cu(t, e) {
     h = G(d)
   {
     var p = (b) => {
-      var E = Jz()
+      var E = Zz()
       ;((E.__click = a),
         Ze(
           E,
@@ -40386,12 +40386,12 @@ function Cu(t, e) {
         ),
         ae(b, E))
     }
-    be(h, (b) => {
+    _e(h, (b) => {
       Fo(e.change.vaultPath, e.view.app) && b(p)
     })
   }
   var g = te(h, 2)
-  ;((g.__click = [Zz, e]),
+  ;((g.__click = [Kz, e]),
     Ze(
       g,
       (b) => (r[1] = b),
@@ -40433,17 +40433,17 @@ function Cu(t, e) {
 gt(['mouseover', 'click'])
 m()
 m()
-var eV = fe(
+var Qz = fe(
     '<div class="tree-item nav-file"><div class="tree-item-self nav-file-title"><div class="tree-item-inner nav-file-title-content"> </div></div></div>',
   ),
-  tV = fe('<main><!></main>')
+  eV = fe('<main><!></main>')
 function Ps(t, e) {
   tt(e, !0)
-  var r = tV(),
+  var r = eV(),
     n = G(r)
   {
     var i = (a) => {
-      var s = eV(),
+      var s = Qz(),
         o = G(s),
         l = G(o),
         c = G(l, !0)
@@ -40460,29 +40460,29 @@ function Ps(t, e) {
         }),
         ae(a, s))
     }
-    be(n, (a) => {
+    _e(n, (a) => {
       e.files.length > 500 && a(i)
     })
   }
   ;(H(r), ae(t, r), rt())
 }
-var nV = fe('<div><!></div>'),
-  iV = (t, e, r) => e(t, R(r)),
-  aV = (t, e, r) => e(t, R(r).path),
-  sV = fe(
+var rV = fe('<div><!></div>'),
+  nV = (t, e, r) => e(t, R(r)),
+  iV = (t, e, r) => e(t, R(r).path),
+  aV = fe(
     '<div data-icon="minus" aria-label="Unstage" class="clickable-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-minus"><line x1="4" y1="9" x2="14" y2="9"></line></svg></div>',
   ),
-  oV = (t, e, r) => e(t, R(r)),
-  lV = (t, e, r) => e(t, R(r).path),
-  cV = fe(
+  sV = (t, e, r) => e(t, R(r)),
+  oV = (t, e, r) => e(t, R(r).path),
+  lV = fe(
     '<div data-icon="undo" aria-label="Discard" class="clickable-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-undo"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path></svg></div> <div data-icon="plus" aria-label="Stage" class="clickable-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-plus"><line x1="9" y1="4" x2="9" y2="14"></line><line x1="4" y1="9" x2="14" y2="9"></line></svg></div>',
     1,
   ),
-  uV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  fV = fe(
+  cV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  uV = fe(
     '<div><div class="tree-item-self is-clickable nav-folder-title"><div data-icon="folder" style="padding-right: 5px; display: flex; "></div> <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div class="tree-item-inner nav-folder-title-content"> </div> <div class="git-tools"><div class="buttons"><!> <div style="width:11px"></div></div></div></div> <!></div>',
   ),
-  dV = fe('<main><!> <!></main>')
+  fV = fe('<main><!> <!></main>')
 function Rs(t, e) {
   tt(e, !0)
   var r, n
@@ -40518,7 +40518,7 @@ function Rs(t, e) {
   function u(g, v) {
     ;(g.stopPropagation(), a((a()[v.path] = !a()[v.path]), !0))
   }
-  var f = dV()
+  var f = fV()
   let d
   var h = G(f)
   Vr(
@@ -40531,7 +40531,7 @@ function Rs(t, e) {
         b = kr(y)
       {
         var E = (A) => {
-            var k = nV(),
+            var k = rV(),
               w = G(k)
             {
               var x = (T) => {
@@ -40578,7 +40578,7 @@ function Rs(t, e) {
                               },
                             })
                           }
-                          be(
+                          _e(
                             le,
                             (Te) => {
                               e.fileType == 2 && Te(ce)
@@ -40588,7 +40588,7 @@ function Rs(t, e) {
                         }
                         ae(J, de)
                       }
-                    be(
+                    _e(
                       I,
                       (J) => {
                         e.fileType == 1 ? J(L) : J($, !1)
@@ -40598,15 +40598,15 @@ function Rs(t, e) {
                   }
                   ae(T, C)
                 }
-              be(w, (T) => {
+              _e(w, (T) => {
                 e.fileType == 0 ? T(x) : T(_, !1)
               })
             }
             ;(H(k), ae(A, k))
           },
           S = (A) => {
-            var k = fV()
-            k.__click = [iV, u, v]
+            var k = uV()
+            k.__click = [nV, u, v]
             let w
             var x = G(k),
               _ = te(G(x), 2)
@@ -40619,17 +40619,17 @@ function Rs(t, e) {
               J = G($)
             {
               var de = (ne) => {
-                  var N = sV()
-                  ;((N.__click = [aV, l, v]), ae(ne, N))
+                  var N = aV()
+                  ;((N.__click = [iV, l, v]), ae(ne, N))
                 },
                 le = (ne) => {
-                  var N = cV(),
-                    q = kr(N)
-                  q.__click = [oV, c, v]
-                  var B = te(q, 2)
-                  ;((B.__click = [lV, o, v]), ae(ne, N))
+                  var N = lV(),
+                    W = kr(N)
+                  W.__click = [sV, c, v]
+                  var B = te(W, 2)
+                  ;((B.__click = [oV, o, v]), ae(ne, N))
                 }
-              be(J, (ne) => {
+              _e(J, (ne) => {
                 e.fileType == 0 ? ne(de) : ne(le, !1)
               })
             }
@@ -40637,9 +40637,9 @@ function Rs(t, e) {
             var ce = te(x, 2)
             {
               var Te = (ne) => {
-                var N = uV(),
-                  q = G(N)
-                ;(Rs(q, {
+                var N = cV(),
+                  W = G(N)
+                ;(Rs(W, {
                   get hierarchy() {
                     return R(v)
                   },
@@ -40668,7 +40668,7 @@ function Rs(t, e) {
                   ),
                   ae(ne, N))
               }
-              be(ce, (ne) => {
+              _e(ce, (ne) => {
                 a()[R(v).path] || ne(Te)
               })
             }
@@ -40704,7 +40704,7 @@ function Rs(t, e) {
               ),
               ae(A, k))
           }
-        be(b, (A) => {
+        _e(b, (A) => {
           R(v).data ? A(E) : A(S, !1)
         })
       }
@@ -40723,7 +40723,7 @@ function Rs(t, e) {
     rt())
 }
 gt(['click'])
-function hV(t, e, r, n, i, a) {
+function dV(t, e, r, n, i, a) {
   if ((ie(e, !0), R(r))) {
     let s = R(r).staged.length > 0
     n().promiseQueue.addTask(() =>
@@ -40752,48 +40752,48 @@ function F5(t, e, r, n, i) {
         .finally(i),
     ))
 }
-function pV(t, e, r, n) {
+function hV(t, e, r, n) {
   ;(ie(e, !0), r().promiseQueue.addTask(() => r().push().finally(n)))
 }
-function mV(t, e, r, n) {
+function pV(t, e, r, n) {
   ;(ie(e, !0),
     r().promiseQueue.addTask(() => r().pullChangesFromRemote().finally(n)))
 }
-function gV(t, e) {
+function mV(t, e) {
   ;(t.stopPropagation(), e().discardAll())
 }
-var vV = (t, e, r, n) => {
+var gV = (t, e, r, n) => {
     ;(ie(e, !R(e)),
       (0, Ms.setIcon)(r[6], R(e) ? 'list' : 'folder'),
       (n().settings.treeStructure = R(e)),
       n().saveSettings())
   },
-  yV = (t, e) => ie(e, ''),
-  wV = fe('<div class="git-commit-msg-clear-button svelte-11adhly"></div>'),
-  bV = (t, e) => ie(e, !R(e)),
-  _V = fe('<!> <!>', 1),
-  xV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  SV = (t, e) => ie(e, !R(e)),
-  EV = fe('<!> <!>', 1),
-  AV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  kV = (t, e) => ie(e, !R(e)),
-  TV = fe('<!> <!>', 1),
-  CV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
-  PV = fe(
+  vV = (t, e) => ie(e, ''),
+  yV = fe('<div class="git-commit-msg-clear-button svelte-11adhly"></div>'),
+  wV = (t, e) => ie(e, !R(e)),
+  bV = fe('<!> <!>', 1),
+  _V = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  xV = (t, e) => ie(e, !R(e)),
+  SV = fe('<!> <!>', 1),
+  EV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  AV = (t, e) => ie(e, !R(e)),
+  kV = fe('<!> <!>', 1),
+  TV = fe('<div class="tree-item-children nav-folder-children"><!></div>'),
+  CV = fe(
     '<div><div class="tree-item-self is-clickable nav-folder-title svelte-11adhly"><div class="tree-item-icon nav-folder-collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div class="tree-item-inner nav-folder-title-content">Recently Pulled Files</div> <span class="tree-item-flair"> </span></div> <!></div>',
   ),
-  RV = fe(
+  PV = fe(
     '<div class="tree-item nav-folder mod-root"><div><div class="tree-item-self is-clickable nav-folder-title svelte-11adhly"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div class="tree-item-inner nav-folder-title-content">Staged Changes</div> <div class="git-tools svelte-11adhly"><div class="buttons"><div data-icon="minus" aria-label="Unstage" class="clickable-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-minus"><line x1="4" y1="9" x2="14" y2="9"></line></svg></div></div> <div class="files-count svelte-11adhly"> </div></div></div> <!></div> <div><div class="tree-item-self is-clickable nav-folder-title svelte-11adhly"><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div> <div class="tree-item-inner nav-folder-title-content">Changes</div> <div class="git-tools svelte-11adhly"><div class="buttons"><div data-icon="undo" aria-label="Discard" class="clickable-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-undo"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path></svg></div> <div data-icon="plus" aria-label="Stage" class="clickable-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div></div> <div class="files-count svelte-11adhly"> </div></div></div> <!></div> <!></div>',
   ),
-  MV = fe(
+  RV = fe(
     '<main class="git-view svelte-11adhly"><div class="nav-header"><div class="nav-buttons-container"><div id="backup-btn" data-icon="arrow-up-circle" class="clickable-icon nav-action-button" aria-label="Commit-and-sync"></div> <div id="commit-btn" data-icon="check" class="clickable-icon nav-action-button" aria-label="Commit"></div> <div id="stage-all" class="clickable-icon nav-action-button" data-icon="plus-circle" aria-label="Stage all"></div> <div id="unstage-all" class="clickable-icon nav-action-button" data-icon="minus-circle" aria-label="Unstage all"></div> <div id="push" class="clickable-icon nav-action-button" data-icon="upload" aria-label="Push"></div> <div id="pull" class="clickable-icon nav-action-button" data-icon="download" aria-label="Pull"></div> <div id="layoutChange" class="clickable-icon nav-action-button" aria-label="Change Layout"></div> <div id="refresh" data-icon="refresh-cw" aria-label="Refresh"></div></div></div> <div class="git-commit-msg svelte-11adhly"><textarea class="commit-msg-input svelte-11adhly" spellcheck="true" placeholder="Commit Message"></textarea> <!></div> <div class="nav-files-container" style="position: relative;"><!></div></main>',
   ),
-  OV = {
+  MV = {
     hash: 'svelte-11adhly',
     code: `.commit-msg-input.svelte-11adhly {width:100%;overflow:hidden;resize:none;padding:7px 5px;background-color:var(--background-modifier-form-field);}.git-commit-msg.svelte-11adhly {position:relative;padding:0;width:calc(100% - var(--size-4-8));margin:4px auto;}main.svelte-11adhly .git-tools:where(.svelte-11adhly) .files-count:where(.svelte-11adhly) {padding-left:var(--size-2-1);width:11px;display:flex;align-items:center;justify-content:center;}.nav-folder-title.svelte-11adhly {align-items:center;}.git-commit-msg-clear-button.svelte-11adhly {position:absolute;background:transparent;border-radius:50%;color:var(--search-clear-button-color);cursor:var(--cursor);top:-4px;right:2px;bottom:0px;line-height:0;height:var(--input-height);width:28px;margin:auto;padding:0 0;text-align:center;display:flex;justify-content:center;align-items:center;transition:color 0.15s ease-in-out;}.git-commit-msg-clear-button.svelte-11adhly:after {content:"";height:var(--search-clear-button-size);width:var(--search-clear-button-size);display:block;background-color:currentColor;mask-image:url("data:image/svg+xml,<svg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3.8705 3.09766L6.00003 5.22718L8.12955 3.09766L8.9024 3.8705L6.77287 6.00003L8.9024 8.12955L8.12955 8.9024L6.00003 6.77287L3.8705 8.9024L3.09766 8.12955L5.22718 6.00003L3.09766 3.8705L3.8705 3.09766Z' fill='currentColor'/></svg>");mask-repeat:no-repeat;-webkit-mask-image:url("data:image/svg+xml,<svg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3.8705 3.09766L6.00003 5.22718L8.12955 3.09766L8.9024 3.8705L6.77287 6.00003L8.9024 8.12955L8.12955 8.9024L6.00003 6.77287L3.8705 8.9024L3.09766 8.12955L5.22718 6.00003L3.09766 3.8705L3.8705 3.09766Z' fill='currentColor'/></svg>");-webkit-mask-repeat:no-repeat;}`,
   }
 function fy(t, e) {
-  ;(tt(e, !0), Tn(t, OV))
+  ;(tt(e, !0), Tn(t, MV))
   let r = cn(e, 'plugin', 7),
     n = cn(e, 'view', 7),
     i = Pe(!1),
@@ -40919,7 +40919,7 @@ function fy(t, e) {
     n().app.workspace.trigger('obsidian-git:refresh')
   }
   let w = Ct(() => (R(o).match(/\n/g) || []).length + 1 || 1)
-  var x = MV(),
+  var x = RV(),
     _ = G(x),
     T = G(_),
     C = G(T)
@@ -40930,7 +40930,7 @@ function fy(t, e) {
       () => (l == null ? void 0 : l[0]),
     ))
   var I = te(C, 2)
-  ;((I.__click = [hV, i, a, r, o, k]),
+  ;((I.__click = [dV, i, a, r, o, k]),
     Ze(
       I,
       (X) => (l[1] = X),
@@ -40951,21 +40951,21 @@ function fy(t, e) {
       () => (l == null ? void 0 : l[3]),
     ))
   var J = te($, 2)
-  ;((J.__click = [pV, i, r, k]),
+  ;((J.__click = [hV, i, r, k]),
     Ze(
       J,
       (X) => (l[4] = X),
       () => (l == null ? void 0 : l[4]),
     ))
   var de = te(J, 2)
-  ;((de.__click = [mV, i, r, k]),
+  ;((de.__click = [pV, i, r, k]),
     Ze(
       de,
       (X) => (l[5] = X),
       () => (l == null ? void 0 : l[5]),
     ))
   var le = te(de, 2)
-  ;((le.__click = [vV, E, l, r]),
+  ;((le.__click = [gV, E, l, r]),
     Ze(
       le,
       (X) => (l[6] = X),
@@ -40984,13 +40984,13 @@ function fy(t, e) {
   var ne = te(_, 2),
     N = G(ne)
   H1(N)
-  var q = te(N, 2)
+  var W = te(N, 2)
   {
     var B = (X) => {
-      var Oe = wV()
-      ;((Oe.__click = [yV, o]), ve(Oe, 'aria-label', 'Clear'), ae(X, Oe))
+      var Oe = yV()
+      ;((Oe.__click = [vV, o]), ve(Oe, 'aria-label', 'Clear'), ae(X, Oe))
     }
-    be(q, (X) => {
+    _e(W, (X) => {
       R(o) && X(B)
     })
   }
@@ -40999,11 +40999,11 @@ function fy(t, e) {
     lr = G($e)
   {
     var Ut = (X) => {
-      var Oe = RV(),
+      var Oe = PV(),
         De = G(Oe)
       let Pt
       var Le = G(De)
-      Le.__click = [bV, h]
+      Le.__click = [wV, h]
       var U = G(Le)
       let Je
       var j = te(U, 4),
@@ -41016,13 +41016,13 @@ function fy(t, e) {
           () => (l == null ? void 0 : l[8]),
         ),
         H(Z))
-      var qe = te(Z, 2),
-        Rt = G(qe, !0)
-      ;(H(qe), H(j), H(Le))
+      var We = te(Z, 2),
+        Rt = G(We, !0)
+      ;(H(We), H(j), H(Le))
       var vl = te(Le, 2)
       {
         var j5 = (Mt) => {
-          var Gt = xV(),
+          var Gt = _V(),
             Bi = G(Gt)
           {
             var Rn = (Jt) => {
@@ -41049,7 +41049,7 @@ function fy(t, e) {
                 })
               },
               Os = (Jt) => {
-                var fn = _V(),
+                var fn = bV(),
                   Pa = kr(fn)
                 Vr(
                   Pa,
@@ -41078,7 +41078,7 @@ function fy(t, e) {
                 }),
                   ae(Jt, fn))
               }
-            be(Bi, (Jt) => {
+            _e(Bi, (Jt) => {
               R(E) ? Jt(Rn) : Jt(Os, !1)
             })
           }
@@ -41091,7 +41091,7 @@ function fy(t, e) {
             ),
             ae(Mt, Gt))
         }
-        be(vl, (Mt) => {
+        _e(vl, (Mt) => {
           R(h) && Mt(j5)
         })
       }
@@ -41099,13 +41099,13 @@ function fy(t, e) {
       var Ru = te(De, 2)
       let dy
       var Mu = G(Ru)
-      Mu.__click = [SV, d]
+      Mu.__click = [xV, d]
       var hy = G(Mu)
       let py
       var my = te(hy, 4),
         yp = G(my),
         gy = G(yp)
-      gy.__click = [gV, r]
+      gy.__click = [mV, r]
       var vy = te(gy, 2)
       ;((vy.__click = [I5, i, r, a, k]),
         Ze(
@@ -41120,7 +41120,7 @@ function fy(t, e) {
       var B5 = te(Mu, 2)
       {
         var H5 = (Mt) => {
-          var Gt = AV(),
+          var Gt = EV(),
             Bi = G(Gt)
           {
             var Rn = (Jt) => {
@@ -41147,7 +41147,7 @@ function fy(t, e) {
                 })
               },
               Os = (Jt) => {
-                var fn = EV(),
+                var fn = SV(),
                   Pa = kr(fn)
                 Vr(
                   Pa,
@@ -41176,7 +41176,7 @@ function fy(t, e) {
                 }),
                   ae(Jt, fn))
               }
-            be(Bi, (Jt) => {
+            _e(Bi, (Jt) => {
               R(E) ? Jt(Rn) : Jt(Os, !1)
             })
           }
@@ -41189,7 +41189,7 @@ function fy(t, e) {
             ),
             ae(Mt, Gt))
         }
-        be(B5, (Mt) => {
+        _e(B5, (Mt) => {
           R(d) && Mt(H5)
         })
       }
@@ -41197,17 +41197,17 @@ function fy(t, e) {
       var U5 = te(Ru, 2)
       {
         var G5 = (Mt) => {
-          var Gt = PV()
+          var Gt = CV()
           let Bi
           var Rn = G(Gt)
-          Rn.__click = [kV, p]
+          Rn.__click = [AV, p]
           var Os = te(G(Rn), 4),
             Jt = G(Os, !0)
           ;(H(Os), H(Rn))
           var fn = te(Rn, 2)
           {
             var Pa = (fi) => {
-              var Hi = CV(),
+              var Hi = TV(),
                 yl = G(Hi)
               {
                 var z5 = (Is) => {
@@ -41234,15 +41234,15 @@ function fy(t, e) {
                     })
                   },
                   V5 = (Is) => {
-                    var Ou = TV(),
+                    var Ou = kV(),
                       wy = kr(Ou)
                     Vr(
                       wy,
                       17,
                       () => R(s),
                       zr,
-                      (q5, Y5) => {
-                        Tu(q5, {
+                      (W5, Y5) => {
+                        Tu(W5, {
                           get change() {
                             return R(Y5)
                           },
@@ -41252,15 +41252,15 @@ function fy(t, e) {
                         })
                       },
                     )
-                    var W5 = te(wy, 2)
-                    ;(Ps(W5, {
+                    var q5 = te(wy, 2)
+                    ;(Ps(q5, {
                       get files() {
                         return R(s)
                       },
                     }),
                       ae(Is, Ou))
                   }
-                be(yl, (Is) => {
+                _e(yl, (Is) => {
                   R(E) ? Is(z5) : Is(V5, !1)
                 })
               }
@@ -41273,7 +41273,7 @@ function fy(t, e) {
                 ),
                 ae(fi, Hi))
             }
-            be(fn, (fi) => {
+            _e(fn, (fi) => {
               R(p) && fi(Pa)
             })
           }
@@ -41287,7 +41287,7 @@ function fy(t, e) {
             ),
             ae(Mt, Gt))
         }
-        be(U5, (Mt) => {
+        _e(U5, (Mt) => {
           R(s).length > 0 && R(f) && Mt(G5)
         })
       }
@@ -41324,7 +41324,7 @@ function fy(t, e) {
         ),
         ae(X, Oe))
     }
-    be(lr, (X) => {
+    _e(lr, (X) => {
       R(a) && R(u) && R(c) && X(Ut)
     })
   }
@@ -41397,7 +41397,7 @@ var gp = class {
     this.statusBarEl.remove()
   }
 }
-var vp = class extends _e.Plugin {
+var vp = class extends we.Plugin {
   constructor() {
     super(...arguments)
     this.automaticsManager = new Bc(this)
@@ -41572,7 +41572,7 @@ var vp = class extends _e.Plugin {
   setRefreshDebouncer() {
     var r
     ;((r = this.debRefresh) == null || r.cancel(),
-      (this.debRefresh = (0, _e.debounce)(
+      (this.debRefresh = (0, we.debounce)(
         () => {
           this.settings.refreshSourceControl &&
             this.refresh().catch(console.error)
@@ -41605,7 +41605,7 @@ var vp = class extends _e.Plugin {
             .setSection('action')
             .onClick((l) => {
               this.promiseQueue.addTask(async () => {
-                n instanceof _e.TFile
+                n instanceof we.TFile
                   ? await this.stageFile(n)
                   : (await this.gitManager.stageAll({
                       dir: this.gitManager.getRelativeRepoPath(s, !0),
@@ -41620,7 +41620,7 @@ var vp = class extends _e.Plugin {
             .setSection('action')
             .onClick((l) => {
               this.promiseQueue.addTask(async () => {
-                n instanceof _e.TFile
+                n instanceof we.TFile
                   ? await this.unstageFile(n)
                   : (await this.gitManager.unstageAll({
                       dir: this.gitManager.getRelativeRepoPath(s, !0),
@@ -41634,7 +41634,7 @@ var vp = class extends _e.Plugin {
             .setIcon('file-x')
             .setSection('action')
             .onClick((l) => {
-              this.addFileToGitignore(s, n instanceof _e.TFolder).catch((c) =>
+              this.addFileToGitignore(s, n instanceof we.TFolder).catch((c) =>
                 this.displayError(c),
               )
             })
@@ -41646,14 +41646,14 @@ var vp = class extends _e.Plugin {
           .setIcon('file-x')
           .setSection('action')
           .onClick((c) => {
-            this.addFileToGitignore(s, n instanceof _e.TFolder).catch((u) =>
+            this.addFileToGitignore(s, n instanceof we.TFolder).catch((u) =>
               this.displayError(u),
             )
           })
       })
       let o = this.app.vault.adapter
       a === 'obsidian-git:menu' &&
-        o instanceof _e.FileSystemAdapter &&
+        o instanceof we.FileSystemAdapter &&
         (r.addItem((l) => {
           l.setTitle('Open in default app')
             .setIcon('arrow-up-right')
@@ -41722,7 +41722,7 @@ var vp = class extends _e.Plugin {
       await this.saveData(this.settings))
   }
   get useSimpleGit() {
-    return _e.Platform.isDesktopApp
+    return we.Platform.isDesktopApp
   }
   async init({ fromReload: r = !1 }) {
     var n
@@ -41750,7 +41750,7 @@ var vp = class extends _e.Plugin {
           )
           break
         case 'missing-repo':
-          new _e.Notice(
+          new we.Notice(
             "Can't find a valid git repository. Please create one via the given command or clone an existing repo.",
             1e4,
           )
@@ -41759,7 +41759,7 @@ var vp = class extends _e.Plugin {
           if (
             ((this.gitReady = !0),
             this.setPluginState({ gitAction: 0 }),
-            _e.Platform.isDesktop &&
+            we.Platform.isDesktop &&
               this.settings.showBranchStatusBar &&
               !this.branchBar)
           ) {
@@ -41783,7 +41783,7 @@ var vp = class extends _e.Plugin {
               !a &&
               this.promiseQueue.addTask(() => this.pullChangesFromRemote()),
             a || (await this.automaticsManager.init()),
-            a && new _e.Notice('Automatic routines are currently paused.'))
+            a && new we.Notice('Automatic routines are currently paused.'))
           break
         default:
           this.log(
@@ -41797,7 +41797,7 @@ var vp = class extends _e.Plugin {
   async createNewRepo() {
     try {
       ;(await this.gitManager.init(),
-        new _e.Notice('Initialized new repo'),
+        new we.Notice('Initialized new repo'),
         await this.init({ fromReload: !0 }))
     } catch (r) {
       this.displayError(r)
@@ -41818,7 +41818,7 @@ var vp = class extends _e.Plugin {
       if (a == null) return
       if (
         (a === i && (a = '.'),
-        (a = (0, _e.normalizePath)(a)),
+        (a = (0, we.normalizePath)(a)),
         a === '/' && (a = '.'),
         a === '.')
       ) {
@@ -41828,7 +41828,7 @@ var vp = class extends _e.Plugin {
           onlySelection: !0,
         }).openAndGetResult()
         if (f === void 0) {
-          new _e.Notice('Aborted clone')
+          new we.Notice('Aborted clone')
           return
         } else if (f === 'YES') {
           let d = 'DELETE ALL YOUR LOCAL CONFIG AND PLUGINS'
@@ -41841,7 +41841,7 @@ var vp = class extends _e.Plugin {
           )
             await this.app.vault.adapter.rmdir(this.app.vault.configDir, !0)
           else {
-            new _e.Notice('Aborted clone')
+            new we.Notice('Aborted clone')
             return
           }
         }
@@ -41851,18 +41851,22 @@ var vp = class extends _e.Plugin {
           allowEmpty: !0,
         }).openAndGetResult(),
         o
-      if (s !== '' && ((o = parseInt(s)), isNaN(o))) {
-        new _e.Notice('Invalid depth. Aborting clone.')
+      if (s === void 0) {
+        new we.Notice('Aborted clone')
         return
       }
-      new _e.Notice(`Cloning new repo into "${a}"`)
+      if (s !== '' && ((o = parseInt(s)), isNaN(o))) {
+        new we.Notice('Invalid depth. Aborting clone.')
+        return
+      }
+      new we.Notice(`Cloning new repo into "${a}"`)
       let l = this.settings.basePath,
         c = a && a !== '.'
       c && (this.settings.basePath = a)
       try {
         ;(await this.gitManager.clone(vv(n), a, o),
-          new _e.Notice('Cloned new repo.'),
-          new _e.Notice('Please restart Obsidian'),
+          new we.Notice('Cloned new repo.'),
+          new we.Notice('Please restart Obsidian'),
           c && (await this.saveSettings()))
       } catch (u) {
         ;(this.displayError(u),
@@ -41932,23 +41936,23 @@ var vp = class extends _e.Plugin {
     try {
       let o = this.localStorage.getConflict(),
         l,
-        c,
-        u
+        c = [],
+        u = []
       if (this.gitManager instanceof Ce) {
         if (
           (await this.mayDeleteConflictFile(),
-          (c = await this.updateCachedStatus()),
-          c.conflicted.length == 0 && (o = !1),
-          r && c.conflicted.length > 0)
+          (l = await this.updateCachedStatus()),
+          l.conflicted.length == 0 && (o = !1),
+          r && l.conflicted.length > 0)
         )
           return (
             this.displayError(
-              `Did not commit, because you have conflicts in ${c.conflicted.length} ${c.conflicted.length == 1 ? 'file' : 'files'}. Please resolve them and commit per command.`,
+              `Did not commit, because you have conflicts in ${l.conflicted.length} ${l.conflicted.length == 1 ? 'file' : 'files'}. Please resolve them and commit per command.`,
             ),
-            await this.handleConflict(c.conflicted),
+            await this.handleConflict(l.conflicted),
             !1
           )
-        l = [...c.changed, ...c.staged]
+        ;((c = l.staged), (u = l.changed))
       } else {
         if (r && o)
           return (
@@ -41957,24 +41961,21 @@ var vp = class extends _e.Plugin {
             ),
             !1
           )
-        if (o)
-          (await this.mayDeleteConflictFile(),
-            (c = await this.updateCachedStatus()),
-            (l = [...c.changed, ...c.staged]))
-        else {
+        {
+          o && (await this.mayDeleteConflictFile())
           let f = this.gitManager
           i
-            ? (l = await f.getStagedFiles())
-            : ((u = await f.getUnstagedFiles()),
-              (l = u.map(({ path: d }) => ({
-                vaultPath: this.gitManager.getRelativeVaultPath(d),
-                path: d,
-              }))))
+            ? (c = await f.getStagedFiles())
+            : (u = (await f.getUnstagedFiles()).map(({ path: h, type: p }) => ({
+                vaultPath: this.gitManager.getRelativeVaultPath(h),
+                path: h,
+                type: p,
+              })))
         }
       }
-      if (await this.tools.hasTooBigFiles(l))
+      if (await this.tools.hasTooBigFiles(i ? c : [...c, ...u]))
         return (this.setPluginState({ gitAction: 0 }), !1)
-      if (l.length !== 0 || o) {
+      if (u.length + c.length !== 0 || o) {
         let f =
           a != null
             ? a
@@ -41984,7 +41985,7 @@ var vp = class extends _e.Plugin {
         if ((r && this.settings.customMessageOnAutoBackup) || n) {
           !this.settings.disablePopups &&
             r &&
-            new _e.Notice(
+            new we.Notice(
               'Auto backup: Please enter a custom commit message. Leave empty to abort',
             )
           let p = await new hh(this).openAndGetResult()
@@ -41999,7 +42000,7 @@ var vp = class extends _e.Plugin {
             v = p.replace('{{hostname}}', g)
           v = v.replace(
             '{{date}}',
-            (0, _e.moment)().format(this.settings.commitDateFormat),
+            (0, we.moment)().format(this.settings.commitDateFormat),
           )
           let y = await $c('sh', ['-c', v], {
             cwd: this.gitManager.absoluteRepoPath,
@@ -42017,13 +42018,13 @@ var vp = class extends _e.Plugin {
           ? (d = await this.gitManager.commit({ message: f, amend: s }))
           : (d = await this.gitManager.commitAll({
               message: f,
-              status: c,
+              status: l,
               unstagedFiles: u,
               amend: s,
             })),
           this.gitManager instanceof Ce && (await this.updateCachedStatus()))
         let h = !1
-        ;(d === void 0 && ((h = !0), (d = l.length)),
+        ;(d === void 0 && ((h = !0), (d = u.length + c.length || 0)),
           this.displayMessage(
             `Committed${h ? ' approx.' : ''} ${d} ${d == 1 ? 'file' : 'files'}`,
           ))
@@ -42107,7 +42108,7 @@ var vp = class extends _e.Plugin {
     r &&
       (this.app.workspace.iterateAllLeaves((n) => {
         var i
-        n.view instanceof _e.MarkdownView &&
+        n.view instanceof we.MarkdownView &&
           ((i = n.view.file) == null ? void 0 : i.path) == r.path &&
           n.detach()
       }),
@@ -42203,7 +42204,7 @@ var vp = class extends _e.Plugin {
     return this.settings.updateSubmodules ||
       (await this.gitManager.branchInfo()).tracking
       ? !0
-      : (new _e.Notice('No upstream branch is set. Please select one.'),
+      : (new we.Notice('No upstream branch is set. Please select one.'),
         await this.setUpstreamBranch())
   }
   async setUpstreamBranch() {
@@ -42270,7 +42271,7 @@ var vp = class extends _e.Plugin {
         '',
         ...r.map((i) => {
           let a = this.app.vault.getAbstractFileByPath(i)
-          return a instanceof _e.TFile
+          return a instanceof we.TFile
             ? `- [[${this.app.metadataCache.fileToLinktext(a, '/')}]]`
             : `- Not a file: ${i}`
         }),
@@ -42400,19 +42401,19 @@ I strongly recommend to use "Source mode" for viewing the conflicted files. For 
       this.settings.disablePopups ||
         ((!this.settings.disablePopupsForNoChanges ||
           !r.startsWith('No changes')) &&
-          new _e.Notice(r, 5 * 1e3)),
+          new we.Notice(r, 5 * 1e3)),
       this.log(r))
   }
   displayError(r, n = 10 * 1e3) {
     var a
     if (r instanceof D5.Errors.UserCanceledError) {
-      new _e.Notice('Aborted')
+      new we.Notice('Aborted')
       return
     }
     let i
     ;(r instanceof Error ? (i = r) : (i = new Error(String(r))),
       this.setPluginState({ gitAction: 0 }),
-      this.settings.showErrorNotices && new _e.Notice(i.message, n),
+      this.settings.showErrorNotices && new we.Notice(i.message, n),
       console.error(`${this.manifest.id}:`, i.stack),
       (a = this.statusBar) == null ||
         a.displayMessage(i.message.toLowerCase(), n))
