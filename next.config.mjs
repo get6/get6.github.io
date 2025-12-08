@@ -1,10 +1,11 @@
-const { withContentlayer } = require('next-contentlayer2')
-const withPlugins = require('next-compose-plugins')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+import { withContentlayer } from 'next-contentlayer2'
+import bundleAnalyzer from '@next/bundle-analyzer'
+
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
@@ -37,4 +38,4 @@ const nextConfig = {
   compress: true,
 }
 
-module.exports = withPlugins([withBundleAnalyzer, withContentlayer], nextConfig)
+export default withBundleAnalyzer(withContentlayer(nextConfig))
