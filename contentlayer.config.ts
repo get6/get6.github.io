@@ -1,12 +1,14 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkBreaks from 'remark-breaks'
 import remarkCallout from 'remark-callout'
 import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
+import remarkMath from 'remark-math'
 import remarkToc from 'remark-toc'
 import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
@@ -332,20 +334,15 @@ const remarkPlugins = [
   remarkGfm,
   remarkBreaks,
   remarkCallout,
+  remarkMath,
   remarkToc,
   remarkSourceRedirect,
-  // remarkCodeTitles,
-  // {
-  //   titleProperties: (language: string, title: string) => ({
-  //     ['data-language']: language,
-  //     title,
-  //   }),
-  // },
   remarkLint,
 ]
 
 const rehypePlugins = [
   rehypePrettyCode,
+  rehypeKatex,
   rehypeImageSize,
   rehypeSlug,
   [

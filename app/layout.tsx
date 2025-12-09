@@ -1,4 +1,3 @@
-
 import AdSense from '@/app/ads/AdSense'
 import {
   BASE_URL,
@@ -12,6 +11,7 @@ import { WebVitals } from '@/app/ui/WebVitals'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
+import 'katex/dist/katex.min.css'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -72,6 +72,10 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+        />
         <AdSense />
       </head>
       <body className={`${inter.className} dark:bg-gray-900`}>

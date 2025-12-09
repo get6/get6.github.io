@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* KaTeX 스타일 커스텀 */
+.katex {
+  font-size: 1.1em;
+}
+
+/* KaTeX 내 한글/CJK 텍스트에 Pretendard 폰트 적용 */
+.katex .hangul_fallback,
+.katex .cjk_fallback,
+.katex .mord.text,
+.katex .mord.hangul_fallback {
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-weight: 400;
+}
+
 @layer components {
   article > *:is(h1, h2, h3, h4, h5, h6) {
     @apply flex items-center gap-2 scroll-mt-4;
