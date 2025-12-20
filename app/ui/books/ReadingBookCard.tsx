@@ -27,7 +27,7 @@ export default function ReadingBookCard({ book }: Props) {
         />
       </div>
       <div className="flex min-h-max flex-col justify-center gap-2 px-6 py-2">
-        <h1 className="text-xl font-bold dark:text-white">{title}</h1>
+        <h2 className="text-xl font-bold dark:text-white">{title}</h2>
         <span className="text-sm dark:text-white">{author}</span>
         <div className="flex gap-1 text-sm dark:text-white">
           <span>

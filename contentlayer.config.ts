@@ -342,7 +342,7 @@ const remarkPlugins = [
 
 const rehypePlugins = [
   rehypePrettyCode,
-  rehypeKatex,
+  [rehypeKatex, { strict: 'ignore' }],
   rehypeImageSize,
   rehypeSlug,
   [

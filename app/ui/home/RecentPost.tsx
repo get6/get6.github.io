@@ -28,7 +28,7 @@ export default function RecentPost({ post }: { post: Post }) {
         <Image
           className="object-cover object-top"
           src={cover_image}
-          alt="cover_image"
+          alt={`${title} 커버 이미지`}
           fill
           sizes="(min-width: 1024px) 343px, (max-width: 1024px) 100vw"
         />

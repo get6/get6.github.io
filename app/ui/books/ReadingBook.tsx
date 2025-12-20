@@ -35,13 +35,13 @@ export default function ReadingBook({ book }: Props) {
             <div className="flex h-[284px] w-full flex-col px-6">
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-1">
-                  <h1 className="text-2xl font-bold dark:text-white">
+                  <h2 className="text-2xl font-bold dark:text-white">
                     {title}
-                  </h1>
+                  </h2>
                   {subtitle && (
-                    <h2 className="text-xl font-semibold text-gray-500 dark:text-gray-300">
+                    <h3 className="text-xl font-semibold text-gray-500 dark:text-gray-300">
                       {subtitle}
-                    </h2>
+                    </h3>
                   )}
                 </div>
                 <div className="text-xs text-zinc-900 dark:text-zinc-300">

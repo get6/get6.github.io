@@ -18,7 +18,7 @@ export default function AnotherPost({ post }: { post: Post }) {
         <Image
           className="object-cover"
           src={cover_image}
-          alt="cover_image"
+          alt={`${title} 커버 이미지`}
           fill
           sizes="(min-width: 1024px) 270px, (max-width: 1024px) 100vw"
         />
@@ -26,9 +26,9 @@ export default function AnotherPost({ post }: { post: Post }) {
       <div className="flex h-full w-full flex-col justify-center px-6">
         <div className="flex flex-col gap-2">
           <PostDate date={date} body={body.raw} />
-          <h1 className="truncate font-bold dark:text-white lg:text-xl">
+          <h3 className="truncate font-bold dark:text-white lg:text-xl">
             {title}
-          </h1>
+          </h3>
         </div>
       </div>
     </div>

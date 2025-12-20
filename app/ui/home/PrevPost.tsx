@@ -27,7 +27,7 @@ export default function PrevPost({ post }: { post: Post }) {
           <Image
             className="object-cover object-top"
             src={cover_image}
-            alt="cover_image"
+            alt={`${title} 커버 이미지`}
             fill
             sizes="(min-width: 1024px) 164px, (max-width: 1024px) 100vw"
           />

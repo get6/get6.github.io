@@ -4,8 +4,8 @@ interface Props {
 
 export default function Title({ children }: Props) {
   return (
-    <h1 className="line-clamp-1 font-bold dark:text-white lg:line-clamp-2 lg:text-xl">
+    <h3 className="line-clamp-1 font-bold dark:text-white lg:line-clamp-2 lg:text-xl">
       {children}
-    </h1>
+    </h3>
   )
 }
