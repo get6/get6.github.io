@@ -35,7 +35,7 @@ export default function RecentPost({ post }: { post: Post }) {
         />
       </div>
       <div className="flex h-[174px] flex-col justify-center gap-4 px-6">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 lg:max-w-[306px]">
           <div className="flex">
             <span className="group relative flex items-center">
               <Tooltip date={date} />
@@ -43,7 +43,7 @@ export default function RecentPost({ post }: { post: Post }) {
             </span>
           </div>
           <Title>{title}</Title>
-          <div className="min-h-12 w-full max-w-full min-w-0 break-all line-clamp-2 text-sm font-normal leading-6 dark:text-white">
+          <div className="min-h-12 w-full min-w-0 overflow-hidden text-ellipsis line-clamp-2 text-sm font-normal leading-6 dark:text-white">
             {normalizedSummary}
           </div>
         </div>

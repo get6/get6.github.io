@@ -35,10 +35,10 @@ export default function PrevPost({ post }: { post: Post }) {
         </div>
       </div>
       <div className="flex min-h-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
-        <div className="min-h-0 flex-1 overflow-hidden">
+        <div className="min-h-0 flex-1 overflow-hidden lg:max-w-[306px]">
           <PostDate date={date} body={body.raw} />
           <Title>{title}</Title>
-          <div className="mt-1 w-full max-w-full min-w-0 break-all line-clamp-1 text-sm font-normal leading-6 dark:text-white lg:line-clamp-2 lg:text-base">
+          <div className="mt-1 w-full min-w-0 overflow-hidden truncate text-sm font-normal leading-6 dark:text-white lg:line-clamp-2 lg:whitespace-normal lg:text-base">
             {normalizedSummary}
           </div>
         </div>

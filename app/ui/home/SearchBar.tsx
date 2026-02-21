@@ -9,15 +9,21 @@ export default function SearchBar() {
   const searchParams = useSearchParams()
   const { replace } = useRouter()
 
-  const handleSearch = useDebouncedCallback((term) => {
+  const handleSearch = useDebouncedCallback((term: string) => {
+    const normalized = term.trim().toLowerCase()
+    const current = (searchParams.get('query') ?? '').trim().toLowerCase()
+    if (normalized === current) return
+
     const params = new URLSearchParams(searchParams)
-    if (term) {
-      params.set('query', term)
+    if (normalized) {
+      params.set('query', normalized)
     } else {
       params.delete('query')
     }
-    replace(`${pathname}?${params.toString().toLocaleLowerCase()}`, { scroll: false })
-  }, 200)
+
+    const qs = params.toString()
+    replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false })
+  }, 350)
 
   return (
     <div className="relative flex h-10 w-48 items-center overflow-hidden rounded-md border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-12 lg:w-80">
@@ -31,7 +37,7 @@ export default function SearchBar() {
         placeholder="Search"
         autoComplete="off"
         onChange={(e) => handleSearch(e.target.value)}
-        defaultValue={searchParams.get('query')?.toString().toLocaleLowerCase()}
+        defaultValue={searchParams.get('query')?.toString().toLowerCase()}
       />
     </div>
   )

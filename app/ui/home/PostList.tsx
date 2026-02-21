@@ -4,6 +4,7 @@ import PrevPost from '@/app/ui/home/PrevPost'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { Post } from 'contentlayer/generated'
 import { useSearchParams } from 'next/navigation'
+import { useMemo } from 'react'
 
 interface Props {
   posts: Post[]
@@ -13,27 +14,31 @@ export default function PostList({ posts }: Props) {
   const param = 'query'
   const searchParams = useSearchParams()
 
-  const allPosts = searchParams.has(param)
-    ? posts.filter((post) => {
-        const query = searchParams.get(param)!.toString().toLowerCase()
+  const query = (searchParams.get(param) ?? '').trim().toLowerCase()
 
-        // Safe string checking with fallbacks
-        const titleMatch = post.title?.toLowerCase().includes(query) ?? false
-        const summaryMatch =
-          post.summary?.toLowerCase().includes(query) ?? false
-        const bodyMatch = post.body?.raw?.toLowerCase().includes(query) ?? false
+  const indexedPosts = useMemo(
+    () =>
+      posts.map((post) => ({
+        post,
+        searchText: [
+          post.title ?? '',
+          post.summary ?? '',
+          Array.isArray(post.tags) ? post.tags.join(' ') : '',
+          // 본문 전체 스캔은 무거워서 앞부분만 인덱싱
+          post.body?.raw?.slice(0, 1800) ?? '',
+        ]
+          .join(' ')
+          .toLowerCase(),
+      })),
+    [posts],
+  )
 
-        // Safe tags checking with type validation
-        const tagsMatch =
-          Array.isArray(post.tags) &&
-          post.tags.some(
-            (tag) =>
-              typeof tag === 'string' && tag.toLowerCase().includes(query),
-          )
-
-        return titleMatch || summaryMatch || tagsMatch || bodyMatch
-      })
-    : posts
+  const allPosts = useMemo(() => {
+    if (!query) return posts
+    return indexedPosts
+      .filter(({ searchText }) => searchText.includes(query))
+      .map(({ post }) => post)
+  }, [indexedPosts, posts, query])
 
   return (
     <div
