@@ -74,7 +74,7 @@ export default async function Post({
       />
       <ScrollProgress />
       <div
-        className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
+        className={`flex justify-center ${toc ? 'xl:justify-between xl:gap-10 2xl:gap-12' : 'xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
         <DetailScreen>
@@ -104,8 +104,8 @@ export default async function Post({
               Other posts
             </span>
             <div className="flex gap-4 overflow-x-auto lg:justify-between lg:gap-0">
-              {otherPosts.map((post, index) => (
-                <AnotherPost key={index} post={post} />
+              {otherPosts.map((post) => (
+                <AnotherPost key={post.slug} post={post} />
               ))}
             </div>
           </div>

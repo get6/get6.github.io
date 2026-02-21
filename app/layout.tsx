@@ -72,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
@@ -89,8 +90,11 @@ export default function RootLayout({
         {process.env.NODE_ENV === 'production' && (
           <>
             {/* Google tag (gtag.js) */}
-            <Script src="https://www.googletagmanager.com/gtag/js?id=G-YGW2B2X46K" />
-            <Script id="google-analytics">
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-YGW2B2X46K"
+              strategy="lazyOnload"
+            />
+            <Script id="google-analytics" strategy="lazyOnload">
               {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

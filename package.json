@@ -6,7 +6,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "npx serve@latest out",
-    "lint": "next lint",
+    "lint": "eslint . --ext .ts,.tsx",
     "copy-dir": "ts-node scripts/copy-image.ts",
     "predev": "pnpm copy-dir",
     "prebuild": "pnpm copy-dir",

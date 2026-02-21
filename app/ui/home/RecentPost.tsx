@@ -12,6 +12,7 @@ import { Suspense } from 'react'
 
 export default function RecentPost({ post }: { post: Post }) {
   const { url, date, title, body, tags, cover_image, summary } = post
+  const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
   const { push } = useRouter()
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
@@ -42,12 +43,14 @@ export default function RecentPost({ post }: { post: Post }) {
             </span>
           </div>
           <Title>{title}</Title>
-          <div className="truncate font-normal dark:text-white">{summary}</div>
+          <div className="min-h-12 w-full max-w-full min-w-0 break-all line-clamp-2 text-sm font-normal leading-6 dark:text-white">
+            {normalizedSummary}
+          </div>
         </div>
         <div className="flex gap-2 overflow-x-hidden">
           <Suspense fallback={<TagsFallBack tags={tags} />}>
-            {tags.map((tag, index) => (
-              <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
+            {tags.map((tag) => (
+              <Badge key={tag} name={tag} onClick={handleTagClick(tag)} />
             ))}
           </Suspense>
         </div>

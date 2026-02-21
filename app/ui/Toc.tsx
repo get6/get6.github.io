@@ -45,16 +45,21 @@ export default function Toc({ headers }: Props) {
         if (currentHeading) observer.observe(currentHeading)
       })
     }
-  })
+
+    return () => observer.disconnect()
+  }, [headers])
 
   return (
     headers && (
-      <nav className="sticky top-14 hidden h-fit pr-6 pt-10 xl:block xl:max-w-64 2xl:max-w-xs">
-        <h2 className="mb-4 text-sm font-medium leading-6 text-gray-600 dark:text-gray-400">
+      <nav className="sticky top-14 hidden h-fit min-w-[220px] pl-6 pr-8 pt-10 xl:block xl:max-w-72 2xl:max-w-xs">
+        <h2 className="mb-3 text-sm font-semibold leading-6 text-gray-700 dark:text-gray-300">
           On this page
         </h2>
         <hr className="h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
-        <ul className="mt-4 snap-y snap-mandatory" ref={headingsList}>
+        <ul
+          className="mt-4 snap-y snap-mandatory border-l border-gray-200 pl-3 dark:border-gray-700"
+          ref={headingsList}
+        >
           {headers.map((header, index) => {
             let margin = '' // level 2는 마진을 적용하지 않음
             if (header.level === 3) margin = 'ml-4'
@@ -62,10 +67,10 @@ export default function Toc({ headers }: Props) {
             if (header.level === 5) margin = 'ml-12'
             if (header.level === 6) margin = 'ml-16'
             return (
-              <li key={index} className="mb-1 snap-center truncate">
+              <li key={header.id} className="mb-1 snap-center truncate">
                 <a
                   href={`#${header.id}`}
-                  className={`mb-1 text-sm hover:text-blue-600 dark:hover:text-blue-500 ${activeId === header.id ? 'text-blue-600 dark:text-blue-500' : 'text-gray-600 dark:text-gray-400'} ${margin} `}
+                  className={`mb-1 block text-sm leading-6 hover:text-blue-600 dark:hover:text-blue-500 ${activeId === header.id ? 'font-medium text-blue-600 dark:text-blue-500' : 'text-gray-600 dark:text-gray-400'} ${margin} `}
                 >
                   {header.title}
                 </a>

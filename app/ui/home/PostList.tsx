@@ -16,18 +16,21 @@ export default function PostList({ posts }: Props) {
   const allPosts = searchParams.has(param)
     ? posts.filter((post) => {
         const query = searchParams.get(param)!.toString().toLowerCase()
-        
+
         // Safe string checking with fallbacks
         const titleMatch = post.title?.toLowerCase().includes(query) ?? false
-        const summaryMatch = post.summary?.toLowerCase().includes(query) ?? false
+        const summaryMatch =
+          post.summary?.toLowerCase().includes(query) ?? false
         const bodyMatch = post.body?.raw?.toLowerCase().includes(query) ?? false
-        
+
         // Safe tags checking with type validation
-        const tagsMatch = Array.isArray(post.tags) && 
-          post.tags.some(tag => 
-            typeof tag === 'string' && tag.toLowerCase().includes(query)
+        const tagsMatch =
+          Array.isArray(post.tags) &&
+          post.tags.some(
+            (tag) =>
+              typeof tag === 'string' && tag.toLowerCase().includes(query),
           )
-        
+
         return titleMatch || summaryMatch || tagsMatch || bodyMatch
       })
     : posts
@@ -37,7 +40,7 @@ export default function PostList({ posts }: Props) {
       className={`flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between`}
     >
       {0 < allPosts.length ? (
-        allPosts.map((post, index) => <PrevPost key={index} post={post} />)
+        allPosts.map((post) => <PrevPost key={post.slug} post={post} />)
       ) : (
         <div className="flex h-[205px] w-full flex-col items-center justify-center gap-2">
           <ExclamationCircleIcon className="h-10 w-10" />

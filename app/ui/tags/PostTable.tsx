@@ -3,10 +3,10 @@
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { allPosts } from 'contentlayer/generated'
-import { useRouter, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 export default function PostTable() {
-  const { push } = useRouter()
   const heads = ['Title', 'Date', 'Categories']
   const searchParams = useSearchParams()
 
@@ -30,17 +30,21 @@ export default function PostTable() {
         </tr>
       </TableHead>
       <TableBody>
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <tr
-            key={index}
-            className="border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
-            onClick={() => push(post.url)}
+            key={post.slug}
+            className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
           >
             <th
               scope="row"
               className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
             >
-              {post.title}
+              <Link
+                href={post.url}
+                className="hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                {post.title}
+              </Link>
             </th>
             <td className="truncate px-6 py-4">
               <FormattedDate date={post.date} />

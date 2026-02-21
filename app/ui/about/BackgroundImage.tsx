@@ -13,7 +13,7 @@ export default function BackgroundImage() {
         {...attributes}
         src="/images/about/dark-bg.webp"
         alt="Dark mountain background image"
-        className="fixed left-0 top-0 z-[-1] hidden h-full w-full select-none object-cover dark:block"
+        className="fixed left-0 top-0 z-[-2] hidden h-full w-full select-none object-cover dark:block"
         width={2048}
         height={1107}
       />
@@ -21,7 +21,7 @@ export default function BackgroundImage() {
         {...attributes}
         src="/images/about/bg.webp"
         alt="Mountain background image"
-        className="fixed left-0 top-0 z-[-1] block h-full w-full select-none object-cover dark:hidden"
+        className="fixed left-0 top-0 z-[-2] block h-full w-full select-none object-cover dark:hidden"
         width={2048}
         height={1107}
       />

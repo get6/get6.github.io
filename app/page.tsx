@@ -14,7 +14,7 @@ function PostListFallback() {
   return (
     <div className="flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between">
       {Array.from({ length: 4 }, (_, index) => (
-        <PostSkeleton key={index} />
+        <PostSkeleton key={`post-skeleton-${index}`} />
       ))}
     </div>
   )
@@ -24,7 +24,7 @@ function RecentPostsFallback() {
   return (
     <div className="flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between">
       {Array.from({ length: 3 }, (_, index) => (
-        <RecentPostSkeleton key={index} />
+        <RecentPostSkeleton key={`recent-post-skeleton-${index}`} />
       ))}
     </div>
   )
@@ -56,14 +56,14 @@ export default function Home() {
             <div
               className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
             >
-              {recentPosts.map((post, index) => (
-                <RecentPost key={index} post={post} />
+              {recentPosts.map((post) => (
+                <RecentPost key={post.slug} post={post} />
               ))}
             </div>
           </Suspense>
         </div>
         <div className="flex w-full flex-col gap-4">
-          <div className="flex min-w-[344px] justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <PageTitle>All Posts</PageTitle>
             <Suspense fallback={<SearchBarFallback />}>
               <SearchBar />

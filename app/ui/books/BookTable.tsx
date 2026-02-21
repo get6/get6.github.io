@@ -1,5 +1,3 @@
-'use client'
-
 import { AdsInBooks } from '@/app/ads/AdsInBooks'
 import { Ad } from '@/app/lib/definitions'
 import FormattedDate from '@/app/ui/FormattedDate'
@@ -7,7 +5,7 @@ import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
 import { Book } from 'contentlayer/generated'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 interface Props {
   books: Book[]
@@ -17,7 +15,6 @@ interface Props {
 type BookOrAd = Book | Ad
 
 export default function BookTable({ books, isFinished = false }: Props) {
-  const { push } = useRouter()
   // const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
   const heads = ['Title', 'Author', 'Published', 'Category', 'URL']
 
@@ -41,8 +38,8 @@ export default function BookTable({ books, isFinished = false }: Props) {
     <Table>
       <TableHead>
         <tr>
-          {heads.map((head, index) => (
-            <th key={index} scope="col" className="px-6 py-3">
+          {heads.map((head) => (
+            <th key={head} scope="col" className="px-6 py-3">
               {head}
             </th>
           ))}
@@ -64,12 +61,10 @@ export default function BookTable({ books, isFinished = false }: Props) {
           } else {
             return (
               <tr
-                key={`book-${index}`}
+                key={book.slug}
                 className={`max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800 ${
-                  isFinished &&
-                  'hover:cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600'
+                  isFinished && 'hover:bg-gray-50 dark:hover:bg-gray-600'
                 }`}
-                onClick={() => isFinished && push(book.url)}
               >
                 <th scope="row" className="flex items-center gap-2 px-6 py-4">
                   <div className="relative h-6 w-4">
@@ -77,14 +72,22 @@ export default function BookTable({ books, isFinished = false }: Props) {
                       className="object-cover object-top"
                       src={isFinished ? book.cover_image : book.cover_url}
                       alt={book.title}
-                      priority
                       fill
                       sizes="(min-width: 1024px) 24px, (max-width: 1024px) 100vw"
                     />
                   </div>
-                  <span className="max-w-xs truncate font-medium text-gray-900 dark:text-white">
-                    {book.title}
-                  </span>
+                  {isFinished ? (
+                    <Link
+                      href={book.url}
+                      className="max-w-xs truncate font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+                    >
+                      {book.title}
+                    </Link>
+                  ) : (
+                    <span className="max-w-xs truncate font-medium text-gray-900 dark:text-white">
+                      {book.title}
+                    </span>
+                  )}
                 </th>
                 <td className="truncate px-6 py-4">
                   {book.author.split(', ').length > 1
@@ -99,13 +102,15 @@ export default function BookTable({ books, isFinished = false }: Props) {
                   {book.tag.split(' ')[2]}
                 </td>
                 <td className="px-6 py-4">
-                  <LinkIcon
-                    className="h-5 w-5 hover:cursor-pointer hover:text-blue-500"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      window.open(book.book_url, '_blank')
-                    }}
-                  />
+                  <a
+                    href={book.book_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                    aria-label={`${book.title} 외부 링크 열기`}
+                  >
+                    <LinkIcon className="h-5 w-5 hover:cursor-pointer hover:text-blue-500" />
+                  </a>
                 </td>
               </tr>
             )

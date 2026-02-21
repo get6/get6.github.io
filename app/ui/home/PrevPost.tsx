@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation'
 export default function PrevPost({ post }: { post: Post }) {
   const { push } = useRouter()
   const { url, date, title, body, tags, cover_image, summary } = post
+  const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -19,7 +20,7 @@ export default function PrevPost({ post }: { post: Post }) {
 
   return (
     <div
-      className="flex aspect-square h-[120px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
+      className="flex aspect-square h-[120px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
       onClick={() => push(url)}
     >
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
@@ -33,21 +34,23 @@ export default function PrevPost({ post }: { post: Post }) {
           />
         </div>
       </div>
-      <div className="flex flex-col justify-center overflow-auto px-6 lg:gap-4">
-        <div className="flex flex-col justify-between lg:gap-2">
+      <div className="flex min-h-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
+        <div className="min-h-0 flex-1 overflow-hidden">
           <PostDate date={date} body={body.raw} />
           <Title>{title}</Title>
-          <div className="truncate text-sm font-normal dark:text-white lg:text-base">
-            {summary}
+          <div className="mt-1 w-full max-w-full min-w-0 break-all line-clamp-1 text-sm font-normal leading-6 dark:text-white lg:line-clamp-2 lg:text-base">
+            {normalizedSummary}
           </div>
         </div>
-        <div className="py-2 lg:py-0">
+        <div className="my-1 lg:my-2">
           <Line />
         </div>
-        <div className="flex gap-2 overflow-x-hidden">
-          {tags.map((tag, index) => (
-            <Badge key={index} name={tag} onClick={handleTagClick(tag)} />
-          ))}
+        <div className="shrink-0">
+          <div className="flex gap-2 overflow-x-auto pb-1">
+            {tags.map((tag) => (
+              <Badge key={tag} name={tag} onClick={handleTagClick(tag)} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

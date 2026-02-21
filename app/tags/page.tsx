@@ -29,7 +29,6 @@ function PostTableFallback() {
 }
 
 export default function Tags() {
-  // 태그 집계를 더 효율적으로 처리
   const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
     post.tags.forEach((tag) => {
       acc[tag] = (acc[tag] || 0) + 1
