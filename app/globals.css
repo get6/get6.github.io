@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* KaTeX 스타일 커스텀 */
 .katex {
   font-size: 1.1em;

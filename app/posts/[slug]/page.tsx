@@ -62,7 +62,7 @@ export default async function Post({
   const { date, title, body, tags, toc } = post
 
   return (
-    <div className="min-w-0 overflow-hidden">
+    <div className="min-w-0">
       <BlogPostStructuredData
         title={title}
         description={post.summary}
@@ -77,40 +77,42 @@ export default async function Post({
         className={`flex justify-center ${toc ? 'xl:justify-between xl:gap-10 2xl:gap-12' : 'xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
-        <DetailScreen>
-          <h1 className="flex w-full justify-center text-2xl lg:w-[650px] lg:text-4xl">
-            {title}
-          </h1>
-          <div className="prose flex w-full items-center justify-between">
-            <PostDate date={date} body={body.raw} isDetail />
-            <ToastPostal />
-          </div>
-          <div className="flex w-full flex-col items-center">
-            <Line className="prose" />
-            {toc && <MobileToc headers={toc} />}
-            <Article html={body.html} />
-            <Line className="prose" />
-          </div>
-          <PostTags tags={tags} />
-          {/* <GithubComment /> */}
-          <GitHubGiscus />
-        </DetailScreen>
+        <div className="flex min-w-0 flex-col">
+          <DetailScreen>
+            <h1 className="flex w-full justify-center text-2xl lg:w-[650px] lg:text-4xl">
+              {title}
+            </h1>
+            <div className="prose flex w-full items-center justify-between">
+              <PostDate date={date} body={body.raw} isDetail />
+              <ToastPostal />
+            </div>
+            <div className="flex w-full flex-col items-center">
+              <Line className="prose" />
+              {toc && <MobileToc headers={toc} />}
+              <Article html={body.html} />
+              <Line className="prose" />
+            </div>
+            <PostTags tags={tags} />
+            {/* <GithubComment /> */}
+            <GitHubGiscus />
+          </DetailScreen>
+          {0 < otherPosts.length && (
+            <div className="flex items-center justify-center pb-8 lg:pb-16">
+              <div className="flex w-full flex-col justify-center gap-4 px-4 lg:w-[840px] lg:px-0">
+                <span className="text-sm font-extralight lg:text-base">
+                  Other posts
+                </span>
+                <div className="flex gap-4 overflow-x-auto lg:justify-between lg:gap-0">
+                  {otherPosts.map((post) => (
+                    <AnotherPost key={post.slug} post={post} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
         {toc && <Toc headers={toc} />}
       </div>
-      {0 < otherPosts.length && (
-        <div className="flex items-center justify-center pb-8 lg:pb-16">
-          <div className="flex w-full flex-col justify-center gap-4 px-4 md:w-[732px] lg:w-[840px] lg:px-0">
-            <span className="text-sm font-extralight lg:text-base">
-              Other posts
-            </span>
-            <div className="flex gap-4 overflow-x-auto lg:justify-between lg:gap-0">
-              {otherPosts.map((post) => (
-                <AnotherPost key={post.slug} post={post} />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
