@@ -72,6 +72,12 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="이때의 나 RSS"
+          href="/rss.xml"
+        />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
         <link
           rel="stylesheet"
