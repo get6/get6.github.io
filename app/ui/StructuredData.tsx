@@ -73,6 +73,90 @@ export function BlogPostStructuredData({
   )
 }
 
+interface BookReviewData {
+  title: string
+  author: string
+  description: string
+  image: string
+  url: string
+  datePublished: string
+  rating: number
+  bookUrl: string
+}
+
+export function BookReviewStructuredData({
+  title,
+  author,
+  description,
+  image,
+  url,
+  datePublished,
+  rating,
+  bookUrl,
+}: BookReviewData) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Book',
+      name: title,
+      author: { '@type': 'Person', name: author },
+      image: image.startsWith('http') ? image : `${BASE_URL}${image}`,
+      url: bookUrl,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: rating,
+      bestRating: 5,
+    },
+    author: { '@type': 'Person', name: blog_name },
+    description,
+    datePublished,
+    url: `${BASE_URL}${url}`,
+    publisher: { '@type': 'Organization', name: blog_name },
+    inLanguage: 'ko-KR',
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+  )
+}
+
+interface PersonData {
+  name: string
+  description: string
+  url: string
+  jobTitle: string
+}
+
+export function PersonStructuredData({
+  name,
+  description,
+  url,
+  jobTitle,
+}: PersonData) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name,
+    description,
+    url: `${BASE_URL}${url}`,
+    jobTitle,
+    sameAs: ['https://github.com/get6/', 'https://linktr.ee/hwangitae/'],
+    inLanguage: 'ko-KR',
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+  )
+}
+
 export function WebsiteStructuredData({ name, description, url }: WebsiteData) {
   const structuredData = {
     '@context': 'https://schema.org',

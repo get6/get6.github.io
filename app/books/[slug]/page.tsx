@@ -7,6 +7,7 @@ import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
 import MobileToc from '@/app/ui/MobileToc'
 import Title from '@/app/ui/Title'
+import { BookReviewStructuredData } from '@/app/ui/StructuredData'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
 import DaysOfReading from '@/app/ui/books/DaysOfReading'
@@ -89,6 +90,18 @@ export default async function Book({
 
   return (
     <>
+      {status === BookStatus.Finished && (
+        <BookReviewStructuredData
+          title={book.title}
+          author={author}
+          description={sliceDesc(book.summary, 160)}
+          image={cover_image}
+          url={`/books/${book.slug}`}
+          datePublished={finish_read_date}
+          rating={my_rate}
+          bookUrl={book_url}
+        />
+      )}
       <div
         className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
       >

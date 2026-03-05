@@ -62,7 +62,7 @@ export default async function Post({
   const { date, title, body, tags, toc } = post
 
   return (
-    <div className="min-w-0">
+    <div className="min-w-0 overflow-x-clip">
       <BlogPostStructuredData
         title={title}
         description={post.summary}

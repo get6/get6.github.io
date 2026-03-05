@@ -13,22 +13,27 @@ export default function MobileToc({ headers }: Props) {
   return (
     headers && (
       <nav className="h-fit max-w-sm pt-6 md:max-w-none xl:hidden">
-        <h2 className="mb-4 text-lg font-medium leading-6 text-gray-600 dark:text-white">
+        <h2 className="mb-3 text-sm font-semibold leading-6 text-gray-700 dark:text-white">
           On this page
         </h2>
-        <hr className="h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
-        <ul className="mt-4">
+        <hr className="mb-4 h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
+        <ul className="flex flex-col gap-0.5">
           {headers.map((header, index) => {
-            let margin = '' // level 2는 마진을 적용하지 않음
-            if (header.level === 3) margin = 'ml-4'
-            if (header.level === 4) margin = 'ml-8'
-            if (header.level === 5) margin = 'ml-12'
-            if (header.level === 6) margin = 'ml-16'
+            const isActive = activeId === header.id
+            let padding = 'pl-3'
+            if (header.level === 3) padding = 'pl-7'
+            if (header.level === 4) padding = 'pl-11'
+            if (header.level === 5) padding = 'pl-15'
+            if (header.level === 6) padding = 'pl-19'
             return (
-              <li key={index} className="mb-1 truncate">
+              <li key={index}>
                 <a
                   href={`#${header.id}`}
-                  className={`mb-1 text-sm hover:text-blue-600 dark:hover:text-blue-500 ${activeId === header.id ? 'text-blue-600 dark:text-blue-500' : 'text-gray-600 dark:text-gray-400'} ${margin} `}
+                  className={`block truncate rounded-md py-1 text-sm transition-colors ${padding} ${
+                    isActive
+                      ? 'bg-gray-100 text-blue-600 dark:bg-gray-800 dark:text-blue-500'
+                      : 'text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-500'
+                  }`}
                   onClick={() => setActiveId(header.id)}
                 >
                   {header.title}
