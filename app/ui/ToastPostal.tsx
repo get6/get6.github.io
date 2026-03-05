@@ -63,7 +63,9 @@ export default function ToastPostal() {
         title="링크 공유/복사"
         onClick={handleShare}
         className={`p-1 transition-all duration-200 hover:scale-110 active:scale-95 ${
-          copiedFlash ? 'text-blue-600 dark:text-blue-400' : 'text-inherit'
+          copiedFlash
+            ? 'text-blue-600 dark:text-blue-400'
+            : 'text-black dark:text-white'
         }`}
       >
         <ShareIcon className="h-6 w-6" />
