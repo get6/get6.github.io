@@ -1,4 +1,11 @@
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import MyCarousel from '@/app/ui/about/MyCarousel'
+
+export const metadata = createMetadata({
+  title: 'About me',
+  description: '제품을 만들고 기록하는 개발자 황성준의 소개 페이지입니다.',
+  url: '/about',
+})
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import GithubIcon from '@/app/ui/social/GithubIcon'

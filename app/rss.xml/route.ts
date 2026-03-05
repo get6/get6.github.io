@@ -1,4 +1,5 @@
 import { BASE_URL, blog_description, blog_name } from '@/app/lib/definitions'
+import { sliceDesc } from '@/app/lib/utils'
 import { allPosts } from 'contentlayer/generated'
 
 export const dynamic = 'force-static'
@@ -23,7 +24,7 @@ export async function GET() {
         (post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <description><![CDATA[${post.title}]]></description>
+      <description><![CDATA[${sliceDesc(post.summary, 200)}]]></description>
       <link>${BASE_URL}/posts/${post.slug}</link>
       <guid isPermaLink="true">${BASE_URL}/posts/${post.slug}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>

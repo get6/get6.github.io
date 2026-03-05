@@ -1,4 +1,5 @@
 import { BookStatus } from '@/app/lib/definitions'
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { sliceDesc } from '@/app/lib/utils'
 import Article from '@/app/ui/Article'
 import FormattedDate from '@/app/ui/FormattedDate'
@@ -33,13 +34,12 @@ export const generateMetadata = async ({
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
-  return {
+  return createMetadata({
     title: book.title,
     description: sliceDesc(book.summary, 160),
-    openGraph: {
-      images: [book.cover_url],
-    },
-  }
+    image: book.cover_url,
+    url: `/books/${book.slug}`,
+  })
 }
 
 export default async function Book({

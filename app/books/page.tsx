@@ -1,4 +1,11 @@
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { BookStatus } from '@/app/lib/definitions'
+
+export const metadata = createMetadata({
+  title: 'Books',
+  description: '읽고 있는 책, 읽은 책, 읽고 싶은 책을 정리한 서재입니다.',
+  url: '/books',
+})
 import { isActivelyReading, isPausedBook } from '@/app/lib/utils'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'

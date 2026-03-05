@@ -1,4 +1,11 @@
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import PageTitle from '@/app/ui/home/PageTitle'
+
+export const metadata = createMetadata({
+  title: 'Series',
+  description: '시리즈별로 연재 게시글을 모아볼 수 있습니다.',
+  url: '/series',
+})
 import PageScreen from '@/app/ui/layout/PageScreen'
 import SeriesCard from '@/app/ui/series/SeriesCard'
 import { Post, allPosts } from 'contentlayer/generated'

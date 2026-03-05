@@ -5,41 +5,64 @@ import { MetadataRoute } from 'next'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const latestPostDate = allPosts.length
+    ? allPosts.reduce((latest, post) =>
+        new Date(post.date) > new Date(latest.date) ? post : latest,
+      ).date
+    : new Date().toISOString()
+
+  const latestBookDate = allBooks.length
+    ? allBooks.reduce((latest, book) => {
+        const d =
+          book.finish_read_date > book.start_read_date
+            ? book.finish_read_date
+            : book.start_read_date
+        const ld =
+          latest.finish_read_date > latest.start_read_date
+            ? latest.finish_read_date
+            : latest.start_read_date
+        return new Date(d) > new Date(ld) ? book : latest
+      })
+    : null
+
   return [
     {
       url: `${BASE_URL}/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly', // 블로그는 주간 업데이트가 적절
+      lastModified: latestPostDate,
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: '2026-01-01',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/books`,
-      lastModified: new Date(),
+      lastModified: latestBookDate
+        ? latestBookDate.finish_read_date > latestBookDate.start_read_date
+          ? latestBookDate.finish_read_date
+          : latestBookDate.start_read_date
+        : new Date().toISOString(),
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/series`,
-      lastModified: new Date(),
+      lastModified: latestPostDate,
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
       url: `${BASE_URL}/tags`,
-      lastModified: new Date(),
+      lastModified: latestPostDate,
       changeFrequency: 'weekly',
       priority: 0.5,
     },
-    // 정적 페이지들 (있는 경우)
     {
       url: `${BASE_URL}/get912000won`,
-      lastModified: new Date(),
+      lastModified: '2025-01-01',
       changeFrequency: 'yearly',
       priority: 0.3,
     },

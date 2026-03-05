@@ -1,4 +1,11 @@
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { Tag } from '@/app/lib/definitions'
+
+export const metadata = createMetadata({
+  title: 'Tags',
+  description: '태그별로 게시글을 모아볼 수 있습니다.',
+  url: '/tags',
+})
 import TagsFallBack from '@/app/ui/TagsFallback'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
