@@ -13,8 +13,8 @@ export default function MobileToc({ headers }: Props) {
   return (
     headers && (
       <nav className="h-fit max-w-sm pt-6 md:max-w-none xl:hidden">
-        <h2 className="mb-4 text-lg font-medium leading-6 text-gray-600 dark:text-gray-400">
-          Table of Contents
+        <h2 className="mb-4 text-lg font-medium leading-6 text-gray-600 dark:text-white">
+          On this page
         </h2>
         <hr className="h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
         <ul className="mt-4">

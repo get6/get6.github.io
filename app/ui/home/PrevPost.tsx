@@ -20,7 +20,7 @@ export default function PrevPost({ post }: { post: Post }) {
 
   return (
     <div
-      className="flex aspect-square h-[120px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
+      className="flex h-[140px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
       onClick={() => push(url)}
     >
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
@@ -34,11 +34,11 @@ export default function PrevPost({ post }: { post: Post }) {
           />
         </div>
       </div>
-      <div className="flex min-h-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
-        <div className="min-h-0 flex-1 overflow-hidden lg:max-w-[306px]">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
+        <div className="min-h-0 min-w-0 flex-1 overflow-hidden lg:max-w-[306px]">
           <PostDate date={date} body={body.raw} />
           <Title>{title}</Title>
-          <div className="mt-1 w-full min-w-0 overflow-hidden truncate text-sm font-normal leading-6 dark:text-white lg:line-clamp-2 lg:whitespace-normal lg:text-base">
+          <div className="mt-1 w-full min-w-0 overflow-hidden text-sm font-normal leading-6 line-clamp-1 dark:text-white lg:line-clamp-2 lg:text-base">
             {normalizedSummary}
           </div>
         </div>

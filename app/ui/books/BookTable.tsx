@@ -1,3 +1,5 @@
+'use client'
+
 import { AdsInBooks } from '@/app/ads/AdsInBooks'
 import { Ad } from '@/app/lib/definitions'
 import FormattedDate from '@/app/ui/FormattedDate'
@@ -6,6 +8,7 @@ import { LinkIcon } from '@heroicons/react/24/solid'
 import { Book } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 interface Props {
   books: Book[]
@@ -15,6 +18,7 @@ interface Props {
 type BookOrAd = Book | Ad
 
 export default function BookTable({ books, isFinished = false }: Props) {
+  const { push } = useRouter()
   // const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
   const heads = ['Title', 'Author', 'Published', 'Category', 'URL']
 
@@ -62,8 +66,14 @@ export default function BookTable({ books, isFinished = false }: Props) {
             return (
               <tr
                 key={book.slug}
+                onClick={
+                  isFinished
+                    ? () => push(`/books/${encodeURIComponent(book.slug)}`)
+                    : undefined
+                }
                 className={`max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800 ${
-                  isFinished && 'hover:bg-gray-50 dark:hover:bg-gray-600'
+                  isFinished &&
+                  'hover:cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600'
                 }`}
               >
                 <th scope="row" className="flex items-center gap-2 px-6 py-4">
@@ -101,7 +111,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
                 <td className="max-w-[120px] truncate px-6 py-4">
                   {book.tag.split(' ')[2]}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4" onClick={(e) => e.stopPropagation()}>
                   <a
                     href={book.book_url}
                     target="_blank"

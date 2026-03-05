@@ -4,9 +4,10 @@ import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function PostTable() {
+  const { push } = useRouter()
   const heads = ['Title', 'Date', 'Categories']
   const searchParams = useSearchParams()
 
@@ -33,7 +34,8 @@ export default function PostTable() {
         {posts.map((post) => (
           <tr
             key={post.slug}
-            className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+            onClick={() => push(post.url)}
+            className="border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
           >
             <th
               scope="row"

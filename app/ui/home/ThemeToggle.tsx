@@ -43,6 +43,10 @@ export default function ThemeToggle() {
     setTheme(currentTheme === 'dark' ? 'light' : 'dark')
   }
 
+  if (!mounted) {
+    return <div className="h-6 w-6 p-1" />
+  }
+
   return (
     <button
       type="button"

@@ -85,7 +85,7 @@ export default function Toc({ headers }: Props) {
         ref={navRef}
         className="sticky top-14 hidden h-fit max-h-[calc(100vh-5rem)] min-w-[220px] pl-6 pr-8 pt-10 xl:block xl:max-w-72 2xl:max-w-xs"
       >
-        <h2 className="mb-3 text-sm font-semibold leading-6 text-gray-700 dark:text-gray-300">
+        <h2 className="mb-3 text-sm font-semibold leading-6 text-gray-700 dark:text-white">
           On this page
         </h2>
         <hr className="mb-4 h-1 w-10 border-0 bg-blue-600 dark:bg-blue-500" />
