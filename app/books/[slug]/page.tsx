@@ -115,69 +115,82 @@ export default async function Book({
       >
         {toc && <AsideHelper headers={toc} />}
         <DetailScreen>
-          <div className="flex w-full max-w-prose justify-center gap-4 lg:gap-8">
-            <div className="relative aspect-[2/3] w-40 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
-              <Image
-                className="object-cover"
-                src={cover_image}
-                alt={title}
-                priority
-                fill
-                sizes="(min-width: 1024px) 256px, (max-width: 1024px) 100vw"
-              />
-            </div>
-            <div className="flex flex-grow flex-col justify-between lg:max-w-md">
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-col">
-                  <div className="flex items-center justify-between gap-2">
-                    <Title>{title}</Title>
-                    <ToastPostal />
-                  </div>
-                  {subTitle && (
-                    <div className="line-clamp-1 text-ellipsis text-gray-500 dark:text-gray-400">
-                      {subTitle}
-                    </div>
-                  )}
-                </div>
-
-                <p className="text-xs lg:text-sm">저자: {author}</p>
-                {status === BookStatus.Finished && (
-                  <p className="flex items-center gap-1 text-xs lg:text-sm">
-                    추천:
-                    <span className="flex">{stars.map((star) => star)}</span>
-                  </p>
-                )}
-                <p className="text-xs lg:text-sm">쪽수: {total_page}</p>
-                <p className="text-xs lg:text-sm">
-                  발행일: <FormattedDate date={publish_date} />
-                </p>
-                <p className="text-xs lg:text-sm">
-                  독서 기간: <FormattedDate date={start_read_date} /> ~{' '}
-                  {start_read_date < finish_read_date ? (
-                    <FormattedDate date={finish_read_date} />
-                  ) : (
-                    <span className="font-semibold">ing</span>
-                  )}
-                  {start_read_date < finish_read_date && (
-                    <span className="text-red-500">{` (${daysOfReading}일)`}</span>
-                  )}
-                </p>
-                <p className="text-xs lg:text-sm">
-                  카테고리:{' '}
-                  {tag
-                    .split(' ')
-                    .slice(1)
-                    .map((tag) => tag)
-                    .join(', ')}
-                </p>
+          <div className="flex w-full max-w-prose flex-col gap-4 lg:gap-8">
+            <div className="flex flex-col lg:hidden">
+              <div className="flex items-center justify-between gap-2">
+                <Title>{title}</Title>
+                <ToastPostal />
               </div>
-              <Link
-                href={book_url}
-                className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500 dark:text-blue-400"
-              >
-                yes24로 책 보러가기
-                <ArrowUpRightIcon className="h-3 w-3" />
-              </Link>
+              {subTitle && (
+                <div className="line-clamp-1 text-ellipsis text-gray-500 dark:text-gray-400">
+                  {subTitle}
+                </div>
+              )}
+            </div>
+            <div className="flex gap-4 lg:gap-8">
+              <div className="relative aspect-[2/3] w-32 flex-none border border-black dark:border-white lg:h-96 lg:w-64">
+                <Image
+                  className="object-cover"
+                  src={cover_image}
+                  alt={title}
+                  priority
+                  fill
+                  sizes="(min-width: 1024px) 256px, (max-width: 1024px) 128px"
+                />
+              </div>
+              <div className="flex flex-grow flex-col justify-between lg:max-w-md">
+                <div className="flex flex-col gap-2">
+                  <div className="hidden flex-col lg:flex">
+                    <div className="flex items-center justify-between gap-2">
+                      <Title>{title}</Title>
+                      <ToastPostal />
+                    </div>
+                    {subTitle && (
+                      <div className="line-clamp-1 text-ellipsis text-gray-500 dark:text-gray-400">
+                        {subTitle}
+                      </div>
+                    )}
+                  </div>
+
+                  <p className="text-xs lg:text-sm">저자: {author}</p>
+                  {status === BookStatus.Finished && (
+                    <p className="flex items-center gap-1 text-xs lg:text-sm">
+                      추천:
+                      <span className="flex">{stars.map((star) => star)}</span>
+                    </p>
+                  )}
+                  <p className="text-xs lg:text-sm">쪽수: {total_page}</p>
+                  <p className="text-xs lg:text-sm">
+                    발행일: <FormattedDate date={publish_date} />
+                  </p>
+                  <p className="text-xs lg:text-sm">
+                    독서 기간: <FormattedDate date={start_read_date} /> ~{' '}
+                    {start_read_date < finish_read_date ? (
+                      <FormattedDate date={finish_read_date} />
+                    ) : (
+                      <span className="font-semibold">ing</span>
+                    )}
+                    {start_read_date < finish_read_date && (
+                      <span className="text-red-500">{` (${daysOfReading}일)`}</span>
+                    )}
+                  </p>
+                  <p className="text-xs lg:text-sm">
+                    카테고리:{' '}
+                    {tag
+                      .split(' ')
+                      .slice(1)
+                      .map((tag) => tag)
+                      .join(', ')}
+                  </p>
+                </div>
+                <Link
+                  href={book_url}
+                  className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500 dark:text-blue-400"
+                >
+                  yes24로 책 보러가기
+                  <ArrowUpRightIcon className="h-3 w-3" />
+                </Link>
+              </div>
             </div>
           </div>
           <Line className="prose" />
