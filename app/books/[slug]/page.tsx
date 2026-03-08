@@ -21,8 +21,16 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const normalizeSlug = (slug: string) => {
+  try {
+    return decodeURIComponent(slug).normalize('NFC')
+  } catch {
+    return slug.normalize('NFC')
+  }
+}
+
 export const generateStaticParams = async () =>
-  allBooks.map((book) => ({ slug: book.slug }))
+  allBooks.map((book) => ({ slug: normalizeSlug(book.slug) }))
 
 export const generateMetadata = async ({
   params,
@@ -30,8 +38,8 @@ export const generateMetadata = async ({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> => {
   const { slug: rawSlug } = await params
-  const slug = decodeURIComponent(rawSlug)
-  const book = allBooks.find((book) => book.slug === slug)
+  const slug = normalizeSlug(rawSlug)
+  const book = allBooks.find((book) => normalizeSlug(book.slug) === slug)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
@@ -49,8 +57,8 @@ export default async function Book({
   params: Promise<{ slug: string }>
 }) {
   const { slug: rawSlug } = await params
-  const slug = decodeURIComponent(rawSlug)
-  const book = allBooks.find((book) => book.slug === slug)
+  const slug = normalizeSlug(rawSlug)
+  const book = allBooks.find((book) => normalizeSlug(book.slug) === slug)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
