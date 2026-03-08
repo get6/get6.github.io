@@ -9,6 +9,7 @@ import { Book } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useMemo } from 'react'
 
 interface Props {
   books: Book[]
@@ -17,24 +18,26 @@ interface Props {
 
 type BookOrAd = Book | Ad
 
+const insertAdsIntoBooks = (books: Book[], interval: number): BookOrAd[] => {
+  const result: BookOrAd[] = []
+  for (let i = 0; i < books.length; i++) {
+    if (i > 0 && i % interval === 0) {
+      result.push({ type: 'Ad' })
+    }
+    result.push(books[i])
+  }
+  return result
+}
+
 export default function BookTable({ books, isFinished = false }: Props) {
   const { push } = useRouter()
   // const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
   const heads = ['Title', 'Author', 'Published', 'Category', 'URL']
 
-  const insertAdsIntoBooks = (books: Book[], interval: number): BookOrAd[] => {
-    const ad: Ad = { type: 'Ad' }
-    let result: BookOrAd[] = []
-    for (let i = 0; i < books.length; i++) {
-      if (i > 0 && i % interval === 0) {
-        result.push(ad)
-      }
-      result.push(books[i])
-    }
-    return result
-  }
-
-  const booksWithAds = insertAdsIntoBooks(books, ad_per_content)
+  const booksWithAds = useMemo(
+    () => insertAdsIntoBooks(books, ad_per_content),
+    [books],
+  )
 
   return (
     <Table>

@@ -7,8 +7,13 @@ import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { Post, allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useMemo } from 'react'
 
 type PostOrAd = Post | Ad
+
+const sortedAllPosts = [...allPosts].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+)
 
 const insertAdsIntoPosts = (posts: Post[], interval: number): PostOrAd[] => {
   const result: PostOrAd[] = []
@@ -25,16 +30,20 @@ export default function PostTable() {
   const { push } = useRouter()
   const heads = ['Title', 'Date', 'Categories']
   const searchParams = useSearchParams()
+  const tag = searchParams.get('tag')
 
-  const posts = (
-    searchParams.has('tag')
-      ? allPosts.filter((post) =>
-          post.tags.includes(searchParams.get('tag')!.toString()),
-        )
-      : allPosts
-  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const posts = useMemo(
+    () =>
+      tag
+        ? sortedAllPosts.filter((post) => post.tags.includes(tag))
+        : sortedAllPosts,
+    [tag],
+  )
 
-  const postsWithAds = insertAdsIntoPosts(posts, ad_per_content)
+  const postsWithAds = useMemo(
+    () => insertAdsIntoPosts(posts, ad_per_content),
+    [posts],
+  )
 
   return (
     <Table>
