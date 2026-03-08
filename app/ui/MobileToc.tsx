@@ -14,7 +14,7 @@ export default function MobileToc({ headers }: Props) {
 
   return (
     headers && (
-      <nav className="h-fit w-full max-w-prose pt-6 xl:hidden">
+      <nav className="h-fit w-full max-w-prose pt-6 2xl:hidden">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}

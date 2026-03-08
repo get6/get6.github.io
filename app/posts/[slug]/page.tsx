@@ -74,7 +74,7 @@ export default async function Post({
       />
       <ScrollProgress />
       <div
-        className={`flex justify-center ${toc ? 'xl:justify-between xl:gap-10 2xl:gap-12' : 'xl:justify-center'}`}
+        className={`flex justify-center ${toc ? '2xl:justify-between 2xl:gap-12' : '2xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
         <div className="flex min-w-0 flex-col">
