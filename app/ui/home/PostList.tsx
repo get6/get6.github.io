@@ -1,5 +1,7 @@
 'use client'
 
+import { AdsRecentPost } from '@/app/ads/AdsRecentPost'
+import { ad_per_content } from '@/app/lib/definitions'
 import PrevPost from '@/app/ui/home/PrevPost'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { Post } from 'contentlayer/generated'
@@ -9,6 +11,8 @@ import { useMemo } from 'react'
 interface Props {
   posts: Post[]
 }
+
+type PostOrAd = Post | { type: 'Ad' }
 
 export default function PostList({ posts }: Props) {
   const param = 'query'
@@ -40,12 +44,30 @@ export default function PostList({ posts }: Props) {
       .map(({ post }) => post)
   }, [indexedPosts, posts, query])
 
+  const postsWithAds = useMemo((): PostOrAd[] => {
+    if (query) return allPosts
+    const result: PostOrAd[] = []
+    for (let i = 0; i < allPosts.length; i++) {
+      if (i > 0 && i % ad_per_content === 0) {
+        result.push({ type: 'Ad' })
+      }
+      result.push(allPosts[i])
+    }
+    return result
+  }, [allPosts, query])
+
   return (
     <div
       className={`flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between`}
     >
-      {0 < allPosts.length ? (
-        allPosts.map((post) => <PrevPost key={post.slug} post={post} />)
+      {0 < postsWithAds.length ? (
+        postsWithAds.map((item, index) =>
+          'type' in item && item.type === 'Ad' ? (
+            <AdsRecentPost key={`ad-${index}`} />
+          ) : (
+            <PrevPost key={(item as Post).slug} post={item as Post} />
+          ),
+        )
       ) : (
         <div className="flex h-[205px] w-full flex-col items-center justify-center gap-2">
           <ExclamationCircleIcon className="h-10 w-10" />

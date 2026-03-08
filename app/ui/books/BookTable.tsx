@@ -1,7 +1,7 @@
 'use client'
 
-import { AdsInBooks } from '@/app/ads/AdsInBooks'
-import { Ad } from '@/app/lib/definitions'
+import { AdsInTable } from '@/app/ads/AdsInTable'
+import { Ad, ad_per_content } from '@/app/lib/definitions'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
@@ -34,9 +34,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
     return result
   }
 
-  // const booksWithAds = insertAdsIntoBooks(books, ad_per_content)
-  // const booksWithAds: BookOrAd[] = [...books, { type: 'Ad' }]
-  const booksWithAds: BookOrAd[] = [...books]
+  const booksWithAds = insertAdsIntoBooks(books, ad_per_content)
 
   return (
     <Table>
@@ -58,7 +56,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
                 className={`max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800`}
               >
                 <td scope="row" colSpan={heads.length}>
-                  <AdsInBooks />
+                  <AdsInTable />
                 </td>
               </tr>
             )

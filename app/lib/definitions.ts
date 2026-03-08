@@ -38,7 +38,7 @@ export interface Ad {
   type: 'Ad'
 }
 
-export const ad_per_content = 15
+export const ad_per_content = 8
 
 // 공통 타입들 추가
 export interface SearchParams {
