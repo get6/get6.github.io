@@ -22,7 +22,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const generateStaticParams = async () =>
-  allBooks.map((book) => ({ slug: encodeURIComponent(book.slug) }))
+  allBooks.map((book) => ({ slug: book.slug }))
 
 export const generateMetadata = async ({
   params,
