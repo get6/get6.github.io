@@ -1,12 +1,22 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const AdsInTable = () => {
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (mounted && process.env.NODE_ENV === 'production') {
       ;(window.adsbygoogle = window.adsbygoogle || []).push({})
     }
-  }, [])
+  }, [mounted])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
     <ins
