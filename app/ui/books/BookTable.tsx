@@ -56,7 +56,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
                 className={`max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800`}
               >
                 <td scope="row" colSpan={heads.length}>
-                  <AdsInTable />
+                  <AdsInTable adKey={`book-ad-${index}`} />
                 </td>
               </tr>
             )

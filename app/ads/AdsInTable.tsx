@@ -1,15 +1,22 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-export const AdsInTable = () => {
+interface Props {
+  adKey?: string
+}
+
+export const AdsInTable = ({ adKey }: Props) => {
   const [mounted, setMounted] = useState(false)
+  const adRef = useRef<HTMLModElement>(null)
+  const pushed = useRef(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   useEffect(() => {
-    if (mounted && process.env.NODE_ENV === 'production') {
+    if (mounted && !pushed.current && process.env.NODE_ENV === 'production') {
+      pushed.current = true
       ;(window.adsbygoogle = window.adsbygoogle || []).push({})
     }
   }, [mounted])
@@ -20,6 +27,7 @@ export const AdsInTable = () => {
 
   return (
     <ins
+      ref={adRef}
       className="adsbygoogle"
       style={{
         display: 'block',
@@ -28,6 +36,7 @@ export const AdsInTable = () => {
       data-ad-slot="2705917050"
       data-ad-format="auto"
       data-full-width-responsive="true"
+      key={adKey}
     ></ins>
   )
 }

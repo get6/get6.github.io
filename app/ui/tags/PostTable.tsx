@@ -56,7 +56,7 @@ export default function PostTable() {
                 className="max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800"
               >
                 <td colSpan={heads.length}>
-                  <AdsInTable />
+                  <AdsInTable adKey={`post-ad-${index}`} />
                 </td>
               </tr>
             )
