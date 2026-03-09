@@ -15,7 +15,7 @@ export const AdsInPost = () => {
   }, [mounted])
 
   return (
-    <div className="max-w-prose px-6 lg:px-0 empty:hidden has-[:empty]:hidden has-[[data-ad-status='unfilled']]:hidden">
+    <div className="max-w-prose px-6 lg:px-0 has-[[data-ad-status='unfilled']]:hidden">
       {mounted && (
         <ins
           className="adsbygoogle"

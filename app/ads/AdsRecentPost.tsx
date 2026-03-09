@@ -15,7 +15,7 @@ export const AdsRecentPost = () => {
   }, [mounted])
 
   return (
-    <div className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px] has-[:empty]:hidden has-[[data-ad-status='unfilled']]:hidden">
+    <div className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px] has-[[data-ad-status='unfilled']]:hidden">
       {mounted && (
         <ins
           className="adsbygoogle"
