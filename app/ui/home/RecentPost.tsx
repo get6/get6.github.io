@@ -22,7 +22,7 @@ export default function RecentPost({ post }: { post: Post }) {
 
   return (
     <div
-      className="aspect-square h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:w-[343px]"
+      className="h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[545px] lg:w-[343px]"
       onClick={() => push(url)}
     >
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">
@@ -34,7 +34,7 @@ export default function RecentPost({ post }: { post: Post }) {
           sizes="(min-width: 1024px) 343px, (max-width: 1024px) 100vw"
         />
       </div>
-      <div className="flex h-[174px] flex-col justify-center gap-4 px-6">
+      <div className="flex h-[174px] flex-col justify-center gap-4 px-6 lg:h-[202px]">
         <div className="flex flex-col gap-2 lg:max-w-[306px]">
           <div className="flex">
             <span className="group relative flex items-center">
@@ -43,7 +43,7 @@ export default function RecentPost({ post }: { post: Post }) {
             </span>
           </div>
           <Title>{title}</Title>
-          <div className="min-h-12 w-full min-w-0 overflow-hidden text-ellipsis line-clamp-2 text-sm font-normal leading-6 dark:text-white">
+          <div className="min-h-12 w-full min-w-0 overflow-hidden text-ellipsis text-sm font-normal leading-6 line-clamp-2 dark:text-white">
             {normalizedSummary}
           </div>
         </div>
