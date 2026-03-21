@@ -1,4 +1,3 @@
-import { type Locale } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { Tag } from '@/app/lib/definitions'

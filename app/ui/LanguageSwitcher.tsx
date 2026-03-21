@@ -1,7 +1,6 @@
 'use client'
 
 import { locales, defaultLocale } from '@/app/i18n/config'
-import { useDictionary } from '@/app/i18n/use-dictionary'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 

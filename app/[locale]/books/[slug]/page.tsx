@@ -1,4 +1,4 @@
-import { locales, localePath, type Locale } from '@/app/i18n/config'
+import { locales, localePath } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { BookStatus } from '@/app/lib/definitions'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'

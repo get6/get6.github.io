@@ -1,4 +1,4 @@
-import { localePath, type Locale } from '@/app/i18n/config'
+import { localePath } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import MyCarousel from '@/app/ui/about/MyCarousel'

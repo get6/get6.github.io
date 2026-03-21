@@ -2,7 +2,6 @@
 
 import { createContext, useContext } from 'react'
 import type { Dictionary } from './get-dictionary'
-import type { AllLocale } from './config'
 
 interface DictionaryContextValue {
   readonly dictionary: Dictionary
