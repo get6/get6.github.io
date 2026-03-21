@@ -13,15 +13,13 @@ import ReadingBook from '@/app/ui/books/ReadingBook'
 import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import { allBooks } from 'contentlayer/generated'
+import { getBooksByLocale } from '@/app/lib/content'
 import { compareDesc } from 'date-fns'
 
 export default async function Books() {
   const dictionary = await getDictionary('ko')
 
-  const books = allBooks.sort((a, b) =>
-    compareDesc(new Date(a.start_read_date), new Date(b.start_read_date)),
-  )
+  const books = getBooksByLocale('ko')
 
   const readingBooks = books.filter((book) => isActivelyReading(book))
 

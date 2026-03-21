@@ -9,16 +9,12 @@ import {
 } from '@/app/i18n/client-dictionary'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
-import { Post, allPosts } from 'contentlayer/generated'
+import { Post } from 'contentlayer/generated'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
 type PostOrAd = Post | Ad
-
-const sortedAllPosts = [...allPosts].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-)
 
 const insertAdsIntoPosts = (posts: Post[], interval: number): PostOrAd[] => {
   const result: PostOrAd[] = []
@@ -31,7 +27,7 @@ const insertAdsIntoPosts = (posts: Post[], interval: number): PostOrAd[] => {
   return result
 }
 
-export default function PostTable() {
+export default function PostTable({ posts: initialPosts }: { posts: Post[] }) {
   const { push } = useRouter()
   const pathname = usePathname()
   const locale = getLocaleFromPathname(pathname)
@@ -48,9 +44,9 @@ export default function PostTable() {
   const posts = useMemo(
     () =>
       tag
-        ? sortedAllPosts.filter((post) => post.tags.includes(tag))
-        : sortedAllPosts,
-    [tag],
+        ? initialPosts.filter((post) => post.tags.includes(tag))
+        : initialPosts,
+    [tag, initialPosts],
   )
 
   const postsWithAds = useMemo(

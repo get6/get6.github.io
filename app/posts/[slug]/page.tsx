@@ -16,11 +16,11 @@ import PostTags from '@/app/ui/home/post/PostTags'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import LocaleSuggestion from '@/app/ui/LocaleSuggestion'
-import { allPosts } from 'contentlayer/generated'
+import { getPostsByLocale } from '@/app/lib/content'
 import { Metadata } from 'next'
 
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post.slug }))
+  getPostsByLocale('ko').map((post) => ({ slug: post.slug }))
 
 export const generateMetadata = async ({
   params,
@@ -29,7 +29,8 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
-  const post = allPosts.find((post) => post.slug === slug)
+  const koPosts = getPostsByLocale('ko')
+  const post = koPosts.find((post) => post.slug === slug)
   const dictionary = await getDictionary('ko')
 
   if (!post) {
@@ -55,12 +56,13 @@ export default async function Post({
 }) {
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
-  const post = allPosts.find((post) => post.slug === slug)
+  const koPosts = getPostsByLocale('ko')
+  const post = koPosts.find((post) => post.slug === slug)
   const dictionary = await getDictionary('ko')
 
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
-  const otherPosts = allPosts
+  const otherPosts = koPosts
     .filter((other) => other.url !== slug && other.date < post.date)
     .slice(0, 3)
 

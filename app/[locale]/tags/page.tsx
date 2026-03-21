@@ -85,7 +85,7 @@ export default async function LocaleTags({
           </Suspense>
         </div>
         <Suspense fallback={<PostTableFallback />}>
-          <PostTable />
+          <PostTable posts={localePosts} />
         </Suspense>
       </div>
     </PageScreen>

@@ -7,8 +7,7 @@ import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { PostSkeleton, RecentPostSkeleton, Skeleton } from '@/app/ui/Skeleton'
 import { WebsiteStructuredData } from '@/app/ui/StructuredData'
-import { allPosts } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
+import { getPostsByLocale } from '@/app/lib/content'
 import { Suspense } from 'react'
 
 function PostListFallback() {
@@ -38,12 +37,10 @@ function SearchBarFallback() {
 export default async function Home() {
   const dictionary = await getDictionary('ko')
 
-  const postsOrderByDesc = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  )
+  const koPosts = getPostsByLocale('ko')
 
-  const recentPosts = postsOrderByDesc.slice(0, 3)
-  const posts = postsOrderByDesc.slice(3)
+  const recentPosts = koPosts.slice(0, 3)
+  const posts = koPosts.slice(3)
 
   return (
     <PageScreen>

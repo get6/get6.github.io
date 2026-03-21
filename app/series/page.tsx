@@ -8,14 +8,15 @@ export const metadata = createMetadata({
 })
 import PageScreen from '@/app/ui/layout/PageScreen'
 import SeriesCard from '@/app/ui/series/SeriesCard'
-import { Post, allPosts } from 'contentlayer/generated'
+import { Post } from 'contentlayer/generated'
+import { getPostsByLocale } from '@/app/lib/content'
 import { compareDesc } from 'date-fns'
 
 export default function Series() {
   const seriesGroups: { [key: string]: Post[] } = {}
   const seriesArray: Post[][] = []
 
-  allPosts
+  getPostsByLocale('ko')
     .filter((post) => post.series != null)
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
     .forEach((post) => {

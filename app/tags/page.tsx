@@ -12,7 +12,7 @@ import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import PostTable from '@/app/ui/tags/PostTable'
 import TagList from '@/app/ui/tags/TagList'
-import { allPosts } from 'contentlayer/generated'
+import { getPostsByLocale } from '@/app/lib/content'
 import { Suspense } from 'react'
 
 function TagListFallback({ tags }: { tags: string[] }) {
@@ -39,7 +39,9 @@ function PostTableFallback() {
 export default async function Tags() {
   const dictionary = await getDictionary('ko')
 
-  const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
+  const koPosts = getPostsByLocale('ko')
+
+  const tagCounts = koPosts.reduce((acc: { [key: string]: number }, post) => {
     post.tags.forEach((tag) => {
       acc[tag] = (acc[tag] || 0) + 1
     })
@@ -62,7 +64,7 @@ export default async function Tags() {
           </Suspense>
         </div>
         <Suspense fallback={<PostTableFallback />}>
-          <PostTable />
+          <PostTable posts={koPosts} />
         </Suspense>
       </div>
     </PageScreen>
