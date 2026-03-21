@@ -1,6 +1,5 @@
 'use client'
 
-import { localePath } from '@/app/i18n/config'
 import { useDictionary } from '@/app/i18n/use-dictionary'
 import PostDate from '@/app/ui/home/post/PostDate'
 import { Post } from 'contentlayer/generated'
@@ -11,7 +10,7 @@ export default function AnotherPost({ post }: { post: Post }) {
   const { locale } = useDictionary()
   const { push } = useRouter()
   const { title, date, body, cover_image } = post
-  const localeUrl = localePath(post.url, locale)
+  const localeUrl = post.url
 
   return (
     <div

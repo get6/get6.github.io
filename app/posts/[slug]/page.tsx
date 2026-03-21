@@ -7,6 +7,7 @@ import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
 import MobileToc from '@/app/ui/MobileToc'
 import ScrollProgress from '@/app/ui/ScrollProgress'
+import ScrollToTop from '@/app/ui/ScrollToTop'
 import { BlogPostStructuredData } from '@/app/ui/StructuredData'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
@@ -71,6 +72,7 @@ export default async function Post({
 
   return (
     <div className="min-w-0 overflow-x-clip">
+      <ScrollToTop />
       <BlogPostStructuredData
         title={title}
         description={post.summary}

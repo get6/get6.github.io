@@ -23,6 +23,7 @@ export async function generateMetadata({
     description: dictionary.books.pageDescription,
     url: `/${locale}/books`,
     locale,
+    blogName: dictionary.meta.blogName,
   })
 }
 

@@ -24,7 +24,7 @@ export default function RecentPost({
   const { url, date, title, body, tags, cover_image, summary } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
   const { push } = useRouter()
-  const localeUrl = localePath(url, locale)
+  const localeUrl = url
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()

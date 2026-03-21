@@ -49,12 +49,14 @@ export const generateMetadata = async ({
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
+  const dictionary = await getDictionary(locale)
   return createMetadata({
     title: book.title,
     description: sliceDesc(book.summary, 160),
     image: book.cover_url,
     url: localePath(`/books/${book.slug}`, locale),
     locale,
+    blogName: dictionary.meta.blogName,
   })
 }
 

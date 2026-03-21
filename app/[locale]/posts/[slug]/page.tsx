@@ -7,6 +7,7 @@ import GitHubGiscus from '@/app/ui/GitHubGiscus'
 import Line from '@/app/ui/Line'
 import MobileToc from '@/app/ui/MobileToc'
 import ScrollProgress from '@/app/ui/ScrollProgress'
+import ScrollToTop from '@/app/ui/ScrollToTop'
 import { BlogPostStructuredData } from '@/app/ui/StructuredData'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
@@ -42,7 +43,11 @@ export const generateMetadata = async ({
   const dictionary = await getDictionary(locale)
 
   if (!post) {
-    return createMetadata({ title: dictionary.posts.notFound, locale })
+    return createMetadata({
+      title: dictionary.posts.notFound,
+      locale,
+      blogName: dictionary.meta.blogName,
+    })
   }
 
   return createMetadata({
@@ -55,6 +60,7 @@ export const generateMetadata = async ({
     modifiedTime: post.date,
     tags: post.tags,
     locale,
+    blogName: dictionary.meta.blogName,
   })
 }
 
@@ -72,8 +78,10 @@ export default async function LocalePost({
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
   const availableTranslations = getPostTranslations(slug, locale)
-  const koPosts = getPostsByLocale('ko')
-  const otherPosts = koPosts
+  const localePosts = getPostsByLocale(locale)
+  const otherPosts = (
+    localePosts.length > 0 ? localePosts : getPostsByLocale('ko')
+  )
     .filter((other) => other.slug !== slug && other.date < post.date)
     .slice(0, 3)
 
@@ -81,6 +89,7 @@ export default async function LocalePost({
 
   return (
     <div className="min-w-0 overflow-x-clip">
+      <ScrollToTop />
       <BlogPostStructuredData
         title={title}
         description={post.summary}

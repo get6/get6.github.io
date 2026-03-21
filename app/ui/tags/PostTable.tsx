@@ -2,7 +2,6 @@
 
 import { AdsInTable } from '@/app/ads/AdsInTable'
 import { Ad, ad_per_content } from '@/app/lib/definitions'
-import { localePath } from '@/app/i18n/config'
 import {
   getLocaleFromPathname,
   getClientDictionary,
@@ -80,7 +79,7 @@ export default function PostTable({ posts: initialPosts }: { posts: Post[] }) {
             )
           }
           const post = item as Post
-          const postUrl = localePath(post.url, locale)
+          const postUrl = post.url
           return (
             <tr
               key={post.slug}

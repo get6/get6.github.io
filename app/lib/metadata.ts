@@ -18,6 +18,7 @@ interface GenerateMetadataProps {
   tags?: string[]
   author?: string
   locale?: string
+  blogName?: string
 }
 
 /** Build hreflang alternates for a given path (without locale prefix) */
@@ -59,8 +60,10 @@ export function generateMetadata({
   tags,
   author = blog_name,
   locale = 'ko',
+  blogName,
 }: GenerateMetadataProps): Metadata {
-  const fullTitle = title ? `${title} - ${blog_name}` : blog_title
+  const siteName = blogName ?? blog_name
+  const fullTitle = title ? `${title} - ${siteName}` : blog_title
   const fullUrl = `${BASE_URL}${url}`
   const fullImageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`
   const ogLocale = ogLocaleMap[locale] ?? 'ko_KR'
