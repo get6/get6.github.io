@@ -78,7 +78,11 @@
       "esbuild": ">=0.25.0",
       "glob": "^10.5.0",
       "js-yaml": "^3.14.2",
-      "mdast-util-to-hast": "^13.2.1"
+      "mdast-util-to-hast": "^13.2.1",
+      "flatted": ">=3.4.2",
+      "ajv": ">=6.14.0",
+      "diff": "^4.0.4",
+      "minimatch": ">=3.1.3"
     }
   }
 }
