@@ -1,3 +1,4 @@
+import { getDictionary } from '@/app/i18n/get-dictionary'
 import { BookStatus } from '@/app/lib/definitions'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { sliceDesc } from '@/app/lib/utils'
@@ -59,6 +60,7 @@ export default async function Book({
   const { slug: rawSlug } = await params
   const slug = normalizeSlug(rawSlug)
   const book = allBooks.find((book) => normalizeSlug(book.slug) === slug)
+  const dictionary = await getDictionary('ko')
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
@@ -78,7 +80,6 @@ export default async function Book({
   } = book
 
   let title = book.title
-  // :이 아니고 유니코드임 이거 옵시디언 플러그인에서 수정되어야 함
   const subTitle = 0 < title.indexOf('：') ? title.split('：')[1].trim() : null
   if (subTitle) title = title.split('：')[0].trim()
 
@@ -152,30 +153,36 @@ export default async function Book({
                     )}
                   </div>
 
-                  <p className="text-xs lg:text-sm">저자: {author}</p>
+                  <p className="text-xs lg:text-sm">
+                    {dictionary.books.author}: {author}
+                  </p>
                   {status === BookStatus.Finished && (
                     <p className="flex items-center gap-1 text-xs lg:text-sm">
-                      추천:
+                      {dictionary.books.rating}:
                       <span className="flex">{stars.map((star) => star)}</span>
                     </p>
                   )}
-                  <p className="text-xs lg:text-sm">쪽수: {total_page}</p>
                   <p className="text-xs lg:text-sm">
-                    발행일: <FormattedDate date={publish_date} />
+                    {dictionary.books.pages}: {total_page}
                   </p>
                   <p className="text-xs lg:text-sm">
-                    독서 기간: <FormattedDate date={start_read_date} /> ~{' '}
+                    {dictionary.books.publishDate}:{' '}
+                    <FormattedDate date={publish_date} />
+                  </p>
+                  <p className="text-xs lg:text-sm">
+                    {dictionary.books.readingPeriod}:{' '}
+                    <FormattedDate date={start_read_date} /> ~{' '}
                     {start_read_date < finish_read_date ? (
                       <FormattedDate date={finish_read_date} />
                     ) : (
                       <span className="font-semibold">ing</span>
                     )}
                     {start_read_date < finish_read_date && (
-                      <span className="text-red-500">{` (${daysOfReading}일)`}</span>
+                      <span className="text-red-500">{` (${daysOfReading}${dictionary.books.days})`}</span>
                     )}
                   </p>
                   <p className="text-xs lg:text-sm">
-                    카테고리:{' '}
+                    {dictionary.books.category}:{' '}
                     {tag
                       .split(' ')
                       .slice(1)
@@ -187,7 +194,7 @@ export default async function Book({
                   href={book_url}
                   className="flex shrink-0 items-center gap-1 pt-2 text-xs text-blue-500 dark:text-blue-400"
                 >
-                  yes24로 책 보러가기
+                  {dictionary.books.viewOnYes24}
                   <ArrowUpRightIcon className="h-3 w-3" />
                 </Link>
               </div>
@@ -197,7 +204,7 @@ export default async function Book({
           {status === BookStatus.Reading && (
             <>
               <div className="flex gap-1 text-center text-xs lg:text-sm">
-                <p>👀 아직 읽고 있어요</p>
+                <p>{dictionary.books.stillReading}</p>
                 <DaysOfReading startReadDate={start_read_date} />
               </div>
               <Line className="prose" />
@@ -206,19 +213,15 @@ export default async function Book({
           {status === BookStatus.ToRead && (
             <>
               <div className="flex flex-col text-center text-xs lg:text-sm">
-                <p>📚 아직 읽고 있지 않아요</p>
-                <p>읽고 싶어서 읽고 싶은 목록에 추가한 책이에요.</p>
-                <p>
-                  기본적으로 해당 페이지로 들어오는 것이 막혀있지만 들어와주셔서
-                  감사해요 😃
-                </p>
+                <p>{dictionary.books.notStarted}</p>
+                <p>{dictionary.books.notStartedDesc}</p>
+                <p>{dictionary.books.notStartedThanks}</p>
               </div>
             </>
           )}
           {toc && <MobileToc headers={toc} />}
           <Article html={body.html} />
           <Line className="prose" />
-          {/* <GithubComment /> */}
           <GitHubGiscus />
         </DetailScreen>
         {toc && <Toc headers={toc} />}

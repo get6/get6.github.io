@@ -2,13 +2,18 @@
 
 import { AdsInTable } from '@/app/ads/AdsInTable'
 import { Ad, ad_per_content } from '@/app/lib/definitions'
+import { localePath } from '@/app/i18n/config'
+import {
+  getLocaleFromPathname,
+  getClientDictionary,
+} from '@/app/i18n/client-dictionary'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
 import { LinkIcon } from '@heroicons/react/24/solid'
 import { Book } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 
 interface Props {
@@ -31,8 +36,17 @@ const insertAdsIntoBooks = (books: Book[], interval: number): BookOrAd[] => {
 
 export default function BookTable({ books, isFinished = false }: Props) {
   const { push } = useRouter()
-  // const heads = ['Title', 'Author', 'Published', 'Price', 'Category', 'URL']
-  const heads = ['Title', 'Author', 'Published', 'Category', 'URL']
+  const pathname = usePathname()
+  const locale = getLocaleFromPathname(pathname)
+  const dictionary = getClientDictionary(locale)
+
+  const heads = [
+    dictionary.books.tableTitle,
+    dictionary.books.tableAuthor,
+    dictionary.books.tablePublished,
+    dictionary.books.tableCategory,
+    dictionary.books.tableUrl,
+  ]
 
   const booksWithAds = useMemo(
     () => insertAdsIntoBooks(books, ad_per_content),
@@ -64,14 +78,14 @@ export default function BookTable({ books, isFinished = false }: Props) {
               </tr>
             )
           } else {
+            const bookUrl = localePath(
+              `/books/${encodeURIComponent(book.slug)}`,
+              locale,
+            )
             return (
               <tr
                 key={book.slug}
-                onClick={
-                  isFinished
-                    ? () => push(`/books/${encodeURIComponent(book.slug)}`)
-                    : undefined
-                }
+                onClick={isFinished ? () => push(bookUrl) : undefined}
                 className={`max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800 ${
                   isFinished &&
                   'hover:cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600'
@@ -89,7 +103,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
                   </div>
                   {isFinished ? (
                     <Link
-                      href={book.url}
+                      href={bookUrl}
                       className="max-w-xs truncate font-medium text-gray-900 hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
                     >
                       {book.title}
@@ -108,7 +122,6 @@ export default function BookTable({ books, isFinished = false }: Props) {
                 <td className="truncate px-6 py-4">
                   <FormattedDate date={book.publish_date} />
                 </td>
-                {/* TODO: subtitle 추가되면 여기 영역도 조금 여유가 생길 듯 */}
                 <td className="max-w-[120px] truncate px-6 py-4">
                   {book.tag.split(' ')[2]}
                 </td>
@@ -118,7 +131,7 @@ export default function BookTable({ books, isFinished = false }: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block"
-                    aria-label={`${book.title} 외부 링크 열기`}
+                    aria-label={`${book.title} ${dictionary.books.openExternalLink}`}
                   >
                     <LinkIcon className="h-5 w-5 hover:cursor-pointer hover:text-blue-500" />
                   </a>

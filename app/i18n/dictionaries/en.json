@@ -26,10 +26,16 @@
   },
   "books": {
     "pageDescription": "A bookshelf of books I'm reading, have read, and want to read.",
-    "reading": "Book I am reading",
-    "readingList": "Reading list",
-    "finishedList": "Finished reading list",
-    "toReadList": "To read list",
+    "tableTitle": "Title",
+    "tableAuthor": "Author",
+    "tablePublished": "Published",
+    "tableCategory": "Category",
+    "tableUrl": "Link",
+    "openExternalLink": "Open external link",
+    "reading": "Currently Reading",
+    "readingList": "Currently Reading",
+    "finishedList": "Finished",
+    "toReadList": "Want to Read",
     "author": "Author",
     "rating": "Rating",
     "pages": "Pages",
@@ -45,7 +51,11 @@
   },
   "tags": {
     "title": "Tags",
-    "pageDescription": "Browse posts by tags."
+    "pageDescription": "Browse posts by tags.",
+    "tableTitle": "Title",
+    "tableDate": "Date",
+    "tableCategories": "Categories",
+    "noMatchingPosts": "No posts found matching that tag 😢"
   },
   "about": {
     "title": "About me",
@@ -73,6 +83,19 @@
     "goHome": "Go to Home"
   },
   "common": {
-    "language": "English"
+    "language": "English",
+    "share": "Share or copy link",
+    "linkCopied": "Link copied! ✅",
+    "shareOpened": "Share sheet opened 📤",
+    "copyNotSupported": "Auto-copy is not supported in this browser 😢",
+    "shareFailed": "Share was cancelled or failed 🙏",
+    "themeToggle": "Toggle theme",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode",
+    "errorOccurred": "Something went wrong",
+    "errorRetry": "Please refresh the page or try again later.",
+    "refresh": "Refresh",
+    "collapse": "Collapse",
+    "showMore": " more"
   }
 }

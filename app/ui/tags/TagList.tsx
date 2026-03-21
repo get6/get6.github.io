@@ -1,6 +1,10 @@
 'use client'
 
 import { Tag } from '@/app/lib/definitions'
+import {
+  getLocaleFromPathname,
+  getClientDictionary,
+} from '@/app/i18n/client-dictionary'
 import Badge from '@/app/ui/Badge'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useState } from 'react'
@@ -15,6 +19,8 @@ export default function TagList({ tags }: Props) {
   const searchParams = useSearchParams()
   const { replace } = useRouter()
   const [showMore, setShowMore] = useState(false)
+  const locale = getLocaleFromPathname(pathname)
+  const dictionary = getClientDictionary(locale)
 
   const hasTag = (tag: string) => {
     const params = new URLSearchParams(searchParams)
@@ -66,7 +72,9 @@ export default function TagList({ tags }: Props) {
             onClick={() => setShowMore((prev) => !prev)}
             className="whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 lg:hidden"
           >
-            {showMore ? '접기' : `+${moreTags.length}개 더보기`}
+            {showMore
+              ? dictionary.common.collapse
+              : `+${moreTags.length}${dictionary.common.showMore}`}
           </span>
           <span className="hidden lg:contents">
             {moreTags.map((tag, index) => (

@@ -1,8 +1,9 @@
+import { getDictionary } from '@/app/i18n/get-dictionary'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { Tag } from '@/app/lib/definitions'
 
 export const metadata = createMetadata({
-  title: 'Tags',
+  title: '태그',
   description: '태그별로 게시글을 모아볼 수 있습니다.',
   url: '/tags',
 })
@@ -35,7 +36,9 @@ function PostTableFallback() {
   )
 }
 
-export default function Tags() {
+export default async function Tags() {
+  const dictionary = await getDictionary('ko')
+
   const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
     post.tags.forEach((tag) => {
       acc[tag] = (acc[tag] || 0) + 1
@@ -51,7 +54,7 @@ export default function Tags() {
     <PageScreen>
       <div className="flex w-full flex-col gap-6">
         <div className="flex flex-col gap-4 lg:gap-8">
-          <PageTitle>Tags</PageTitle>
+          <PageTitle>{dictionary.tags.title}</PageTitle>
           <Suspense
             fallback={<TagListFallback tags={tags.map((tag) => tag.name)} />}
           >

@@ -6,9 +6,9 @@
     "rssTitle": "あの時の私 RSS"
   },
   "nav": {
-    "books": "Books",
-    "tags": "Tags",
-    "about": "About me",
+    "books": "本棚",
+    "tags": "タグ",
+    "about": "紹介",
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる"
   },
@@ -26,12 +26,18 @@
   },
   "books": {
     "pageDescription": "読んでいる本、読んだ本、読みたい本をまとめた本棚です。",
+    "tableTitle": "タイトル",
+    "tableAuthor": "著者",
+    "tablePublished": "出版日",
+    "tableCategory": "カテゴリー",
+    "tableUrl": "リンク",
+    "openExternalLink": "外部リンクを開く",
     "reading": "読んでいる本",
-    "readingList": "読書リスト",
-    "finishedList": "読了リスト",
-    "toReadList": "読みたいリスト",
+    "readingList": "読んでいる本",
+    "finishedList": "読み終わった本",
+    "toReadList": "読みたい本",
     "author": "著者",
-    "rating": "おすすめ",
+    "rating": "評価",
     "pages": "ページ数",
     "publishDate": "出版日",
     "readingPeriod": "読書期間",
@@ -44,11 +50,15 @@
     "days": "日"
   },
   "tags": {
-    "title": "Tags",
-    "pageDescription": "タグ別に投稿を閲覧できます。"
+    "title": "タグ",
+    "pageDescription": "タグ別に投稿を閲覧できます。",
+    "tableTitle": "タイトル",
+    "tableDate": "日付",
+    "tableCategories": "カテゴリー",
+    "noMatchingPosts": "該当するタグの投稿が見つかりません 😢"
   },
   "about": {
-    "title": "About me",
+    "title": "紹介",
     "pageDescription": "プロダクトを作り記録する開発者、ファン・ソンジュンの紹介ページです。",
     "personName": "ファン・ソンジュン",
     "personDescription": "プロダクトを作り記録する開発者",
@@ -73,6 +83,19 @@
     "goHome": "ホームに戻る"
   },
   "common": {
-    "language": "日本語"
+    "language": "日本語",
+    "share": "リンクを共有またはコピー",
+    "linkCopied": "リンクをコピーしました！ ✅",
+    "shareOpened": "共有シートを開きました 📤",
+    "copyNotSupported": "このブラウザでは自動コピーができません 😢",
+    "shareFailed": "共有がキャンセルまたは失敗しました 🙏",
+    "themeToggle": "テーマ切替",
+    "lightMode": "ライトモードに切替",
+    "darkMode": "ダークモードに切替",
+    "errorOccurred": "問題が発生しました",
+    "errorRetry": "ページを更新するか、しばらくしてからもう一度お試しください。",
+    "refresh": "更新",
+    "collapse": "折りたたむ",
+    "showMore": "件をもっと見る"
   }
 }

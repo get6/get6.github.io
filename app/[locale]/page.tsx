@@ -1,7 +1,8 @@
 import { BASE_URL } from '@/app/lib/definitions'
-import { type Locale } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
+import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import PageTitle from '@/app/ui/home/PageTitle'
+import { Metadata } from 'next'
 import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
@@ -11,6 +12,20 @@ import { WebsiteStructuredData } from '@/app/ui/StructuredData'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { Suspense } from 'react'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const dictionary = await getDictionary(locale)
+  return createMetadata({
+    title: dictionary.meta.blogTitle,
+    description: dictionary.meta.blogDescription,
+    url: `/${locale}`,
+  })
+}
 
 function PostListFallback() {
   return (

@@ -1,12 +1,20 @@
 'use client'
 
+import {
+  getLocaleFromPathname,
+  getClientDictionary,
+} from '@/app/i18n/client-dictionary'
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import { useTheme } from 'next-themes'
+import { usePathname } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
+  const locale = getLocaleFromPathname(pathname)
+  const dictionary = getClientDictionary(locale)
 
   useEffect(() => {
     setMounted(true)
@@ -50,9 +58,11 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label="테마 전환"
+      aria-label={dictionary.common.themeToggle}
       title={
-        currentTheme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'
+        currentTheme === 'dark'
+          ? dictionary.common.lightMode
+          : dictionary.common.darkMode
       }
       onClick={handleToggle}
       className="p-1 transition-transform duration-150 hover:scale-110 active:scale-95"

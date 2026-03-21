@@ -1,9 +1,10 @@
+import { getDictionary } from '@/app/i18n/get-dictionary'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { BookStatus } from '@/app/lib/definitions'
 
 export const metadata = createMetadata({
-  title: 'Books',
-  description: '읽고 있는 책, 읽은 책, 읽고 싶은 책을 정리한 서재입니다.',
+  title: '책',
+  description: '읽고 있는 책, 읽은 책, 읽고 싶은 책을 정리한 공간입니다.',
   url: '/books',
 })
 import { isActivelyReading, isPausedBook } from '@/app/lib/utils'
@@ -15,12 +16,13 @@ import PageScreen from '@/app/ui/layout/PageScreen'
 import { allBooks } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 
-export default function Books() {
+export default async function Books() {
+  const dictionary = await getDictionary('ko')
+
   const books = allBooks.sort((a, b) =>
     compareDesc(new Date(a.start_read_date), new Date(b.start_read_date)),
   )
 
-  // 실제로 활발하게 읽고 있는 책만 필터링 (30일 이내)
   const readingBooks = books.filter((book) => isActivelyReading(book))
 
   const finishedBooks = books
@@ -29,7 +31,6 @@ export default function Books() {
       compareDesc(new Date(a.finish_read_date), new Date(b.finish_read_date)),
     )
 
-  // to read list에 원래 to_read 상태와 논리적으로 paused인 책들을 모두 포함
   const toReadBooks = books
     .filter((book) => book.status === BookStatus.ToRead || isPausedBook(book))
     .sort((a, b) =>
@@ -43,13 +44,13 @@ export default function Books() {
           <div className="flex flex-col gap-2">
             {readingBooks.length == 1 && (
               <>
-                <PageTitle>Book I am reading</PageTitle>
+                <PageTitle>{dictionary.books.reading}</PageTitle>
                 <ReadingBook book={readingBooks[0]} />
               </>
             )}
             {readingBooks.length > 1 && (
               <>
-                <PageTitle>Reading list</PageTitle>
+                <PageTitle>{dictionary.books.readingList}</PageTitle>
                 <div className="flex w-full justify-between gap-4">
                   {readingBooks.map((book, index) => (
                     <ReadingBookCard key={index} book={book} />
@@ -61,13 +62,13 @@ export default function Books() {
         )}
         {finishedBooks.length > 0 && (
           <div className="flex flex-col gap-2">
-            <PageTitle>Finished reading list</PageTitle>
+            <PageTitle>{dictionary.books.finishedList}</PageTitle>
             <BookTable books={finishedBooks} isFinished />
           </div>
         )}
         {toReadBooks.length > 0 && (
           <div className="flex flex-col gap-2">
-            <PageTitle>To read list</PageTitle>
+            <PageTitle>{dictionary.books.toReadList}</PageTitle>
             <BookTable books={toReadBooks} />
           </div>
         )}

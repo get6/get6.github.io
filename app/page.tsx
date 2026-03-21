@@ -1,4 +1,5 @@
-import { BASE_URL, blog_description, blog_title } from '@/app/lib/definitions'
+import { BASE_URL } from '@/app/lib/definitions'
+import { getDictionary } from '@/app/i18n/get-dictionary'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PostList from '@/app/ui/home/PostList'
 import RecentPost from '@/app/ui/home/RecentPost'
@@ -34,7 +35,9 @@ function SearchBarFallback() {
   return <Skeleton height="48px" width="320px" className="rounded-md" />
 }
 
-export default function Home() {
+export default async function Home() {
+  const dictionary = await getDictionary('ko')
+
   const postsOrderByDesc = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date)),
   )
@@ -45,13 +48,13 @@ export default function Home() {
   return (
     <PageScreen>
       <WebsiteStructuredData
-        name={blog_title}
-        description={blog_description}
+        name={dictionary.meta.blogTitle}
+        description={dictionary.meta.blogDescription}
         url={BASE_URL}
       />
       <div className="flex w-full flex-col items-center gap-8">
         <div className="flex w-full flex-col gap-4">
-          <PageTitle>Recent Posts</PageTitle>
+          <PageTitle>{dictionary.home.recentPosts}</PageTitle>
           <Suspense fallback={<RecentPostsFallback />}>
             <div
               className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
@@ -64,7 +67,7 @@ export default function Home() {
         </div>
         <div className="flex w-full flex-col gap-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <PageTitle>All Posts</PageTitle>
+            <PageTitle>{dictionary.home.allPosts}</PageTitle>
             <Suspense fallback={<SearchBarFallback />}>
               <SearchBar />
             </Suspense>

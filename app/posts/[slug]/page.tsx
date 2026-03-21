@@ -1,3 +1,4 @@
+import { getDictionary } from '@/app/i18n/get-dictionary'
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import Article from '@/app/ui/Article'
@@ -27,9 +28,10 @@ export const generateMetadata = async ({
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
   const post = allPosts.find((post) => post.slug === slug)
+  const dictionary = await getDictionary('ko')
 
   if (!post) {
-    return createMetadata({ title: '포스트를 찾을 수 없습니다' })
+    return createMetadata({ title: dictionary.posts.notFound })
   }
 
   return createMetadata({
@@ -52,6 +54,7 @@ export default async function Post({
   const { slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
   const post = allPosts.find((post) => post.slug === slug)
+  const dictionary = await getDictionary('ko')
 
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
@@ -67,7 +70,7 @@ export default async function Post({
         title={title}
         description={post.summary}
         datePublished={date}
-        author="이때의 나"
+        author={dictionary.meta.blogName}
         url={`/posts/${post.slug}`}
         image={getOGImage(body.raw)}
         tags={tags}
@@ -93,14 +96,13 @@ export default async function Post({
               <Line className="prose" />
             </div>
             <PostTags tags={tags} />
-            {/* <GithubComment /> */}
             <GitHubGiscus />
           </DetailScreen>
           {0 < otherPosts.length && (
             <div className="flex items-center justify-center pb-8 lg:pb-16">
               <div className="flex w-full flex-col justify-center gap-4 px-4 lg:w-[840px] lg:px-0">
                 <span className="text-sm font-extralight lg:text-base">
-                  Other posts
+                  {dictionary.posts.otherPosts}
                 </span>
                 <div className="flex gap-4 overflow-x-auto lg:justify-between lg:gap-0">
                   {otherPosts.map((post) => (

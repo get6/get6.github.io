@@ -1,7 +1,10 @@
 'use client'
 
 import { localePath } from '@/app/i18n/config'
-import { useDictionary } from '@/app/i18n/use-dictionary'
+import {
+  getLocaleFromPathname,
+  getClientDictionary,
+} from '@/app/i18n/client-dictionary'
 import { menus } from '@/app/lib/definitions'
 import LanguageSwitcher from '@/app/ui/LanguageSwitcher'
 import Logo from '@/app/ui/Logo'
@@ -12,20 +15,31 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
+/** Map menu keys to dictionary nav keys */
+const menuDictKeys: Record<string, 'books' | 'tags' | 'about'> = {
+  '/books': 'books',
+  '/tags': 'tags',
+  '/about': 'about',
+}
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { dictionary, locale } = useDictionary()
+  const pathname = usePathname()
+  const locale = getLocaleFromPathname(pathname)
+  const dictionary = getClientDictionary(locale)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const pathname = usePathname()
-
-  const localizedMenus = menus.map((menu) => ({
-    ...menu,
-    href: localePath(menu.href, locale),
-  }))
+  const localizedMenus = menus.map((menu) => {
+    const dictKey = menuDictKeys[menu.href]
+    return {
+      ...menu,
+      href: localePath(menu.href, locale),
+      name: dictKey ? dictionary.nav[dictKey] : menu.name,
+    }
+  })
 
   const mdNavbar = (
     <>
