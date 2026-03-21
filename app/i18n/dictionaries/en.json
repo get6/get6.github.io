@@ -96,6 +96,7 @@
     "errorRetry": "Please refresh the page or try again later.",
     "refresh": "Refresh",
     "collapse": "Collapse",
-    "showMore": " more"
+    "showMore": " more",
+    "switchTo": "View in English?"
   }
 }

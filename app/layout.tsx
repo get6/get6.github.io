@@ -7,7 +7,6 @@ import {
 } from '@/app/lib/definitions'
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Providers } from '@/app/providers'
-import LocaleSuggestion from '@/app/ui/LocaleSuggestion'
 import Navbar from '@/app/ui/Navbar'
 import { WebVitals } from '@/app/ui/WebVitals'
 import { Metadata } from 'next'
@@ -104,7 +103,6 @@ export default async function RootLayout({
             <Navbar />
           </header>
           {children}
-          <LocaleSuggestion />
         </Providers>
         {process.env.NODE_ENV === 'production' && (
           <>

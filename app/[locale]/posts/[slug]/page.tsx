@@ -15,7 +15,12 @@ import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
-import { getPostsByLocale, getTranslatedPost } from '@/app/lib/content'
+import {
+  getPostsByLocale,
+  getTranslatedPost,
+  getPostTranslations,
+} from '@/app/lib/content'
+import LocaleSuggestion from '@/app/ui/LocaleSuggestion'
 import { Metadata } from 'next'
 
 export const generateStaticParams = async () => {
@@ -66,6 +71,7 @@ export default async function LocalePost({
 
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
+  const availableTranslations = getPostTranslations(slug, locale)
   const koPosts = getPostsByLocale('ko')
   const otherPosts = koPosts
     .filter((other) => other.slug !== slug && other.date < post.date)
@@ -125,6 +131,7 @@ export default async function LocalePost({
         </div>
         {toc && <Toc headers={toc} />}
       </div>
+      <LocaleSuggestion availableTranslations={availableTranslations} />
     </div>
   )
 }

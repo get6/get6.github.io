@@ -1,78 +1,63 @@
 'use client'
 
+import { defaultLocale, locales } from '@/app/i18n/config'
 import {
-  defaultLocale,
-  locales,
-  localeNames,
-  localePath,
-} from '@/app/i18n/config'
-import { getLocaleFromPathname } from '@/app/i18n/client-dictionary'
+  getLocaleFromPathname,
+  getClientDictionary,
+} from '@/app/i18n/client-dictionary'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const STORAGE_KEY = 'locale-suggestion-dismissed'
-
-/** Map browser language prefix to supported locale */
-function detectLocale(browserLang: string): string | null {
-  const prefix = browserLang.split('-')[0].toLowerCase()
-  const allLocales: string[] = [defaultLocale, ...locales]
-  return allLocales.includes(prefix) ? prefix : null
+interface Props {
+  /** Locale-prefixed paths where translations exist, e.g. ["/en/posts/slug", "/ja/posts/slug"] */
+  readonly availableTranslations: Record<string, string>
 }
 
-export default function LocaleSuggestion() {
+const AUTO_DISMISS_MS = 5000
+
+export default function LocaleSuggestion({ availableTranslations }: Props) {
   const [suggestedLocale, setSuggestedLocale] = useState<string | null>(null)
+  const [visible, setVisible] = useState(false)
   const pathname = usePathname()
   const currentLocale = getLocaleFromPathname(pathname)
 
   useEffect(() => {
-    // Don't show if already dismissed
-    if (sessionStorage.getItem(STORAGE_KEY)) return
+    const browserPrefix = navigator.language.split('-')[0].toLowerCase()
+    const allLocales: string[] = [defaultLocale, ...locales]
 
-    const detected = detectLocale(navigator.language)
-    if (detected && detected !== currentLocale) {
-      setSuggestedLocale(detected)
+    // Only suggest if browser language is supported, differs from current, and translation exists
+    if (
+      allLocales.includes(browserPrefix) &&
+      browserPrefix !== currentLocale &&
+      availableTranslations[browserPrefix]
+    ) {
+      setSuggestedLocale(browserPrefix)
+      setVisible(true)
     }
-  }, [currentLocale])
+  }, [currentLocale, availableTranslations])
 
-  if (!suggestedLocale) return null
+  // Auto-dismiss
+  useEffect(() => {
+    if (!visible) return
+    const timer = setTimeout(() => setVisible(false), AUTO_DISMISS_MS)
+    return () => clearTimeout(timer)
+  }, [visible])
 
-  const handleDismiss = () => {
-    sessionStorage.setItem(STORAGE_KEY, 'true')
-    setSuggestedLocale(null)
-  }
+  if (!visible || !suggestedLocale) return null
 
-  // Build path for the suggested locale
-  const allLocales = [defaultLocale, ...locales] as string[]
-  const segments = pathname.split('/')
-  const hasLocalePrefix =
-    segments.length > 1 && allLocales.includes(segments[1])
-  const pathWithoutLocale = hasLocalePrefix
-    ? '/' + segments.slice(2).join('/')
-    : pathname
-  const suggestedPath = localePath(pathWithoutLocale || '/', suggestedLocale)
+  const suggestedDict = getClientDictionary(suggestedLocale)
+  const suggestedPath = availableTranslations[suggestedLocale]
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 animate-fade-in">
-      <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-lg dark:border-gray-700 dark:bg-gray-800">
-        <span className="text-sm text-gray-700 dark:text-gray-300">
-          {localeNames[suggestedLocale]}?
-        </span>
-        <Link
-          href={suggestedPath}
-          onClick={handleDismiss}
-          className="rounded-md bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700"
-        >
-          {localeNames[suggestedLocale]}
-        </Link>
-        <button
-          onClick={handleDismiss}
-          className="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-          aria-label="Dismiss"
-        >
-          ✕
-        </button>
-      </div>
+    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
+      <Link
+        href={suggestedPath}
+        onClick={() => setVisible(false)}
+        className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-700 shadow-lg hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+      >
+        {suggestedDict.common.switchTo}
+      </Link>
     </div>
   )
 }

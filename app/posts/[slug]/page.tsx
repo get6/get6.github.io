@@ -1,4 +1,5 @@
 import { getDictionary } from '@/app/i18n/get-dictionary'
+import { getPostTranslations } from '@/app/lib/content'
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import Article from '@/app/ui/Article'
@@ -14,6 +15,7 @@ import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
+import LocaleSuggestion from '@/app/ui/LocaleSuggestion'
 import { allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
 
@@ -63,6 +65,7 @@ export default async function Post({
     .slice(0, 3)
 
   const { date, title, body, tags, toc } = post
+  const availableTranslations = getPostTranslations(slug, 'ko')
 
   return (
     <div className="min-w-0 overflow-x-clip">
@@ -115,6 +118,7 @@ export default async function Post({
         </div>
         {toc && <Toc headers={toc} />}
       </div>
+      <LocaleSuggestion availableTranslations={availableTranslations} />
     </div>
   )
 }

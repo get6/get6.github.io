@@ -96,6 +96,7 @@
     "errorRetry": "페이지를 새로고침하거나 잠시 후 다시 시도해주세요.",
     "refresh": "새로고침",
     "collapse": "접기",
-    "showMore": "개 더보기"
+    "showMore": "개 더보기",
+    "switchTo": "한국어로 볼까요?"
   }
 }

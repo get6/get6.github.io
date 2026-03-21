@@ -96,6 +96,7 @@
     "errorRetry": "ページを更新するか、しばらくしてからもう一度お試しください。",
     "refresh": "更新",
     "collapse": "折りたたむ",
-    "showMore": "件をもっと見る"
+    "showMore": "件をもっと見る",
+    "switchTo": "日本語で見ますか？"
   }
 }

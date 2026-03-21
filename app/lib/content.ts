@@ -5,6 +5,7 @@ import {
   type Book,
 } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import { defaultLocale, locales, localePath } from '@/app/i18n/config'
 
 /** Get posts filtered by locale, sorted by date descending */
 export function getPostsByLocale(locale: string): Post[] {
@@ -44,4 +45,48 @@ export function getTranslatedBook(slug: string, locale: string): Book | null {
       (book) => (book as any).locale === locale && (book as any).slug === slug,
     ) ?? null
   )
+}
+
+/**
+ * Get available translations for a post (excluding the current locale).
+ * Returns a map of locale → URL path.
+ */
+export function getPostTranslations(
+  slug: string,
+  currentLocale: string,
+): Record<string, string> {
+  const allLocales: string[] = [defaultLocale, ...locales]
+  const translations: Record<string, string> = {}
+
+  for (const loc of allLocales) {
+    if (loc === currentLocale) continue
+    const translated = getTranslatedPost(slug, loc)
+    if (translated) {
+      translations[loc] = localePath(`/posts/${slug}`, loc)
+    }
+  }
+
+  return translations
+}
+
+/**
+ * Get available translations for a book (excluding the current locale).
+ * Returns a map of locale → URL path.
+ */
+export function getBookTranslations(
+  slug: string,
+  currentLocale: string,
+): Record<string, string> {
+  const allLocales: string[] = [defaultLocale, ...locales]
+  const translations: Record<string, string> = {}
+
+  for (const loc of allLocales) {
+    if (loc === currentLocale) continue
+    const translated = getTranslatedBook(slug, loc)
+    if (translated) {
+      translations[loc] = localePath(`/books/${slug}`, loc)
+    }
+  }
+
+  return translations
 }
