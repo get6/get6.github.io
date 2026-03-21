@@ -1,5 +1,7 @@
 'use client'
 
+import { localePath } from '@/app/i18n/config'
+import { useDictionary } from '@/app/i18n/use-dictionary'
 import Badge from '@/app/ui/Badge'
 import Line from '@/app/ui/Line'
 import Title from '@/app/ui/Title'
@@ -9,19 +11,21 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 export default function PrevPost({ post }: { post: Post }) {
+  const { locale } = useDictionary()
   const { push } = useRouter()
   const { url, date, title, body, tags, cover_image, summary } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
+  const localeUrl = localePath(url, locale)
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()
-    push(`/tags/?tag=${tag}`)
+    push(localePath(`/tags/?tag=${tag}`, locale))
   }
 
   return (
     <div
       className="flex h-[140px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
-      onClick={() => push(url)}
+      onClick={() => push(localeUrl)}
     >
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
         <div className="relative w-full">

@@ -1,6 +1,9 @@
 'use client'
 
-import { blog_name, menus } from '@/app/lib/definitions'
+import { localePath } from '@/app/i18n/config'
+import { useDictionary } from '@/app/i18n/use-dictionary'
+import { menus } from '@/app/lib/definitions'
+import LanguageSwitcher from '@/app/ui/LanguageSwitcher'
 import Logo from '@/app/ui/Logo'
 import ThemeToggle from '@/app/ui/home/ThemeToggle'
 import { HashtagIcon } from '@heroicons/react/20/solid'
@@ -10,29 +13,33 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Navbar() {
-  // State to keep track of whether the menu is open
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { dictionary, locale } = useDictionary()
 
-  // Function to toggle the menu state
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
   const pathname = usePathname()
 
+  const localizedMenus = menus.map((menu) => ({
+    ...menu,
+    href: localePath(menu.href, locale),
+  }))
+
   const mdNavbar = (
     <>
       <div className="px-8 dark:text-white sm:px-2 md:px-2 lg:px-3">
         <Link
-          href="/"
+          href={localePath('/', locale)}
           className="flex items-center text-sm font-light hover:cursor-pointer"
         >
           <Logo />
-          {blog_name}
+          {dictionary.meta.blogName}
         </Link>
       </div>
       <div className="flex grow items-center justify-center divide-x divide-black self-stretch dark:divide-white">
-        {menus.map((menu) => (
+        {localizedMenus.map((menu) => (
           <div
             key={menu.href}
             className="flex grow basis-0 items-center justify-center self-stretch"
@@ -50,6 +57,7 @@ export default function Navbar() {
         ))}
       </div>
       <div className="flex items-center justify-center gap-4 self-stretch px-8">
+        <LanguageSwitcher />
         <ThemeToggle />
         <a href="https://ittae.com/" target="_blank" rel="noopener noreferrer">
           <HashtagIcon className="h-5 w-5 text-gray-900 hover:cursor-pointer hover:text-blue-700 dark:text-white dark:hover:text-blue-500" />
@@ -65,7 +73,7 @@ export default function Navbar() {
           type="button"
           className="inline-flex h-12 w-12 items-center justify-center rounded-lg p-3 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
           onClick={toggleMenu}
-          aria-label="메뉴 열기"
+          aria-label={dictionary.nav.openMenu}
         >
           <Bars3Icon className="h-6 w-6 dark:text-white" />
         </button>
@@ -73,7 +81,7 @@ export default function Navbar() {
       {isMenuOpen && (
         <button
           type="button"
-          aria-label="메뉴 닫기"
+          aria-label={dictionary.nav.closeMenu}
           className="fixed inset-0 z-[5] bg-black/20 md:hidden"
           onClick={() => setIsMenuOpen(false)}
         />
@@ -83,7 +91,7 @@ export default function Navbar() {
       >
         <div className="w-full items-center justify-between md:order-1 md:flex md:w-auto">
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-gray-900 rtl:space-x-reverse">
-            {menus.map((menu) => (
+            {localizedMenus.map((menu) => (
               <li key={menu.href}>
                 <Link
                   href={menu.href}
@@ -100,16 +108,21 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <li className="md:hidden">
+              <div className="px-3 py-2">
+                <LanguageSwitcher />
+              </div>
+            </li>
           </ul>
         </div>
       </div>
       <Link
-        href="/"
+        href={localePath('/', locale)}
         onClick={() => setIsMenuOpen(false)}
         className="flex h-full items-center justify-center gap-2 text-xl font-light hover:cursor-pointer dark:text-white"
       >
         <Logo />
-        {blog_name}
+        {dictionary.meta.blogName}
       </Link>
       <div className="flex h-full items-center px-4">
         <ThemeToggle />

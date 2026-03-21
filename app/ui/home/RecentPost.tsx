@@ -1,5 +1,7 @@
 'use client'
 
+import { localePath } from '@/app/i18n/config'
+import { useDictionary } from '@/app/i18n/use-dictionary'
 import Badge from '@/app/ui/Badge'
 import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
@@ -10,20 +12,29 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Suspense } from 'react'
 
-export default function RecentPost({ post }: { post: Post }) {
+export default function RecentPost({
+  post,
+  locale: localeProp,
+}: {
+  post: Post
+  locale?: string
+}) {
+  const { locale: contextLocale } = useDictionary()
+  const locale = localeProp ?? contextLocale
   const { url, date, title, body, tags, cover_image, summary } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
   const { push } = useRouter()
+  const localeUrl = localePath(url, locale)
 
   const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
     e.stopPropagation()
-    push(`/tags/?tag=${tag}`)
+    push(localePath(`/tags/?tag=${tag}`, locale))
   }
 
   return (
     <div
       className="h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[545px] lg:w-[343px]"
-      onClick={() => push(url)}
+      onClick={() => push(localeUrl)}
     >
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">
         <Image

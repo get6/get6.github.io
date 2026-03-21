@@ -1,10 +1,12 @@
 'use client'
 
+import { useDictionary } from '@/app/i18n/use-dictionary'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDebouncedCallback } from 'use-debounce'
 
 export default function SearchBar() {
+  const { dictionary } = useDictionary()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const { replace } = useRouter()
@@ -34,7 +36,7 @@ export default function SearchBar() {
         className="peer h-full w-full bg-white pr-2 text-sm text-gray-700 outline-none dark:bg-gray-900"
         type="search"
         id="search"
-        placeholder="Search"
+        placeholder={dictionary.search.placeholder}
         autoComplete="off"
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get('query')?.toString().toLowerCase()}

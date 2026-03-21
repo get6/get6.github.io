@@ -1,18 +1,22 @@
 'use client'
 
+import { localePath } from '@/app/i18n/config'
+import { useDictionary } from '@/app/i18n/use-dictionary'
 import PostDate from '@/app/ui/home/post/PostDate'
 import { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 export default function AnotherPost({ post }: { post: Post }) {
+  const { locale } = useDictionary()
   const { push } = useRouter()
   const { title, date, body, cover_image } = post
+  const localeUrl = localePath(post.url, locale)
 
   return (
     <div
       className="flex h-[234px] max-h-full w-[270px] min-w-[270px] flex-col border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900"
-      onClick={() => push(post.url)}
+      onClick={() => push(localeUrl)}
     >
       <div className="relative flex min-h-[162px] w-full border-b border-black dark:border-white">
         <Image

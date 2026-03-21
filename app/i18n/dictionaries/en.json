@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "blogName": "Moment of Me",
+    "blogTitle": "Have a great day 🫶 - Moment of Me",
+    "blogDescription": "A personal blog documenting what I see and feel while living in the moment.",
+    "rssTitle": "Moment of Me RSS"
+  },
+  "nav": {
+    "books": "Books",
+    "tags": "Tags",
+    "about": "About me",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "recentPosts": "Recent Posts",
+    "allPosts": "All Posts"
+  },
+  "search": {
+    "placeholder": "Search",
+    "noResults": "No posts found matching your search 😢"
+  },
+  "posts": {
+    "notFound": "Post not found",
+    "otherPosts": "Other posts"
+  },
+  "books": {
+    "pageDescription": "A bookshelf of books I'm reading, have read, and want to read.",
+    "reading": "Book I am reading",
+    "readingList": "Reading list",
+    "finishedList": "Finished reading list",
+    "toReadList": "To read list",
+    "author": "Author",
+    "rating": "Rating",
+    "pages": "Pages",
+    "publishDate": "Published",
+    "readingPeriod": "Reading period",
+    "category": "Category",
+    "viewOnYes24": "View on Yes24",
+    "stillReading": "👀 Still reading",
+    "notStarted": "📚 Not started yet",
+    "notStartedDesc": "Added to my to-read list because it looks interesting.",
+    "notStartedThanks": "This page is normally hidden, but thanks for visiting! 😃",
+    "days": "days"
+  },
+  "tags": {
+    "title": "Tags",
+    "pageDescription": "Browse posts by tags."
+  },
+  "about": {
+    "title": "About me",
+    "pageDescription": "Introduction page of Sungjun Hwang, a developer who builds products and documents the journey.",
+    "personName": "Sungjun Hwang",
+    "personDescription": "A developer who builds products and documents the journey",
+    "greeting": "Hi, I'm Sungjun Hwang 👋",
+    "intro": "I'm a developer who builds products and documents the journey. Currently, I'm building a service that helps people make better use of their time —",
+    "introService": "ITTAE",
+    "introSuffix": ".",
+    "body1": "I believe that \"execution\" matters more than \"good ideas.\" That's why this blog is less about polished conclusions and more about the raw process of getting stuck, fixing things, and trying again.",
+    "body2": "These days, I'm focused on building various products and automation tools using AI agent coding, not just app development. At work, I develop CRM systems while thinking about user flows, operational efficiency, and maintainability. On the side, I keep iterating on ITTAE.",
+    "body3": "Technically, I value the fundamentals needed to run products long-term — clean architecture, separation of state management, and proper error handling. Above all, I always try to verify whether the experience is actually convenient and helpful from the user's perspective.",
+    "body4": "In this space, I document how I solved problems I encountered during development, along with the actual code. I also record insights from books and operational instincts gained from work. I hope it serves as a hint for someone facing the same problem — \"Ah, I could approach it this way.\"",
+    "body5": "Ultimately, what I want to build isn't 'features' but 'change.' Products that save users' time and make their next action easier. Without losing that direction, I keep improving things one step at a time.",
+    "linksPrefix": "More links and channels are organized on",
+    "linksLinkText": "Linktree",
+    "linksSuffix": ". Feel free to DM me on social media.",
+    "motto": "✨ I'm gonna live every minute of it."
+  },
+  "error": {
+    "notFoundTitle": "404",
+    "notFoundMessage": "Oops! 😨 Page not found",
+    "notFoundDescription": "The page you requested doesn't exist or may have been moved.",
+    "goHome": "Go to Home"
+  },
+  "common": {
+    "language": "English"
+  }
+}

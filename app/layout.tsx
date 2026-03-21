@@ -5,6 +5,7 @@ import {
   blog_name,
   blog_title,
 } from '@/app/lib/definitions'
+import { getDictionary } from '@/app/i18n/get-dictionary'
 import { Providers } from '@/app/providers'
 import Navbar from '@/app/ui/Navbar'
 import { WebVitals } from '@/app/ui/WebVitals'
@@ -56,7 +57,6 @@ export const metadata: Metadata = {
       'naver-site-verification': '6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a',
     },
   },
-  // 보안을 위한 메타 태그들
   other: {
     'X-Frame-Options': 'DENY',
     'X-Content-Type-Options': 'nosniff',
@@ -64,11 +64,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const dictionary = await getDictionary('ko')
+
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
@@ -86,7 +88,7 @@ export default function RootLayout({
         <AdSense />
       </head>
       <body className={`${inter.className} dark:bg-gray-900`}>
-        <Providers>
+        <Providers dictionary={dictionary} locale="ko">
           <WebVitals />
           <header>
             <Navbar />
@@ -95,7 +97,6 @@ export default function RootLayout({
         </Providers>
         {process.env.NODE_ENV === 'production' && (
           <>
-            {/* Google tag (gtag.js) */}
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-YGW2B2X46K"
               strategy="lazyOnload"

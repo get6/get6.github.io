@@ -2,6 +2,7 @@
 
 import { AdsRecentPost } from '@/app/ads/AdsRecentPost'
 import { ad_per_content } from '@/app/lib/definitions'
+import { useDictionary } from '@/app/i18n/use-dictionary'
 import PrevPost from '@/app/ui/home/PrevPost'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { Post } from 'contentlayer/generated'
@@ -10,11 +11,13 @@ import { useMemo } from 'react'
 
 interface Props {
   posts: Post[]
+  locale?: string
 }
 
 type PostOrAd = Post | { type: 'Ad' }
 
 export default function PostList({ posts }: Props) {
+  const { dictionary } = useDictionary()
   const param = 'query'
   const searchParams = useSearchParams()
 
@@ -28,7 +31,6 @@ export default function PostList({ posts }: Props) {
           post.title ?? '',
           post.summary ?? '',
           Array.isArray(post.tags) ? post.tags.join(' ') : '',
-          // 본문 전체 스캔은 무거워서 앞부분만 인덱싱
           post.body?.raw?.slice(0, 1800) ?? '',
         ]
           .join(' ')
@@ -72,7 +74,7 @@ export default function PostList({ posts }: Props) {
         <div className="flex h-[205px] w-full flex-col items-center justify-center gap-2">
           <ExclamationCircleIcon className="h-10 w-10" />
           <p className="text-sm font-semibold lg:text-base">
-            검색어를 포함하는 게시글이 없는 것 같아요 😢
+            {dictionary.search.noResults}
           </p>
         </div>
       )}

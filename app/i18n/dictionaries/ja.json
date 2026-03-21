@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "blogName": "あの時の私",
+    "blogTitle": "今日も良い一日を 🫶 - あの時の私",
+    "blogDescription": "今を生きながら見て感じたことを整理する私のブログ",
+    "rssTitle": "あの時の私 RSS"
+  },
+  "nav": {
+    "books": "Books",
+    "tags": "Tags",
+    "about": "About me",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる"
+  },
+  "home": {
+    "recentPosts": "最新の投稿",
+    "allPosts": "すべての投稿"
+  },
+  "search": {
+    "placeholder": "検索",
+    "noResults": "検索に一致する投稿が見つかりません 😢"
+  },
+  "posts": {
+    "notFound": "投稿が見つかりません",
+    "otherPosts": "他の投稿"
+  },
+  "books": {
+    "pageDescription": "読んでいる本、読んだ本、読みたい本をまとめた本棚です。",
+    "reading": "読んでいる本",
+    "readingList": "読書リスト",
+    "finishedList": "読了リスト",
+    "toReadList": "読みたいリスト",
+    "author": "著者",
+    "rating": "おすすめ",
+    "pages": "ページ数",
+    "publishDate": "出版日",
+    "readingPeriod": "読書期間",
+    "category": "カテゴリー",
+    "viewOnYes24": "Yes24で本を見る",
+    "stillReading": "👀 まだ読んでいます",
+    "notStarted": "📚 まだ読んでいません",
+    "notStartedDesc": "読みたくてリストに追加した本です。",
+    "notStartedThanks": "このページは通常非表示ですが、訪問していただきありがとうございます 😃",
+    "days": "日"
+  },
+  "tags": {
+    "title": "Tags",
+    "pageDescription": "タグ別に投稿を閲覧できます。"
+  },
+  "about": {
+    "title": "About me",
+    "pageDescription": "プロダクトを作り記録する開発者、ファン・ソンジュンの紹介ページです。",
+    "personName": "ファン・ソンジュン",
+    "personDescription": "プロダクトを作り記録する開発者",
+    "greeting": "こんにちは、ファン・ソンジュンです 👋",
+    "intro": "プロダクトを作り記録する開発者です。現在、人々がより良く時間を使えるようにするサービス",
+    "introService": "ITTAE",
+    "introSuffix": "を作っています。",
+    "body1": "私は「良いアイデア」よりも「最後まで作り上げる実行力」の方が重要だと信じています。だからこのブログは、きれいな結論よりも、行き詰まり、修正し、また挑戦する過程をそのまま残す場所に近いです。",
+    "body2": "最近はアプリ開発だけでなく、AIエージェントコーディングを活用して様々なプロダクトや自動化ツールを作ることに集中しています。実務ではCRM開発をしながらユーザーフロー、運用効率、保守性を一緒に考えており、個人プロジェクトではITTAEを着実に改善しています。",
+    "body3": "技術的には、クリーンアーキテクチャ、状態管理の責任分離、エラー処理など、プロダクトを長く運用するための基本を大切にしています。何よりも、ユーザーの立場で実際に便利で役立つ体験かどうかを常に先に確認するようにしています。",
+    "body4": "この空間には、開発中にぶつかった問題をどう解決したか、実際に書いたコードと一緒に整理しています。本から学んだインサイトや仕事で得た運用感覚も一緒に記録しています。誰かが同じ問題に出会った時「あ、こうアプローチすればいいんだ」というヒントになれば嬉しいです。",
+    "body5": "結局、私が作りたいのは「機能」ではなく「変化」です。ユーザーの時間を節約し、次の行動をより簡単にするプロダクト。その方向を見失わずに、今日も一つずつ改善しています。",
+    "linksPrefix": "その他のリンクやチャンネルは",
+    "linksLinkText": "Linktree",
+    "linksSuffix": "にまとめています。SNSでお気軽にDMください。",
+    "motto": "✨ I'm gonna live every minute of it."
+  },
+  "error": {
+    "notFoundTitle": "404",
+    "notFoundMessage": "あっ！😨 ページが見つかりません",
+    "notFoundDescription": "リクエストされたページは存在しないか、移動された可能性があります。",
+    "goHome": "ホームに戻る"
+  },
+  "common": {
+    "language": "日本語"
+  }
+}

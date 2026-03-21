@@ -2,7 +2,13 @@
 
 import Giscus from '@giscus/react'
 
-export default function GitHubGiscus() {
+const giscusLangMap: Record<string, string> = {
+  ko: 'ko',
+  en: 'en',
+  ja: 'ja',
+}
+
+export default function GitHubGiscus({ locale = 'ko' }: { locale?: string }) {
   return (
     <>
       {process.env.NODE_ENV === 'production' && (
@@ -18,7 +24,7 @@ export default function GitHubGiscus() {
           emitMetadata="0"
           inputPosition="bottom"
           theme="preferred_color_scheme"
-          lang="ko"
+          lang={giscusLangMap[locale]}
         />
       )}
     </>
