@@ -13,14 +13,14 @@ export function isAllLocale(value: string): value is AllLocale {
 }
 
 /** Maps locale to OpenGraph locale string */
-export const ogLocaleMap: Record<AllLocale, string> = {
+export const ogLocaleMap: Record<string, string> = {
   ko: 'ko_KR',
   en: 'en_US',
   ja: 'ja_JP',
 }
 
 /** Maps locale to html lang attribute */
-export const htmlLangMap: Record<AllLocale, string> = {
+export const htmlLangMap: Record<string, string> = {
   ko: 'ko',
   en: 'en',
   ja: 'ja',

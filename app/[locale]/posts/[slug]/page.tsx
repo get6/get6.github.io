@@ -37,7 +37,7 @@ export const generateMetadata = async ({
   const dictionary = await getDictionary(locale)
 
   if (!post) {
-    return createMetadata({ title: dictionary.posts.notFound })
+    return createMetadata({ title: dictionary.posts.notFound, locale })
   }
 
   return createMetadata({
@@ -49,6 +49,7 @@ export const generateMetadata = async ({
     publishedTime: post.date,
     modifiedTime: post.date,
     tags: post.tags,
+    locale,
   })
 }
 
@@ -82,6 +83,7 @@ export default async function LocalePost({
         url={localePath(`/posts/${post.slug}`, locale)}
         image={getOGImage(body.raw)}
         tags={tags}
+        locale={locale}
       />
       <ScrollProgress />
       <div

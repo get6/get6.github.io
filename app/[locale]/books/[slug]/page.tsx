@@ -54,6 +54,7 @@ export const generateMetadata = async ({
     description: sliceDesc(book.summary, 160),
     image: book.cover_url,
     url: localePath(`/books/${book.slug}`, locale),
+    locale,
   })
 }
 
@@ -114,6 +115,7 @@ export default async function LocaleBook({
           datePublished={finish_read_date}
           rating={my_rate}
           bookUrl={book_url}
+          locale={locale}
         />
       )}
       <div

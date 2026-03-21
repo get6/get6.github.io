@@ -1,4 +1,7 @@
 import { BASE_URL, blog_name } from '@/app/lib/definitions'
+import { htmlLangMap } from '@/app/i18n/config'
+
+const toInLanguage = (locale?: string) => htmlLangMap[locale ?? 'ko'] ?? 'ko'
 
 interface BlogPostingData {
   title: string
@@ -9,12 +12,14 @@ interface BlogPostingData {
   url: string
   image?: string
   tags?: string[]
+  locale?: string
 }
 
 interface WebsiteData {
   name: string
   description: string
   url: string
+  locale?: string
 }
 
 export function BlogPostStructuredData({
@@ -26,6 +31,7 @@ export function BlogPostStructuredData({
   url,
   image,
   tags,
+  locale,
 }: BlogPostingData) {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -62,7 +68,7 @@ export function BlogPostStructuredData({
     ...(tags && {
       keywords: tags.join(', '),
     }),
-    inLanguage: 'ko-KR',
+    inLanguage: toInLanguage(locale),
   }
 
   return (
@@ -82,6 +88,7 @@ interface BookReviewData {
   datePublished: string
   rating: number
   bookUrl: string
+  locale?: string
 }
 
 export function BookReviewStructuredData({
@@ -93,6 +100,7 @@ export function BookReviewStructuredData({
   datePublished,
   rating,
   bookUrl,
+  locale,
 }: BookReviewData) {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -114,7 +122,7 @@ export function BookReviewStructuredData({
     datePublished,
     url: `${BASE_URL}${url}`,
     publisher: { '@type': 'Organization', name: blog_name },
-    inLanguage: 'ko-KR',
+    inLanguage: toInLanguage(locale),
   }
 
   return (
@@ -130,6 +138,7 @@ interface PersonData {
   description: string
   url: string
   jobTitle: string
+  locale?: string
 }
 
 export function PersonStructuredData({
@@ -137,6 +146,7 @@ export function PersonStructuredData({
   description,
   url,
   jobTitle,
+  locale,
 }: PersonData) {
   const structuredData = {
     '@context': 'https://schema.org',
@@ -146,7 +156,7 @@ export function PersonStructuredData({
     url: `${BASE_URL}${url}`,
     jobTitle,
     sameAs: ['https://github.com/get6/', 'https://linktr.ee/hwangitae/'],
-    inLanguage: 'ko-KR',
+    inLanguage: toInLanguage(locale),
   }
 
   return (
@@ -157,14 +167,19 @@ export function PersonStructuredData({
   )
 }
 
-export function WebsiteStructuredData({ name, description, url }: WebsiteData) {
+export function WebsiteStructuredData({
+  name,
+  description,
+  url,
+  locale,
+}: WebsiteData) {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Website',
     name,
     description,
     url,
-    inLanguage: 'ko-KR',
+    inLanguage: toInLanguage(locale),
     author: {
       '@type': 'Person',
       name: blog_name,

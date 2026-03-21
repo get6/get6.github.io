@@ -23,6 +23,7 @@ export async function generateMetadata({
     title: dictionary.meta.blogTitle,
     description: dictionary.meta.blogDescription,
     url: `/${locale}`,
+    locale,
   })
 }
 
@@ -73,6 +74,7 @@ export default async function LocaleHome({
         name={dictionary.meta.blogTitle}
         description={dictionary.meta.blogDescription}
         url={BASE_URL}
+        locale={locale}
       />
       <div className="flex w-full flex-col items-center gap-8">
         <div className="flex w-full flex-col gap-4">

@@ -57,6 +57,15 @@ export const metadata: Metadata = {
       'naver-site-verification': '6e81cb6b70ea6de1df6822ac96bb0fb48838ae8a',
     },
   },
+  alternates: {
+    canonical: BASE_URL,
+    languages: {
+      ko: BASE_URL,
+      en: `${BASE_URL}/en`,
+      ja: `${BASE_URL}/ja`,
+      'x-default': BASE_URL,
+    },
+  },
   other: {
     'X-Frame-Options': 'DENY',
     'X-Content-Type-Options': 'nosniff',

@@ -20,6 +20,7 @@ export async function generateMetadata({
     title: dictionary.about.title,
     description: dictionary.about.pageDescription,
     url: `/${locale}/about`,
+    locale,
   })
 }
 
@@ -38,6 +39,7 @@ export default async function LocaleAbout({
         description={dictionary.about.personDescription}
         url={localePath('/about', locale)}
         jobTitle="Software Developer"
+        locale={locale}
       />
       <div className="flex flex-col gap-4 lg:w-full">
         <PageTitle className="lg:hidden">{dictionary.about.title}</PageTitle>

@@ -22,6 +22,7 @@ export async function generateMetadata({
     title: dictionary.tags.title,
     description: dictionary.tags.pageDescription,
     url: `/${locale}/tags`,
+    locale,
   })
 }
 
