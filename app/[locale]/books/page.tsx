@@ -3,12 +3,12 @@ import { getDictionary } from '@/app/i18n/get-dictionary'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import { BookStatus } from '@/app/lib/definitions'
 import { isActivelyReading, isPausedBook } from '@/app/lib/utils'
+import { getBooksByLocale } from '@/app/lib/content'
 import BookTable from '@/app/ui/books/BookTable'
 import ReadingBook from '@/app/ui/books/ReadingBook'
 import ReadingBookCard from '@/app/ui/books/ReadingBookCard'
 import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import { allBooks } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { Metadata } from 'next'
 
@@ -34,9 +34,10 @@ export default async function LocaleBooks({
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  const books = allBooks.sort((a, b) =>
-    compareDesc(new Date(a.start_read_date), new Date(b.start_read_date)),
-  )
+  let books = getBooksByLocale(locale)
+  if (books.length === 0) {
+    books = getBooksByLocale('ko')
+  }
 
   const readingBooks = books.filter((book) => isActivelyReading(book))
 

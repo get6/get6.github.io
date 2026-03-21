@@ -7,7 +7,7 @@ import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import PostTable from '@/app/ui/tags/PostTable'
 import TagList from '@/app/ui/tags/TagList'
-import { allPosts } from 'contentlayer/generated'
+import { getPostsByLocale } from '@/app/lib/content'
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
@@ -54,12 +54,20 @@ export default async function LocaleTags({
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  const tagCounts = allPosts.reduce((acc: { [key: string]: number }, post) => {
-    post.tags.forEach((tag) => {
-      acc[tag] = (acc[tag] || 0) + 1
-    })
-    return acc
-  }, {})
+  let localePosts = getPostsByLocale(locale)
+  if (localePosts.length === 0) {
+    localePosts = getPostsByLocale('ko')
+  }
+
+  const tagCounts = localePosts.reduce(
+    (acc: { [key: string]: number }, post) => {
+      post.tags.forEach((tag) => {
+        acc[tag] = (acc[tag] || 0) + 1
+      })
+      return acc
+    },
+    {},
+  )
 
   const tags: Tag[] = Object.entries(tagCounts)
     .map(([name, count]) => ({ name, count }))

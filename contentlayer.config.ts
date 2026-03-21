@@ -231,6 +231,24 @@ const getSummary = (html: string) => {
   return text.replace(/\s+/g, ' ').trim()
 }
 
+/** Extract locale from flattenedPath (e.g. "posts/en/slug" → "en", "posts/slug" → "ko") */
+const LOCALE_DIRS = ['en', 'ja']
+const extractLocale = (flattenedPath: string, prefix: string): string => {
+  const rest = flattenedPath.replace(new RegExp(`^${prefix}/`), '')
+  const firstSegment = rest.split('/')[0]
+  return LOCALE_DIRS.includes(firstSegment) ? firstSegment : 'ko'
+}
+
+/** Extract slug, stripping locale dir if present */
+const extractSlug = (flattenedPath: string, prefix: string): string => {
+  const rest = flattenedPath.replace(new RegExp(`^${prefix}/`), '')
+  const firstSegment = rest.split('/')[0]
+  if (LOCALE_DIRS.includes(firstSegment)) {
+    return rest.replace(new RegExp(`^${firstSegment}/`), '')
+  }
+  return rest
+}
+
 const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `posts/**/*.md`,
@@ -250,13 +268,21 @@ const Post = defineDocumentType(() => ({
     note: { type: 'string' },
   },
   computedFields: {
+    locale: {
+      type: 'string',
+      resolve: (post) => extractLocale(post._raw.flattenedPath, 'posts'),
+    },
     url: {
       type: 'string',
-      resolve: (post) => `/${post._raw.flattenedPath}`,
+      resolve: (post) => {
+        const locale = extractLocale(post._raw.flattenedPath, 'posts')
+        const slug = extractSlug(post._raw.flattenedPath, 'posts')
+        return locale === 'ko' ? `/posts/${slug}` : `/${locale}/posts/${slug}`
+      },
     },
     slug: {
       type: 'string',
-      resolve: (post) => post._raw.flattenedPath.replace(/^posts\//, ''),
+      resolve: (post) => extractSlug(post._raw.flattenedPath, 'posts'),
     },
     cover_image: {
       type: 'string',
@@ -307,13 +333,21 @@ const Book = defineDocumentType(() => ({
     book_url: { type: 'string', required: true },
   },
   computedFields: {
+    locale: {
+      type: 'string',
+      resolve: (book) => extractLocale(book._raw.flattenedPath, 'books'),
+    },
     url: {
       type: 'string',
-      resolve: (book) => `/${book._raw.flattenedPath}`,
+      resolve: (book) => {
+        const locale = extractLocale(book._raw.flattenedPath, 'books')
+        const slug = extractSlug(book._raw.flattenedPath, 'books')
+        return locale === 'ko' ? `/books/${slug}` : `/${locale}/books/${slug}`
+      },
     },
     slug: {
       type: 'string',
-      resolve: (book) => book._raw.flattenedPath.replace(/^books\//, ''),
+      resolve: (book) => extractSlug(book._raw.flattenedPath, 'books'),
     },
     summary: {
       type: 'string',

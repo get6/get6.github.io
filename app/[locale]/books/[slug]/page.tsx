@@ -17,7 +17,7 @@ import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
 import { ArrowUpRightIcon, StarIcon } from '@heroicons/react/24/outline'
 import { StarIcon as SolidStarIcon } from '@heroicons/react/24/solid'
-import { allBooks } from 'contentlayer/generated'
+import { getBooksByLocale, getTranslatedBook } from '@/app/lib/content'
 import { differenceInCalendarDays } from 'date-fns'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -31,10 +31,12 @@ const normalizeSlug = (slug: string) => {
   }
 }
 
-export const generateStaticParams = async () =>
-  locales.flatMap((locale) =>
-    allBooks.map((book) => ({ locale, slug: normalizeSlug(book.slug) })),
+export const generateStaticParams = async () => {
+  const koBooks = getBooksByLocale('ko')
+  return locales.flatMap((locale) =>
+    koBooks.map((book) => ({ locale, slug: normalizeSlug(book.slug) })),
   )
+}
 
 export const generateMetadata = async ({
   params,
@@ -43,7 +45,7 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const { locale, slug: rawSlug } = await params
   const slug = normalizeSlug(rawSlug)
-  const book = allBooks.find((book) => normalizeSlug(book.slug) === slug)
+  const book = getTranslatedBook(slug, locale) ?? getTranslatedBook(slug, 'ko')
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)
 
@@ -62,7 +64,7 @@ export default async function LocaleBook({
 }) {
   const { locale, slug: rawSlug } = await params
   const slug = normalizeSlug(rawSlug)
-  const book = allBooks.find((book) => normalizeSlug(book.slug) === slug)
+  const book = getTranslatedBook(slug, locale) ?? getTranslatedBook(slug, 'ko')
   const dictionary = await getDictionary(locale)
 
   if (!book) throw new Error(`Book not found for slug: ${slug}`)

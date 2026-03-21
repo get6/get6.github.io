@@ -15,13 +15,16 @@ import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
 import DetailScreen from '@/app/ui/layout/DetailScreen'
-import { allPosts } from 'contentlayer/generated'
+import { getPostsByLocale, getTranslatedPost } from '@/app/lib/content'
 import { Metadata } from 'next'
 
-export const generateStaticParams = async () =>
-  locales.flatMap((locale) =>
-    allPosts.map((post) => ({ locale, slug: post.slug })),
+export const generateStaticParams = async () => {
+  // Generate params for ko posts under each locale (fallback)
+  const koPosts = getPostsByLocale('ko')
+  return locales.flatMap((locale) =>
+    koPosts.map((post) => ({ locale, slug: post.slug })),
   )
+}
 
 export const generateMetadata = async ({
   params,
@@ -30,7 +33,7 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const { locale, slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
-  const post = allPosts.find((post) => post.slug === slug)
+  const post = getTranslatedPost(slug, locale) ?? getTranslatedPost(slug, 'ko')
   const dictionary = await getDictionary(locale)
 
   if (!post) {
@@ -56,13 +59,15 @@ export default async function LocalePost({
 }) {
   const { locale, slug: rawSlug } = await params
   const slug = decodeURIComponent(rawSlug)
-  const post = allPosts.find((post) => post.slug === slug)
+  // Try translated version first, fallback to ko
+  const post = getTranslatedPost(slug, locale) ?? getTranslatedPost(slug, 'ko')
   const dictionary = await getDictionary(locale)
 
   if (!post) throw new Error(`Post not found for slug: ${slug}`)
 
-  const otherPosts = allPosts
-    .filter((other) => other.url !== slug && other.date < post.date)
+  const koPosts = getPostsByLocale('ko')
+  const otherPosts = koPosts
+    .filter((other) => other.slug !== slug && other.date < post.date)
     .slice(0, 3)
 
   const { date, title, body, tags, toc } = post

@@ -9,8 +9,7 @@ import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { PostSkeleton, RecentPostSkeleton, Skeleton } from '@/app/ui/Skeleton'
 import { WebsiteStructuredData } from '@/app/ui/StructuredData'
-import { allPosts } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
+import { getPostsByLocale } from '@/app/lib/content'
 import { Suspense } from 'react'
 
 export async function generateMetadata({
@@ -59,12 +58,14 @@ export default async function LocaleHome({
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  const postsOrderByDesc = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  )
+  // Use locale-specific posts; fallback to ko if none exist for this locale
+  let localePosts = getPostsByLocale(locale)
+  if (localePosts.length === 0) {
+    localePosts = getPostsByLocale('ko')
+  }
 
-  const recentPosts = postsOrderByDesc.slice(0, 3)
-  const posts = postsOrderByDesc.slice(3)
+  const recentPosts = localePosts.slice(0, 3)
+  const posts = localePosts.slice(3)
 
   return (
     <PageScreen>
