@@ -9,6 +9,13 @@ const FORMAT_BY_LOCALE: Record<AllLocale, string> = {
   en: 'MMM d',
 }
 
+// CJK는 단위가 붙고("12분"), 라틴은 단위 앞에 공백("12 min")이 자연스럽다.
+const READING_TIME_UNIT: Record<AllLocale, string> = {
+  ko: '분',
+  ja: '分',
+  en: ' min',
+}
+
 interface Props {
   post: Post
   isDetail?: boolean
@@ -29,7 +36,8 @@ export default function PostDate({ post, isDetail = false, locale }: Props) {
         formatStr={FORMAT_BY_LOCALE[effectiveLocale]}
         locale={effectiveLocale}
       />
-      &nbsp;・&nbsp;{readingTime(post.body.raw)} min
+      &nbsp;・&nbsp;{readingTime(post.body.raw)}
+      {READING_TIME_UNIT[effectiveLocale]}
     </span>
   )
 }
