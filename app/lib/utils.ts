@@ -2,12 +2,46 @@ import { BASE_URL, BookStatus } from '@/app/lib/definitions'
 import { differenceInDays } from 'date-fns'
 import { Book } from 'contentlayer/generated'
 
-export const readingTime = (text: string) => {
-  if (text.length < 1) return 0
+const CJK_CHARS_PER_MIN = 500
+const LATIN_WPM = 225
+const SECONDS_PER_IMAGE = 12
+const CODE_LINES_PER_MIN = 80
+const CJK_RE = /[぀-ゟ゠-ヿ一-鿿가-힯㐀-䶿]/g
 
-  const wordsPerMinute = 225
-  const numberOfWords = text.split(/\s/g).length
-  return Math.ceil(numberOfWords / wordsPerMinute)
+export const readingTime = (text: string) => {
+  if (!text || text.length < 1) return 0
+
+  const codeBlockRe = /```[\s\S]*?```/g
+  const imageRe = /!\[[^\]]*\]\([^)]*\)/g
+
+  const codeBlocks = text.match(codeBlockRe) ?? []
+  const codeLineCount = codeBlocks.reduce(
+    (sum, block) => sum + block.split('\n').length,
+    0,
+  )
+  const imageCount = (text.match(imageRe) ?? []).length
+
+  const cleaned = text
+    .replace(codeBlockRe, ' ')
+    .replace(imageRe, ' ')
+    .replace(/`[^`\n]*`/g, ' ')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#*_~>`]/g, ' ')
+
+  const cjkCharCount = (cleaned.match(CJK_RE) ?? []).length
+  const latinWordCount = cleaned
+    .replace(CJK_RE, ' ')
+    .split(/\s+/)
+    .filter((w) => /[A-Za-z0-9]/.test(w)).length
+
+  const minutes =
+    cjkCharCount / CJK_CHARS_PER_MIN +
+    latinWordCount / LATIN_WPM +
+    (imageCount * SECONDS_PER_IMAGE) / 60 +
+    codeLineCount / CODE_LINES_PER_MIN
+
+  return Math.max(1, Math.ceil(minutes))
 }
 
 export const sliceDesc = (text: string, length: number) => {
