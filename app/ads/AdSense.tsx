@@ -9,7 +9,7 @@ export default function AdSense() {
     <Script
       id="adsbygoogle-loader"
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1411731962767238"
-      strategy="lazyOnload"
+      strategy="afterInteractive"
       crossOrigin="anonymous"
     />
   )
