@@ -264,6 +264,18 @@ const Post = defineDocumentType(() => ({
       type: 'list',
       resolve: (post) => getToC(post.body.html),
     },
+    hasMath: {
+      type: 'boolean',
+      resolve: (post) => {
+        const stripped = post.body.raw
+          .replace(/```[\s\S]*?```/g, '')
+          .replace(/`[^`\n]*`/g, '')
+        return (
+          /\$\$[\s\S]+?\$\$/.test(stripped) ||
+          /(?<![\\$])\$[^\s$][^$\n]*\$/.test(stripped)
+        )
+      },
+    },
   },
 }))
 

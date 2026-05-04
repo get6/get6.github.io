@@ -12,6 +12,7 @@ import { BlogPostStructuredData } from '@/app/ui/StructuredData'
 import ToastPostal from '@/app/ui/ToastPostal'
 import Toc from '@/app/ui/Toc'
 import AnotherPost from '@/app/ui/home/AnotherPost'
+import KatexStyles from '@/app/ui/KatexStyles'
 import PostDate from '@/app/ui/home/post/PostDate'
 import PostTags from '@/app/ui/home/post/PostTags'
 import AsideHelper from '@/app/ui/layout/AsideHelper'
@@ -85,10 +86,11 @@ export default async function LocalePost({
     .filter((other) => other.slug !== slug && other.date < post.date)
     .slice(0, 3)
 
-  const { date, title, body, tags, toc } = post
+  const { date, title, body, tags, toc, hasMath } = post
 
   return (
     <div className="min-w-0 overflow-x-clip">
+      {hasMath && <KatexStyles />}
       <ScrollToTop />
       <BlogPostStructuredData
         title={title}

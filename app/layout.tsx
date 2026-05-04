@@ -12,7 +12,6 @@ import { WebVitals } from '@/app/ui/WebVitals'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
-import 'katex/dist/katex.min.css'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
