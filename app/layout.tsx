@@ -89,10 +89,10 @@ export default async function RootLayout({
           title="이때의 나 RSS"
           href="/rss.xml"
         />
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+          href="/fonts/pretendard/pretendard-dynamic-subset.css"
         />
         <AdSense />
       </head>

@@ -16,85 +16,47 @@ import { createHash } from 'crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
-// 캐시 디렉토리 설정
 const CACHE_DIR = '.cache/images'
-if (!existsSync(CACHE_DIR)) {
-  mkdirSync(CACHE_DIR, { recursive: true })
-}
+const PUBLIC_IMAGE_DIR = 'public/blog/external'
+const PUBLIC_URL_PREFIX = '/blog/external'
+const SITE_BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://get6.github.io'
+    : 'http://localhost:3000'
 
-// 외부 이미지를 가져와서 블러 처리
-const toBlurDataURL = async (url: string) => {
-  const params = new URL(url).searchParams
-  const w = Number(params.get('w')) || 16
-  const h = Number(params.get('h')) || 16
+if (!existsSync(CACHE_DIR)) mkdirSync(CACHE_DIR, { recursive: true })
+if (!existsSync(PUBLIC_IMAGE_DIR))
+  mkdirSync(PUBLIC_IMAGE_DIR, { recursive: true })
 
-  // URL 해시 생성 (캐시 키)
-  const hash = createHash('md5')
-    .update(url + '-blur')
-    .digest('hex')
-  const cachePath = join(CACHE_DIR, `${hash}.webp`)
-
-  // 캐시 확인
-  if (existsSync(cachePath)) {
-    const buffer = readFileSync(cachePath)
-    return `data:image/webp;base64,${buffer.toString('base64')}`
-  }
-
-  // 이미지 요청
-  const res = await fetch(url)
-  // 응답 확인
-  if (!res.ok) return ''
-
-  const imageData = await res.arrayBuffer()
-  const image = sharp(imageData)
-  const imgAspectRatio = w / h
-
-  // Base64 문자열로 변환
-  const buffer = await image
-    .resize(8, Math.round(8 / imgAspectRatio))
-    .webp({
-      quality: 75,
-    })
-    .toBuffer()
-
-  // 캐시 저장
-  writeFileSync(cachePath, buffer)
-
-  return `data:image/webp;base64,${buffer.toString('base64')}`
-}
-
-const toDataURI = async (url: string) => {
-  // URL 해시 생성 (캐시 키)
+/**
+ * 외부 이미지를 webp로 변환해 public/blog/external/<hash>.webp 에 저장하고
+ * 사이트 내부 절대 경로(/blog/external/<hash>.webp)를 반환.
+ * fetch 실패 시 원본 URL을 반환해 페이지가 깨지지 않도록 한다.
+ */
+const toLocalAsset = async (url: string): Promise<string> => {
   const hash = createHash('md5').update(url).digest('hex')
-  const cachePath = join(CACHE_DIR, `${hash}.webp`)
+  const fileName = `${hash}.webp`
+  const cachePath = join(CACHE_DIR, fileName)
+  const publicPath = join(PUBLIC_IMAGE_DIR, fileName)
+  const urlPath = `${PUBLIC_URL_PREFIX}/${fileName}`
 
-  // 캐시 확인
+  if (existsSync(publicPath)) return urlPath
+
   if (existsSync(cachePath)) {
-    const buffer = readFileSync(cachePath)
-    return `data:image/webp;base64,${buffer.toString('base64')}`
+    writeFileSync(publicPath, readFileSync(cachePath))
+    return urlPath
   }
 
-  // 이미지 요청
   const res = await fetch(url)
-
-  // 응답 확인
   if (!res.ok) return url
 
-  // 이미지 데이터 가져오기
-  const imageData = await res.arrayBuffer()
-  const image = sharp(imageData)
-
-  // Base64 문자열로 변환
-  const buffer = await image
-    .webp({
-      quality: 75,
-    })
+  const buffer = await sharp(await res.arrayBuffer())
+    .webp({ quality: 75 })
     .toBuffer()
 
-  // 캐시 저장
   writeFileSync(cachePath, buffer)
-
-  return `data:image/webp;base64,${buffer.toString('base64')}`
+  writeFileSync(publicPath, buffer)
+  return urlPath
 }
 
 const adjustUl = (node: any, index: number | undefined, parent: any) => {
@@ -146,7 +108,6 @@ const remarkSourceRedirect = () => async (tree: any) => {
       node.url = `${hostname}/${replacedUrl}`
     }
   })
-  // base64는 외부 이미지를 blur 처리하는 용도로 가져와도 좋을 것 같다. 0.1 퀄리티로 아주 작은 이미지를 가져와서 블러 처리
   const promises: Promise<any>[] = []
   for (const node of images) {
     const imgs = node.children.filter((child: any) => child.type === 'image')
@@ -154,7 +115,7 @@ const remarkSourceRedirect = () => async (tree: any) => {
       if (img.url.includes('images.unsplash.com'))
         promises.push(
           new Promise(async (resolve) => {
-            img.url = await toDataURI(img.url)
+            img.url = await toLocalAsset(img.url)
             resolve(img.url)
           }),
         )
@@ -289,11 +250,10 @@ const Post = defineDocumentType(() => ({
       resolve: async (post) => {
         const regex = /!\[[^\]]*\]\((.*?)\)/g
         const match = regex.exec(post.body.raw)
+        if (!match) return `${SITE_BASE_URL}/images/alt_image.webp`
 
-        if (match) {
-          return await toDataURI(match[1])
-        }
-        return '/images/alt_image.webp'
+        const path = await toLocalAsset(match[1])
+        return path.startsWith('/') ? `${SITE_BASE_URL}${path}` : path
       },
     },
     summary: {
@@ -359,7 +319,10 @@ const Book = defineDocumentType(() => ({
     },
     cover_image: {
       type: 'string',
-      resolve: async (book) => await toDataURI(book.cover_url),
+      resolve: async (book) => {
+        const path = await toLocalAsset(book.cover_url)
+        return path.startsWith('/') ? `${SITE_BASE_URL}${path}` : path
+      },
     },
   },
 }))
