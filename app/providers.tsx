@@ -3,7 +3,6 @@
 import { DictionaryProvider } from '@/app/i18n/use-dictionary'
 import type { Dictionary } from '@/app/i18n/get-dictionary'
 import { ThemeProvider } from 'next-themes'
-import { RecoilRoot } from 'recoil'
 
 interface ProvidersProps {
   readonly children: React.ReactNode
@@ -14,11 +13,9 @@ interface ProvidersProps {
 export function Providers({ children, dictionary, locale }: ProvidersProps) {
   return (
     <ThemeProvider attribute="class">
-      <RecoilRoot>
-        <DictionaryProvider dictionary={dictionary} locale={locale}>
-          {children}
-        </DictionaryProvider>
-      </RecoilRoot>
+      <DictionaryProvider dictionary={dictionary} locale={locale}>
+        {children}
+      </DictionaryProvider>
     </ThemeProvider>
   )
 }
