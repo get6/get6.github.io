@@ -1,4 +1,4 @@
-import { locales, localePath } from '@/app/i18n/config'
+import { locales, localePath, type AllLocale } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { getOGImage, sliceDesc } from '@/app/lib/utils'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
@@ -111,7 +111,12 @@ export default async function LocalePost({
               {title}
             </h1>
             <div className="prose flex w-full items-center justify-between">
-              <PostDate date={date} body={body.raw} isDetail />
+              <PostDate
+                date={date}
+                body={body.raw}
+                isDetail
+                locale={locale as AllLocale}
+              />
               <ToastPostal />
             </div>
             <div className="flex w-full flex-col items-center">

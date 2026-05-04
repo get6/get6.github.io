@@ -1,6 +1,6 @@
 'use client'
 
-import { localePath } from '@/app/i18n/config'
+import { localePath, type AllLocale } from '@/app/i18n/config'
 import { useDictionary } from '@/app/i18n/use-dictionary'
 import Badge from '@/app/ui/Badge'
 import TagsFallBack from '@/app/ui/TagsFallback'
@@ -50,7 +50,11 @@ export default function RecentPost({
           <div className="flex">
             <span className="group relative flex items-center">
               <Tooltip date={date} />
-              <PostDate date={date} body={body.raw} />
+              <PostDate
+                date={date}
+                body={body.raw}
+                locale={post.locale as AllLocale}
+              />
             </span>
           </div>
           <Title>{title}</Title>
