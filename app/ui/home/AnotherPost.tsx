@@ -1,6 +1,5 @@
 'use client'
 
-import type { AllLocale } from '@/app/i18n/config'
 import { useDictionary } from '@/app/i18n/use-dictionary'
 import PostDate from '@/app/ui/home/post/PostDate'
 import { Post } from 'contentlayer/generated'
@@ -29,11 +28,7 @@ export default function AnotherPost({ post }: { post: Post }) {
       </div>
       <div className="flex h-full w-full flex-col justify-center px-6">
         <div className="flex flex-col gap-2">
-          <PostDate
-            date={date}
-            body={body.raw}
-            locale={post.locale as AllLocale}
-          />
+          <PostDate post={post} />
           <h3 className="truncate font-bold dark:text-white lg:text-xl">
             {title}
           </h3>

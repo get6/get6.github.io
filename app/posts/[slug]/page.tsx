@@ -93,7 +93,7 @@ export default async function Post({
               {title}
             </h1>
             <div className="prose flex w-full items-center justify-between">
-              <PostDate date={date} body={body.raw} isDetail />
+              <PostDate post={post} isDetail />
               <ToastPostal />
             </div>
             <div className="flex w-full flex-col items-center">

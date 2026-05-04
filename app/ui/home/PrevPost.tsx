@@ -1,6 +1,6 @@
 'use client'
 
-import { localePath, type AllLocale } from '@/app/i18n/config'
+import { localePath } from '@/app/i18n/config'
 import { useDictionary } from '@/app/i18n/use-dictionary'
 import Badge from '@/app/ui/Badge'
 import Line from '@/app/ui/Line'
@@ -40,11 +40,7 @@ export default function PrevPost({ post }: { post: Post }) {
       </div>
       <div className="flex min-h-0 min-w-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
         <div className="min-h-0 min-w-0 flex-1 overflow-hidden lg:max-w-[306px]">
-          <PostDate
-            date={date}
-            body={body.raw}
-            locale={post.locale as AllLocale}
-          />
+          <PostDate post={post} />
           <Title>{title}</Title>
           <div className="mt-1 w-full min-w-0 overflow-hidden text-sm font-normal leading-6 line-clamp-1 dark:text-white lg:line-clamp-2 lg:text-base">
             {normalizedSummary}

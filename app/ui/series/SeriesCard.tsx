@@ -1,6 +1,5 @@
 'use client'
 
-import type { AllLocale } from '@/app/i18n/config'
 import Badge from '@/app/ui/Badge'
 import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
@@ -56,11 +55,7 @@ export default function SeriesCard({ series }: Props) {
         </div>
         <div className="flex flex-auto flex-col justify-center gap-4 px-4 py-4 lg:px-6 lg:py-0">
           <div className="flex flex-col gap-2">
-            <PostDate
-              date={date}
-              body={body.raw}
-              locale={series[0].locale as AllLocale}
-            />
+            <PostDate post={series[0]} />
             <h2 className="text-lg font-semibold dark:text-white lg:text-xl">
               {title}
             </h2>

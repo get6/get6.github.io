@@ -111,12 +111,7 @@ export default async function LocalePost({
               {title}
             </h1>
             <div className="prose flex w-full items-center justify-between">
-              <PostDate
-                date={date}
-                body={body.raw}
-                isDetail
-                locale={locale as AllLocale}
-              />
+              <PostDate post={post} isDetail locale={locale as AllLocale} />
               <ToastPostal />
             </div>
             <div className="flex w-full flex-col items-center">
