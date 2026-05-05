@@ -2,12 +2,14 @@
 import { useLazyAd } from '@/app/ads/useLazyAd'
 
 export const AdsRecentPost = () => {
-  const { ref, active } = useLazyAd<HTMLDivElement>()
+  const { ref, active, blocked } = useLazyAd<HTMLDivElement>()
+
+  if (blocked) return null
 
   return (
     <div
       ref={ref}
-      className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px] has-[[data-ad-status='unfilled']]:hidden"
+      className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
     >
       {active && (
         <ins

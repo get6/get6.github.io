@@ -6,7 +6,9 @@ interface Props {
 }
 
 export const AdsInBooks = ({ adKey }: Props) => {
-  const { ref, active } = useLazyAd<HTMLDivElement>()
+  const { ref, active, blocked } = useLazyAd<HTMLDivElement>()
+
+  if (blocked) return null
 
   return (
     <div ref={ref}>
