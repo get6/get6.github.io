@@ -1,22 +1,15 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useLazyAd } from '@/app/ads/useLazyAd'
 
 export const AdsRecentPost = () => {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (mounted && process.env.NODE_ENV === 'production') {
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-    }
-  }, [mounted])
+  const { ref, active } = useLazyAd<HTMLDivElement>()
 
   return (
-    <div className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px] has-[[data-ad-status='unfilled']]:hidden">
-      {mounted && (
+    <div
+      ref={ref}
+      className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px] has-[[data-ad-status='unfilled']]:hidden"
+    >
+      {active && (
         <ins
           className="adsbygoogle"
           style={{
