@@ -1,0 +1,31 @@
+version: 2
+updates:
+  # 애플리케이션 의존성. minor/patch는 한 PR로 묶어서 노이즈를 줄이고,
+  # major는 별도 PR로 받아 수동 검토한다.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore(deps)
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  # GitHub Actions 버전. 이번 세션에서 한꺼번에 8개 액션을 올렸는데,
+  # 매주 dependabot이 patch 단위로 알려주면 다시 그렇게 밀리지 않는다.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    commit-message:
+      prefix: ci(deps)
+    groups:
+      actions:
+        patterns:
+          - '*'
