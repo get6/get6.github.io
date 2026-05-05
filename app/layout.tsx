@@ -91,7 +91,7 @@ export default async function RootLayout({
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
           rel="stylesheet"
-          href="/fonts/pretendard/pretendard-dynamic-subset.css"
+          href="/fonts/pretendard/pretendardvariable-dynamic-subset.css"
         />
         <AdSense />
       </head>
