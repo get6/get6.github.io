@@ -6,6 +6,18 @@ import { useEffect, useRef, useState } from 'react'
 // 그 차이로 차단 여부를 판정한다.
 const FILL_TIMEOUT_MS = 3000
 
+// 한 번 차단으로 판정되면 같은 페이지의 나머지 슬롯에도 그 결과를 전파한다.
+// 그러지 않으면 슬롯마다 viewport 진입 → 3 s 대기 → unmount가 반복되어,
+// 사용자 입장에서는 스크롤할 때마다 광고 영역이 차례차례 사라지는 것처럼 보인다.
+// 후속 슬롯은 처음부터 wrapper를 그리지 않으므로 추가 layout shift도 없다.
+const blockedListeners = new Set<() => void>()
+let blockedSession = false
+
+const propagateBlocked = () => {
+  blockedSession = true
+  blockedListeners.forEach((listener) => listener())
+}
+
 // 광고 슬롯이 viewport(또는 그 200px 위)에 진입하기 전에는 adsbygoogle.push를
 // 호출하지 않는다. 페이지 로드 직후 모든 슬롯이 한꺼번에 SDK 작업을 트리거하면
 // main thread가 잡혀 TBT가 폭증한다. 첫 화면 밖 슬롯은 사용자가 스크롤할 때
@@ -16,12 +28,24 @@ const FILL_TIMEOUT_MS = 3000
 export function useLazyAd<T extends HTMLElement = HTMLDivElement>() {
   const ref = useRef<T>(null)
   const [active, setActive] = useState(false)
-  const [blocked, setBlocked] = useState(false)
+  const [blocked, setBlocked] = useState(blockedSession)
   const pushed = useRef(false)
 
   useEffect(() => {
+    if (blockedSession) {
+      setBlocked(true)
+      return
+    }
+    const listener = () => setBlocked(true)
+    blockedListeners.add(listener)
+    return () => {
+      blockedListeners.delete(listener)
+    }
+  }, [])
+
+  useEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || blocked) return
 
     // 구형 브라우저 fallback: 즉시 활성화.
     if (typeof IntersectionObserver === 'undefined') {
@@ -40,7 +64,7 @@ export function useLazyAd<T extends HTMLElement = HTMLDivElement>() {
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [blocked])
 
   useEffect(() => {
     if (!active || pushed.current) return
@@ -52,7 +76,7 @@ export function useLazyAd<T extends HTMLElement = HTMLDivElement>() {
     const timer = window.setTimeout(() => {
       const ins = ref.current?.querySelector('ins.adsbygoogle')
       if (ins?.getAttribute('data-ad-status') !== 'filled') {
-        setBlocked(true)
+        propagateBlocked()
       }
     }, FILL_TIMEOUT_MS)
     return () => window.clearTimeout(timer)
