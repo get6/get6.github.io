@@ -29,9 +29,9 @@ export default function AnotherPost({ post }: { post: Post }) {
       <div className="flex h-full w-full flex-col justify-center px-6">
         <div className="flex flex-col gap-2">
           <PostDate post={post} />
-          <h3 className="truncate font-bold dark:text-white lg:text-xl">
+          <h2 className="truncate font-bold dark:text-white lg:text-xl">
             {title}
-          </h3>
+          </h2>
         </div>
       </div>
     </div>
