@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-// SDK가 광고를 채우는 데 보통 1~2초. 차단기 환경에서는 ins가 갱신되지 않으므로
-// 그 차이로 차단 여부를 판정한다.
-const FILL_TIMEOUT_MS = 3000
+// SDK가 fill/unfilled를 마킹하는 데 시간이 걸린다. 짧게 잡으면 채워질 광고를
+// 차단으로 오판한다.
+const FILL_TIMEOUT_MS = 6000
 
 // 한 번 차단으로 판정되면 같은 페이지의 나머지 슬롯에도 그 결과를 전파한다.
 // 그러지 않으면 슬롯마다 viewport 진입 → 3 s 대기 → unmount가 반복되어,
@@ -75,9 +75,17 @@ export function useLazyAd<T extends HTMLElement = HTMLDivElement>() {
 
     const timer = window.setTimeout(() => {
       const ins = ref.current?.querySelector('ins.adsbygoogle')
-      if (ins?.getAttribute('data-ad-status') !== 'filled') {
-        propagateBlocked()
+      const status = ins?.getAttribute('data-ad-status')
+      if (status === 'filled') return
+      if (status === 'unfilled') {
+        // SDK가 정상 동작했고 단지 그 슬롯에 적합한 광고가 없을 뿐이다.
+        // 슬롯 1개만 숨기고 다른 슬롯에는 영향을 주지 않는다.
+        setBlocked(true)
+        return
       }
+      // status가 아예 없으면 SDK가 동작하지 않았거나 ins가 차단기에 의해
+      // 제거된 것으로 보고 세션 전체에 전파한다.
+      propagateBlocked()
     }, FILL_TIMEOUT_MS)
     return () => window.clearTimeout(timer)
   }, [active])
