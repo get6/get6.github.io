@@ -62,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: buildAlternates('/about'),
     },
     {
-      url: `${BASE_URL}/books`,
+      url: `${BASE_URL}/library`,
       lastModified: latestBookDate
         ? latestBookDate.finish_read_date > latestBookDate.start_read_date
           ? latestBookDate.finish_read_date
@@ -70,6 +70,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         : new Date().toISOString(),
       changeFrequency: 'weekly',
       priority: 0.7,
+      alternates: buildAlternates('/library'),
+    },
+    {
+      url: `${BASE_URL}/books`,
+      lastModified: latestBookDate
+        ? latestBookDate.finish_read_date > latestBookDate.start_read_date
+          ? latestBookDate.finish_read_date
+          : latestBookDate.start_read_date
+        : new Date().toISOString(),
+      changeFrequency: 'weekly',
+      priority: 0.5,
       alternates: buildAlternates('/books'),
     },
     {

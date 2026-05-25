@@ -7,10 +7,22 @@
   },
   "nav": {
     "books": "책",
+    "library": "관심",
     "tags": "태그",
     "about": "소개",
     "openMenu": "메뉴 열기",
     "closeMenu": "메뉴 닫기"
+  },
+  "library": {
+    "metaDescription": "읽고 싶은 책과 응원하고 싶은 GitHub 프로젝트를 모아둔 공간이에요.",
+    "pageDescription": "여기서는 제가 읽고 싶어서 모아둔 책과, GitHub에서 별을 누른 저장소를 둘러볼 수 있어요. 책 대부분은 아직 못 읽은 것들이고, 그 사이에 다 읽고 인상이 남은 것들이 섞여 있어요. 저장소에 누른 별은 '이 프로젝트가 인상 깊다, 응원하고 싶다'는 마음을 표시한 거예요.",
+    "watching": "추천 영상",
+    "repos": "저장소",
+    "tools": "쓰고 있거나 흥미로운 도구",
+    "books": "책",
+    "viewFullPage": "전체 페이지에서 보기",
+    "noteBadge": "감상",
+    "externalLink": "외부 링크"
   },
   "home": {
     "recentPosts": "최근 글",

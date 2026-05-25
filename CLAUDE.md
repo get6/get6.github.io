@@ -126,3 +126,13 @@ public/                # Static assets
 - **Content Validation**: Contentlayer enforces frontmatter schemas
 - **Korean Language**: Primary language is Korean, configured in layout
 - **Performance**: Bundle analysis available via `ANALYZE=true pnpm build`
+
+### Markdown Authoring (Bold + Korean)
+
+Due to CommonMark's emphasis flanking rule, a closing `**` will NOT render as bold when it is immediately **preceded by punctuation** (`"`, `)`, `%`, etc.) and immediately **followed by a Korean character**. This is spec-conformant behavior, not a bug. Keep punctuation **outside** the `**` markers.
+
+- Bad: `**"시작할지"**가` → does not close (renders literally)
+- Good: `"**시작할지**"가` → closes correctly, particle attaches with no space
+- Avoid: `**"시작할지"** 가` → closes, but the trailing space inserts an awkward gap before the Korean particle
+
+Bold wrapped by Korean on both sides (e.g. `**환경**이`) works fine.

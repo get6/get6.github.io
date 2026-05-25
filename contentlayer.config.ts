@@ -387,7 +387,7 @@ const rehypePlugins = [
 
 export default makeSource({
   contentDirPath: 'blog',
-  contentDirExclude: ['.obsidian', 'assets', 'templates'],
+  contentDirExclude: ['.obsidian', 'assets', 'templates', 'library'],
   documentTypes: [Post, Book],
   markdown: {
     remarkPlugins: remarkPlugins as any,

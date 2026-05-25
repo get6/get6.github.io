@@ -16,8 +16,8 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 /** Map menu keys to dictionary nav keys */
-const menuDictKeys: Record<string, 'books' | 'tags' | 'about'> = {
-  '/books': 'books',
+const menuDictKeys: Record<string, 'library' | 'tags' | 'about'> = {
+  '/library': 'library',
   '/tags': 'tags',
   '/about': 'about',
 }

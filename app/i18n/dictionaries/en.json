@@ -7,10 +7,22 @@
   },
   "nav": {
     "books": "Books",
+    "library": "Library",
     "tags": "Tags",
     "about": "About me",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
+  },
+  "library": {
+    "metaDescription": "A collection of books I want to read and GitHub projects I want to cheer on.",
+    "pageDescription": "Here you'll find books I've collected because I want to read them, and GitHub repos I've starred. Most of the books are still on my to-read list, with a few I've finished and which left a mark mixed in. The stars on repos are my way of saying \"this project impressed me — I want to cheer it on.\"",
+    "watching": "Recommended videos",
+    "repos": "Repos",
+    "tools": "Tools I'm using or curious about",
+    "books": "Books",
+    "viewFullPage": "Open full page",
+    "noteBadge": "Notes",
+    "externalLink": "External link"
   },
   "home": {
     "recentPosts": "Recent Posts",

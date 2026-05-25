@@ -7,10 +7,22 @@
   },
   "nav": {
     "books": "本棚",
+    "library": "ライブラリ",
     "tags": "タグ",
     "about": "紹介",
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる"
+  },
+  "library": {
+    "metaDescription": "読みたい本と応援したいGitHubプロジェクトをまとめた空間です。",
+    "pageDescription": "ここでは、読みたくて集めた本と、GitHubでスターを付けたリポジトリを見ることができます。本のほとんどはまだ読んでいないもので、その中に読み終えて印象に残ったものが混ざっています。リポジトリのスターは「このプロジェクトが印象的だった、応援したい」という気持ちを表したものです。",
+    "watching": "おすすめ動画",
+    "repos": "リポジトリ",
+    "tools": "使っている・気になるツール",
+    "books": "本",
+    "viewFullPage": "全ページで開く",
+    "noteBadge": "感想",
+    "externalLink": "外部リンク"
   },
   "home": {
     "recentPosts": "最新の投稿",

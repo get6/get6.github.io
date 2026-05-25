@@ -27,7 +27,7 @@ export const BASE_URL =
 
 export const menus = [
   // { name: 'Posts', href: '/posts' },
-  { name: 'Books', href: '/books' },
+  { name: 'Library', href: '/library' },
   // { name: 'Life', href: '/life' },
   // { name: 'Series', href: '/series' },
   { name: 'Tags', href: '/tags' },
