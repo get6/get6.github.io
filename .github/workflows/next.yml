@@ -29,7 +29,7 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, get6]
     strategy:
       matrix:
         node-version: [22.x]
@@ -83,7 +83,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, get6]
     needs: build
     steps:
       - name: Deploy to GitHub Pages
