@@ -12,41 +12,64 @@ const copyImage = async (src: string, dest: string) => {
 
 const shouldUpdateImage = (srcPath: string, destPath: string): boolean => {
   if (!fs.existsSync(destPath)) return true
-  
+
   const srcStat = fs.statSync(srcPath)
   const destStat = fs.statSync(destPath)
-  
+
   return srcStat.mtime > destStat.mtime
 }
 
 const srcDir = path.resolve(__dirname, '..', 'blog', 'assets')
 const destDir = path.resolve(__dirname, '..', 'public', 'blog', 'assets')
 
-if (!fs.existsSync(destDir)) {
-  fs.mkdirSync(destDir, { recursive: true })
-}
+const imageFilePattern = /\.(PNG|JPG|JPEG|WEBP|png|jpg|jpeg|webp)$/
+const convertibleImagePattern = /\.(PNG|JPG|JPEG|png|jpg|jpeg)$/
 
-const processedFiles: string[] = []
-const skippedFiles: string[] = []
+export const getCopyPath = (file: string, targetDir = destDir) =>
+  path.resolve(targetDir, file).replace(convertibleImagePattern, '.webp')
 
-fs.readdirSync(srcDir).forEach(async (file) => {
-  const imagePath = path.resolve(srcDir, file)
-  const stat = fs.statSync(imagePath)
-  
-  if (stat.isFile() && /\.(PNG|JPG|JPEG|WEBP|png|jpg|jpeg|webp)$/.test(file)) {
-    const copyPath = path
-      .resolve(destDir, file)
-      .replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')
-    
-    if (shouldUpdateImage(imagePath, copyPath)) {
-      await copyImage(imagePath, copyPath)
-      processedFiles.push(file)
-    } else {
-      skippedFiles.push(file)
+export const processImages = async (
+  sourceDir = srcDir,
+  targetDir = destDir,
+) => {
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true })
+  }
+
+  const processedFiles: string[] = []
+  const skippedFiles: string[] = []
+
+  for (const file of fs.readdirSync(sourceDir)) {
+    const imagePath = path.resolve(sourceDir, file)
+    const stat = fs.statSync(imagePath)
+
+    if (stat.isFile() && imageFilePattern.test(file)) {
+      const copyPath = getCopyPath(file, targetDir)
+
+      if (shouldUpdateImage(imagePath, copyPath)) {
+        await copyImage(imagePath, copyPath)
+        processedFiles.push(file)
+      } else {
+        skippedFiles.push(file)
+      }
     }
   }
-})
 
-console.log(`✅ Images processed: ${processedFiles.length}`)
-console.log(`⏩ Images skipped (up-to-date): ${skippedFiles.length}`)
-console.log('🎉 Image processing completed!')
+  return { processedFiles, skippedFiles }
+}
+
+const main = async () => {
+  const { processedFiles, skippedFiles } = await processImages()
+
+  console.log(`✅ Images processed: ${processedFiles.length}`)
+  console.log(`⏩ Images skipped (up-to-date): ${skippedFiles.length}`)
+  console.log('🎉 Image processing completed!')
+}
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error('❌ Image processing failed:')
+    console.error(error)
+    process.exitCode = 1
+  })
+}
