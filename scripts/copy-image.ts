@@ -22,8 +22,8 @@ const shouldUpdateImage = (srcPath: string, destPath: string): boolean => {
 const srcDir = path.resolve(__dirname, '..', 'blog', 'assets')
 const destDir = path.resolve(__dirname, '..', 'public', 'blog', 'assets')
 
-const imageFilePattern = /\.(PNG|JPG|JPEG|WEBP|png|jpg|jpeg|webp)$/
-const convertibleImagePattern = /\.(PNG|JPG|JPEG|png|jpg|jpeg)$/
+const imageFilePattern = /\.(png|jpe?g|webp)$/i
+const convertibleImagePattern = /\.(png|jpe?g)$/i
 
 export const getCopyPath = (file: string, targetDir = destDir) =>
   path.resolve(targetDir, file).replace(convertibleImagePattern, '.webp')
@@ -32,6 +32,14 @@ export const processImages = async (
   sourceDir = srcDir,
   targetDir = destDir,
 ) => {
+  if (!fs.existsSync(sourceDir)) {
+    throw new Error(`Source image directory does not exist: ${sourceDir}`)
+  }
+
+  if (!fs.statSync(sourceDir).isDirectory()) {
+    throw new Error(`Source image path is not a directory: ${sourceDir}`)
+  }
+
   if (!fs.existsSync(targetDir)) {
     fs.mkdirSync(targetDir, { recursive: true })
   }
