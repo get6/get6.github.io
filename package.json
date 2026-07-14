@@ -8,6 +8,7 @@
     "start": "npx serve@latest out",
     "lint": "eslint . --ext .ts,.tsx",
     "copy-dir": "ts-node scripts/copy-image.ts",
+    "test:copy-image": "ts-node scripts/copy-image.test.ts",
     "copy-fonts": "ts-node scripts/copy-pretendard.ts",
     "predev": "pnpm copy-dir && pnpm copy-fonts",
     "prebuild": "pnpm copy-dir && pnpm copy-fonts",
