@@ -1,4 +1,9 @@
-const AUTOLINK_SUFFIX_REGEX = /\s*<span[^>]*>\s*#\s*<\/span>\s*$/i
+// rehype-autolink-headings (behavior: append, content: <span>#</span>) wraps
+// the span in an anchor, so real HTML ends with:
+//   <a class="no-underline" href="#id"><span class="no-underline">#</span></a>
+// Keep a span-only alternative for robustness against config changes.
+const AUTOLINK_SUFFIX_REGEX =
+  /\s*(?:<a\b[^>]*>\s*)?<span\b[^>]*>\s*#\s*<\/span>\s*(?:<\/a>\s*)?$/i
 const HTML_TAG_REGEX = /<[^>]+>/g
 const HEADER_REGEX = /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g
 
