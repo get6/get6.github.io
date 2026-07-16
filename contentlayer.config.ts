@@ -15,6 +15,7 @@ import { visit } from 'unist-util-visit'
 import { createHash } from 'crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
+import { getToC } from './app/lib/toc'
 
 const CACHE_DIR = '.cache/images'
 const PUBLIC_IMAGE_DIR = 'public/blog/external'
@@ -159,29 +160,6 @@ const rehypeImageSize = () => (tree: any) => {
       }
     }
   })
-}
-
-// 목차 추출
-const getToC = (html: string): ToC[] | null => {
-  const headers = html.match(/<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/g)
-  if (headers) {
-    const headerList: ToC[] = headers.map((header) => {
-      const matches = header.match(
-        /<h([1-6]).*?id=["'](.*?)["'].*?>(.*?)<\/h[1-6]>/,
-      )
-      if (matches) {
-        const title = matches[3]
-        return {
-          level: parseInt(matches[1]),
-          id: matches[2],
-          title: title.slice(0, title.indexOf('<')),
-        }
-      } else return { level: 0, id: '', title: '' }
-    })
-    const filteredList = headerList.filter((header) => header.level !== 0)
-    if (1 < filteredList.length) return filteredList
-  }
-  return null
 }
 
 const getSummary = (html: string) => {
