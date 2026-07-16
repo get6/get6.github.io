@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .ts,.tsx",
     "copy-dir": "ts-node scripts/copy-image.ts",
     "test:copy-image": "ts-node scripts/copy-image.test.ts",
+    "test:toc": "ts-node scripts/toc.test.ts",
     "copy-fonts": "ts-node scripts/copy-pretendard.ts",
     "predev": "pnpm copy-dir && pnpm copy-fonts",
     "prebuild": "pnpm copy-dir && pnpm copy-fonts",
