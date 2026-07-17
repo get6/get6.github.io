@@ -136,3 +136,14 @@ Due to CommonMark's emphasis flanking rule, a closing `**` will NOT render as bo
 - Avoid: `**"시작할지"** 가` → closes, but the trailing space inserts an awkward gap before the Korean particle
 
 Bold wrapped by Korean on both sides (e.g. `**환경**이`) works fine.
+
+## 검색·컨텍스트 규율 (토큰 효율)
+
+<!-- BEGIN agent-search-discipline (managed) -->
+
+- 코드/텍스트 검색은 `rg`, 파일 탐색은 `fd`, 구조(AST) 매칭은 `ast-grep` (`grep -r`/`find`/정규식 대신).
+- 파일을 통째로 읽지 않는다. `rg`로 위치를 특정한 뒤 필요한 심볼/라인 범위만 읽는다.
+- 툴 결과 JSON/YAML을 raw로 컨텍스트에 넣지 않는다. `jq`/`yq`로 필요한 필드만 필터한다.
+- 광범위 매칭을 통째로 프롬프트에 넣지 않는다. 범위를 좁히거나 count만 확인한다.
+- 목적: 토큰 낭비·환각(길 잃음) 방지.
+<!-- END agent-search-discipline -->
