@@ -147,3 +147,13 @@ Bold wrapped by Korean on both sides (e.g. `**환경**이`) works fine.
 - 광범위 매칭을 통째로 프롬프트에 넣지 않는다. 범위를 좁히거나 count만 확인한다.
 - 목적: 토큰 낭비·환각(길 잃음) 방지.
 <!-- END agent-search-discipline -->
+
+## 검증 규율 (analyze 먼저, test 나중)
+
+<!-- BEGIN agent-verify-discipline (managed) -->
+
+- 코드 작성/수정 직후 정적 분석을 **테스트보다 먼저** 돌린다. 통과 후에만 필요한 테스트를 타겟 실행.
+  - Dart/Flutter: `dart analyze`/`flutter analyze` (+ clean_architecture_linter) · TS/Node: `tsc --noEmit` + eslint · Python: `ruff`+`mypy`
+- analyze 경고/에러는 test 전에 해소. 무지성 전체 test 반복 대신 정적 피드백 루프 우선 → 토큰 절감.
+- 실행 검증도 전체가 아니라 바뀐 부분만 타겟한다.
+<!-- END agent-verify-discipline -->
