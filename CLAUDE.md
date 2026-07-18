@@ -157,3 +157,12 @@ Bold wrapped by Korean on both sides (e.g. `**환경**이`) works fine.
 - analyze 경고/에러는 test 전에 해소. 무지성 전체 test 반복 대신 정적 피드백 루프 우선 → 토큰 절감.
 - 실행 검증도 전체가 아니라 바뀐 부분만 타겟한다.
 <!-- END agent-verify-discipline -->
+
+## PR 작성 규율 (org 템플릿 준수)
+
+<!-- BEGIN agent-pr-discipline (managed) -->
+
+- ittae 조직 PR 본문은 `ittae/.github`의 `.github/PULL_REQUEST_TEMPLATE.md` 구조를 그대로 채운다. `gh pr create --body`는 템플릿이 자동 적용되지 않으므로 직접 가져와 작성한다: `gh api repos/ittae/.github/contents/.github/PULL_REQUEST_TEMPLATE.md --jq .content | base64 -d`
+- 필수 섹션: 요약 / 목표·이유 / 변경 사항 / 범위 밖 / 관련 이슈(`Closes ITT-child` vs `Related ITT-parent`) / 실제 동작 증거(실행 환경·명령·결과 수치, 검증 안 한 영역까지 명시) / 위험(Risk tier T0~T3, rollback, 사람 결정 필요) / UI 증빙 / 체크리스트.
+- 모르는 항목은 지우지 말고 "미확인"/"해당 없음". 제목은 `<type>: ITT-123 한국어 요약` 또는 `<type>: 한국어 요약`. 본문 한국어, code/path/error 원문 유지.
+<!-- END agent-pr-discipline -->
