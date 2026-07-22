@@ -10,16 +10,13 @@ import remarkGfm from 'remark-gfm'
 import remarkLint from 'remark-lint'
 import remarkMath from 'remark-math'
 import remarkToc from 'remark-toc'
-import sharp from 'sharp'
 import { visit } from 'unist-util-visit'
-import { createHash } from 'crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
-import { join } from 'path'
 import { getToC } from './app/lib/toc'
+import { toLocalAsset } from './app/lib/to-local-asset'
+import { existsSync, mkdirSync } from 'fs'
 
 const CACHE_DIR = '.cache/images'
 const PUBLIC_IMAGE_DIR = 'public/blog/external'
-const PUBLIC_URL_PREFIX = '/blog/external'
 const SITE_BASE_URL =
   process.env.NODE_ENV === 'production'
     ? 'https://get6.github.io'
@@ -28,37 +25,6 @@ const SITE_BASE_URL =
 if (!existsSync(CACHE_DIR)) mkdirSync(CACHE_DIR, { recursive: true })
 if (!existsSync(PUBLIC_IMAGE_DIR))
   mkdirSync(PUBLIC_IMAGE_DIR, { recursive: true })
-
-/**
- * 외부 이미지를 webp로 변환해 public/blog/external/<hash>.webp 에 저장하고
- * 사이트 내부 절대 경로(/blog/external/<hash>.webp)를 반환.
- * fetch 실패 시 원본 URL을 반환해 페이지가 깨지지 않도록 한다.
- */
-const toLocalAsset = async (url: string): Promise<string> => {
-  const hash = createHash('md5').update(url).digest('hex')
-  const fileName = `${hash}.webp`
-  const cachePath = join(CACHE_DIR, fileName)
-  const publicPath = join(PUBLIC_IMAGE_DIR, fileName)
-  const urlPath = `${PUBLIC_URL_PREFIX}/${fileName}`
-
-  if (existsSync(publicPath)) return urlPath
-
-  if (existsSync(cachePath)) {
-    writeFileSync(publicPath, readFileSync(cachePath))
-    return urlPath
-  }
-
-  const res = await fetch(url)
-  if (!res.ok) return url
-
-  const buffer = await sharp(await res.arrayBuffer())
-    .webp({ quality: 75 })
-    .toBuffer()
-
-  writeFileSync(cachePath, buffer)
-  writeFileSync(publicPath, buffer)
-  return urlPath
-}
 
 const adjustUl = (node: any, index: number | undefined, parent: any) => {
   if (index === undefined) return
