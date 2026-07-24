@@ -1,8 +1,11 @@
 version: 2
 
-# Policy: ittae workspace policies/dependabot-pr-lanes.md
-# Lane A only: minor/patch version-updates. Majors → Multica/human (never auto-merge).
-# Security updates may still open majors — treat as lane C (human review).
+# Intent (owner):
+# - minor/patch: grouped noise reduction; CI-green path may automerge later
+# - major: STILL open as separate PRs so we learn "what could upgrade"
+#   → never auto-merge; Multica/Hermes verification against this repo's stack
+# - Do NOT blanket-ignore semver-major (that hides useful signals)
+# Security majors also arrive via security updates path.
 
 updates:
   - package-ecosystem: npm
@@ -12,16 +15,16 @@ updates:
       day: monday
       time: "09:00"
       timezone: Asia/Seoul
-    open-pull-requests-limit: 5
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+    open-pull-requests-limit: 8
+    # No ignore semver-major — majors open one-PR-per-dep (not in minor group).
     commit-message:
       prefix: "chore"
       include: "scope"
     labels:
       - "dependencies"
-      - "automerge-candidate"
+      # automerge-candidate only meaningful for minor/patch; majors share this entry's
+      # labels in GitHub Dependabot, so we omit it here. Merge bots must use semver
+      # title parsing (from X to Y) / Multica major review, not this label alone.
     groups:
       npm-minor-and-patch:
         applies-to: version-updates
@@ -35,15 +38,11 @@ updates:
       time: "09:00"
       timezone: Asia/Seoul
     open-pull-requests-limit: 5
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
     commit-message:
       prefix: "ci"
       include: "scope"
     labels:
       - "dependencies"
-      - "automerge-candidate"
     groups:
       gha-minor-and-patch:
         applies-to: version-updates
