@@ -11,6 +11,11 @@ module.exports = {
   '*.md': ['prettier --write'],
   'blog/**/*.md': ['prettier --write'],
 
-  // JSON/YAML files
-  '*.{json,yaml,yml}': ['prettier --write'],
+  // JSON/YAML files — exclude package manager lockfiles
+  '*.{json,yaml,yml}': (filenames) => {
+    const files = filenames.filter(
+      (f) => !/(^|\/)(pnpm-lock\.yaml|package-lock\.json|yarn\.lock)$/.test(f),
+    )
+    return files.length ? [`prettier --write ${files.join(' ')}`] : []
+  },
 }
