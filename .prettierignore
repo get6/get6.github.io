@@ -4,3 +4,8 @@ coverage
 
 # Ignore all HTML files:
 **/*.html
+
+# Package manager lockfiles (do not Prettier-rewrite; breaks minimal diffs / can churn YAML)
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
