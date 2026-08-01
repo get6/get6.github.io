@@ -52,7 +52,7 @@
     "autoprefixer": "^10.5.4",
     "baseline-browser-mapping": "^2.11.3",
     "eslint": "^8.57.1",
-    "eslint-config-next": "15.5.21",
+    "eslint-config-next": "15.5.22",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^17.2.0",
