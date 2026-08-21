@@ -142,3 +142,5 @@ public/blog/external
 public/fonts/pretendard
 blog/.obsidian/workspace.json
 blog/.obsidian/image-converter-image-alignments.json
+# Added by ggshield
+.cache_ggshield
