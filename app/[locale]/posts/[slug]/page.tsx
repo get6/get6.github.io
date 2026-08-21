@@ -89,7 +89,7 @@ export default async function LocalePost({
   const { date, title, body, tags, toc, hasMath } = post
 
   return (
-    <div className="min-w-0 overflow-x-clip">
+    <div className="min-h-screen min-w-0 overflow-x-clip bg-white dark:bg-gray-900">
       {hasMath && <KatexStyles />}
       <ScrollToTop />
       <BlogPostStructuredData

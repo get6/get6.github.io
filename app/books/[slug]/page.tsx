@@ -112,7 +112,7 @@ export default async function Book({
         />
       )}
       <div
-        className={`flex justify-center ${toc ? 'xl:justify-between' : 'xl:justify-center'}`}
+        className={`min-h-screen bg-white dark:bg-gray-900 flex justify-center ${toc ? '2xl:justify-between 2xl:gap-12' : '2xl:justify-center'}`}
       >
         {toc && <AsideHelper headers={toc} />}
         <DetailScreen>
@@ -221,7 +221,6 @@ export default async function Book({
           )}
           {toc && <MobileToc headers={toc} />}
           <Article html={body.html} />
-          <Line className="prose" />
           <GitHubGiscus />
         </DetailScreen>
         {toc && <Toc headers={toc} />}

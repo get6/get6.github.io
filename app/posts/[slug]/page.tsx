@@ -72,7 +72,7 @@ export default async function Post({
   const availableTranslations = getPostTranslations(slug, 'ko')
 
   return (
-    <div className="min-w-0 overflow-x-clip">
+    <div className="min-h-screen min-w-0 overflow-x-clip bg-white dark:bg-gray-900">
       {hasMath && <KatexStyles />}
       <ScrollToTop />
       <BlogPostStructuredData
