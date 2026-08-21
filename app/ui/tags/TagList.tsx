@@ -45,7 +45,7 @@ export default function TagList({ tags }: Props) {
   }, [tags])
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 border border-black bg-white px-4 py-6 dark:border-white dark:bg-gray-900">
       {mainTags.map((tag, index) => (
         <Badge
           key={index}
@@ -70,7 +70,7 @@ export default function TagList({ tags }: Props) {
           <span
             role="button"
             onClick={() => setShowMore((prev) => !prev)}
-            className="whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:cursor-pointer hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 lg:hidden"
+            className="whitespace-nowrap rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 hover:cursor-pointer hover:bg-blue-100 dark:bg-blue-950 dark:text-blue-300 dark:hover:bg-blue-900 lg:hidden"
           >
             {showMore
               ? dictionary.common.collapse

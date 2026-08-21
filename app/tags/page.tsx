@@ -17,7 +17,7 @@ import { Suspense } from 'react'
 
 function TagListFallback({ tags }: { tags: string[] }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 border border-black bg-white px-4 py-6 dark:border-white dark:bg-gray-900">
       <TagsFallBack tags={tags} />
     </div>
   )
