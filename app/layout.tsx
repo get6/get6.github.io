@@ -95,7 +95,7 @@ export default async function RootLayout({
         />
         <AdSense />
       </head>
-      <body className={`${inter.className} dark:bg-gray-900`}>
+      <body className={`${inter.className} bg-slate-50 dark:bg-gray-900`}>
         <Providers dictionary={dictionary} locale="ko">
           <WebVitals />
           <header>
