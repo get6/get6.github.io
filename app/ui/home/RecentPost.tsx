@@ -33,7 +33,7 @@ export default function RecentPost({
 
   return (
     <div
-      className="h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[545px] lg:w-[343px]"
+      className="card-hover h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[545px] lg:w-[343px]"
       onClick={() => push(localeUrl)}
     >
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">

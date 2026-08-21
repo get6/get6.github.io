@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation'
 export default function PrevPost({ post }: { post: Post }) {
   const { locale } = useDictionary()
   const { push } = useRouter()
-  const { url, date, title, body, tags, cover_image, summary } = post
+  const { url, title, tags, cover_image, summary } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
   const localeUrl = url
 
@@ -24,7 +24,7 @@ export default function PrevPost({ post }: { post: Post }) {
 
   return (
     <div
-      className="flex h-[140px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
+      className="card-hover flex h-[140px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
       onClick={() => push(localeUrl)}
     >
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
@@ -50,7 +50,7 @@ export default function PrevPost({ post }: { post: Post }) {
           <Line />
         </div>
         <div className="shrink-0">
-          <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="flex gap-2 overflow-x-hidden">
             {tags.map((tag) => (
               <Badge key={tag} name={tag} onClick={handleTagClick(tag)} />
             ))}
