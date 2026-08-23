@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 import { join } from 'path'
-import yaml from 'js-yaml'
+import { load as loadYaml } from 'js-yaml'
 
 export interface Video {
   title: string
@@ -63,8 +63,9 @@ const toIsoDate = (value: unknown): string => {
 const readYaml = <T>(filename: string): T[] => {
   const path = join(LIBRARY_DIR, filename)
   const raw = readFileSync(path, 'utf-8')
-  // safeLoad: !!js/function 등 임의 코드 실행 가능 타입을 거부 (js-yaml v3)
-  const parsed = yaml.safeLoad(raw)
+  // js-yaml v5의 load()는 기본 스키마에서 !!js/function 등 임의 코드 실행 타입을
+  // 아예 제거해 v3의 safeLoad와 동일하게 안전하다.
+  const parsed = loadYaml(raw)
   if (!Array.isArray(parsed)) return []
   return (parsed as Array<Record<string, unknown>>).map((item) => {
     if (item.added === undefined) return item
