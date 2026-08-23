@@ -1,9 +1,54 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../tailwind.config.ts';
 
 html {
   scroll-behavior: smooth;
+}
+
+/* 홈 타이틀 데코 글로우: Tailwind v4에서 커스텀 radial/conic 그라디언트의 dark 변형
+   합성이 깨져(다크모드 색 소실) v3 computed 실값을 명시 CSS로 고정한다. */
+.page-title-glow::before,
+.page-title-glow::after {
+  content: '';
+  position: absolute;
+  filter: blur(40px);
+}
+.page-title-glow::before {
+  width: 480px;
+  height: 300px;
+  border-radius: 9999px;
+  transform: translateX(-50%);
+  background-image: radial-gradient(#fff, transparent);
+}
+.page-title-glow::after {
+  z-index: -20;
+  width: 240px;
+  height: 180px;
+  transform: translateX(33.3333%);
+  background-image: conic-gradient(
+    from 180deg,
+    #bae6fd,
+    #bfdbfe,
+    rgba(191, 219, 254, 0)
+  );
+}
+@media (min-width: 1024px) {
+  .page-title-glow::before {
+    height: 360px;
+  }
+}
+.dark .page-title-glow::before {
+  opacity: 0.1;
+  background-image: linear-gradient(to bottom right, transparent, #1d4ed8);
+}
+.dark .page-title-glow::after {
+  opacity: 0.4;
+  background-image: conic-gradient(
+    from 180deg,
+    #0c4a6e,
+    #0141ff,
+    rgba(1, 65, 255, 0)
+  );
 }
 
 /* KaTeX 스타일 커스텀 */
@@ -30,7 +75,7 @@ html {
   }
 
   *:is(h1, h2, h3, h4, h5, h6) > a {
-    @apply hover:text-gray-700 no-underline !important;
+    @apply hover:text-gray-700! no-underline!;
   }
 }
 
@@ -47,7 +92,7 @@ html {
 
   /* 프로즈 리스트 커스텀 스타일 */
   .prose-list {
-    @apply drop-shadow-sm my-0 mt-2 font-semibold;
+    @apply drop-shadow-xs my-0 mt-2 font-semibold;
   }
 
   /* 스크롤 진행 표시기 */
