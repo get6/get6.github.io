@@ -1,0 +1,25 @@
+# Validates pnpm-lock.yaml on PRs so Dependabot cannot auto-merge a broken lockfile.
+# Pages deploy (next.yml) still runs only on main; this job is the PR gate.
+name: CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lockfile:
+    name: lockfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+      - name: Set up Node.js 22.x
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22.x
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
