@@ -338,4 +338,6 @@ export default makeSource({
     rehypePlugins: rehypePlugins as any,
   },
   date: { timezone: 'Asia/Seoul' },
+  // TS 6 deprecates compilerOptions.baseUrl; paths already maps contentlayer/generated.
+  disableImportAliasWarning: true,
 })
