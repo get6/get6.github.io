@@ -5,7 +5,7 @@ import os from 'os'
 import path from 'path'
 import sharp from 'sharp'
 
-import { toLocalAsset } from '../app/lib/to-local-asset'
+import { isHttpUrl, toLocalAsset } from '../app/lib/to-local-asset'
 
 const sourceUrl = 'https://images.example.com/photo.png'
 const fileName = `${createHash('md5').update(sourceUrl).digest('hex')}.webp`
@@ -28,6 +28,30 @@ const run = async () => {
   const options = { cacheDir, publicImageDir, publicUrlPrefix }
 
   try {
+    assert.strictEqual(isHttpUrl('https://images.example.com/photo.png'), true)
+    assert.strictEqual(isHttpUrl('http://image.yes24.com/goods/1/XL'), true)
+    assert.strictEqual(isHttpUrl('assets/cover.png'), false)
+    assert.strictEqual(isHttpUrl('file:///tmp/cover.png'), false)
+    assert.strictEqual(isHttpUrl('/blog/assets/cover.webp'), false)
+
+    const unusedFetcher = async () => {
+      throw new Error('non-http url must not fetch')
+    }
+    assert.strictEqual(
+      await toLocalAsset('assets/cover.png', {
+        ...options,
+        fetcher: unusedFetcher,
+      }),
+      'assets/cover.png',
+    )
+    assert.strictEqual(
+      await toLocalAsset('file:///tmp/cover.png', {
+        ...options,
+        fetcher: unusedFetcher,
+      }),
+      'file:///tmp/cover.png',
+    )
+
     assert.strictEqual(
       await toLocalAsset(sourceUrl, {
         ...options,

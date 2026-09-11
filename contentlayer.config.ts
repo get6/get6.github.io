@@ -13,6 +13,11 @@ import remarkToc from 'remark-toc'
 import { visit } from 'unist-util-visit'
 import { getToC } from './app/lib/toc'
 import { toLocalAsset } from './app/lib/to-local-asset'
+import {
+  hasExternalProtocol,
+  localizeExternalMarkdownImages,
+  toLocalBlogPath,
+} from './app/lib/rewrite-markdown-images'
 import { existsSync, mkdirSync } from 'fs'
 
 const CACHE_DIR = '.cache/images'
@@ -52,13 +57,13 @@ const adjustUl = (node: any, index: number | undefined, parent: any) => {
  * @param {string} options.root
  */
 const remarkSourceRedirect = () => async (tree: any) => {
-  const images: any[] = []
+  const images: { url: string }[] = []
   visit(tree, 'paragraph', (node, index, parent) => {
     const imgs = node.children.filter((child: any) => child.type === 'image')
     for (const img of imgs) {
-      if (img.url.includes('://')) images.push(node)
+      if (hasExternalProtocol(img.url)) images.push(img)
       else {
-        img.url = `/blog/${img.url.replace(/\.(PNG|JPG|JPEG|png|jpg|jpeg)$/, '.webp')}`
+        img.url = toLocalBlogPath(img.url)
       }
     }
     adjustUl(node, index, parent)
@@ -75,20 +80,7 @@ const remarkSourceRedirect = () => async (tree: any) => {
       node.url = `${hostname}/${replacedUrl}`
     }
   })
-  const promises: Promise<any>[] = []
-  for (const node of images) {
-    const imgs = node.children.filter((child: any) => child.type === 'image')
-    for (const img of imgs) {
-      if (img.url.includes('images.unsplash.com'))
-        promises.push(
-          new Promise(async (resolve) => {
-            img.url = await toLocalAsset(img.url)
-            resolve(img.url)
-          }),
-        )
-    }
-  }
-  await Promise.all(promises)
+  await localizeExternalMarkdownImages(images)
 }
 
 const isNameImg = (name: string) => name === 'img'
