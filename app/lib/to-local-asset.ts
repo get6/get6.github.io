@@ -16,15 +16,20 @@ const DEFAULT_CACHE_DIR = '.cache/images'
 const DEFAULT_PUBLIC_IMAGE_DIR = 'public/blog/external'
 const DEFAULT_PUBLIC_URL_PREFIX = '/blog/external'
 
+export const isHttpUrl = (url: string): boolean => /^https?:\/\//i.test(url)
+
 /**
  * 외부 이미지를 WebP로 변환해 로컬 asset 경로를 반환한다.
  * 외부 fetch/body/이미지 변환 실패는 원본 URL로 fallback한다.
+ * http(s)가 아닌 경로(상대 경로, file:// 등)는 fetch하지 않고 원본을 반환한다.
  * 로컬 파일 읽기/쓰기는 빌드 산출물의 정합성 문제이므로 예외를 유지한다.
  */
 export const toLocalAsset = async (
   url: string,
   options: ToLocalAssetOptions = {},
 ): Promise<string> => {
+  if (!isHttpUrl(url)) return url
+
   const cacheDir = options.cacheDir ?? DEFAULT_CACHE_DIR
   const publicImageDir = options.publicImageDir ?? DEFAULT_PUBLIC_IMAGE_DIR
   const publicUrlPrefix = options.publicUrlPrefix ?? DEFAULT_PUBLIC_URL_PREFIX
