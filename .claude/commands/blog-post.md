@@ -4,18 +4,37 @@
 
 ## 워크플로우
 
-Obsidian에서 Ctrl+N으로 새 노트를 만들면 Templater가 frontmatter와 Unsplash 이미지를 자동 생성해요.
-이 스킬은 **그 이후 단계** — 사용자가 붙여넣은 원문을 블로그 글로 변환하는 역할을 해요.
+사용법은 `/blog-post <vault 노트 키워드 또는 경로> — <요청>` 한 줄이에요.
+새 글 파일 생성(Templater 실행)과 vault 원문 노트 찾기는 이 스킬이 직접 해요. 사용자가 Obsidian에서 cmd+N을 누르거나 경로를 복사할 필요가 없어요.
 
 ## 실행 순서
 
-### Step 1: 파일 생성
+### Step 0: vault 원문 노트 찾기
 
-`blog/posts/` 폴더에 새 마크다운 파일을 생성해요.
+원문 노트는 Obsidian vault `/Volumes/T7Shield/repos/vault`에 있어요.
 
-**파일명 규칙**: `YYYYMMDDHHmm.md` (현재 시간 기준, zettelkasten ID)
+- 인자에 `.md` 경로가 있으면 그 파일을 그대로 원문으로 써요.
+- 키워드만 있으면 파일명과 본문에서 후보를 찾아요.
+  ```bash
+  fd -t f -e md '<키워드>' /Volumes/T7Shield/repos/vault
+  rg -l '<키워드>' /Volumes/T7Shield/repos/vault -g '*.md'
+  ```
+- 후보가 하나면 바로 쓰고, 여러 개면 경로 목록을 보여주고 AskUserQuestion으로 고르게 해요. 없으면 추측하지 말고 키워드를 다시 물어요.
+- 인자에 원문 내용이 직접 붙여넣어져 있으면 이 단계를 건너뛰어요.
 
-현재 시간은 `date +%Y%m%d%H%M` 명령으로 확인해요.
+### Step 1: 파일 생성 (Templater)
+
+인자에 `blog/posts/*.md` 경로가 있으면 그 파일을 써요. 없으면 아래 스크립트를 실행하고, stdout에 찍힌 경로를 새 글 파일로 써요.
+
+```bash
+bash scripts/new-obsidian-post.sh
+```
+
+- title이 비어 있는 기존 글(사용자가 cmd+N으로 미리 만든 파일)이 있으면 그 파일을 재사용해요.
+- 없으면 `obsidian://new` URI로 blog vault에 `posts/YYYYMMDDHHmm` 노트를 만들어요. folder template(`templates/Post template.md`)이 실행되면서 frontmatter, Unsplash 이미지, quote가 채워져요.
+- 스크립트가 실패하면(Obsidian이 꺼져 있거나 타임아웃) 직접 파일을 만들지 말고, 에러 메시지를 사용자에게 그대로 전해요.
+
+이렇게 받은 파일은 이미 Templater 결과물이에요. **date, 이미지, quote는 그대로 두고** title과 tags만 채운 뒤, 본문은 이미지 아래 `---` 구분선 **위쪽**에 넣어요. Step 2~3은 Templater 결과가 없는 예외 상황에서만 참고해요.
 
 ### Step 2: Frontmatter 작성
 
@@ -193,7 +212,7 @@ https://images.unsplash.com/photo-{ID}?crop=entropy&cs=srgb&fm=jpg&ixid={ixid}&i
 
 ### 인용문 (필수)
 
-본문 마지막에 구분선과 영어 명언을 넣어요. 글의 주제와 관련된 영감을 주는 문구를 선택해요.
+본문 마지막에 구분선과 영어 명언을 넣어요. Templater가 이미 quote를 넣었다면 **임의로 바꾸지 않고 그대로 둬요**. quote가 없을 때만 글의 주제와 관련된 영감을 주는 문구를 골라요.
 
 ```markdown
 ---
@@ -246,7 +265,7 @@ tags:
 
 - 파일은 반드시 `blog/posts/` 폴더에 생성
 - 파일명은 반드시 `YYYYMMDDHHmm.md` 형식
-- 이미 같은 파일명이 존재하면 분 단위를 +1 해서 충돌 회피
+- 이미 같은 파일명이 존재하면 분 단위를 +1 해서 충돌 회피 (`scripts/new-obsidian-post.sh`가 처리)
 - 기존 게시글의 톤과 형식을 **일관되게** 유지
 - 사용자가 제공하지 않은 내용을 임의로 추가하지 않기
 - 이모지 사용하지 않기
