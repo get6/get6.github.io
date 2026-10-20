@@ -30,6 +30,8 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # checkout 없이 gh를 쓰므로 저장소를 명시 (not a git repository 방지)
+          GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
           deadline=$((SECONDS + 600))
