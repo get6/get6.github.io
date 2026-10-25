@@ -12,6 +12,7 @@
     "test:to-local-asset": "ts-node scripts/to-local-asset.test.ts",
     "test:rewrite-markdown-images": "ts-node scripts/rewrite-markdown-images.test.ts",
     "test:toc": "ts-node scripts/toc.test.ts",
+    "test:description": "ts-node scripts/description.test.ts",
     "copy-fonts": "ts-node scripts/copy-pretendard.ts",
     "predev": "pnpm copy-dir && pnpm copy-fonts",
     "prebuild": "pnpm copy-dir && pnpm copy-fonts",

@@ -1,6 +1,7 @@
 import { locales, localePath, type AllLocale } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
-import { getOGImage, sliceDesc } from '@/app/lib/utils'
+import { getDescription } from '@/app/lib/description'
+import { getOGImage } from '@/app/lib/utils'
 import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import Article from '@/app/ui/Article'
 import GitHubGiscus from '@/app/ui/GitHubGiscus'
@@ -53,7 +54,7 @@ export const generateMetadata = async ({
 
   return createMetadata({
     title: post.title,
-    description: sliceDesc(post.summary, 160),
+    description: getDescription(post, 160),
     image: getOGImage(post.body.raw),
     url: localePath(`/posts/${post.slug}`, locale),
     type: 'article',
@@ -94,7 +95,7 @@ export default async function LocalePost({
       <ScrollToTop />
       <BlogPostStructuredData
         title={title}
-        description={post.summary}
+        description={getDescription(post, 160)}
         datePublished={date}
         author={dictionary.meta.blogName}
         url={localePath(`/posts/${post.slug}`, locale)}
