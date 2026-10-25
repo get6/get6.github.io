@@ -151,6 +151,7 @@ const Post = defineDocumentType(() => ({
   filePathPattern: `posts/**/*.md`,
   fields: {
     title: { type: 'string', required: true },
+    description: { type: 'string' },
     date: { type: 'date', required: true },
     tags: {
       type: 'list',

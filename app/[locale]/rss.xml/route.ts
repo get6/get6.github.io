@@ -2,7 +2,7 @@ import { BASE_URL } from '@/app/lib/definitions'
 import { locales, localePath } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
 import { getPostsByLocale } from '@/app/lib/content'
-import { sliceDesc } from '@/app/lib/utils'
+import { getDescription } from '@/app/lib/description'
 
 export const dynamic = 'force-static'
 
@@ -44,7 +44,7 @@ export async function GET(
         (post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <description><![CDATA[${sliceDesc(post.summary, 200)}]]></description>
+      <description><![CDATA[${getDescription(post, 200)}]]></description>
       <link>${BASE_URL}${localePath(`/posts/${post.slug}`, locale)}</link>
       <guid isPermaLink="true">${BASE_URL}${localePath(`/posts/${post.slug}`, locale)}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
