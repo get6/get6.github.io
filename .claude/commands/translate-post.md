@@ -124,5 +124,6 @@ Here's what I learned...
 - 사용자가 제공하지 않은 내용을 임의로 추가하지 않기
 - 의역은 허용하되, 원본에 없는 정보를 추가하지 않기
 - 이모지 사용하지 않기
+- Obsidian이 열려 있으면 `blog/posts/en|ja`에 새로 만든 파일에 Templater 폴더 템플릿이 끼어들 수 있다(title이 `<% tp.file.cursor(1) %>`로 바뀌고 date 갱신, 빈 태그 `- `, 두 번째 이미지·quote 블록이 끝에 추가됨). 번역본을 쓴 직후 `rg -c 'tp\.file|^!\[photo|\[!quote\]' <file>`로 템플릿 변수 0개·이미지 1개·quote 1개를 확인하고, 틀어졌으면 복구한다 (2026-10-26 en 파일에서 발생).
 
 $ARGUMENTS
