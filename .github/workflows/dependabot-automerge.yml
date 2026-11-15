@@ -1,6 +1,8 @@
 name: Dependabot auto-merge
 
-on: pull_request_target
+# pull_request (not pull_request_target): GitHub's documented Dependabot auto-merge
+# pattern. The token gets write access only through the permissions block below.
+on: pull_request
 
 permissions:
   contents: write
@@ -11,11 +13,12 @@ permissions:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    # PR author, not github.actor: the actor is whoever triggered the latest event.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - name: Fetch Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v3
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
