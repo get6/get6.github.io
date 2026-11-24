@@ -3,5 +3,6 @@
   "theme": "moonstone",
   "interfaceFontFamily": "Pretendard",
   "textFontFamily": "Pretendard",
-  "monospaceFontFamily": "Pretendard"
+  "monospaceFontFamily": "Pretendard",
+  "showRibbon": true
 }
