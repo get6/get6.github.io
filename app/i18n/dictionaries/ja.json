@@ -1,7 +1,7 @@
 {
   "meta": {
     "blogName": "あの時の私",
-    "blogTitle": "AIエージェントとプロダクト開発の記録",
+    "blogTitle": "あの時の私 – 作って、学んで、残す記録",
     "blogDescription": "AIエージェントと働くこと、プロダクトITTAEを作る過程、そしてそのときの考えを残すブログです。",
     "rssTitle": "あの時の私 RSS"
   },
@@ -25,7 +25,7 @@
     "externalLink": "外部リンク"
   },
   "home": {
-    "heading": "AIエージェントとプロダクト開発の記録",
+    "heading": "あの時の私 – 作って、学んで、残す記録",
     "recentPosts": "最新の投稿",
     "allPosts": "すべての投稿"
   },

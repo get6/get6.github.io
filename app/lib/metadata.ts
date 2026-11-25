@@ -20,6 +20,8 @@ interface GenerateMetadataProps {
   author?: string
   locale?: string
   blogName?: string
+  // 홈 제목처럼 사이트명이 이미 들어 있으면 false. 기본은 `제목 - 사이트명`.
+  appendSiteName?: boolean
 }
 
 /** Build hreflang alternates for a given path (without locale prefix). */
@@ -49,9 +51,14 @@ export function generateMetadata({
   author = blog_name,
   locale = 'ko',
   blogName,
+  appendSiteName = true,
 }: GenerateMetadataProps): Metadata {
   const siteName = blogName ?? blog_name
-  const fullTitle = title ? `${title} - ${siteName}` : blog_title
+  const fullTitle = title
+    ? appendSiteName
+      ? `${title} - ${siteName}`
+      : title
+    : blog_title
   const fullUrl = `${BASE_URL}${url}`
   const fullImageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`
   const ogLocale = ogLocaleMap[locale] ?? 'ko_KR'

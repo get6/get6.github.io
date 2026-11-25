@@ -1,7 +1,7 @@
 {
   "meta": {
     "blogName": "Moment of Me",
-    "blogTitle": "Notes on AI agents and building products",
+    "blogTitle": "Moment of Me – Notes on making, learning, and keeping a record",
     "blogDescription": "Notes on working with AI agents, building ITTAE, and what I learn along the way.",
     "rssTitle": "Moment of Me RSS"
   },
@@ -25,7 +25,7 @@
     "externalLink": "External link"
   },
   "home": {
-    "heading": "Notes on AI agents and building products",
+    "heading": "Moment of Me – Notes on making, learning, and keeping a record",
     "recentPosts": "Recent Posts",
     "allPosts": "All Posts"
   },

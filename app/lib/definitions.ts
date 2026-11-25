@@ -4,7 +4,8 @@ export type Tag = {
 }
 
 export const blog_name = '이때의 나'
-export const blog_title = `AI 에이전트와 제품 개발 기록 - ${blog_name}`
+// 홈 문서 제목. 사이트명이 이미 앞에 있으므로 ` - ${blog_name}`을 다시 붙이지 않는다.
+export const blog_title = '이때의 나 – 만들고 배우고 남기는 기록'
 export const blog_description =
   'AI 에이전트로 일하는 법, 제품 이때를 만드는 과정, 그리고 그때의 생각을 적어 두는 블로그예요.'
 
@@ -28,7 +29,6 @@ export const BASE_URL =
 export const menus = [
   // { name: 'Posts', href: '/posts' },
   { name: 'Library', href: '/library' },
-  // { name: 'Life', href: '/life' },
   // { name: 'Series', href: '/series' },
   { name: 'Tags', href: '/tags' },
   { name: 'About me', href: '/about' },

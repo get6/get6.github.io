@@ -26,6 +26,7 @@ export async function generateMetadata({
     url: `/${locale}`,
     locale,
     blogName: dictionary.meta.blogName,
+    appendSiteName: false,
   })
 }
 
@@ -53,13 +54,13 @@ export default async function LocaleHome({
   return (
     <PageScreen>
       <WebsiteStructuredData
-        name={dictionary.meta.blogName}
+        name={dictionary.meta.blogTitle}
         description={dictionary.meta.blogDescription}
         url={`${BASE_URL}/${locale}`}
         locale={locale}
       />
       <div className="flex w-full flex-col items-center gap-8">
-        <PageTitle>{dictionary.home.heading}</PageTitle>
+        <PageTitle visuallyHidden>{dictionary.home.heading}</PageTitle>
         <div className="flex w-full flex-col gap-4">
           <PageTitle level={2}>{dictionary.home.recentPosts}</PageTitle>
           <div className="flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between">
