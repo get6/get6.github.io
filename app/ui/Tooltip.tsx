@@ -1,8 +1,7 @@
 import FormattedDate from '@/app/ui/FormattedDate'
-import { IsoDateTimeString } from 'contentlayer2/core'
 
 interface Props {
-  date: IsoDateTimeString
+  date: string
 }
 
 export default function Tooltip({ date }: Props) {

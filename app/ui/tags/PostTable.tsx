@@ -1,82 +1,49 @@
-'use client'
-
 import { AdsInTable } from '@/app/ads/AdsInTable'
-import { Ad, ad_per_content } from '@/app/lib/definitions'
-import {
-  getLocaleFromPathname,
-  getClientDictionary,
-} from '@/app/i18n/client-dictionary'
+import { ad_per_content } from '@/app/lib/definitions'
+import type { PostListItem } from '@/app/lib/content'
+import { TAG_SEPARATOR } from '@/app/lib/tag-path'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
-import type { PostListItem } from '@/app/lib/content'
 import Link from 'next/link'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo } from 'react'
+import { Fragment } from 'react'
 
-type PostOrAd = PostListItem | Ad
-
-const insertAdsIntoPosts = (
-  posts: PostListItem[],
-  interval: number,
-): PostOrAd[] => {
-  const result: PostOrAd[] = []
-  for (let i = 0; i < posts.length; i++) {
-    if (i > 0 && i % interval === 0) {
-      result.push({ type: 'Ad' })
-    }
-    result.push(posts[i])
-  }
-  return result
+interface Labels {
+  title: string
+  date: string
+  categories: string
+  empty: string
 }
 
-export default function PostTable({
-  posts: initialPosts,
-}: {
+interface Props {
   posts: PostListItem[]
-}) {
-  const { push } = useRouter()
-  const pathname = usePathname()
-  const locale = getLocaleFromPathname(pathname)
-  const dictionary = getClientDictionary(locale)
+  labels: Labels
+}
 
-  const heads = [
-    dictionary.tags.tableTitle,
-    dictionary.tags.tableDate,
-    dictionary.tags.tableCategories,
-  ]
-  const searchParams = useSearchParams()
-  const tag = searchParams.get('tag')
-
-  const posts = useMemo(
-    () =>
-      tag
-        ? initialPosts.filter((post) => post.tags.includes(tag))
-        : initialPosts,
-    [tag, initialPosts],
-  )
-
-  const postsWithAds = useMemo(
-    () => insertAdsIntoPosts(posts, ad_per_content),
-    [posts],
-  )
+export default function PostTable({ posts, labels }: Props) {
+  const heads = [labels.title, labels.date, labels.categories]
 
   return (
     <Table>
       <TableHead>
         <tr>
           {heads.map((head, index) => (
-            <th key={index} scope="col" className="px-6 py-3">
-              {head} {index === 0 && `(${posts.length})`}
+            <th key={head} scope="col" className="px-6 py-3">
+              {head}{' '}
+              {index === 0 && (
+                <>
+                  (<span data-post-count>{posts.length}</span>)
+                </>
+              )}
             </th>
           ))}
         </tr>
       </TableHead>
       <TableBody>
-        {postsWithAds.map((item, index) => {
-          if ('type' in item && item.type === 'Ad') {
-            return (
+        {posts.map((post, index) => (
+          <Fragment key={post.slug}>
+            {index > 0 && index % ad_per_content === 0 ? (
               <tr
-                key={`ad-${index}`}
+                data-ad-slot
                 className="max-h-14 border-b bg-white dark:border-gray-700 dark:bg-gray-800"
               >
                 <td
@@ -86,23 +53,19 @@ export default function PostTable({
                   <AdsInTable adKey={`post-ad-${index}`} />
                 </td>
               </tr>
-            )
-          }
-          const post = item as PostListItem
-          const postUrl = post.url
-          return (
+            ) : null}
             <tr
-              key={post.slug}
-              onClick={() => push(postUrl)}
-              className="border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+              data-post-row
+              data-tags={post.tags.join(TAG_SEPARATOR)}
+              className="relative border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
             >
               <th
                 scope="row"
-                className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                className="px-6 py-4 font-medium whitespace-nowrap text-gray-900 dark:text-white"
               >
                 <Link
-                  href={postUrl}
-                  className="hover:text-blue-600 dark:hover:text-blue-400"
+                  href={post.url}
+                  className="hover:text-blue-600 after:absolute after:inset-0 dark:hover:text-blue-400"
                 >
                   {post.title}
                 </Link>
@@ -112,18 +75,16 @@ export default function PostTable({
               </td>
               <td className="truncate px-6 py-4">{post.tags.join(', ')}</td>
             </tr>
-          )
-        })}
-        {posts.length === 0 && (
-          <tr>
-            <td
-              colSpan={3}
-              className="lg:text-md py-4 text-center text-sm font-semibold"
-            >
-              {dictionary.tags.noMatchingPosts}
-            </td>
-          </tr>
-        )}
+          </Fragment>
+        ))}
+        <tr data-empty hidden>
+          <td
+            colSpan={3}
+            className="py-4 text-center text-sm font-semibold lg:text-base"
+          >
+            {labels.empty}
+          </td>
+        </tr>
       </TableBody>
     </Table>
   )

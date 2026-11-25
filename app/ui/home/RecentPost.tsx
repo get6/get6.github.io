@@ -1,41 +1,24 @@
-'use client'
-
-import { localePath } from '@/app/i18n/config'
-import { useDictionary } from '@/app/i18n/use-dictionary'
-import Badge from '@/app/ui/Badge'
-import TagsFallBack from '@/app/ui/TagsFallback'
+import { tagFilterHref } from '@/app/lib/tag-path'
+import type { PostListItem } from '@/app/lib/content'
+import TagLink from '@/app/ui/TagLink'
 import Title from '@/app/ui/Title'
 import Tooltip from '@/app/ui/Tooltip'
 import PostDate from '@/app/ui/home/post/PostDate'
-import type { PostListItem } from '@/app/lib/content'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import { Suspense } from 'react'
+import Link from 'next/link'
 
 export default function RecentPost({
   post,
-  locale: localeProp,
+  locale = 'ko',
 }: {
   post: PostListItem
   locale?: string
 }) {
-  const { locale: contextLocale } = useDictionary()
-  const locale = localeProp ?? contextLocale
   const { url, date, title, tags, cover_image, summary, readingMinutes } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
-  const { push } = useRouter()
-  const localeUrl = url
-
-  const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
-    e.stopPropagation()
-    push(localePath(`/tags/?tag=${tag}`, locale))
-  }
 
   return (
-    <div
-      className="card-hover h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[545px] lg:w-[343px]"
-      onClick={() => push(localeUrl)}
-    >
+    <article className="card-hover relative h-[517px] w-full border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[545px] lg:w-[343px]">
       <div className="relative h-[343px] w-full border-b border-black dark:border-white">
         <Image
           className="object-cover object-top"
@@ -46,7 +29,10 @@ export default function RecentPost({
         />
       </div>
       <div className="flex h-[174px] flex-col justify-center gap-4 px-6 lg:h-[202px]">
-        <div className="flex flex-col gap-2 lg:max-w-[306px]">
+        <Link
+          href={url}
+          className="flex flex-col gap-2 after:absolute after:inset-0 lg:max-w-[306px]"
+        >
           <div className="flex">
             <span className="group relative flex items-center">
               <Tooltip date={date} />
@@ -54,18 +40,16 @@ export default function RecentPost({
             </span>
           </div>
           <Title>{title}</Title>
-          <div className="min-h-12 w-full min-w-0 overflow-hidden text-ellipsis text-sm font-normal leading-6 line-clamp-2 dark:text-white">
+          <div className="line-clamp-2 min-h-12 w-full min-w-0 overflow-hidden text-ellipsis text-sm leading-6 font-normal dark:text-white">
             {normalizedSummary}
           </div>
-        </div>
-        <div className="flex gap-2 overflow-x-hidden">
-          <Suspense fallback={<TagsFallBack tags={tags} />}>
-            {tags.map((tag) => (
-              <Badge key={tag} name={tag} onClick={handleTagClick(tag)} />
-            ))}
-          </Suspense>
+        </Link>
+        <div className="relative z-10 flex gap-2 overflow-x-hidden">
+          {tags.map((tag) => (
+            <TagLink key={tag} name={tag} href={tagFilterHref(tag, locale)} />
+          ))}
         </div>
       </div>
-    </div>
+    </article>
   )
 }

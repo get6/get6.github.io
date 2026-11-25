@@ -123,7 +123,7 @@ export default async function LocalePost({
               <Article html={body.html} />
               <Line className="prose" />
             </div>
-            <PostTags tags={tags} />
+            <PostTags tags={tags} locale={locale} />
             <GitHubGiscus locale={locale} />
           </DetailScreen>
           {0 < otherPosts.length && (

@@ -9,6 +9,7 @@ export const AdsRecentPost = () => {
   return (
     <div
       ref={ref}
+      data-ad-slot
       className="flex h-[140px] w-full items-center justify-center overflow-hidden border border-black bg-white dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
     >
       {active && (
