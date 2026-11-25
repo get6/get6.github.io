@@ -97,6 +97,12 @@
 - - Prettier - Code formatter
 <!-- AGENT_POLICY_MANAGED_BLOCK:END -->
 
+## Pull request reviews
+
+Reviews of pull requests in this repository must use the official body format from `ittae/.github` `tools/review_prompt.py` (`OUTPUT_TEMPLATE`). The review meta block records verdict `PASS` or `FAIL` (`FAIL` corresponds to a GitHub `REQUEST_CHANGES` event).
+
+Do not post a review to GitHub until the owner explicitly asks you to post it. Prepare the body and wait for that go-ahead.
+
 ## 검색·컨텍스트 규율 (토큰 효율)
 <!-- BEGIN agent-search-discipline (managed) -->
 - 코드/텍스트 검색은 `rg`, 파일 탐색은 `fd`, 구조(AST) 매칭은 `ast-grep`/`sg` (`grep -r`/`find`/정규식 대신).
