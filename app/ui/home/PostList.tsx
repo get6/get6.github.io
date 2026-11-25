@@ -3,18 +3,18 @@
 import { AdsRecentPost } from '@/app/ads/AdsRecentPost'
 import { ad_per_content } from '@/app/lib/definitions'
 import { useDictionary } from '@/app/i18n/use-dictionary'
+import { postSearchText, type PostListItem } from '@/app/lib/content'
 import PrevPost from '@/app/ui/home/PrevPost'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
-import { Post } from 'contentlayer/generated'
 import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
 interface Props {
-  posts: Post[]
+  posts: PostListItem[]
   locale?: string
 }
 
-type PostOrAd = Post | { type: 'Ad' }
+type PostOrAd = PostListItem | { type: 'Ad' }
 
 export default function PostList({ posts }: Props) {
   const { dictionary } = useDictionary()
@@ -27,14 +27,7 @@ export default function PostList({ posts }: Props) {
     () =>
       posts.map((post) => ({
         post,
-        searchText: [
-          post.title ?? '',
-          post.summary ?? '',
-          Array.isArray(post.tags) ? post.tags.join(' ') : '',
-          post.body?.raw?.slice(0, 1800) ?? '',
-        ]
-          .join(' ')
-          .toLowerCase(),
+        searchText: postSearchText(post),
       })),
     [posts],
   )
@@ -67,7 +60,10 @@ export default function PostList({ posts }: Props) {
           'type' in item && item.type === 'Ad' ? (
             <AdsRecentPost key={`ad-${index}`} />
           ) : (
-            <PrevPost key={(item as Post).slug} post={item as Post} />
+            <PrevPost
+              key={(item as PostListItem).slug}
+              post={item as PostListItem}
+            />
           ),
         )
       ) : (

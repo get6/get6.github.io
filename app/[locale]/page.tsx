@@ -9,7 +9,7 @@ import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import { PostSkeleton, RecentPostSkeleton, Skeleton } from '@/app/ui/Skeleton'
 import { WebsiteStructuredData } from '@/app/ui/StructuredData'
-import { getPostsByLocale } from '@/app/lib/content'
+import { getPostListByLocale } from '@/app/lib/content'
 import { Suspense } from 'react'
 
 export async function generateMetadata({
@@ -61,9 +61,9 @@ export default async function LocaleHome({
   const dictionary = await getDictionary(locale)
 
   // Use locale-specific posts; fallback to ko if none exist for this locale
-  let localePosts = getPostsByLocale(locale)
+  let localePosts = getPostListByLocale(locale)
   if (localePosts.length === 0) {
-    localePosts = getPostsByLocale('ko')
+    localePosts = getPostListByLocale('ko')
   }
 
   const recentPosts = localePosts.slice(0, 3)
