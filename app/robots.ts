@@ -17,10 +17,6 @@ export default function robots(): MetadataRoute.Robots {
           '/scripts/', // 스크립트 폴더
         ],
       },
-      {
-        userAgent: 'GPTBot', // OpenAI의 GPTBot 차단 (선택사항)
-        disallow: '/',
-      },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
     host: BASE_URL,

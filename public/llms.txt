@@ -1,0 +1,15 @@
+# 이때의 나
+
+> AI 에이전트로 일하는 법, 제품 이때를 만드는 과정, 그리고 그때의 생각을 적어 두는 블로그예요.
+
+https://get6.github.io
+
+## 주요 페이지
+
+- [홈](https://get6.github.io): 최근 글과 블로그 소개. 문서 제목은 「이때의 나 – 만들고 배우고 남기는 기록」입니다.
+- [소개](https://get6.github.io/about): 작성자와 블로그를 소개합니다.
+- [서재](https://get6.github.io/library): 읽고 있는 책과 읽은 책을 모읍니다.
+- [태그](https://get6.github.io/tags): 글 주제 목록입니다.
+- [RSS](https://get6.github.io/rss.xml): 최근 글 피드입니다.
+
+영문 홈은 https://get6.github.io/en , 일본어 홈은 https://get6.github.io/ja 입니다.
