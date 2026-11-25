@@ -14,6 +14,7 @@
     "test:toc": "ts-node scripts/toc.test.ts",
     "test:description": "ts-node scripts/description.test.ts",
     "test:post-list-item": "ts-node scripts/post-list-item.test.ts",
+    "test:site-url": "ts-node scripts/site-url.test.ts",
     "copy-fonts": "ts-node scripts/copy-pretendard.ts",
     "predev": "pnpm copy-dir && pnpm copy-fonts",
     "prebuild": "pnpm copy-dir && pnpm copy-fonts",
