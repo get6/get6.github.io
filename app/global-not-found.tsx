@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body className="bg-slate-50 dark:bg-gray-900">
         <ThemeProvider attribute="class">
           <NotFoundScreen />

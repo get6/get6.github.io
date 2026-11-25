@@ -24,8 +24,8 @@ export default function RootDocument({ locale, dictionary, children }: Props) {
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="이때의 나 RSS"
-          href="/rss.xml"
+          title={dictionary.meta.rssTitle}
+          href={locale === 'ko' ? '/rss.xml' : `/${locale}/rss.xml`}
         />
         {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
