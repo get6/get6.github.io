@@ -1,31 +1,28 @@
-'use client'
-
-import { localePath } from '@/app/i18n/config'
-import { useDictionary } from '@/app/i18n/use-dictionary'
-import Badge from '@/app/ui/Badge'
+import { postSearchText } from '@/app/lib/post-list-item'
+import { tagFilterHref } from '@/app/lib/tag-path'
+import type { PostListItem } from '@/app/lib/content'
 import Line from '@/app/ui/Line'
+import TagLink from '@/app/ui/TagLink'
 import Title from '@/app/ui/Title'
 import PostDate from '@/app/ui/home/post/PostDate'
-import type { PostListItem } from '@/app/lib/content'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
-export default function PrevPost({ post }: { post: PostListItem }) {
-  const { locale } = useDictionary()
-  const { push } = useRouter()
+export default function PrevPost({
+  post,
+  locale = 'ko',
+}: {
+  post: PostListItem
+  locale?: string
+}) {
   const { url, title, tags, cover_image, summary, readingMinutes } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
-  const localeUrl = url
-
-  const handleTagClick = (tag: string) => (e: React.MouseEvent) => {
-    e.stopPropagation()
-    push(localePath(`/tags/?tag=${tag}`, locale))
-  }
 
   return (
-    <div
-      className="card-hover flex h-[140px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
-      onClick={() => push(localeUrl)}
+    <article
+      data-post-card
+      data-search={postSearchText(post)}
+      className="card-hover relative flex h-[140px] w-full overflow-hidden border border-black bg-white hover:cursor-pointer dark:border-white dark:bg-gray-900 lg:h-[205px] lg:w-[520px]"
     >
       <div className="flex min-w-[120px] border-r border-black dark:border-white lg:min-w-[164px]">
         <div className="relative w-full">
@@ -39,24 +36,28 @@ export default function PrevPost({ post }: { post: PostListItem }) {
         </div>
       </div>
       <div className="flex min-h-0 min-w-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
-        <div className="min-h-0 min-w-0 flex-1 overflow-hidden lg:max-w-[306px]">
+        <Link
+          href={url}
+          prefetch={false}
+          className="min-h-0 min-w-0 flex-1 overflow-hidden after:absolute after:inset-0 lg:max-w-[306px]"
+        >
           <PostDate post={post} readingMinutes={readingMinutes} />
           <Title>{title}</Title>
-          <div className="mt-1 w-full min-w-0 overflow-hidden text-sm font-normal leading-6 line-clamp-1 dark:text-white lg:line-clamp-2 lg:text-base">
+          <div className="mt-1 line-clamp-1 w-full min-w-0 overflow-hidden text-sm leading-6 font-normal dark:text-white lg:line-clamp-2 lg:text-base">
             {normalizedSummary}
           </div>
-        </div>
+        </Link>
         <div className="my-1 lg:my-2">
           <Line />
         </div>
-        <div className="shrink-0">
+        <div className="relative z-10 shrink-0">
           <div className="flex gap-2 overflow-x-hidden">
             {tags.map((tag) => (
-              <Badge key={tag} name={tag} onClick={handleTagClick(tag)} />
+              <TagLink key={tag} name={tag} href={tagFilterHref(tag, locale)} />
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </article>
   )
 }

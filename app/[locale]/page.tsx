@@ -4,10 +4,11 @@ import { generateMetadata as createMetadata } from '@/app/lib/metadata'
 import PageTitle from '@/app/ui/home/PageTitle'
 import { Metadata } from 'next'
 import PostList from '@/app/ui/home/PostList'
+import PostListFilter from '@/app/ui/home/PostListFilter'
 import RecentPost from '@/app/ui/home/RecentPost'
 import SearchBar from '@/app/ui/home/SearchBar'
 import PageScreen from '@/app/ui/layout/PageScreen'
-import { PostSkeleton, RecentPostSkeleton, Skeleton } from '@/app/ui/Skeleton'
+import { Skeleton } from '@/app/ui/Skeleton'
 import { WebsiteStructuredData } from '@/app/ui/StructuredData'
 import { getPostListByLocale } from '@/app/lib/content'
 import { Suspense } from 'react'
@@ -26,26 +27,6 @@ export async function generateMetadata({
     locale,
     blogName: dictionary.meta.blogName,
   })
-}
-
-function PostListFallback() {
-  return (
-    <div className="flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between">
-      {Array.from({ length: 4 }, (_, index) => (
-        <PostSkeleton key={`post-skeleton-${index}`} />
-      ))}
-    </div>
-  )
-}
-
-function RecentPostsFallback() {
-  return (
-    <div className="flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between">
-      {Array.from({ length: 3 }, (_, index) => (
-        <RecentPostSkeleton key={`recent-post-skeleton-${index}`} />
-      ))}
-    </div>
-  )
 }
 
 function SearchBarFallback() {
@@ -80,15 +61,11 @@ export default async function LocaleHome({
       <div className="flex w-full flex-col items-center gap-8">
         <div className="flex w-full flex-col gap-4">
           <PageTitle>{dictionary.home.recentPosts}</PageTitle>
-          <Suspense fallback={<RecentPostsFallback />}>
-            <div
-              className={`flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between`}
-            >
-              {recentPosts.map((post) => (
-                <RecentPost key={post.slug} post={post} locale={locale} />
-              ))}
-            </div>
-          </Suspense>
+          <div className="flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between">
+            {recentPosts.map((post) => (
+              <RecentPost key={post.slug} post={post} locale={locale} />
+            ))}
+          </div>
         </div>
         <div className="flex w-full flex-col gap-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -97,9 +74,14 @@ export default async function LocaleHome({
               <SearchBar />
             </Suspense>
           </div>
-          <Suspense fallback={<PostListFallback />}>
-            <PostList posts={posts} locale={locale} />
+          <Suspense fallback={null}>
+            <PostListFilter />
           </Suspense>
+          <PostList
+            posts={posts}
+            locale={locale}
+            emptyLabel={dictionary.search.noResults}
+          />
         </div>
       </div>
     </PageScreen>

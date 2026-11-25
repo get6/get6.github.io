@@ -1,42 +1,27 @@
 'use client'
 
 import { Tag } from '@/app/lib/definitions'
-import {
-  getLocaleFromPathname,
-  getClientDictionary,
-} from '@/app/i18n/client-dictionary'
-import Badge from '@/app/ui/Badge'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { tagFilterHref } from '@/app/lib/tag-path'
+import { getClientDictionary } from '@/app/i18n/client-dictionary'
+import TagLink from '@/app/ui/TagLink'
+import { applyActiveTagLinks } from '@/app/ui/tags/active-tag-links'
+import { useEffect, useMemo, useState } from 'react'
 
 interface Props {
   tags: Tag[]
+  locale?: string
 }
 
-export default function TagList({ tags }: Props) {
-  const param = 'tag'
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const { replace } = useRouter()
+export default function TagList({ tags, locale = 'ko' }: Props) {
   const [showMore, setShowMore] = useState(false)
-  const locale = getLocaleFromPathname(pathname)
   const dictionary = getClientDictionary(locale)
 
-  const hasTag = (tag: string) => {
-    const params = new URLSearchParams(searchParams)
-    return params.has(param) && params.get(param) === tag
-  }
-
-  const handleClick = (tag: string) => {
-    const params = new URLSearchParams(searchParams)
-
-    if (hasTag(tag)) {
-      params.delete(param)
-    } else {
-      params.set(param, tag)
-    }
-    replace(`${pathname}?${params.toString()}`)
-  }
+  // '+N 더보기'로 나중에 붙는 칩은 필터 effect가 이미 지난 뒤라 선택 상태가 없다.
+  useEffect(() => {
+    if (!showMore) return
+    const tag = new URLSearchParams(window.location.search).get('tag')
+    applyActiveTagLinks(tag)
+  }, [showMore])
 
   const { mainTags, moreTags } = useMemo(() => {
     const main = tags.filter((tag) => tag.count > 1)
@@ -46,43 +31,43 @@ export default function TagList({ tags }: Props) {
 
   return (
     <div className="flex flex-wrap gap-2 border border-black bg-white px-4 py-6 dark:border-white dark:bg-gray-900">
-      {mainTags.map((tag, index) => (
-        <Badge
-          key={index}
+      {mainTags.map((tag) => (
+        <TagLink
+          key={tag.name}
           name={tag.name}
           count={tag.count}
-          onClick={() => handleClick(tag.name)}
+          href={tagFilterHref(tag.name, locale)}
           isLarge
         />
       ))}
       {moreTags.length > 0 && (
         <>
           {showMore &&
-            moreTags.map((tag, index) => (
-              <Badge
-                key={`more-${index}`}
+            moreTags.map((tag) => (
+              <TagLink
+                key={`more-${tag.name}`}
                 name={tag.name}
                 count={tag.count}
-                onClick={() => handleClick(tag.name)}
+                href={tagFilterHref(tag.name, locale)}
                 isLarge
               />
             ))}
-          <span
-            role="button"
+          <button
+            type="button"
             onClick={() => setShowMore((prev) => !prev)}
-            className="whitespace-nowrap rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 hover:cursor-pointer hover:bg-blue-100 dark:bg-blue-950 dark:text-blue-300 dark:hover:bg-blue-900 lg:hidden"
+            className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium whitespace-nowrap text-blue-700 hover:cursor-pointer hover:bg-blue-100 lg:hidden dark:bg-blue-950 dark:text-blue-300 dark:hover:bg-blue-900"
           >
             {showMore
               ? dictionary.common.collapse
               : `+${moreTags.length}${dictionary.common.showMore}`}
-          </span>
+          </button>
           <span className="hidden lg:contents">
-            {moreTags.map((tag, index) => (
-              <Badge
-                key={`lg-${index}`}
+            {moreTags.map((tag) => (
+              <TagLink
+                key={`lg-${tag.name}`}
                 name={tag.name}
                 count={tag.count}
-                onClick={() => handleClick(tag.name)}
+                href={tagFilterHref(tag.name, locale)}
                 isLarge
               />
             ))}

@@ -1,79 +1,38 @@
-'use client'
-
 import { AdsRecentPost } from '@/app/ads/AdsRecentPost'
 import { ad_per_content } from '@/app/lib/definitions'
-import { useDictionary } from '@/app/i18n/use-dictionary'
-import { postSearchText, type PostListItem } from '@/app/lib/content'
+import type { PostListItem } from '@/app/lib/content'
 import PrevPost from '@/app/ui/home/PrevPost'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
-import { useSearchParams } from 'next/navigation'
-import { useMemo } from 'react'
+import { Fragment } from 'react'
 
 interface Props {
   posts: PostListItem[]
   locale?: string
+  emptyLabel: string
 }
 
-type PostOrAd = PostListItem | { type: 'Ad' }
-
-export default function PostList({ posts }: Props) {
-  const { dictionary } = useDictionary()
-  const param = 'query'
-  const searchParams = useSearchParams()
-
-  const query = (searchParams.get(param) ?? '').trim().toLowerCase()
-
-  const indexedPosts = useMemo(
-    () =>
-      posts.map((post) => ({
-        post,
-        searchText: postSearchText(post),
-      })),
-    [posts],
-  )
-
-  const allPosts = useMemo(() => {
-    if (!query) return posts
-    return indexedPosts
-      .filter(({ searchText }) => searchText.includes(query))
-      .map(({ post }) => post)
-  }, [indexedPosts, posts, query])
-
-  const postsWithAds = useMemo((): PostOrAd[] => {
-    if (query) return allPosts
-    const result: PostOrAd[] = []
-    for (let i = 0; i < allPosts.length; i++) {
-      if (i > 0 && i % ad_per_content === 0) {
-        result.push({ type: 'Ad' })
-      }
-      result.push(allPosts[i])
-    }
-    return result
-  }, [allPosts, query])
-
+export default function PostList({ posts, locale = 'ko', emptyLabel }: Props) {
   return (
     <div
-      className={`flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between`}
+      id="post-list"
+      className="flex flex-wrap justify-center gap-8 lg:max-w-full lg:justify-between"
     >
-      {0 < postsWithAds.length ? (
-        postsWithAds.map((item, index) =>
-          'type' in item && item.type === 'Ad' ? (
-            <AdsRecentPost key={`ad-${index}`} />
-          ) : (
-            <PrevPost
-              key={(item as PostListItem).slug}
-              post={item as PostListItem}
-            />
-          ),
-        )
-      ) : (
-        <div className="flex h-[205px] w-full flex-col items-center justify-center gap-2">
-          <ExclamationCircleIcon className="h-10 w-10" />
-          <p className="text-sm font-semibold lg:text-base">
-            {dictionary.search.noResults}
-          </p>
-        </div>
-      )}
+      {posts.map((post, index) => (
+        <Fragment key={post.slug}>
+          {index > 0 && index % ad_per_content === 0 ? (
+            <AdsRecentPost key={`ad-${post.slug}`} />
+          ) : null}
+          <PrevPost post={post} locale={locale} />
+        </Fragment>
+      ))}
+      <div
+        data-empty
+        hidden
+        className="flex h-[205px] w-full flex-col items-center justify-center gap-2"
+      >
+        <ExclamationCircleIcon className="h-10 w-10" />
+        <p className="text-sm font-semibold lg:text-base">{emptyLabel}</p>
+      </div>
     </div>
   )
 }
