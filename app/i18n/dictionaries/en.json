@@ -1,8 +1,8 @@
 {
   "meta": {
     "blogName": "Moment of Me",
-    "blogTitle": "Have a great day 🫶 - Moment of Me",
-    "blogDescription": "A personal blog documenting what I see and feel while living in the moment.",
+    "blogTitle": "Notes on AI agents and building products",
+    "blogDescription": "Notes on working with AI agents, building ITTAE, and what I learn along the way.",
     "rssTitle": "Moment of Me RSS"
   },
   "nav": {
@@ -25,6 +25,7 @@
     "externalLink": "External link"
   },
   "home": {
+    "heading": "Notes on AI agents and building products",
     "recentPosts": "Recent Posts",
     "allPosts": "All Posts"
   },

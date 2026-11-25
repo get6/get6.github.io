@@ -26,13 +26,14 @@ export default async function Home() {
   return (
     <PageScreen>
       <WebsiteStructuredData
-        name={dictionary.meta.blogTitle}
+        name={dictionary.meta.blogName}
         description={dictionary.meta.blogDescription}
         url={BASE_URL}
       />
       <div className="flex w-full flex-col items-center gap-8">
+        <PageTitle>{dictionary.home.heading}</PageTitle>
         <div className="flex w-full flex-col gap-4">
-          <PageTitle>{dictionary.home.recentPosts}</PageTitle>
+          <PageTitle level={2}>{dictionary.home.recentPosts}</PageTitle>
           <div className="flex flex-wrap justify-center gap-4 lg:max-w-full lg:flex-nowrap lg:justify-between">
             {recentPosts.map((post) => (
               <RecentPost key={post.slug} post={post} locale="ko" />
@@ -41,7 +42,7 @@ export default async function Home() {
         </div>
         <div className="flex w-full flex-col gap-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <PageTitle>{dictionary.home.allPosts}</PageTitle>
+            <PageTitle level={2}>{dictionary.home.allPosts}</PageTitle>
             <Suspense fallback={<SearchBarFallback />}>
               <SearchBar />
             </Suspense>

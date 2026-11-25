@@ -4,9 +4,9 @@ export type Tag = {
 }
 
 export const blog_name = '이때의 나'
-export const blog_title = `오늘도 좋은 하루 보내세요 🫶 - ${blog_name}`
+export const blog_title = `AI 에이전트와 제품 개발 기록 - ${blog_name}`
 export const blog_description =
-  '이때를 살아가며 많은 것을 보고 느끼는 것들을 정리한 나의 블로그'
+  'AI 에이전트로 일하는 법, 제품 이때를 만드는 과정, 그리고 그때의 생각을 적어 두는 블로그예요.'
 
 export enum BookStatus {
   ToRead = 'to_read', // 읽고 싶어

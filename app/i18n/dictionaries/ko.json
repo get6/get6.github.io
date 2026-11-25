@@ -1,8 +1,8 @@
 {
   "meta": {
     "blogName": "이때의 나",
-    "blogTitle": "오늘도 좋은 하루 보내세요 🫶 - 이때의 나",
-    "blogDescription": "이때를 살아가며 많은 것을 보고 느끼는 것들을 정리한 나의 블로그",
+    "blogTitle": "AI 에이전트와 제품 개발 기록",
+    "blogDescription": "AI 에이전트로 일하는 법, 제품 이때를 만드는 과정, 그리고 그때의 생각을 적어 두는 블로그예요.",
     "rssTitle": "이때의 나 RSS"
   },
   "nav": {
@@ -25,6 +25,7 @@
     "externalLink": "외부 링크"
   },
   "home": {
+    "heading": "AI 에이전트와 제품 개발 기록",
     "recentPosts": "최근 글",
     "allPosts": "모든 글"
   },
