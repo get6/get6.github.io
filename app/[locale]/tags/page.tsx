@@ -6,7 +6,7 @@ import PageTitle from '@/app/ui/home/PageTitle'
 import PageScreen from '@/app/ui/layout/PageScreen'
 import PostTable from '@/app/ui/tags/PostTable'
 import TagList from '@/app/ui/tags/TagList'
-import { getPostsByLocale } from '@/app/lib/content'
+import { getPostListByLocale } from '@/app/lib/content'
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 
@@ -55,9 +55,9 @@ export default async function LocaleTags({
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  let localePosts = getPostsByLocale(locale)
+  let localePosts = getPostListByLocale(locale)
   if (localePosts.length === 0) {
-    localePosts = getPostsByLocale('ko')
+    localePosts = getPostListByLocale('ko')
   }
 
   const tagCounts = localePosts.reduce(

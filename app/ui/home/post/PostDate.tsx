@@ -1,7 +1,6 @@
 import type { AllLocale } from '@/app/i18n/config'
 import { readingTime } from '@/app/lib/utils'
 import FormattedDate from '@/app/ui/FormattedDate'
-import { Post } from 'contentlayer/generated'
 
 const FORMAT_BY_LOCALE: Record<AllLocale, string> = {
   ko: 'M월 d일',
@@ -16,15 +15,29 @@ const READING_TIME_UNIT: Record<AllLocale, string> = {
   en: ' min',
 }
 
+interface DatedPost {
+  date: string
+  locale?: string
+  body?: { raw: string }
+}
+
 interface Props {
-  post: Post
+  post: DatedPost
   isDetail?: boolean
   // 페이지 locale이 post.locale과 다른 경우(fallback 등) 호출자가 override.
   locale?: AllLocale
+  // 목록 카드는 본문 대신 서버에서 계산한 값을 넘긴다.
+  readingMinutes?: number
 }
 
-export default function PostDate({ post, isDetail = false, locale }: Props) {
-  const effectiveLocale = locale ?? (post.locale as AllLocale)
+export default function PostDate({
+  post,
+  isDetail = false,
+  locale,
+  readingMinutes,
+}: Props) {
+  const effectiveLocale = locale ?? (post.locale as AllLocale) ?? 'ko'
+  const minutes = readingMinutes ?? readingTime(post.body?.raw ?? '')
   return (
     <span
       className={`text-xs dark:text-white ${
@@ -36,7 +49,7 @@ export default function PostDate({ post, isDetail = false, locale }: Props) {
         formatStr={FORMAT_BY_LOCALE[effectiveLocale]}
         locale={effectiveLocale}
       />
-      &nbsp;・&nbsp;{readingTime(post.body.raw)}
+      &nbsp;・&nbsp;{minutes}
       {READING_TIME_UNIT[effectiveLocale]}
     </span>
   )

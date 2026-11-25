@@ -6,6 +6,22 @@ import {
 } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { defaultLocale, locales, localePath } from '@/app/i18n/config'
+import { readingTime } from '@/app/lib/utils'
+import { toPostListItem, type PostListItem } from '@/app/lib/post-list-item'
+
+export type { PostListItem } from '@/app/lib/post-list-item'
+export {
+  toPostListItem,
+  postSearchText,
+  CARD_SUMMARY_LENGTH,
+} from '@/app/lib/post-list-item'
+
+/** List-card fields for one locale, newest first. */
+export function getPostListByLocale(locale: string): PostListItem[] {
+  return getPostsByLocale(locale).map((post) =>
+    toPostListItem(post, readingTime(post.body.raw)),
+  )
+}
 
 /** Get posts filtered by locale, sorted by date descending */
 export function getPostsByLocale(locale: string): Post[] {

@@ -7,7 +7,7 @@ import TagsFallBack from '@/app/ui/TagsFallback'
 import Title from '@/app/ui/Title'
 import Tooltip from '@/app/ui/Tooltip'
 import PostDate from '@/app/ui/home/post/PostDate'
-import { Post } from 'contentlayer/generated'
+import type { PostListItem } from '@/app/lib/content'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Suspense } from 'react'
@@ -16,12 +16,12 @@ export default function RecentPost({
   post,
   locale: localeProp,
 }: {
-  post: Post
+  post: PostListItem
   locale?: string
 }) {
   const { locale: contextLocale } = useDictionary()
   const locale = localeProp ?? contextLocale
-  const { url, date, title, body, tags, cover_image, summary } = post
+  const { url, date, title, tags, cover_image, summary, readingMinutes } = post
   const normalizedSummary = summary.replace(/\s+/g, ' ').trim()
   const { push } = useRouter()
   const localeUrl = url
@@ -50,7 +50,7 @@ export default function RecentPost({
           <div className="flex">
             <span className="group relative flex items-center">
               <Tooltip date={date} />
-              <PostDate post={post} />
+              <PostDate post={post} readingMinutes={readingMinutes} />
             </span>
           </div>
           <Title>{title}</Title>

@@ -8,14 +8,17 @@ import {
 } from '@/app/i18n/client-dictionary'
 import FormattedDate from '@/app/ui/FormattedDate'
 import Table, { TableBody, TableHead } from '@/app/ui/Table'
-import { Post } from 'contentlayer/generated'
+import type { PostListItem } from '@/app/lib/content'
 import Link from 'next/link'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 
-type PostOrAd = Post | Ad
+type PostOrAd = PostListItem | Ad
 
-const insertAdsIntoPosts = (posts: Post[], interval: number): PostOrAd[] => {
+const insertAdsIntoPosts = (
+  posts: PostListItem[],
+  interval: number,
+): PostOrAd[] => {
   const result: PostOrAd[] = []
   for (let i = 0; i < posts.length; i++) {
     if (i > 0 && i % interval === 0) {
@@ -26,7 +29,11 @@ const insertAdsIntoPosts = (posts: Post[], interval: number): PostOrAd[] => {
   return result
 }
 
-export default function PostTable({ posts: initialPosts }: { posts: Post[] }) {
+export default function PostTable({
+  posts: initialPosts,
+}: {
+  posts: PostListItem[]
+}) {
   const { push } = useRouter()
   const pathname = usePathname()
   const locale = getLocaleFromPathname(pathname)
@@ -81,7 +88,7 @@ export default function PostTable({ posts: initialPosts }: { posts: Post[] }) {
               </tr>
             )
           }
-          const post = item as Post
+          const post = item as PostListItem
           const postUrl = post.url
           return (
             <tr
