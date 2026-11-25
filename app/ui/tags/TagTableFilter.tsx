@@ -1,6 +1,7 @@
 'use client'
 
 import { TAG_SEPARATOR } from '@/app/lib/tag-path'
+import { applyActiveTagLinks } from '@/app/ui/tags/active-tag-links'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -29,13 +30,7 @@ export default function TagTableFilter() {
     const empty = document.querySelector<HTMLElement>('[data-empty]')
     if (empty) empty.hidden = visible !== 0
 
-    document.querySelectorAll<HTMLElement>('[data-tag-link]').forEach((el) => {
-      if (tag && el.dataset.tagLink === tag) {
-        el.dataset.active = 'true'
-      } else {
-        delete el.dataset.active
-      }
-    })
+    applyActiveTagLinks(tag)
   }, [tag])
 
   return null

@@ -38,6 +38,7 @@ export default function PrevPost({
       <div className="flex min-h-0 min-w-0 flex-1 flex-col px-4 py-3 lg:px-6 lg:py-4">
         <Link
           href={url}
+          prefetch={false}
           className="min-h-0 min-w-0 flex-1 overflow-hidden after:absolute after:inset-0 lg:max-w-[306px]"
         >
           <PostDate post={post} readingMinutes={readingMinutes} />

@@ -57,23 +57,45 @@ export default function PostTable({ posts, labels }: Props) {
             <tr
               data-post-row
               data-tags={post.tags.join(TAG_SEPARATOR)}
-              className="relative border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+              className="border-b bg-white hover:cursor-pointer hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
             >
+              {/*
+                셀마다 링크를 둔다. tr에 position:relative를 주면 명세상 포함 블록이
+                정해지지 않고, Safari는 absolute 오버레이를 행 밖으로 보내
+                어느 행을 눌러도 마지막 링크가 열린다.
+              */}
               <th
                 scope="row"
-                className="px-6 py-4 font-medium whitespace-nowrap text-gray-900 dark:text-white"
+                className="p-0 font-medium whitespace-nowrap text-gray-900 dark:text-white"
               >
                 <Link
                   href={post.url}
-                  className="hover:text-blue-600 after:absolute after:inset-0 dark:hover:text-blue-400"
+                  prefetch={false}
+                  className="block px-6 py-4 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {post.title}
                 </Link>
               </th>
-              <td className="truncate px-6 py-4">
-                <FormattedDate date={post.date} />
+              <td className="p-0">
+                <Link
+                  href={post.url}
+                  prefetch={false}
+                  tabIndex={-1}
+                  className="block truncate px-6 py-4"
+                >
+                  <FormattedDate date={post.date} />
+                </Link>
               </td>
-              <td className="truncate px-6 py-4">{post.tags.join(', ')}</td>
+              <td className="p-0">
+                <Link
+                  href={post.url}
+                  prefetch={false}
+                  tabIndex={-1}
+                  className="block truncate px-6 py-4"
+                >
+                  {post.tags.join(', ')}
+                </Link>
+              </td>
             </tr>
           </Fragment>
         ))}

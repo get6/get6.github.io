@@ -4,7 +4,8 @@ import { Tag } from '@/app/lib/definitions'
 import { tagFilterHref } from '@/app/lib/tag-path'
 import { getClientDictionary } from '@/app/i18n/client-dictionary'
 import TagLink from '@/app/ui/TagLink'
-import { useMemo, useState } from 'react'
+import { applyActiveTagLinks } from '@/app/ui/tags/active-tag-links'
+import { useEffect, useMemo, useState } from 'react'
 
 interface Props {
   tags: Tag[]
@@ -14,6 +15,13 @@ interface Props {
 export default function TagList({ tags, locale = 'ko' }: Props) {
   const [showMore, setShowMore] = useState(false)
   const dictionary = getClientDictionary(locale)
+
+  // '+N 더보기'로 나중에 붙는 칩은 필터 effect가 이미 지난 뒤라 선택 상태가 없다.
+  useEffect(() => {
+    if (!showMore) return
+    const tag = new URLSearchParams(window.location.search).get('tag')
+    applyActiveTagLinks(tag)
+  }, [showMore])
 
   const { mainTags, moreTags } = useMemo(() => {
     const main = tags.filter((tag) => tag.count > 1)

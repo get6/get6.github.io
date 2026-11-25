@@ -31,10 +31,11 @@ export default function RecentPost({
       <div className="flex h-[174px] flex-col justify-center gap-4 px-6 lg:h-[202px]">
         <Link
           href={url}
+          prefetch={false}
           className="flex flex-col gap-2 after:absolute after:inset-0 lg:max-w-[306px]"
         >
           <div className="flex">
-            <span className="group relative flex items-center">
+            <span className="group relative z-10 flex items-center">
               <Tooltip date={date} />
               <PostDate post={post} readingMinutes={readingMinutes} />
             </span>
