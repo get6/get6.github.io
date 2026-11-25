@@ -1,7 +1,7 @@
 {
   "meta": {
     "blogName": "이때의 나",
-    "blogTitle": "AI 에이전트와 제품 개발 기록",
+    "blogTitle": "이때의 나 – 만들고 배우고 남기는 기록",
     "blogDescription": "AI 에이전트로 일하는 법, 제품 이때를 만드는 과정, 그리고 그때의 생각을 적어 두는 블로그예요.",
     "rssTitle": "이때의 나 RSS"
   },
@@ -25,7 +25,7 @@
     "externalLink": "외부 링크"
   },
   "home": {
-    "heading": "AI 에이전트와 제품 개발 기록",
+    "heading": "이때의 나 – 만들고 배우고 남기는 기록",
     "recentPosts": "최근 글",
     "allPosts": "모든 글"
   },
