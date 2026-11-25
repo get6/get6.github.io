@@ -31,6 +31,9 @@ const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     // optimizeCss: true, // Disabled due to critters module issues
+    // Two root layouts (Korean routes and /en, /ja) have no single parent
+    // layout to render an unmatched URL, so the 404 document is global.
+    globalNotFound: true,
   },
   // Performance optimizations
   poweredByHeader: false,
