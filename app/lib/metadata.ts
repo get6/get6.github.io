@@ -6,6 +6,7 @@ import {
   blog_title,
 } from '@/app/lib/definitions'
 import { defaultLocale, locales, ogLocaleMap } from '@/app/i18n/config'
+import { hreflangLanguages } from '@/app/lib/site-url'
 
 interface GenerateMetadataProps {
   title?: string
@@ -21,22 +22,9 @@ interface GenerateMetadataProps {
   blogName?: string
 }
 
-/** Build hreflang alternates for a given path (without locale prefix) */
+/** Build hreflang alternates for a given path (without locale prefix). */
 function buildAlternates(pathWithoutLocale: string) {
-  const languages: Record<string, string> = {}
-
-  // Default locale (ko) has no prefix
-  languages[defaultLocale] = `${BASE_URL}${pathWithoutLocale}`
-
-  // Other locales have prefix
-  for (const loc of locales) {
-    languages[loc] = `${BASE_URL}/${loc}${pathWithoutLocale}`
-  }
-
-  // x-default points to the default locale
-  languages['x-default'] = `${BASE_URL}${pathWithoutLocale}`
-
-  return languages
+  return hreflangLanguages(pathWithoutLocale || '/')
 }
 
 /** Extract path without locale prefix from a URL path */

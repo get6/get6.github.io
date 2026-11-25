@@ -1,23 +1,12 @@
-import { BASE_URL } from '@/app/lib/definitions'
-import { locales, defaultLocale } from '@/app/i18n/config'
 import { allBooks, allPosts } from 'contentlayer/generated'
 import { MetadataRoute } from 'next'
+import { sitemapLanguages, sitemapLocaleUrl } from '@/app/lib/site-url'
 
 export const dynamic = 'force-static'
 
-/** Build alternates object for hreflang in sitemap */
+/** hreflang alternates whose hrefs are the URLs that return 200. */
 function buildAlternates(path: string) {
-  const languages: Record<string, string> = {}
-
-  // Default locale (ko) at root
-  languages[defaultLocale] = `${BASE_URL}${path}`
-
-  // Other locales with prefix
-  for (const loc of locales) {
-    languages[loc] = `${BASE_URL}/${loc}${path}`
-  }
-
-  return { languages }
+  return { languages: sitemapLanguages(path) }
 }
 
 // Filter to ko-only posts/books for sitemap (they're the canonical content)
@@ -48,21 +37,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Static pages with alternates
     {
-      url: `${BASE_URL}/`,
+      url: sitemapLocaleUrl('/', 'ko'),
       lastModified: latestPostDate,
       changeFrequency: 'weekly',
       priority: 1,
       alternates: buildAlternates('/'),
     },
     {
-      url: `${BASE_URL}/about`,
+      url: sitemapLocaleUrl('/about', 'ko'),
       lastModified: '2026-01-01',
       changeFrequency: 'monthly',
       priority: 0.8,
       alternates: buildAlternates('/about'),
     },
     {
-      url: `${BASE_URL}/library`,
+      url: sitemapLocaleUrl('/library', 'ko'),
       lastModified: latestBookDate
         ? latestBookDate.finish_read_date > latestBookDate.start_read_date
           ? latestBookDate.finish_read_date
@@ -73,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: buildAlternates('/library'),
     },
     {
-      url: `${BASE_URL}/books`,
+      url: sitemapLocaleUrl('/books', 'ko'),
       lastModified: latestBookDate
         ? latestBookDate.finish_read_date > latestBookDate.start_read_date
           ? latestBookDate.finish_read_date
@@ -84,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: buildAlternates('/books'),
     },
     {
-      url: `${BASE_URL}/tags`,
+      url: sitemapLocaleUrl('/tags', 'ko'),
       lastModified: latestPostDate,
       changeFrequency: 'weekly',
       priority: 0.5,
@@ -92,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Dynamic posts with alternates
     ...koPosts.map((post) => ({
-      url: `${BASE_URL}/posts/${post.slug}`,
+      url: sitemapLocaleUrl(`/posts/${post.slug}`, 'ko'),
       lastModified: post.date,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
@@ -100,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     // Dynamic books with alternates
     ...koBooks.map((book) => ({
-      url: `${BASE_URL}/books/${book.slug}`,
+      url: sitemapLocaleUrl(`/books/${book.slug}`, 'ko'),
       lastModified:
         book.start_read_date === book.finish_read_date
           ? book.start_read_date
