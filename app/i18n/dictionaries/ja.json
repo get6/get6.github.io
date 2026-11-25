@@ -1,8 +1,8 @@
 {
   "meta": {
     "blogName": "あの時の私",
-    "blogTitle": "今日も良い一日を 🫶 - あの時の私",
-    "blogDescription": "今を生きながら見て感じたことを整理する私のブログ",
+    "blogTitle": "AIエージェントとプロダクト開発の記録",
+    "blogDescription": "AIエージェントと働くこと、プロダクトITTAEを作る過程、そしてそのときの考えを残すブログです。",
     "rssTitle": "あの時の私 RSS"
   },
   "nav": {
@@ -25,6 +25,7 @@
     "externalLink": "外部リンク"
   },
   "home": {
+    "heading": "AIエージェントとプロダクト開発の記録",
     "recentPosts": "最新の投稿",
     "allPosts": "すべての投稿"
   },

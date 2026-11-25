@@ -67,7 +67,7 @@ export function generateMetadata({
     openGraph: {
       type,
       locale: ogLocale,
-      siteName: blog_name,
+      siteName,
       title: fullTitle,
       description,
       url: fullUrl,
