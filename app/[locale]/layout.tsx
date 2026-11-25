@@ -1,8 +1,12 @@
 import { locales, isLocale } from '@/app/i18n/config'
 import { getDictionary } from '@/app/i18n/get-dictionary'
-import { DictionaryProvider } from '@/app/i18n/use-dictionary'
-import SetHtmlLang from '@/app/i18n/SetHtmlLang'
+import { sharedMetadata } from '@/app/lib/site-metadata'
+import RootDocument from '@/app/ui/layout/RootDocument'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import '../globals.css'
+
+export const metadata: Metadata = sharedMetadata
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -24,9 +28,8 @@ export default async function LocaleLayout({
   const dictionary = await getDictionary(locale)
 
   return (
-    <DictionaryProvider dictionary={dictionary} locale={locale}>
-      <SetHtmlLang locale={locale} />
+    <RootDocument locale={locale} dictionary={dictionary}>
       {children}
-    </DictionaryProvider>
+    </RootDocument>
   )
 }
